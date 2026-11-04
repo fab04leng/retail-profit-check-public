@@ -59,3 +59,6 @@ Decisions made while working unattended. Each entry: what was unclear, what was 
 - **Outlet comparison page** (stretch goal 2) was added with the core UI because the profit analysis already groups by outlet.
 - **Excel export of findings** (stretch goal 5) uses `write-excel-file`, loaded only when clicked; text cells are written as strings (never formulas) and guarded against formula injection; CSV export uses the same guard.
 - **Demo shop name** stays in English in all languages (it is data, not UI text).
+
+## Phase 5/8 — Builds
+- **Two builds:** `npm run build` → `dist/` for any static host or `npm run preview` (Web Worker, CSP). `npm run build:offline` → `dist-offline/` that opens from `file://` by double-click (classic script, no worker, same CSP). Both are covered by e2e tests.

@@ -45,3 +45,17 @@
 ## Phase 7 — Objection rehearsal (synthetic, NOT market validation)
 - A subagent wrote `research/rehearsal.mjs` (deterministic, seeded, no dependencies, no AI): 200 synthetic Malaysian retail-owner personas (shop type, size, outlets, state, language, age, digital comfort, accounting setup, pain flags) scored against pitches A (profit by product), B (cash stuck in stock) and C (supplier invoice mistakes) with documented if-then rules; outputs `personas.json`, `rehearsal-summary.json`.
 - `research/REHEARSAL_REPORT.md`: prominent warning that synthetic responses are not evidence of demand or willingness to pay; method and assumptions; objections by frequency (overall and per pitch); pitch-by-segment tables; top 15 questions with honest answers; hypotheses and falsifiers for the 10 real interviews. A note was added that the Malay UI now exists, so Malay language-barrier objections in the simulation are overstated.
+
+## Verification loop (ECC `verification-loop`, before Phase 8)
+```
+VERIFICATION REPORT
+Build:     PASS  (main bundle 115 kB gzipped; offline single-script build also passes)
+Types:     PASS  (0 errors)
+Lint:      PASS  (0 problems)
+Tests:     PASS  225/225 unit+accuracy+perf; coverage of non-UI code 93.6% statements, 86.8% branches
+E2E:       PASS  17/17 (incl. file:// offline build)
+Security:  PASS  no secrets, no console.log, no fetch/XHR/WebSocket/beacon in src; production deps: 0 vulnerabilities;
+                 built bundle contains only XML-namespace/doc URLs (never requested; CSP connect-src 'none')
+Overall:   READY for PR
+```
+- Added `npm run build:offline` → `dist-offline/`: one classic script so the app opens by double-clicking `index.html` (module scripts and workers are blocked on `file://`); it runs the analysis on the page.

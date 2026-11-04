@@ -33,15 +33,35 @@ function cspPlugin(): Plugin {
   };
 }
 
-// base './' so the built site works from any folder or file:// path.
-export default defineConfig({
+/**
+ * `--mode offline` builds dist-offline/: one classic (non-module) script so the site
+ * opens by double-clicking index.html (browsers block module scripts on file://).
+ * Workers cannot start from file://, so that build analyses on the page instead.
+ */
+function classicScriptPlugin(): Plugin {
+  return {
+    name: 'rpc-classic-script',
+    apply: 'build',
+    enforce: 'post',
+    transformIndexHtml(html) {
+      return html.replace(/<script type="module" crossorigin/g, '<script defer').replace(/ crossorigin/g, '');
+    },
+  };
+}
+
+// base './' so the built site works from any folder.
+export default defineConfig(({ mode }) => ({
   base: './',
-  plugins: [react(), cspPlugin()],
+  plugins: [react(), cspPlugin(), ...(mode === 'offline' ? [classicScriptPlugin()] : [])],
   worker: { format: 'es' },
-  build: { target: 'es2022', sourcemap: false },
+  define: { 'import.meta.env.RPC_LOCAL': JSON.stringify(mode === 'offline') },
+  build:
+    mode === 'offline'
+      ? { target: 'es2022', sourcemap: false, outDir: 'dist-offline', modulePreload: false, rollupOptions: { output: { format: 'iife', inlineDynamicImports: true } } }
+      : { target: 'es2022', sourcemap: false },
   test: {
     include: ['tests/**/*.test.ts', 'tests/**/*.test.tsx'],
     environment: 'node',
     testTimeout: 60000,
   },
-});
+}));

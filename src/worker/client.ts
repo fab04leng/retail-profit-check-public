@@ -110,7 +110,7 @@ class AutoEngine implements Engine {
   constructor() {
     this.ready = (async () => {
       try {
-        if (typeof Worker === 'undefined') throw new Error('no worker');
+        if (typeof Worker === 'undefined' || import.meta.env.RPC_LOCAL || location.protocol === 'file:') throw new Error('no worker');
         const w = new Worker(new URL('./analysis.worker.ts', import.meta.url), { type: 'module' });
         const engine = new WorkerEngine(w);
         try {

@@ -16,7 +16,9 @@
     "test:perf": "vitest run tests/perf",
     "test:e2e": "playwright test",
     "demo:export": "tsx scripts/export-demo.ts",
-    "verify": "npm run lint && npm run typecheck && npm test && npm run build && npm run test:e2e"
+    "verify": "npm run lint && npm run typecheck && npm test && npm run build && npm run build:offline && npm run test:e2e",
+    "build:offline": "tsc -b && vite build --mode offline",
+    "test:coverage": "vitest run --coverage --coverage.include='src/**' --coverage.exclude='src/ui/**' --coverage.exclude='src/main.tsx' --coverage.exclude='src/worker/analysis.worker.ts' --coverage.exclude='src/worker/client.ts' --coverage.exclude='src/i18n/zh.ts' --coverage.exclude='src/i18n/ms.ts'"
   },
   "dependencies": {
     "papaparse": "^5.7.0",
@@ -34,6 +36,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.2.1",
+    "@vitest/coverage-v8": "^5.1.0",
     "eslint": "^10.14.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.14.0",
