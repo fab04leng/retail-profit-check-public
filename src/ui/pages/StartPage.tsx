@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { detectPreset, PRESETS } from '../../core/adapters';
 import { templateCsv } from '../../core/templates';
 import { FILE_KINDS, type FileKind } from '../../core/types';
 import { useI18n } from '../../i18n';
@@ -57,6 +58,11 @@ function FileCard({ kind }: { kind: FileKind }) {
       {err ? (
         <p className="error-line" role="alert">
           <AlertIcon size={14} /> {t(`readErrors.${err}`) === `readErrors.${err}` ? t('readErrors.generic') : t(`readErrors.${err}`)}
+        </p>
+      ) : null}
+      {meta && !isDemo && detectPreset(kind, meta.headers) ? (
+        <p className="warn-line small" data-testid={`detected-${kind}`}>
+          <AlertIcon size={14} /> {t('start.adapterDetected', { name: detectPreset(kind, meta.headers)!.name })}
         </p>
       ) : null}
       {meta ? (
@@ -175,6 +181,18 @@ export function StartPage() {
         <summary>{t('start.howTo')}</summary>
         <p className="small">{t('start.howToBody')}</p>
       </details>
+      <div className="field layout-field">
+        <label htmlFor="layout-select">{t('start.adapterLabel')}</label>
+        <select id="layout-select" value={app.layout} onChange={(e) => app.setLayout(e.target.value)} data-testid="layout">
+          <option value="auto">{t('start.adapterAuto')}</option>
+          {PRESETS.map((p) => (
+            <option key={p.id} value={p.id}>
+              {p.name} ({t('start.unverified')})
+            </option>
+          ))}
+        </select>
+        <span className="muted small">{t('start.adapterNote')}</span>
+      </div>
       <div className="grid-2">
         {FILE_KINDS.map((k) => (
           <FileCard key={k} kind={k} />

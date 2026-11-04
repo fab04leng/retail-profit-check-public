@@ -120,6 +120,8 @@ const zh: Dict = {
     adapterLabel: '文件格式',
     adapterAuto: '自动识别',
     adapterNote: '格式预设只会预先选好栏位；请务必检查栏位对应。',
+    adapterDetected: '看起来是 {name} 导出的文件。这个格式尚未经过验证——请逐一核对下面的栏位。',
+    unverified: '未验证',
   },
   files: {
     sales: { title: '销售记录', desc: '每卖出一个项目一行：日期、收据号码、SKU、产品、数量、价格、折扣、总额、分店。' },

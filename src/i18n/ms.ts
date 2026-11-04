@@ -120,6 +120,8 @@ const ms: Dict = {
     adapterLabel: 'Susun atur fail',
     adapterAuto: 'Kesan secara automatik',
     adapterNote: 'Pratetap susun atur hanya memilih lajur terlebih dahulu; sentiasa semak pemetaan lajur.',
+    adapterDetected: 'Nampaknya fail eksport {name}. Format ini belum disahkan — sila semak setiap lajur di bawah.',
+    unverified: 'belum disahkan',
   },
   files: {
     sales: { title: 'Eksport jualan', desc: 'Satu baris bagi setiap item dijual: tarikh, no. resit, SKU, produk, kuantiti, harga, diskaun, jumlah, cawangan.' },
