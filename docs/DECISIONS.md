@@ -62,3 +62,17 @@ Decisions made while working unattended. Each entry: what was unclear, what was 
 
 ## Phase 5/8 — Builds
 - **Two builds:** `npm run build` → `dist/` for any static host or `npm run preview` (Web Worker, CSP). `npm run build:offline` → `dist-offline/` that opens from `file://` by double-click (classic script, no worker, same CSP). Both are covered by e2e tests.
+
+## Marketing kit (branch `marketing-kit`)
+
+Made unattended; each decision logged here instead of asking.
+
+- **Scope and guardrails in one brief.** `marketing/BRIEF.md` is the single source of facts, approved demo figures and banned claims for the AI marketing agent. `marketing/scripts/check-copy.mjs` (`npm run marketing:check`) fails on fraud/AI/guarantee/savings claims, on "replaces an accountant"/"tax advice" without a negation, and on demo figures shown without a demo-data label in the same paragraph, CSV row or page. It is a safety net; all copy was also read by hand.
+- **Landing page is plain static HTML/CSS/JS** in `marketing/landing/`, not part of the Vite app, so it can be hosted alone and changed without touching the app. No framework, no build step, system fonts, and a CSP that allows only same-folder resources (no trackers can load).
+- **Both languages and all three hero variants live in the HTML** and are shown or hidden with CSS from `data-lang`/`data-v` set by a 90-line script. There's no `innerHTML`, and it works without JavaScript (pitch A, English). Unknown `v`/`lang` values fall back to defaults; `src` is whitelisted to `[a-z0-9_-]{1,20}`.
+- **Attribution without trackers:** the WhatsApp prefilled message carries a ref code `<pitch>-<source>` (e.g. `B-fbad`) taken from the URL. The person replying logs it in the tracking sheet. This is enough for a RM500 test and keeps the "no trackers" promise.
+- **Placeholders:** WhatsApp number `60000000000` (not a valid Malaysian mobile, so it can't reach a real person by accident), Google Form `https://forms.gle/REPLACE_WITH_YOUR_FORM_ID`, accountant `[ACCOUNTANT NAME]` with a text avatar. The accountant's real name or photo goes in only with their consent.
+- **No testimonials or social proof**, because we have none. The page says plainly that we can't promise findings or savings, and that a real shop may show more, fewer or none of the demo findings.
+- **"Starting with a small number of shops"** is used instead of a hard number of pilot slots, because the sales kit's "2 pilots" target may grow with ads and fake scarcity is banned.
+- **Screenshots are fresh captures** of the app on demo data (`marketing/scripts/capture-assets.mjs`), cropped per pitch and captured in both EN and 中文 so the page language matches the screenshots. Hero crops use a narrow 560 px viewport so the text stays legible when scaled down on phones. WebP, about 0.8 MB in total.
+- **Region:** copy says "Penang" because the accountant is there and the ad test targets Penang. The FAQ doesn't promise service elsewhere.

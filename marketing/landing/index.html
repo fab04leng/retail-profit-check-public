@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-v="a">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- No trackers, no analytics, no external fonts or scripts: everything loads from this folder. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Retail Profit Check — accountant-checked health check for retail shops</title>
+  <meta name="description" content="An accountant-checked check of your shop's profit, stock, supplier invoices and cash flow, using your own sales and stock exports. RM300 one-off pilot. Penang, Malaysia." />
+  <meta property="og:title" content="Retail Profit Check — accountant-checked" />
+  <meta property="og:description" content="See profit by product, cash stuck in stock and possible supplier invoice mistakes — every finding reviewed by an ACCA-qualified accountant." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main"><span class="en">Skip to content</span><span class="zh" lang="zh-Hans">跳到内容</span></a>
+
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="brand" href="#main">
+        <img src="assets/favicon.svg" alt="" width="28" height="28" />
+        <span>Retail Profit Check</span>
+      </a>
+      <div class="lang-toggle" role="group" aria-label="Language / 语言">
+        <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-set-lang="zh" aria-pressed="false" lang="zh-Hans">中文</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO: three variants, one per pitch (?v=a / ?v=b / ?v=c) ============ -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="en">For retail shop owners in Malaysia · Accountant-checked</span>
+            <span class="zh" lang="zh-Hans">写给马来西亚零售店老板 · 会计师复核</span>
+          </p>
+
+          <div class="variant" data-variant="a">
+            <h1>
+              <span class="en">See your real profit, product by product.</span>
+              <span class="zh" lang="zh-Hans">每样货到底赚多少，一次看清楚。</span>
+            </h1>
+            <p class="lead">
+              <span class="en">Find products that sell below cost or under your target margin. We run checks on your own sales, stock and supplier exports, and an ACCA-qualified accountant in Penang reviews every finding before you see it.</span>
+              <span class="zh" lang="zh-Hans">找出哪些货低于成本在卖、哪些毛利太薄。我们用你店里自己导出的销售、库存和供应商资料跑检查，每一项发现都先由槟城的 ACCA 会计师逐项复核，才交给你。</span>
+            </p>
+          </div>
+
+          <div class="variant" data-variant="b">
+            <h1>
+              <span class="en">How much of your cash is sitting on the shelf?</span>
+              <span class="zh" lang="zh-Hans">你有多少现金，正压在货架上？</span>
+            </h1>
+            <p class="lead">
+              <span class="en">See which stock hasn't sold in 60, 90 or 180+ days and what it's worth at cost, so you can decide what to clear, return or stop reordering. An ACCA-qualified accountant in Penang reviews every finding.</span>
+              <span class="zh" lang="zh-Hans">看清哪些货超过 60、90、180 天没卖出，按成本算压了多少钱，再决定要清货、退货还是不再补货。每一项发现都由槟城的 ACCA 会计师复核。</span>
+            </p>
+          </div>
+
+          <div class="variant" data-variant="c">
+            <h1>
+              <span class="en">Catch costly supplier invoice mistakes.</span>
+              <span class="zh" lang="zh-Hans">供应商发票出错，你抓得到吗？</span>
+            </h1>
+            <p class="lead">
+              <span class="en">Spot possible duplicate invoices, invoices that may have been paid twice, and supplier price rises above 5%. Each one comes with the exact invoice rows, and an ACCA-qualified accountant in Penang reviews it.</span>
+              <span class="zh" lang="zh-Hans">找出可能重复的发票、可能付了两次的款项，以及涨价超过 5% 的供应商。每一项都附上原始发票行，并由槟城的 ACCA 会计师复核。</span>
+            </p>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-wa" data-wa href="https://wa.me/60000000000" rel="noopener noreferrer" target="_blank">
+              <span class="en">WhatsApp us for a 5-minute demo</span>
+              <span class="zh" lang="zh-Hans">WhatsApp 我们，看 5 分钟演示</span>
+            </a>
+            <a class="btn btn-ghost" data-form href="https://forms.gle/REPLACE_WITH_YOUR_FORM_ID" rel="noopener noreferrer" target="_blank">
+              <span class="en">Or leave your details</span>
+              <span class="zh" lang="zh-Hans">或留下联系方式</span>
+            </a>
+          </div>
+          <ul class="ticks">
+            <li><span class="en">RM300 one-off pilot</span><span class="zh" lang="zh-Hans">一次性 RM300 试点</span></li>
+            <li><span class="en">Your files are never shared or sold</span><span class="zh" lang="zh-Hans">资料绝不分享、绝不出售</span></li>
+            <li><span class="en">Not tax advice; doesn't replace your accountant</span><span class="zh" lang="zh-Hans">不是税务意见，也不取代你的会计师</span></li>
+          </ul>
+        </div>
+
+        <figure class="hero-shot">
+          <img class="variant" data-variant="a" data-img="profit" src="assets/en-profit.webp" width="1104" height="1072" alt="Screenshot: products sold below cost, with the average selling price and unit cost for each (demo data)." />
+          <img class="variant" data-variant="b" data-img="stock" src="assets/en-stock.webp" width="1104" height="1316" alt="Screenshot: stock value grouped by days since last sale, and a dead-stock finding (demo data)." />
+          <img class="variant" data-variant="c" data-img="suppliers" src="assets/en-suppliers.webp" width="1104" height="1378" alt="Screenshot: possible duplicate supplier invoices with the amount involved (demo data)." />
+          <figcaption>
+            <span class="tag-demo"><span class="en">Demo data</span><span class="zh" lang="zh-Hans">示范资料</span></span>
+            <span class="en">Fictional shop, made-up numbers. Not a customer's results.</span>
+            <span class="zh" lang="zh-Hans">虚构店铺，数字是编的，不是任何客户的结果。</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="band" aria-labelledby="problem-title">
+      <div class="wrap narrow">
+        <h2 id="problem-title">
+          <span class="en">The answers are in your exports. Nobody has time to dig.</span>
+          <span class="zh" lang="zh-Hans">答案就在你的报表里，只是没人有空去挖。</span>
+        </h2>
+        <p>
+          <span class="en">Most retail owners want the same thing: lose less, keep more. But the clues are spread across POS exports, stock lists and supplier invoices:</span>
+          <span class="zh" lang="zh-Hans">开店的老板想要的都一样：少亏一点，多赚一点。可是线索散落在 POS 报表、库存表和供应商发票里：</span>
+        </p>
+        <ul class="problems">
+          <li>
+            <strong><span class="en">Thin or negative margins</span><span class="zh" lang="zh-Hans">毛利太薄，甚至亏本卖</span></strong>
+            <span class="en">A supplier raises the cost, the shelf price stays the same, and nobody notices until year-end.</span>
+            <span class="zh" lang="zh-Hans">供应商涨了价，货架价钱没改，到年底才发现。</span>
+          </li>
+          <li>
+            <strong><span class="en">Cash stuck on the shelf</span><span class="zh" lang="zh-Hans">现金压在货架上</span></strong>
+            <span class="en">Slow and festive leftover stock quietly ties up cash you could use elsewhere.</span>
+            <span class="zh" lang="zh-Hans">卖不动的货、过了节剩下的货，静静地压着本来可以周转的钱。</span>
+          </li>
+          <li>
+            <strong><span class="en">Supplier invoice slips</span><span class="zh" lang="zh-Hans">供应商发票出错</span></strong>
+            <span class="en">An invoice keyed in twice or paid twice is easy to miss, and is often found only at audit, if at all.</span>
+            <span class="zh" lang="zh-Hans">同一张发票输入两次、付了两次，很容易漏掉，往往要到审计才发现，甚至一直没人发现。</span>
+          </li>
+          <li>
+            <strong><span class="en">Tight cash weeks</span><span class="zh" lang="zh-Hans">现金紧的那几个星期</span></strong>
+            <span class="en">Big supplier payments and rent can land in the same week. It's hard to see that coming.</span>
+            <span class="zh" lang="zh-Hans">大笔货款和租金可能刚好撞在同一个星期，事先很难看出来。</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ WHAT YOU GET ============ -->
+    <section aria-labelledby="get-title">
+      <div class="wrap">
+        <h2 id="get-title">
+          <span class="en">What you get</span>
+          <span class="zh" lang="zh-Hans">你会得到什么</span>
+        </h2>
+        <div class="cards">
+          <article class="card">
+            <h3><span class="en">Profit by product</span><span class="zh" lang="zh-Hans">每样货的利润</span></h3>
+            <p><span class="en">Profit and margin by product and category. Products sold below cost, and products under your target margin (default 25%).</span><span class="zh" lang="zh-Hans">按产品和类别看利润、毛利率；哪些货低于成本卖出、哪些低于你的目标毛利（默认 25%）。</span></p>
+          </article>
+          <article class="card">
+            <h3><span class="en">Cash in stock</span><span class="zh" lang="zh-Hans">压在库存里的钱</span></h3>
+            <p><span class="en">Stock value by days since last sale. Possible dead stock (no sale for 90+ days) and days of stock cover.</span><span class="zh" lang="zh-Hans">按"距离上次卖出多少天"看库存金额；可能的死货（超过 90 天没卖出）和库存可卖天数。</span></p>
+          </article>
+          <article class="card">
+            <h3><span class="en">Supplier invoice checks</span><span class="zh" lang="zh-Hans">供应商发票检查</span></h3>
+            <p><span class="en">Possible duplicate invoices, price rises above 5%, invoices that may have been paid twice or overpaid, and payments with no matching invoice.</span><span class="zh" lang="zh-Hans">可能重复的发票、涨价超过 5%、可能付了两次或多付的发票，以及找不到对应发票的付款。</span></p>
+          </article>
+          <article class="card">
+            <h3><span class="en">8-week cash outlook</span><span class="zh" lang="zh-Hans">未来 8 周现金流</span></h3>
+            <p><span class="en">An estimate that flags weeks where cash may run short. It's a simple trend, clearly labelled, not a promise.</span><span class="zh" lang="zh-Hans">估算哪几个星期现金可能不够用。这是简单的趋势估算，会清楚标明，不是保证。</span></p>
+          </article>
+          <article class="card">
+            <h3><span class="en">Every number shows its rows</span><span class="zh" lang="zh-Hans">每个数字都有来源</span></h3>
+            <p><span class="en">Click any finding to see the exact rows from your own files, with their row numbers, so you can check it yourself.</span><span class="zh" lang="zh-Hans">点开任何一项发现，就能看到你自己文件里的原始行和行号，可以自己核对。</span></p>
+          </article>
+          <article class="card">
+            <h3><span class="en">Report + meeting</span><span class="zh" lang="zh-Hans">报告＋讲解会议</span></h3>
+            <p><span class="en">A one-page summary in RM, every finding with its review status, and a 45–60 minute meeting to go through it.</span><span class="zh" lang="zh-Hans">一页令吉总结、每项发现的复核结果，再加 45–60 分钟当面讲解。</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SAMPLE FINDINGS (DEMO DATA) ============ -->
+    <section class="band" id="sample" aria-labelledby="sample-title">
+      <div class="wrap">
+        <h2 id="sample-title">
+          <span class="en">What it found in our demo shop</span>
+          <span class="zh" lang="zh-Hans">在示范店里找到了什么</span>
+        </h2>
+        <p class="demo-note" role="note">
+          <strong><span class="en">Demo data.</span><span class="zh" lang="zh-Hans">示范资料。</span></strong>
+          <span class="en">"Pinangria Mart" is a fictional two-outlet Penang minimart we invented to show how the check works, with problems planted on purpose. These are not a real customer's results.</span>
+          <span class="zh" lang="zh-Hans">"Pinangria Mart"是我们虚构的槟城两间分店迷你市场，问题是故意放进去的，用来示范检查怎么运作。这些不是任何真实客户的结果。</span>
+        </p>
+        <div class="stats">
+          <div class="stat">
+            <p class="stat-num">RM 9,392.62</p>
+            <p><span class="en">at cost, tied up in 31 products with no sale for more than 60 days</span><span class="zh" lang="zh-Hans">按成本计，积压在 31 种超过 60 天没卖出的产品里</span></p>
+          </div>
+          <div class="stat">
+            <p class="stat-num">RM 3,130.27</p>
+            <p><span class="en">below cost over 12 months, across 10 products priced under their unit cost</span><span class="zh" lang="zh-Hans">12 个月里，10 种售价低于单位成本的产品少卖的金额</span></p>
+          </div>
+          <div class="stat">
+            <p class="stat-num">RM 4,783.20</p>
+            <p><span class="en">in 6 possible duplicate supplier invoices</span><span class="zh" lang="zh-Hans">6 项可能重复的供应商发票</span></p>
+          </div>
+          <div class="stat">
+            <p class="stat-num">RM 8,410.86</p>
+            <p><span class="en">possibly overpaid on 2 supplier invoices</span><span class="zh" lang="zh-Hans">2 张供应商发票可能多付的金额</span></p>
+          </div>
+          <div class="stat">
+            <p class="stat-num neg">−RM 4,148.77</p>
+            <p><span class="en">lowest cash balance in the next 8 weeks (week of 16 Nov): an estimate</span><span class="zh" lang="zh-Hans">未来 8 周最低现金结余（11 月 16 日那一周）：只是估算</span></p>
+          </div>
+        </div>
+        <p class="small muted">
+          <span class="en">A real shop may show more, fewer or none of these. Some flags turn out to be fine once checked, which is why an accountant reviews each one.</span>
+          <span class="zh" lang="zh-Hans">真实店铺可能找到更多、更少，或者完全没有。有些标记核对后其实没问题，所以每一项都要由会计师复核。</span>
+        </p>
+        <div class="shots">
+          <figure>
+            <img data-img="health" src="assets/en-health.webp" width="1200" height="654" loading="lazy" alt="Screenshot: health check summary with five headline numbers in RM (demo data)." />
+            <figcaption><span class="en">The one-page health check (demo data)</span><span class="zh" lang="zh-Hans">一页健康检查（示范资料）</span></figcaption>
+          </figure>
+          <figure>
+            <img data-img="evidence" src="assets/en-evidence.webp" width="1200" height="946" loading="lazy" alt="Screenshot: the invoice rows behind a possible duplicate, with spreadsheet row numbers (demo data)." />
+            <figcaption><span class="en">The rows behind a possible duplicate invoice: the same lines keyed in twice (demo data)</span><span class="zh" lang="zh-Hans">一张可能重复发票背后的原始行：同样的内容输入了两次（示范资料）</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHO CHECKS ============ -->
+    <section aria-labelledby="who-title">
+      <div class="wrap narrow">
+        <h2 id="who-title">
+          <span class="en">Accountant-checked. Not a black box.</span>
+          <span class="zh" lang="zh-Hans">会计师复核，不是黑箱。</span>
+        </h2>
+        <div class="person">
+          <div class="avatar" aria-hidden="true">ACCA</div>
+          <div>
+            <!-- PLACEHOLDER: replace with the accountant's real name and photo before publishing (with their consent). -->
+            <p class="person-name">[ACCOUNTANT NAME], ACCA</p>
+            <p class="muted small"><span class="en">Qualified accountant, Penang</span><span class="zh" lang="zh-Hans">合格会计师，槟城</span></p>
+          </div>
+        </div>
+        <p>
+          <span class="en">The checks are plain-English rules, such as "no sale for more than 90 days" or "same supplier, same amount, within 7 days". You can read every rule and change the thresholds. Before you see anything, a qualified accountant marks each finding <em>Confirmed</em>, <em>Not an issue</em> or <em>Needs info</em>.</span>
+          <span class="zh" lang="zh-Hans">所有检查都是白话规则，例如"超过 90 天没有卖出"、"同一供应商、同样金额、7 天之内"。每条规则你都看得到，门槛也可以改。交给你之前，每一项发现都由合格会计师标记为<em>已确认</em>、<em>没有问题</em>或<em>需要更多资料</em>。</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PILOT ============ -->
+    <section class="band" id="pilot" aria-labelledby="pilot-title">
+      <div class="wrap">
+        <h2 id="pilot-title">
+          <span class="en">How the RM300 pilot works</span>
+          <span class="zh" lang="zh-Hans">RM300 试点怎么进行</span>
+        </h2>
+        <ol class="steps">
+          <li>
+            <h3><span class="en">Free 15-minute chat</span><span class="zh" lang="zh-Hans">免费聊 15 分钟</span></h3>
+            <p><span class="en">We learn how your shop runs and which files your POS and accounting system can export.</span><span class="zh" lang="zh-Hans">了解你店里怎么运作，POS 和账务系统能导出哪些资料。</span></p>
+          </li>
+          <li>
+            <h3><span class="en">You send 3–12 months of exports</span><span class="zh" lang="zh-Hans">你提供 3–12 个月的资料</span></h3>
+            <p><span class="en">Sales, product/stock list and supplier invoices; payments if you have them. Excel or CSV is fine.</span><span class="zh" lang="zh-Hans">销售、产品/库存清单、供应商发票，有付款记录更好。Excel 或 CSV 都可以。</span></p>
+          </li>
+          <li>
+            <h3><span class="en">We run the checks; the accountant reviews</span><span class="zh" lang="zh-Hans">我们跑检查，会计师逐项复核</span></h3>
+            <p><span class="en">Every finding is reviewed and marked before it reaches you.</span><span class="zh" lang="zh-Hans">每一项发现都先复核、标记，才交给你。</span></p>
+          </li>
+          <li>
+            <h3><span class="en">Results meeting + written report</span><span class="zh" lang="zh-Hans">结果会议＋书面报告</span></h3>
+            <p><span class="en">45–60 minutes to go through what was found and what to check next.</span><span class="zh" lang="zh-Hans">45–60 分钟，讲解找到了什么、接下来要核对什么。</span></p>
+          </li>
+        </ol>
+        <div class="price">
+          <p class="price-num">RM300 <span class="small"><span class="en">one-off</span><span class="zh" lang="zh-Hans">一次性</span></span></p>
+          <p>
+            <span class="en">About 2 weeks from when we receive your files. No obligation to continue. If it's useful, we'd like to try a monthly service afterwards; that price is still being tested and we'd agree it with you first.</span>
+            <span class="zh" lang="zh-Hans">收到资料后大约 2 个星期完成，没有义务继续。如果觉得有用，之后我们想试试按月服务；价格还在测试中，开始前会先跟你谈好。</span>
+          </p>
+          <p class="small muted">
+            <span class="en">We're starting with a small number of shops so each one gets a proper review. We can't promise any particular finding or saving.</span>
+            <span class="zh" lang="zh-Hans">我们先从少数几间店开始，确保每一间都能好好复核。我们不能保证一定会找到问题或省到多少钱。</span>
+          </p>
+          <a class="btn btn-wa" data-wa href="https://wa.me/60000000000" rel="noopener noreferrer" target="_blank">
+            <span class="en">Ask about the pilot on WhatsApp</span>
+            <span class="zh" lang="zh-Hans">WhatsApp 询问试点</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRIVACY ============ -->
+    <section aria-labelledby="privacy-title">
+      <div class="wrap narrow">
+        <h2 id="privacy-title">
+          <span class="en">Our privacy promise</span>
+          <span class="zh" lang="zh-Hans">我们的隐私承诺</span>
+        </h2>
+        <ul class="ticks ticks-block">
+          <li><span class="en"><strong>Demo:</strong> the app runs entirely in your web browser. Files are analysed on the computer in front of you; nothing is uploaded and no AI service is called.</span><span class="zh" lang="zh-Hans"><strong>演示时：</strong>工具完全在浏览器里运行，资料只在你面前这台电脑上分析，不上传，也不调用任何 AI 服务。</span></li>
+          <li><span class="en"><strong>Pilot:</strong> your files are kept only on an encrypted laptop, used only for your pilot, and seen only by our small team and the reviewing accountant.</span><span class="zh" lang="zh-Hans"><strong>试点时：</strong>资料只存放在加密的手提电脑里，只用于你的试点，只有我们的小团队和负责复核的会计师看得到。</span></li>
+          <li><span class="en">Never shared, never sold. Deleted after the pilot when you ask, with written confirmation.</span><span class="zh" lang="zh-Hans">绝不分享、绝不出售。试点结束后按你的要求删除，并书面确认。</span></li>
+          <li><span class="en">You can remove customer names and phone numbers before sending. We don't need them.</span><span class="zh" lang="zh-Hans">顾客姓名和电话可以先删掉再发给我们，我们用不到。</span></li>
+          <li><span class="en">We handle personal data in line with Malaysia's Personal Data Protection Act 2010 (PDPA).</span><span class="zh" lang="zh-Hans">我们依照马来西亚《2010 年个人资料保护法》（PDPA）处理个人资料。</span></li>
+          <li><span class="en">This page has no trackers, no cookies and no analytics.</span><span class="zh" lang="zh-Hans">这个网页没有追踪器、没有 cookies，也没有流量分析。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="band" id="faq" aria-labelledby="faq-title">
+      <div class="wrap narrow">
+        <h2 id="faq-title">
+          <span class="en">Questions owners ask</span>
+          <span class="zh" lang="zh-Hans">老板们常问的问题</span>
+        </h2>
+        <details>
+          <summary><span class="en">Is this AI?</span><span class="zh" lang="zh-Hans">这是 AI 吗？</span></summary>
+          <p><span class="en">No. The checks are fixed, readable rules that an accountant can read, question and change. Every finding shows the rows it came from, and a qualified accountant reviews each one.</span><span class="zh" lang="zh-Hans">不是。检查用的是固定、看得懂的规则，会计师可以看、可以质疑、也可以改。每项发现都附上来源行，并由合格会计师逐项复核。</span></p>
+        </details>
+        <details>
+          <summary><span class="en">Does it replace my accountant?</span><span class="zh" lang="zh-Hans">它会取代我的会计师吗？</span></summary>
+          <p><span class="en">No. It's an analysis aid, not audited accounts. You're welcome to share the report with your own accountant.</span><span class="zh" lang="zh-Hans">不会。这是分析辅助工具，不是审计账目。你也可以把报告交给自己的会计师看。</span></p>
+        </details>
+        <details>
+          <summary><span class="en">Do you give tax advice?</span><span class="zh" lang="zh-Hans">你们会给税务意见吗？</span></summary>
+          <p><span class="en">No. The pilot looks at profit, stock, supplier invoices and cash flow. For tax, please speak to your tax agent or accountant.</span><span class="zh" lang="zh-Hans">不会。试点只看利润、库存、供应商发票和现金流。税务问题请找你的税务代理或会计师。</span></p>
+        </details>
+        <details>
+          <summary><span class="en">Which files do I need?</span><span class="zh" lang="zh-Hans">需要哪些资料？</span></summary>
+          <p><span class="en">A sales export from your POS, a product/stock list with unit cost, and a list of supplier invoices. Payments are optional. Excel or CSV, 3–12 months. Column names in English, Bahasa Melayu or Chinese are fine.</span><span class="zh" lang="zh-Hans">POS 导出的销售资料、附单位成本的产品/库存清单、供应商发票清单。付款记录可有可无。Excel 或 CSV，3–12 个月。栏位名称用英文、马来文或中文都可以。</span></p>
+        </details>
+        <details>
+          <summary><span class="en">My exports are messy. Is that a problem?</span><span class="zh" lang="zh-Hans">我的报表很乱，可以吗？</span></summary>
+          <p><span class="en">That's normal. Columns can be matched by hand, and any row that can't be read is listed with its row number instead of being silently dropped. We'll go through your exports on the 15-minute call.</span><span class="zh" lang="zh-Hans">很正常。栏位可以手动对应，读不懂的行会列出行号，不会悄悄丢掉。我们会在 15 分钟通话时一起看你的报表。</span></p>
+        </details>
+        <details>
+          <summary><span class="en">What if you don't find anything?</span><span class="zh" lang="zh-Hans">如果什么都没找到呢？</span></summary>
+          <p><span class="en">That can happen, and we can't promise any saving. You still get the reviewed report and the results meeting. Knowing your numbers are clean is useful too.</span><span class="zh" lang="zh-Hans">有可能，我们也不能保证省到钱。你一样会拿到复核过的报告和讲解会议。知道自己的数字没问题，也是有用的。</span></p>
+        </details>
+        <details>
+          <summary><span class="en">Who sees my files?</span><span class="zh" lang="zh-Hans">谁会看到我的资料？</span></summary>
+          <p><span class="en">Only our small team and the reviewing accountant. Files stay on an encrypted laptop, are never shared or sold, and are deleted when you ask.</span><span class="zh" lang="zh-Hans">只有我们的小团队和负责复核的会计师。资料放在加密手提电脑里，绝不分享或出售，你要求就删除。</span></p>
+        </details>
+        <details>
+          <summary><span class="en">What happens after the pilot?</span><span class="zh" lang="zh-Hans">试点之后呢？</span></summary>
+          <p><span class="en">Nothing, unless you want more. If it was useful, we'd like to try a monthly service. Pricing is still being tested, and we'd agree it with you before anything starts.</span><span class="zh" lang="zh-Hans">你不想继续就结束。如果觉得有用，我们想试试按月服务；价格还在测试，开始前一定先跟你谈好。</span></p>
+        </details>
+        <details>
+          <summary><span class="en">Is the demo shop real?</span><span class="zh" lang="zh-Hans">示范店是真的吗？</span></summary>
+          <p><span class="en">No. "Pinangria Mart" and its suppliers are invented, and the numbers were generated to show how the checks work.</span><span class="zh" lang="zh-Hans">不是。"Pinangria Mart"和它的供应商都是虚构的，数字是为了示范检查而生成的。</span></p>
+        </details>
+        <details>
+          <summary><span class="en">Do I need to install anything?</span><span class="zh" lang="zh-Hans">需要安装什么吗？</span></summary>
+          <p><span class="en">No. You export your files and send them; we do the rest. The app itself works in English, 中文 and Bahasa Melayu.</span><span class="zh" lang="zh-Hans">不用。你只要导出资料发给我们，其他交给我们。工具本身有英文、中文和马来文。</span></p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final" aria-labelledby="final-title">
+      <div class="wrap narrow center">
+        <h2 id="final-title">
+          <span class="en">See it on a demo shop first. It takes 5 minutes.</span>
+          <span class="zh" lang="zh-Hans">先看看示范店，只要 5 分钟。</span>
+        </h2>
+        <p>
+          <span class="en">Message us on WhatsApp. We'll show you the check on the fictional demo shop, and you decide if a pilot makes sense for your shop.</span>
+          <span class="zh" lang="zh-Hans">WhatsApp 我们，先用虚构的示范店给你看看，再由你决定要不要做试点。</span>
+        </p>
+        <div class="cta-row center">
+          <a class="btn btn-wa" data-wa href="https://wa.me/60000000000" rel="noopener noreferrer" target="_blank">
+            <span class="en">WhatsApp us</span>
+            <span class="zh" lang="zh-Hans">WhatsApp 我们</span>
+          </a>
+          <a class="btn btn-ghost btn-on-dark" data-form href="https://forms.gle/REPLACE_WITH_YOUR_FORM_ID" rel="noopener noreferrer" target="_blank">
+            <span class="en">Leave your details</span>
+            <span class="zh" lang="zh-Hans">留下联系方式</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap small muted">
+      <p>
+        <span class="en">Retail Profit Check is an analysis aid. It is not audited accounts, not tax advice and not a replacement for your accountant. Findings are possible issues that need review by a qualified accountant. Figures on this page come from a fictional demo shop.</span>
+        <span class="zh" lang="zh-Hans">Retail Profit Check 是分析辅助工具，不是审计账目，不是税务意见，也不能取代你的会计师。所有发现都只是可能的问题，必须由合格会计师复核。本页数字来自虚构的示范店。</span>
+      </p>
+      <p><span class="en">Penang, Malaysia · No trackers on this page</span><span class="zh" lang="zh-Hans">马来西亚槟城 · 本页没有任何追踪</span></p>
+    </div>
+  </footer>
+
+  <!-- Sticky WhatsApp button on phones -->
+  <div class="sticky-cta">
+    <a class="btn btn-wa" data-wa href="https://wa.me/60000000000" rel="noopener noreferrer" target="_blank">
+      <span class="en">WhatsApp for a 5-min demo</span>
+      <span class="zh" lang="zh-Hans">WhatsApp 看 5 分钟演示</span>
+    </a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

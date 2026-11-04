@@ -18,7 +18,8 @@
     "demo:export": "tsx scripts/export-demo.ts",
     "verify": "npm run lint && npm run typecheck && npm test && npm run build && npm run build:offline && npm run test:e2e",
     "build:offline": "tsc -b && vite build --mode offline",
-    "test:coverage": "vitest run --coverage --coverage.include='src/**' --coverage.exclude='src/ui/**' --coverage.exclude='src/main.tsx' --coverage.exclude='src/worker/analysis.worker.ts' --coverage.exclude='src/worker/client.ts' --coverage.exclude='src/i18n/zh.ts' --coverage.exclude='src/i18n/ms.ts'"
+    "test:coverage": "vitest run --coverage --coverage.include='src/**' --coverage.exclude='src/ui/**' --coverage.exclude='src/main.tsx' --coverage.exclude='src/worker/analysis.worker.ts' --coverage.exclude='src/worker/client.ts' --coverage.exclude='src/i18n/zh.ts' --coverage.exclude='src/i18n/ms.ts'",
+    "marketing:check": "node marketing/scripts/check-copy.mjs"
   },
   "dependencies": {
     "papaparse": "^5.7.0",
