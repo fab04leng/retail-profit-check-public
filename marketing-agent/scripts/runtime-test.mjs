@@ -421,6 +421,50 @@ scenario('3h sender (live): a WhatsApp API error is recorded as "error"', '03b-l
   expect(u.status === 'error' && /24 hours/.test(u.error), `update ${json(u)}`);
 });
 
+
+// ===== Workflow 4 – weekly report =====
+function reportBase(wf, cfg) {
+  startFrom(wf, 'Every Monday 08:00');
+  toCode(wf, 'Read config', returnItems(config(cfg)));
+  toCode(wf, 'Read posts', returnItems([
+    { post_id: 'a', pitch: 'cash_in_stock', status: 'posted', published_at: hoursAgo(30), created_at: hoursAgo(100) },
+    { post_id: 'b', pitch: 'profit_by_product', status: 'needs approval', created_at: hoursAgo(5) },
+    { post_id: 'c', pitch: 'supplier_invoice', status: 'blocked', created_at: hoursAgo(5) },
+  ]));
+  toCode(wf, 'Read leads', returnItems([
+    { lead_id: 'L1', pitch_variant: 'cash_in_stock', first_contact_at: hoursAgo(20), intent: 'wants_demo', demo_booked: 'yes', pilot_paid: 'yes', status: 'sent' },
+    { lead_id: 'L2', pitch_variant: 'supplier_invoice', first_contact_at: hoursAgo(400), intent: 'question', status: 'needs approval' },
+  ]));
+  toCode(wf, 'Send report email', 'return $input.all();');
+  toCode(wf, 'Send report to Telegram', 'return $input.all();');
+}
+
+scenario('4a report: counts per pitch variant, sent by email and Telegram', '04-weekly-report.json', (wf) => {
+  reportBase(wf, { REPORT_CHANNEL: 'both', REPORT_EMAIL_TO: 'owner@example.org', REPORT_EMAIL_FROM: 'bot@example.org', TELEGRAM_CHAT_ID: '12345' });
+}, (r) => {
+  expect(r.status === 'success', `status ${r.status}: ${r.error}`);
+  const email = out(r, 'Send report email')[0];
+  const tg = out(r, 'Send report to Telegram')[0];
+  expect(email && tg, 'both channels used');
+  expect(/Cash stuck in stock: posts 1 this week \(1 total\) \| leads 1 this week \(1 total\) \| wants demo 1 \| demos booked 1 \| pilots paid 1/.test(tg.text), tg.text);
+  expect(/Posts to approve: 1/.test(tg.text) && /Lead replies to approve: 1/.test(tg.text), 'attention list');
+  expect(/<table/.test(email.html), 'html table');
+});
+
+scenario('4b report: Telegram only; missing chat ID is a clear error', '04-weekly-report.json', (wf) => {
+  reportBase(wf, { REPORT_CHANNEL: 'telegram' });
+}, (r) => {
+  expect(r.status === 'error' && /TELEGRAM_CHAT_ID/.test(r.nodes['Build report'].error || ''), `error ${r.error}`);
+  expect(!ran(r, 'Send report email') && !ran(r, 'Send report to Telegram'), 'nothing sent');
+});
+
+scenario('4c report: email only', '04-weekly-report.json', (wf) => {
+  reportBase(wf, { REPORT_CHANNEL: 'email', REPORT_EMAIL_TO: 'owner@example.org', REPORT_EMAIL_FROM: 'bot@example.org' });
+}, (r) => {
+  expect(r.status === 'success', `status ${r.status}: ${r.error}`);
+  expect(ran(r, 'Send report email') && !ran(r, 'Send report to Telegram'), 'email only');
+});
+
 // ---------- run ----------
 const selected = scenarios.filter((s) => s.name.includes(FILTER));
 const work = mkdtempSync(join(tmpdir(), 'rpc-n8n-'));
