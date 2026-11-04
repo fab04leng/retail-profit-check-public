@@ -198,6 +198,12 @@ function fakeContent(plan, languages) {
   };
 }
 
+/** Sort key: empty or unreadable dates first (they are handled, or reported, before dated rows). */
+function timeOf(value) {
+  const d = parseMyt(value);
+  return d ? d.getTime() : 0;
+}
+
 function parseChannels(value, config) {
   const list = listSetting(value || config.DEFAULT_CHANNELS);
   const unknown = list.filter((c) => !SUPPORTED_CHANNELS.includes(c));
@@ -213,7 +219,7 @@ function pickNextPost(rows, now, config) {
   let publish = null;
   const approved = (rows || [])
     .filter((r) => r && r.post_id && normaliseStatus(r.status) === STATUS.approved)
-    .sort((a, b) => String(a.scheduled_for).localeCompare(String(b.scheduled_for)) || String(a.post_id).localeCompare(String(b.post_id)));
+    .sort((a, b) => timeOf(a.scheduled_for) - timeOf(b.scheduled_for) || String(a.post_id).localeCompare(String(b.post_id)));
   for (const row of approved) {
     const due = parseMyt(row.scheduled_for);
     if (row.scheduled_for && !due) {

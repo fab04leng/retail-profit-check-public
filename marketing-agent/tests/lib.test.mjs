@@ -177,6 +177,15 @@ test('pickNextPost publishes only approved rows that are due, one per run', () =
   assert.deepEqual(after.updates, []);
 });
 
+test('pickNextPost orders by real time, also for day-first dates typed into the sheet', () => {
+  const c = cfg({ DRY_RUN: 'TRUE' });
+  const rows = [
+    { ...baseRow, post_id: 'P-dec', scheduled_for: '01/12/2026 21:00:00' },
+    { ...baseRow, post_id: 'P-nov', scheduled_for: '09/11/2026 21:00:00' },
+  ];
+  assert.equal(posts.pickNextPost(rows, at('2026-12-02T00:00:00Z'), c).publish.post_id, 'P-nov');
+});
+
 test('pickNextPost re-checks brand rules, needs an image for Instagram and refuses fake posts when live', () => {
   const now = at('2026-11-10T00:00:00Z');
   const live = cfg({ DRY_RUN: 'FALSE' });

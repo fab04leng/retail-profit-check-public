@@ -286,7 +286,7 @@ scenario('2c publisher (live, mock Meta): Instagram error → "error", Facebook 
   { method: 'POST', path: /\/IG456\/media_publish$/, reply: { status: 400, body: { error: { message: 'The parameter creation_id is required.' } } } },
 ]);
 
-scenario('2d publisher (live): text-only Facebook post; config placeholders stop a live run', '02-publisher.json', (wf) => {
+scenario('2d publisher (live, mock Meta): text-only Facebook post uses /feed', '02-publisher.json', (wf) => {
   publisherBase(wf, [postRow({ post_id: 'P-text' })], { DRY_RUN: 'FALSE', FB_PAGE_ID: 'PAGE123' });
 }, (r) => {
   expect(r.status === 'success', `status ${r.status}: ${r.error}`);
