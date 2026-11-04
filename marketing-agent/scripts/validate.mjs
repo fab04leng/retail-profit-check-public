@@ -17,7 +17,7 @@ import { join, relative } from 'node:path';
 import vm from 'node:vm';
 
 const ROOT = new URL('..', import.meta.url).pathname;
-const WORKFLOW_DIR = join(ROOT, 'workflows');
+const WORKFLOW_DIR = process.env.N8N_WORKFLOW_DIR || join(ROOT, 'workflows');
 const SCHEMA_DIR = process.env.N8N_SCHEMA_DIR || join(ROOT, '.n8n-schema');
 const WRITE_REPORT = process.argv.includes('--report');
 
@@ -188,7 +188,8 @@ function checkAgainstSchema(file, wf, schema, isCurrent) {
     for (const key of Object.keys(p)) {
       if (!resolved || !(key in resolved)) report(file, `${tag} "${n.name}": parameter "${key}" is not used with these settings (n8n would drop it)`);
     }
-    // Static option values.
+    // Static option values (a name can be defined several times with different displayOptions).
+    const reportedOptions = new Set();
     for (const prop of desc.properties) {
       if (!resolved || !(prop.name in resolved) || !(prop.name in p)) continue;
       const value = p[prop.name];
@@ -197,7 +198,10 @@ function checkAgainstSchema(file, wf, schema, isCurrent) {
       if (prop.type === 'options' && !allowed.includes(value)) {
         // The same name can appear in several properties with different displayOptions; only flag if no match anywhere shown.
         const alternatives = desc.properties.filter((q) => q.name === prop.name && Array.isArray(q.options)).flatMap((q) => q.options.map((o) => o.value));
-        if (!alternatives.includes(value)) report(file, `${tag} "${n.name}": ${prop.name} = "${value}" is not one of ${allowed.join(', ')}`);
+        if (!alternatives.includes(value) && !reportedOptions.has(prop.name)) {
+          reportedOptions.add(prop.name);
+          report(file, `${tag} "${n.name}": ${prop.name} = "${value}" is not one of ${[...new Set(alternatives)].join(', ')}`);
+        }
       }
       if (prop.type === 'multiOptions' && Array.isArray(value)) {
         for (const v of value) if (!allowed.includes(v)) report(file, `${tag} "${n.name}": ${prop.name} contains "${v}" (allowed: ${allowed.join(', ')})`);

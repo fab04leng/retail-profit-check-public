@@ -23,7 +23,8 @@
     "marketing:test": "node --test marketing-agent/tests/*.test.mjs",
     "marketing:schema": "bash marketing-agent/scripts/fetch-n8n-schema.sh 2.46.6 && bash marketing-agent/scripts/fetch-n8n-schema.sh 1.123.92",
     "marketing:validate": "node marketing-agent/scripts/validate.mjs --report",
-    "marketing:check": "npm run marketing:build && npm run marketing:test && npm run marketing:validate"
+    "marketing:check": "npm run marketing:build && npm run marketing:test && npm run marketing:validate",
+    "marketing:runtime": "node marketing-agent/scripts/runtime-test.mjs"
   },
   "dependencies": {
     "papaparse": "^5.7.0",
