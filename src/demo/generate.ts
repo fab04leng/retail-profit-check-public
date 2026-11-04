@@ -393,7 +393,7 @@ export function generateDemo(seed: number = DEMO_SEED): DemoData {
   };
   const planted: Planted = {
     duplicateSameNumber: [], duplicateSameAmount: [], belowCost: [], deadStock: [], slowNotDead: [], priceJumps: [],
-    overpaid: [], unmatchedPayments: [], lowMarginByDesign: [], cashCrunchWeekStart: '',
+    overpaid: [], unmatchedPayments: [], lowMarginByDesign: [], cashCrunchWeekStart: '2026-11-16',
   };
   const copies: Inv[] = [];
   {
@@ -533,7 +533,9 @@ export function generateDemo(seed: number = DEMO_SEED): DemoData {
     tables,
     planted,
     cashflow: {
-      openingBalance: 0, // set by calibrateDemoCashflow()
+      // Chosen so that exactly one forecast week (16–22 Nov 2026) dips below zero:
+      // the planted year-end hamper and snack orders (dated 20 Oct, 30-day terms) fall due on 19 Nov.
+      openingBalance: 20000,
       fixedCosts: [
         { id: 'rent', label: 'Rent (2 outlets)', amount: 7800, dayOfMonth: 1 },
         { id: 'salaries', label: 'Salaries, EPF & SOCSO', amount: 9600, dayOfMonth: 7 },

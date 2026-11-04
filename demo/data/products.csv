@@ -1,0 +1,253 @@
+SKU,Product Name,Category,Unit Cost,Quantity On Hand,Last Received Date
+RG-001,Beras Wangi 5kg,Rice & Grains,17.28,103,30/10/2026
+RG-002,Beras Wangi 10kg,Rice & Grains,31.67,65,30/10/2026
+RG-003,Beras Putih Tempatan 5kg,Rice & Grains,12.93,45,30/10/2026
+RG-004,Beras Putih Tempatan 10kg,Rice & Grains,26.46,55,30/10/2026
+RG-005,Beras Basmathi 1kg,Rice & Grains,11.90,39,11/05/2026
+RG-006,Beras Basmathi 2kg,Rice & Grains,23.36,23,30/10/2026
+RG-007,Beras Basmathi 5kg,Rice & Grains,52.77,17,30/10/2026
+RG-008,Beras Pulut 1kg,Rice & Grains,4.90,12,30/10/2026
+RG-009,Beras Pulut 2kg,Rice & Grains,9.28,23,06/08/2026
+RG-010,Oat Gulung 500g,Rice & Grains,5.72,34,30/10/2026
+RG-011,Oat Gulung 1kg,Rice & Grains,10.13,36,30/10/2026
+SF-001,Gula Pasir Halus 1kg,"Sugar, Flour & Oil",2.67,143,21/10/2026
+SF-002,Gula Pasir Halus 2kg,"Sugar, Flour & Oil",5.48,93,21/10/2026
+SF-003,Tepung Gandum Serbaguna 1kg,"Sugar, Flour & Oil",2.27,95,21/10/2026
+SF-004,Tepung Gandum Serbaguna 2kg,"Sugar, Flour & Oil",4.35,47,21/10/2026
+SF-005,Tepung Beras 500g,"Sugar, Flour & Oil",1.87,38,21/10/2026
+SF-006,Tepung Beras 1kg,"Sugar, Flour & Oil",3.54,34,21/10/2026
+SF-007,Tepung Jagung 400g,"Sugar, Flour & Oil",2.16,65,21/10/2026
+SF-008,Gula Perang 1kg,"Sugar, Flour & Oil",3.46,17,29/07/2026
+SF-009,Minyak Masak Sawit 1kg,"Sugar, Flour & Oil",7.06,76,18/10/2026
+SF-010,Minyak Masak Sawit 2kg,"Sugar, Flour & Oil",13.81,41,18/10/2026
+SF-011,Minyak Masak Sawit 5kg,"Sugar, Flour & Oil",33.18,80,18/10/2026
+SF-012,Minyak Bijan 320ml,"Sugar, Flour & Oil",7.36,17,18/10/2026
+SF-013,Minyak Zaitun 500ml,"Sugar, Flour & Oil",18.37,8,18/10/2026
+SF-014,Minyak Zaitun 1L,"Sugar, Flour & Oil",35.37,10,18/10/2026
+SF-015,Marjerin 240g,"Sugar, Flour & Oil",4.06,66,18/10/2026
+SF-016,Marjerin 480g,"Sugar, Flour & Oil",7.85,19,18/10/2026
+SP-001,Serbuk Kari Daging 250g,Spices & Paste,3.15,66,19/10/2026
+SP-002,Serbuk Kari Daging 1kg,Spices & Paste,11.52,50,19/10/2026
+SP-003,Serbuk Kari Ikan 250g,Spices & Paste,3.06,20,19/10/2026
+SP-004,Serbuk Kari Ikan 1kg,Spices & Paste,10.95,17,19/10/2026
+SP-005,Serbuk Cili 250g,Spices & Paste,2.62,62,19/10/2026
+SP-006,Serbuk Cili 500g,Spices & Paste,5.03,23,19/10/2026
+SP-007,Serbuk Kunyit 100g,Spices & Paste,1.77,24,11/08/2026
+SP-008,Serbuk Kunyit 250g,Spices & Paste,4.19,52,08/03/2026
+SP-009,Bunga Lawang 100g,Spices & Paste,3.40,10,19/10/2026
+SP-010,Kayu Manis 100g,Spices & Paste,2.89,17,19/10/2026
+SP-011,Lada Hitam Tumbuk 100g,Spices & Paste,4.39,23,12/09/2025
+SP-012,Lada Hitam Tumbuk 250g,Spices & Paste,10.38,23,19/10/2026
+SP-013,Pes Rendang 200g,Spices & Paste,3.91,13,19/10/2026
+SP-014,Pes Tom Yam 200g,Spices & Paste,3.59,42,19/10/2026
+SP-015,Belacan Blok 250g,Spices & Paste,4.34,24,21/10/2026
+SC-001,Kicap Manis 345ml,Sauces & Condiments,2.94,75,15/10/2026
+SC-002,Kicap Manis 640ml,Sauces & Condiments,4.84,59,15/10/2026
+SC-003,Kicap Masin 345ml,Sauces & Condiments,2.67,57,15/10/2026
+SC-004,Kicap Masin 640ml,Sauces & Condiments,4.54,38,15/10/2026
+SC-005,Sos Cili 340g,Sauces & Condiments,2.69,80,15/10/2026
+SC-006,Sos Cili 1kg,Sauces & Condiments,6.75,31,15/10/2026
+SC-007,Sos Tomato 340g,Sauces & Condiments,2.54,92,15/10/2026
+SC-008,Sos Tomato 1kg,Sauces & Condiments,6.35,38,15/10/2026
+SC-009,Sos Tiram 510g,Sauces & Condiments,3.89,46,15/10/2026
+SC-010,Sos Tiram 770g,Sauces & Condiments,5.62,64,15/10/2026
+SC-011,Cuka Putih 375ml,Sauces & Condiments,1.61,28,15/10/2026
+SC-012,Garam Halus 500g,Sauces & Condiments,0.89,64,15/10/2026
+SC-013,Garam Halus 1kg,Sauces & Condiments,1.58,25,15/10/2026
+SC-014,Sambal Tumis Siap 200g,Sauces & Condiments,4.86,16,15/10/2026
+CF-001,Sardin dalam Sos Tomato 155g,Canned Food,2.24,42,28/10/2026
+CF-002,Sardin dalam Sos Tomato 425g,Canned Food,4.18,129,28/10/2026
+CF-003,Tuna dalam Air Garam 150g,Canned Food,4.79,46,28/10/2026
+CF-004,Tuna dalam Air Garam 185g,Canned Food,6.01,46,28/10/2026
+CF-005,Kacang Panggang 425g,Canned Food,2.82,23,28/10/2026
+CF-006,Jagung Manis Tin 425g,Canned Food,2.83,15,28/10/2026
+CF-007,Kari Ayam Tin 280g,Canned Food,5.44,24,28/10/2026
+CF-008,Daging Luncheon Ayam 340g,Canned Food,4.63,14,06/08/2026
+CF-009,Susu Pekat Manis 500g,Canned Food,3.13,76,29/10/2026
+CF-010,Susu Sejat 390g,Canned Food,2.90,68,29/10/2026
+NP-001,Mi Segera Perisa Kari 5 pek,Noodles & Pasta,3.91,129,28/10/2026
+NP-002,Mi Segera Perisa Kari 10 pek,Noodles & Pasta,7.50,137,28/10/2026
+NP-003,Mi Segera Perisa Ayam 5 pek,Noodles & Pasta,3.88,94,28/10/2026
+NP-004,Mi Segera Perisa Ayam 10 pek,Noodles & Pasta,7.35,79,28/10/2026
+NP-005,Mi Segera Tom Yam 5 pek,Noodles & Pasta,4.04,64,28/10/2026
+NP-006,Bihun Jagung 400g,Noodles & Pasta,2.47,125,28/10/2026
+NP-007,Bihun Jagung 1kg,Noodles & Pasta,5.47,37,28/10/2026
+NP-008,Kuey Teow Kering 400g,Noodles & Pasta,2.80,23,28/10/2026
+NP-009,Mi Kuning Kering 500g,Noodles & Pasta,2.27,50,28/10/2026
+NP-010,Spageti 500g,Noodles & Pasta,3.00,25,28/10/2026
+NP-011,Makaroni Siku 500g,Noodles & Pasta,2.54,21,28/10/2026
+CT-001,Kopi O Kaw Serbuk 500g,Coffee & Tea,9.83,93,26/10/2026
+CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,21.54,50,26/10/2026
+CT-003,Kopi 3-dalam-1 15 uncang,Coffee & Tea,8.24,57,26/10/2026
+CT-004,Kopi 3-dalam-1 30 uncang,Coffee & Tea,15.83,40,26/10/2026
+CT-005,Teh Tarik 3-dalam-1 15 uncang,Coffee & Tea,8.83,84,26/10/2026
+CT-006,Teh Tarik 3-dalam-1 30 uncang,Coffee & Tea,16.23,28,26/10/2026
+CT-007,Serbuk Teh Hitam 250g,Coffee & Tea,5.77,35,26/10/2026
+CT-008,Serbuk Teh Hitam 500g,Coffee & Tea,10.89,29,26/10/2026
+CT-009,Uncang Teh Hijau 25 uncang,Coffee & Tea,4.64,40,26/10/2026
+CT-010,Uncang Teh Hijau 50 uncang,Coffee & Tea,8.60,7,26/10/2026
+CT-011,Minuman Coklat Malt 1kg,Coffee & Tea,13.23,72,26/10/2026
+CT-012,Minuman Coklat Malt 2kg,Coffee & Tea,26.17,92,26/10/2026
+CT-013,Kopi Putih Ipoh-style 15 uncang,Coffee & Tea,10.60,32,26/10/2026
+DR-001,Air Mineral 600ml,Drinks,0.74,148,25/10/2026
+DR-002,Air Mineral 1.5L,Drinks,1.18,108,25/10/2026
+DR-003,Air Mineral 6 x 1.5L,Drinks,6.83,127,25/10/2026
+DR-004,Air Kotak Laici 250ml,Drinks,0.92,62,25/10/2026
+DR-005,Air Kotak Laici 6 x 250ml,Drinks,5.42,47,25/10/2026
+DR-006,Air Kotak Teh Bunga 250ml,Drinks,0.93,60,25/10/2026
+DR-007,Air Kotak Teh Bunga 6 x 250ml,Drinks,5.72,34,25/10/2026
+DR-008,Minuman Isotonik 500ml,Drinks,1.62,49,25/10/2026
+DR-009,Minuman Isotonik 1.5L,Drinks,3.52,30,25/10/2026
+DR-010,Air Soya Botol 300ml,Drinks,1.31,42,30/10/2026
+DR-011,Air Soya Botol 1L,Drinks,3.27,41,30/10/2026
+DR-012,Minuman Berkarbonat Oren 325ml,Drinks,1.56,57,30/10/2026
+DR-013,Minuman Berkarbonat Oren 1.5L,Drinks,3.42,35,30/10/2026
+DR-014,Minuman Berkarbonat Kola 325ml,Drinks,1.59,121,30/10/2026
+DR-015,Minuman Berkarbonat Kola 1.5L,Drinks,3.59,84,30/10/2026
+DR-016,Kopi Tin Sejuk 240ml,Drinks,1.67,65,30/10/2026
+DR-017,Ais Ketul 2kg,Drinks,1.37,50,30/10/2026
+DE-001,Susu Segar Penuh Krim 1L,Dairy & Eggs,5.45,95,29/10/2026
+DE-002,Susu Segar Penuh Krim 2L,Dairy & Eggs,10.60,51,29/10/2026
+DE-003,Susu Rendah Lemak 1L,Dairy & Eggs,5.41,31,29/10/2026
+DE-004,Yogurt Asli 500g,Dairy & Eggs,3.12,17,14/08/2026
+DE-005,Keju Kepingan 12 keping,Dairy & Eggs,5.94,19,28/02/2026
+DE-006,Mentega Tawar 250g,Dairy & Eggs,8.95,33,29/10/2026
+DE-007,Telur Ayam Gred A 30 biji,Dairy & Eggs,11.42,68,29/10/2026
+DE-008,Telur Ayam Gred A 10 biji,Dairy & Eggs,4.15,134,29/10/2026
+DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,7.81,20,29/10/2026
+SB-001,Kerepek Pisang 200g,Snacks & Biscuits,2.98,59,04/10/2026
+SB-002,Kerepek Pisang 500g,Snacks & Biscuits,6.80,35,04/10/2026
+SB-003,Kerepek Ubi Pedas 200g,Snacks & Biscuits,2.63,26,04/10/2026
+SB-004,Kerepek Ubi Pedas 500g,Snacks & Biscuits,6.33,48,04/10/2026
+SB-005,Keropok Ikan 250g,Snacks & Biscuits,3.50,40,04/10/2026
+SB-006,Kacang Tanah Goreng 250g,Snacks & Biscuits,3.17,58,26/10/2026
+SB-007,Kacang Tanah Goreng 500g,Snacks & Biscuits,5.81,51,28/11/2025
+SB-008,Kacang Gajus Panggang 200g,Snacks & Biscuits,9.57,49,23/04/2026
+SB-009,Kurma Kering 500g,Snacks & Biscuits,7.48,21,26/10/2026
+SB-010,Kurma Kering 1kg,Snacks & Biscuits,15.09,13,26/10/2026
+SB-011,Biskut Kraker Krim 428g,Snacks & Biscuits,3.70,62,27/10/2026
+SB-012,Biskut Kraker Krim 800g,Snacks & Biscuits,6.66,52,27/10/2026
+SB-013,Biskut Marie 300g,Snacks & Biscuits,3.10,47,27/10/2026
+SB-014,Biskut Coklat Cip 200g,Snacks & Biscuits,4.11,42,27/10/2026
+SB-015,Biskut Coklat Cip 400g,Snacks & Biscuits,7.78,27,27/10/2026
+SB-016,Wafer Krim Kacang 150g,Snacks & Biscuits,2.86,79,27/10/2026
+SB-017,Biskut Lemak Kelapa 300g,Snacks & Biscuits,3.25,59,27/10/2026
+SB-018,Coklat Susu Bar 40g,Snacks & Biscuits,2.34,94,04/10/2026
+SB-019,Coklat Susu Bar 100g,Snacks & Biscuits,5.27,39,04/10/2026
+SB-020,Gula-gula Asam 150g,Snacks & Biscuits,1.91,61,04/10/2026
+FZ-001,Nugget Ayam 400g,Frozen & Chilled,9.12,84,25/10/2026
+FZ-002,Nugget Ayam 1kg,Frozen & Chilled,23.18,45,25/10/2026
+FZ-003,Sosej Ayam 340g,Frozen & Chilled,6.90,34,25/10/2026
+FZ-004,Sosej Ayam 1kg,Frozen & Chilled,18.02,35,25/10/2026
+FZ-005,Bebola Ikan 500g,Frozen & Chilled,5.13,37,25/10/2026
+FZ-006,Roti Canai Sejuk Beku 5 keping,Frozen & Chilled,6.65,36,25/10/2026
+FZ-007,Roti Canai Sejuk Beku 10 keping,Frozen & Chilled,11.83,23,25/10/2026
+FZ-008,Kentang Goreng Sejuk Beku 1kg,Frozen & Chilled,7.27,17,25/10/2026
+FZ-009,Ais Krim Vanila 1.5L,Frozen & Chilled,9.61,32,25/10/2026
+FZ-010,Karipap Sejuk Beku 10 biji,Frozen & Chilled,7.10,36,25/10/2026
+BR-001,Roti Putih Sandwic 400g,Bread,3.12,78,25/10/2026
+BR-002,Roti Putih Sandwic 600g,Bread,4.08,38,25/10/2026
+BR-003,Roti Gandum Penuh 400g,Bread,3.55,48,25/10/2026
+BR-004,Roti Bun Kaya 4 biji,Bread,2.20,39,25/10/2026
+BR-005,Kaya Kelapa 250g,Bread,3.82,41,25/10/2026
+BR-006,Mentega Kacang 340g,Bread,5.79,31,15/09/2025
+DS-001,Ikan Bilis Gred A 250g,Dried Seafood,7.40,30,21/10/2026
+DS-002,Ikan Bilis Gred A 500g,Dried Seafood,14.08,32,21/10/2026
+DS-003,Udang Kering 200g,Dried Seafood,11.62,16,21/10/2026
+DS-004,Ikan Masin Kurau 200g,Dried Seafood,17.32,20,21/10/2026
+HH-001,Sabun Basuh Pinggan Limau 900ml,Household,3.16,44,26/10/2026
+HH-002,Sabun Basuh Pinggan Limau 3.6L,Household,10.40,84,26/10/2026
+HH-003,Serbuk Pencuci Pakaian 2kg,Household,10.12,58,26/10/2026
+HH-004,Serbuk Pencuci Pakaian 4kg,Household,19.12,70,26/10/2026
+HH-005,Cecair Pencuci Pakaian 2L,Household,11.29,33,26/10/2026
+HH-006,Cecair Pencuci Pakaian 3.8L,Household,20.65,46,26/10/2026
+HH-007,Pelembut Pakaian 2L,Household,7.93,25,26/10/2026
+HH-008,Pencuci Lantai Pine 2L,Household,5.72,42,26/10/2026
+HH-009,Peluntur Pakaian 1L,Household,3.33,18,31/08/2025
+HH-010,Ubat Nyamuk Lingkar 10 lingkar,Household,3.93,34,26/10/2026
+HH-011,Beg Sampah Hitam Sederhana 30 keping,Household,3.43,82,26/10/2026
+HH-012,Beg Sampah Hitam Besar 20 keping,Household,4.52,45,26/10/2026
+HH-013,Tisu Muka 4 kotak,Household,6.86,113,26/10/2026
+HH-014,Tisu Tandas 10 gulung,Household,9.28,45,26/10/2026
+HH-015,Tisu Tandas 20 gulung,Household,17.75,106,26/10/2026
+HH-016,Tuala Dapur 2 gulung,Household,4.69,12,26/10/2026
+HH-017,Kerajang Aluminium 7.6m,Household,4.22,31,28/10/2026
+HH-018,Bekas Makanan Plastik Set 3,Household,5.52,8,28/10/2026
+HH-019,Span Pencuci 3 keping,Household,2.07,16,28/10/2026
+HH-020,Bateri AA 4 biji,Household,4.70,23,13/10/2026
+HH-021,Bateri AA 8 biji,Household,8.48,4,13/10/2026
+HH-022,Mentol LED 9W,Household,5.91,22,13/10/2026
+HH-023,Mentol LED 13W,Household,7.89,33,25/06/2026
+HH-024,Lilin Putih 6 batang,Household,2.21,23,13/10/2026
+PC-001,Syampu Herba 400ml,Personal Care,9.52,62,30/10/2026
+PC-002,Syampu Herba 750ml,Personal Care,16.41,29,07/01/2026
+PC-003,Sabun Mandi Cecair 500ml,Personal Care,8.51,37,30/10/2026
+PC-004,Sabun Mandi Cecair 1L,Personal Care,15.49,40,30/10/2026
+PC-005,Ubat Gigi Herba 150g,Personal Care,4.08,36,30/10/2026
+PC-006,Ubat Gigi Herba 2 x 150g,Personal Care,8.87,66,30/10/2026
+PC-007,Berus Gigi Lembut 2 batang,Personal Care,3.01,32,30/10/2026
+PC-008,Deodoran Roll-on 50ml,Personal Care,6.87,23,30/10/2026
+PC-009,Losyen Badan 200ml,Personal Care,8.70,59,07/01/2026
+PC-010,Tuala Wanita Siang 16 keping,Personal Care,5.74,62,30/10/2026
+PC-011,Tuala Wanita Malam 10 keping,Personal Care,6.26,81,30/10/2026
+HL-001,Minyak Angin 25ml,Health,4.92,27,23/10/2026
+HL-002,Plaster Luka 20 keping,Health,2.82,19,23/10/2026
+HL-003,Topeng Muka 3-lapis 50 keping,Health,3.92,18,23/10/2026
+HL-004,Pembersih Tangan 500ml,Health,4.16,21,29/07/2026
+BB-001,Lampin Bayi Pakai Buang Saiz M 60 keping,Baby,33.08,45,17/10/2026
+BB-002,Lampin Bayi Pakai Buang Saiz L 52 keping,Baby,32.86,42,17/10/2026
+BB-003,Lampin Bayi Pakai Buang Saiz XL 44 keping,Baby,33.15,69,17/10/2026
+BB-004,Susu Tepung Kanak-kanak 1.2kg,Baby,38.85,22,17/10/2026
+BB-005,Susu Tepung Kanak-kanak 1.8kg,Baby,57.98,33,17/10/2026
+BB-006,Tisu Basah Bayi 80 keping,Baby,4.56,38,17/10/2026
+BB-007,Tisu Basah Bayi 3 x 80 keping,Baby,10.47,29,17/10/2026
+BB-008,Bubur Bijirin Bayi 250g,Baby,7.63,18,17/10/2026
+PT-001,Makanan Kucing Kering 1.2kg,Pet,11.46,43,13/02/2026
+PT-002,Makanan Kucing Kering 3kg,Pet,26.78,14,21/10/2026
+PT-003,Makanan Kucing Tin 400g,Pet,2.61,14,21/10/2026
+PT-004,Pasir Kucing 10L,Pet,7.85,9,21/10/2026
+ST-001,Buku Latihan Sekolah 80 muka,Stationery,1.37,10,26/06/2026
+ST-002,Buku Latihan Sekolah 120 muka,Stationery,1.93,20,28/10/2026
+ST-003,Pen Biru 3 batang,Stationery,2.17,42,28/10/2026
+ST-004,Pita Pelekat Lutsinar 2 gulung,Stationery,1.82,23,28/10/2026
+ST-005,Sampul Duit Raya 10 keping,Stationery,2.10,14,28/10/2026
+ST-006,Angpau Merah 10 keping,Stationery,2.33,14,28/10/2026
+RG-012,Kacang Hijau 500g,Rice & Grains,3.67,56,19/01/2026
+RG-013,Kacang Hijau 1kg,Rice & Grains,6.64,48,05/01/2026
+RG-014,Kacang Dal 500g,Rice & Grains,3.80,18,22/12/2025
+RG-015,Kacang Dal 1kg,Rice & Grains,7.39,9,30/10/2026
+SF-017,Santan Kotak 200ml,"Sugar, Flour & Oil",2.11,75,18/10/2026
+SF-018,Santan Kotak 1L,"Sugar, Flour & Oil",9.30,68,18/10/2026
+SF-019,Serbuk Penaik 100g,"Sugar, Flour & Oil",1.85,13,21/10/2026
+NP-012,Mi Segera Cup Pedas 1 cawan,Noodles & Pasta,1.73,43,28/10/2026
+NP-013,Mi Segera Cup Pedas 6 cawan,Noodles & Pasta,9.69,50,28/10/2026
+CT-014,Teh Halia Segera 12 uncang,Coffee & Tea,7.53,38,26/10/2026
+DR-018,Jus Oren Kotak 1L,Drinks,4.69,35,25/10/2026
+SB-021,Kerepek Kentang Asli 60g,Snacks & Biscuits,1.64,85,04/10/2026
+SB-022,Kerepek Kentang Asli 160g,Snacks & Biscuits,3.27,52,04/10/2026
+SB-023,Popcorn Karamel 80g,Snacks & Biscuits,2.54,43,04/10/2026
+SB-024,Kismis 250g,Snacks & Biscuits,3.82,16,26/10/2026
+FZ-011,Dumpling Sejuk Beku 20 biji,Frozen & Chilled,9.54,34,25/10/2026
+PC-012,Sabun Basuh Tangan 250ml,Personal Care,4.40,35,30/10/2026
+PC-013,Pisau Cukur Pakai Buang 5 batang,Personal Care,5.05,9,04/09/2025
+HL-005,Paracetamol 500mg 12 biji,Health,3.66,21,20/08/2025
+FS-001,Kuih Bangkit Balang 400g,Festive,11.60,14,12/01/2026
+FS-002,Kuih Kapit Balang 300g,Festive,13.18,0,12/01/2026
+FS-003,Tart Nanas Balang 450g,Festive,14.55,0,12/01/2026
+FS-004,Limau Mandarin Kotak 24 biji,Festive,19.06,0,12/01/2026
+FS-005,Kacang Bercoklat Balang 350g,Festive,11.08,21,12/01/2026
+FS-006,Hamper Tahun Baru Cina Sederhana,Festive,66.05,0,13/01/2026
+FS-007,Hamper Tahun Baru Cina Besar,Festive,108.25,27,13/01/2026
+FS-008,Biskut Suji Balang 400g,Festive,10.59,0,14/02/2026
+FS-009,Biskut Mazola Balang 400g,Festive,10.88,0,14/02/2026
+FS-010,Kek Lapis 1kg,Festive,23.16,22,14/02/2026
+FS-011,Dodol Durian 500g,Festive,9.78,0,14/02/2026
+FS-012,Ketupat Segera 10 biji,Festive,4.52,30,14/02/2026
+FS-013,Rendang Daging Siap 500g,Festive,13.95,0,14/02/2026
+FS-014,Hamper Hujung Tahun Sederhana,Festive,53.80,0,11/11/2025
+FS-015,Hamper Hujung Tahun Besar,Festive,91.85,0,11/11/2025
+FS-016,Kek Buah Krismas 500g,Festive,15.71,26,11/11/2025
+FS-017,Coklat Kotak Hadiah 250g,Festive,18.54,7,11/11/2025
+FS-018,Hamper Korporat 2026 Standard,Festive,84.19,172,20/10/2026
+FS-019,Hamper Korporat 2026 Premium,Festive,126.51,212,20/10/2026
+FS-020,Biskut Mentega Tin Hadiah Tin 700g,Festive,16.72,185,20/10/2026

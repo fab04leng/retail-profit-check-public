@@ -32,3 +32,18 @@ Decisions made while working unattended. Each entry: what was unclear, what was 
 - **Text from files** is trimmed, stripped of control characters and capped at 200 characters; it is only ever rendered as text.
 - **Demo data:** generated in the browser from a fixed seed (no large file download needed); the same generator writes `demo/data/*.csv` for people who want to try the upload flow. Supplier and shop names are coined words chosen to avoid matching real businesses; product names are generic descriptions without brands.
 - **Answer key timing:** the planted cash-crunch week depends on the cash-flow method, so `demo/ANSWER_KEY.md` is generated (from the generator's own planted list) together with the analyses in Phase 3.
+
+## Phase 3 — Analyses
+
+- **Unit cost** comes from the product list (current cost) and is applied to all sales in the period. No FIFO/weighted history. Simple and transparent; noted as a limitation.
+- **Category** for profit comes from the product list when the SKU is there (master data), else from the sales file.
+- **Below cost** is judged on the product's average net selling price across the period (not single lines), so one promotional sale does not trigger it. The RM figure is cost of goods sold − revenue on those rows.
+- **Low margin** excludes below-cost products (they already have a stronger finding). Its RM figure ("gap to target") is shown but never added into headline totals.
+- **Stock age** counts from the last sale (refunds ignored). Never-sold items age from their last received date, or from the first sales date. Dead stock = more than 90 days, matching the 91–180 bucket boundary.
+- **Invoice copies:** lines with the same supplier + normalised invoice number form one invoice. Copies on other dates, or all lines repeated on the same date, are SUP-01 findings; for payments and cash flow the invoice counts once (first copy).
+- **SUP-02** compares invoice totals exact to the sen, within the window, different invoice numbers.
+- **SUP-03** compares each invoice line with the previous line for the same supplier + SKU (or description), using one copy of each invoice. Exactly 5% is not "more than 5%". The RM figure is the extra paid on that line versus the previous price.
+- **Payment matching:** reference contains the invoice number (short numbers must match exactly; a number is not matched inside a longer number). Otherwise exact amount, same supplier, on/after invoice date, within 120 days, to an invoice not yet fully paid. Negative payments (supplier refunds) reduce the paid amount if matched, and are never flagged as unmatched.
+- **Without a payments file**, payment rules do not run and the cash-flow outlook treats invoices due on/after the forecast start as unpaid (earlier ones assumed paid).
+- **Cash-flow method:** least-squares line through the last 8 complete Monday–Sunday weeks, extended 8 weeks, floored at zero. Cash in = forecast sales (retail is mostly cash/card). Out = unpaid invoices by due date (overdue → week 1), fixed monthly costs on their day of the month, and (optional, default on) estimated restocking = forecast sales × historical cost ratio, paid `round(terms/7)` weeks later. Possible duplicate invoices that are unpaid stay in the outlook (prudent); the accountant can mark them.
+- **Demo calibration:** the demo opening balance (RM 20,000) and fixed costs were chosen so exactly one week (16–22 Nov 2026) dips below zero, driven by the planted year-end orders. This calibration is stated in the answer key.
