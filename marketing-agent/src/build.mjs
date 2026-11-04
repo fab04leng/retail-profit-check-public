@@ -27,7 +27,7 @@ const CONFIG_NOTES = {
   WA_PHONE_NUMBER_ID: 'WhatsApp Cloud API "Phone number ID" (Meta app > WhatsApp > API setup). Not the phone number itself.',
   GRAPH_API_VERSION: 'Meta Graph API version, for example v25.0. Check developers.facebook.com/docs/graph-api/changelog.',
   POST_DAYS: 'Posting days, comma separated. One pitch per day, rotated weekly.',
-  POST_TIME: 'Posting time (Malaysia time), HH:mm.',
+  POST_TIME: 'Posting time (Malaysia time), HH:mm. The publisher runs at the start of every hour from 07:00 to 23:00, so use a full hour (for example 21:00).',
   LANGUAGES: 'en, zh and/or ms. One draft per language per day.',
   DEFAULT_CHANNELS: 'facebook and/or instagram. Change per row in the posts tab if needed.',
   WEEK_OFFSET: '1 = the generator (Friday) writes next week\'s posts. 0 = this week.',

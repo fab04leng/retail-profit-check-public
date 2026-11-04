@@ -15,7 +15,7 @@ Get Malaysian retail shop owners to **message us on WhatsApp** for a free 15-min
 
 ## The three pitches (rotated by the workflow)
 
-Each week has three posting slots (default Mon / Wed / Fri, 8:30 pm). The workflow assigns one pitch per slot and rotates the order every week, so each pitch gets each day in turn. Every pitch is posted in English and casual Malaysian Chinese.
+Each week has three posting slots (default Mon / Wed / Fri, 9 pm). The workflow assigns one pitch per slot and rotates the order every week, so each pitch gets each day in turn. Every pitch is posted in English and casual Malaysian Chinese.
 
 ### 1. Profit by product (`profit_by_product`, code PROFIT)
 - **Hook:** "Sales are good, but which products actually make money?"

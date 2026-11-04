@@ -147,7 +147,7 @@ test('fake content becomes 6 "needs approval" rows with CTA, tracking code and n
   }
   assert.equal(rows[0].post_id, '2026-W46-1-en');
   assert.equal(rows[0].pitch, 'cash_in_stock');
-  assert.equal(rows[0].scheduled_for, '2026-11-09 20:30');
+  assert.equal(rows[0].scheduled_for, '2026-11-09 21:00');
 });
 
 test('postsToRows rejects LLM output with a missing slot or language', () => {
