@@ -45,7 +45,9 @@ describe('analyzeStock', () => {
     );
     expect(r.buckets.map((b) => b.value)).toEqual([20, 10, 10, 10, 10]);
     expect(r.totalValue).toBe(60);
-    expect(r.findings.map((f) => f.id).sort()).toEqual(['STK-02:D', 'STK-02:E']);
+    expect(r.findings.map((f) => f.id).sort()).toEqual(['STK-02:D', 'STK-02:E', 'STK-03:C']);
+    // headline slow value reconciles with its findings
+    expect(r.findings.reduce((a, f) => a + (f.amount ?? 0), 0)).toBe(r.slowValue);
     expect(r.deadValue).toBe(20);
     // slow = no sale for more than 60 days → C, D, E
     expect(r.slowValue).toBe(30);

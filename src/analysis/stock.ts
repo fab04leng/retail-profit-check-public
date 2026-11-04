@@ -56,6 +56,8 @@ export function analyzeStock(sales: SaleRow[], products: ProductRow[], t: Thresh
     if (!cur || s.date > cur.date || (s.date === cur.date && s.row > cur.row)) last.set(k, { date: s.date, row: s.row });
   }
   const lookbackStart = asOf ? addDays(asOf, -t.coverLookbackDays + 1) : undefined;
+  // If the sales file is shorter than the look-back, average over the days actually covered.
+  const coverDaysBasis = asOf && firstDate ? Math.min(t.coverLookbackDays, daysBetween(firstDate, asOf) + 1) : t.coverLookbackDays;
   const lookUnits = new Map<string, number>();
   if (lookbackStart) {
     for (const s of sales) {
@@ -94,7 +96,7 @@ export function analyzeStock(sales: SaleRow[], products: ProductRow[], t: Thresh
       }
     }
     const units = lookUnits.get(k) ?? 0;
-    const avgDaily = units > 0 ? units / t.coverLookbackDays : 0;
+    const avgDaily = units > 0 ? units / coverDaysBasis : 0;
     const item: StockItem = {
       sku: p.sku,
       name: p.name,
@@ -122,6 +124,18 @@ export function analyzeStock(sales: SaleRow[], products: ProductRow[], t: Thresh
     if (ageDays !== null && qty > 0 && ageDays > t.slowStockDays) {
       slowValue += value;
       slowCount++;
+      if (ageDays <= t.deadStockDays) {
+        findings.push({
+          id: findingId('STK-03', k),
+          ruleId: 'STK-03',
+          severity: 'low',
+          subject: p.name,
+          params: { sku: p.sku, name: p.name, days: ageDays, basis: ageBasis, lastSale: ls?.date ?? '', qty: p.qtyOnHand, unitCost: p.unitCost, threshold: t.slowStockDays },
+          amount: value,
+          amountKind: 'stockValue',
+          evidence: [{ file: 'products', rows: p.rows }, ...(ls ? [{ file: 'sales' as const, rows: [ls.row] }] : [])],
+        });
+      }
     }
     if (ageDays !== null && qty > 0 && ageDays > t.deadStockDays) {
       deadValue += value;
@@ -140,6 +154,6 @@ export function analyzeStock(sales: SaleRow[], products: ProductRow[], t: Thresh
   }
   for (const b of buckets) b.value = roundRM(b.value);
   items.sort((a, b) => (b.ageDays ?? -1) - (a.ageDays ?? -1) || b.value - a.value);
-  findings.sort((a, b) => (b.amount ?? 0) - (a.amount ?? 0));
+  findings.sort((a, b) => (a.ruleId === b.ruleId ? 0 : a.ruleId === 'STK-02' ? -1 : 1) || (b.amount ?? 0) - (a.amount ?? 0));
   return { asOf, items, buckets, totalValue: roundRM(totalValue), deadValue: roundRM(deadValue), deadCount, slowValue: roundRM(slowValue), slowCount, findings };
 }

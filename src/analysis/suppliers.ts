@@ -55,6 +55,22 @@ export interface SupplierResult {
 const sev = (id: RuleId) => RULES_BY_ID[id].severity as Finding['severity'];
 const lineSig = (l: InvoiceRow) => `${skuKey(l.sku)}|${textKey(l.description)}|${l.qty}|${roundRM(l.unitPrice)}|${roundRM(l.total)}`;
 
+/** Does the normalised reference contain this invoice number, not as part of a longer number? */
+export function referenceContains(ref: string, norm: string): boolean {
+  if (!norm) return false;
+  if (ref === norm) return true;
+  if (norm.length < 3) return false; // short numbers must match exactly
+  const isDigit = (ch: string | undefined) => !!ch && ch >= '0' && ch <= '9';
+  for (let at = ref.indexOf(norm); at >= 0; at = ref.indexOf(norm, at + 1)) {
+    const before = ref[at - 1];
+    const after = ref[at + norm.length];
+    if (isDigit(before) && isDigit(norm[0])) continue;
+    if (isDigit(after) && isDigit(norm[norm.length - 1])) continue;
+    return true;
+  }
+  return false;
+}
+
 interface Entry {
   date: string;
   lines: InvoiceRow[];
@@ -76,19 +92,25 @@ export function analyzeSuppliers(lines: InvoiceRow[], payments: PaymentRow[], ha
   const canonicalLines: InvoiceRow[] = [];
   for (const [key, g] of groups) {
     const byDate = new Map<string, InvoiceRow[]>();
-    for (const l of g) byDate.set(l.date, [...(byDate.get(l.date) ?? []), l]);
+    for (const l of g) {
+      const list = byDate.get(l.date);
+      if (list) list.push(l);
+      else byDate.set(l.date, [l]);
+    }
     const entries: Entry[] = [...byDate.entries()]
       .sort(([a], [b]) => (a < b ? -1 : 1))
       .map(([date, ls]) => ({ date, lines: ls, total: roundRM(ls.reduce((a, l) => a + l.total, 0)) }));
     const first = entries[0]!;
     // Same date, every line repeated k times → keyed in k times.
+    // Requires at least two different lines, each with an SKU or description, so two
+    // genuinely identical lines on one invoice are not mistaken for a re-keyed invoice.
     let repeat = 1;
-    if (first.lines.length >= 2) {
+    if (first.lines.length >= 4 && first.lines.every((l) => l.sku || l.description)) {
       const counts = new Map<string, number>();
       for (const l of first.lines) counts.set(lineSig(l), (counts.get(lineSig(l)) ?? 0) + 1);
-      const c = [...counts.values()];
-      const min = Math.min(...c);
-      if (min >= 2 && c.every((x) => x === min)) repeat = min;
+      let min = Infinity;
+      for (const x of counts.values()) min = Math.min(min, x);
+      if (counts.size >= 2 && min >= 2 && [...counts.values()].every((x) => x === min)) repeat = min;
     }
     const total = roundRM(first.total / repeat);
     const seen = new Set<string>();
@@ -133,7 +155,9 @@ export function analyzeSuppliers(lines: InvoiceRow[], payments: PaymentRow[], ha
   const bySupplier = new Map<string, InvoiceDoc[]>();
   for (const d of docs) {
     const s = normalizeSupplier(d.supplier);
-    bySupplier.set(s, [...(bySupplier.get(s) ?? []), d]);
+    const list = bySupplier.get(s);
+    if (list) list.push(d);
+    else bySupplier.set(s, [d]);
   }
   for (const list of bySupplier.values()) {
     for (let i = 0; i < list.length; i++) {
@@ -161,9 +185,12 @@ export function analyzeSuppliers(lines: InvoiceRow[], payments: PaymentRow[], ha
   const byItem = new Map<string, InvoiceRow[]>();
   for (const l of canonicalLines) {
     const item = l.sku ? `sku:${skuKey(l.sku)}` : l.description ? `desc:${textKey(l.description)}` : '';
-    if (!item || l.qty <= 0 || l.unitPrice <= 0) continue;
+    // Lines without quantity or unit price have no real unit price (different order sizes ≠ price rise).
+    if (!item || l.priceUnknown || l.qty <= 0 || l.unitPrice <= 0) continue;
     const key = `${normalizeSupplier(l.supplier)}|${item}`;
-    byItem.set(key, [...(byItem.get(key) ?? []), l]);
+    const list = byItem.get(key);
+    if (list) list.push(l);
+    else byItem.set(key, [l]);
   }
   for (const [key, ls] of byItem) {
     ls.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : a.row - b.row));
@@ -202,44 +229,43 @@ export function analyzeSuppliers(lines: InvoiceRow[], payments: PaymentRow[], ha
     const docsBySupplier = new Map<string, { doc: InvoiceDoc; norm: string }[]>();
     for (const d of docs) {
       const s = normalizeSupplier(d.supplier);
-      docsBySupplier.set(s, [...(docsBySupplier.get(s) ?? []), { doc: d, norm: normalizeInvoiceNo(d.invoiceNo) }]);
+      const list = docsBySupplier.get(s);
+      const entry = { doc: d, norm: normalizeInvoiceNo(d.invoiceNo) };
+      if (list) list.push(entry);
+      else docsBySupplier.set(s, [entry]);
     }
     const sorted = [...payments].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : a.row - b.row));
     const payCount = new Map<InvoiceDoc, number>();
     for (const p of sorted) {
       const cands = docsBySupplier.get(normalizeSupplier(p.supplier)) ?? [];
       const ref = normalizeInvoiceNo(p.reference);
-      let match: InvoiceDoc | undefined;
-      if (ref) {
-        let bestLen = 0;
-        for (const c of cands) {
-          if (!c.norm) continue;
-          if (ref !== c.norm && c.norm.length < 3) continue; // short numbers must match exactly
-          const at = ref.indexOf(c.norm);
-          if (at < 0) continue;
-          const before = ref[at - 1];
-          const after = ref[at + c.norm.length];
-          const isDigit = (ch: string | undefined) => !!ch && /\d/.test(ch);
-          if ((isDigit(before) && /^\d/.test(c.norm)) || (isDigit(after) && /\d$/.test(c.norm))) continue;
-          if (c.norm.length > bestLen) {
-            bestLen = c.norm.length;
-            match = c.doc;
-          }
-        }
-      }
-      if (!match && p.amount > 0) {
-        match = cands
+      // 1. Every invoice number of this supplier that appears in the reference.
+      const byRef = ref ? cands.filter((c) => referenceContains(ref, c.norm)).map((c) => c.doc) : [];
+      // Drop numbers that are part of a longer matched number (e.g. "INV1" inside "INV12").
+      const matched = byRef.filter((d) => !byRef.some((o) => o !== d && normalizeInvoiceNo(o.invoiceNo).includes(normalizeInvoiceNo(d.invoiceNo))));
+      let targets: InvoiceDoc[] = matched.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+      // 2. Otherwise: same supplier, exact amount, on/after the invoice date, not yet paid.
+      if (!targets.length && p.amount > 0) {
+        const byAmount = cands
           .map((c) => c.doc)
           .filter((d) => Math.abs(d.total - p.amount) < 0.005 && p.date >= d.date && daysBetween(d.date, p.date) <= t.paymentMatchWindowDays && (d.paid ?? 0) < d.total - t.paymentTolerance)
           .sort((a, b) => (a.date < b.date ? -1 : 1))[0];
+        if (byAmount) targets = [byAmount];
       }
-      if (!match) {
+      if (!targets.length) {
         if (p.amount > 0) unmatched.push(p);
         continue;
       }
-      match.paid = roundRM((match.paid ?? 0) + p.amount);
-      match.paymentRows.push(p.row);
-      if (p.amount > 0) payCount.set(match, (payCount.get(match) ?? 0) + 1);
+      // One payment for several invoices: fill each up to its open amount, oldest first; any excess goes on the last.
+      let left = p.amount;
+      targets.forEach((d, i) => {
+        const open = Math.max(0, d.total - (d.paid ?? 0));
+        const part = i === targets.length - 1 ? left : Math.min(left, open);
+        left = roundRM(left - part);
+        d.paid = roundRM((d.paid ?? 0) + part);
+        d.paymentRows.push(p.row);
+        if (p.amount > 0 && part > 0) payCount.set(d, (payCount.get(d) ?? 0) + 1);
+      });
     }
     for (const d of docs) {
       const paid = d.paid ?? 0;

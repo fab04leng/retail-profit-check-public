@@ -2,6 +2,7 @@ import { detectDateOrder, parseDate, type DateOrder } from './dates';
 import { FIELDS } from './fields';
 import type { Mapping } from './mapping';
 import { parseNumber, parsePercent, roundRM } from './numbers';
+import { skuKey } from '../analysis/keys';
 import type { Cell, FileKind, InvoiceRow, PaymentRow, ProductRow, RowIssue, SaleRow, Table } from './types';
 
 const MAX_TEXT = 200;
@@ -16,6 +17,13 @@ export function cleanText(v: Cell): string {
 
 function shortValue(v: Cell): string {
   return cleanText(v).slice(0, 40);
+}
+
+const TOTAL_LABEL = /^(grand\s*)?(total|sub\s*total|jumlah(\s*besar)?|合计|总计|小计)\s*:?$/i;
+
+/** A footer/total row: one of its first cells is just a "Total" label. */
+function isTotalRow(row: Cell[]): boolean {
+  return row.slice(0, 4).some((c) => typeof c === 'string' && TOTAL_LABEL.test(c.trim()));
 }
 
 function isBlankRow(row: Cell[] | undefined): boolean {
@@ -66,6 +74,7 @@ export function normalizeTable<K extends FileKind>(
     const raw = table[r];
     if (isBlankRow(raw)) continue;
     const rowNo = r + 1; // spreadsheet row number
+    if (isTotalRow(raw!)) continue; // "Total" / "Jumlah" / "合计" footer rows in report exports
     const get = makeAccess(raw!, mapping);
     const parsed =
       kind === 'sales' ? saleRow(get, rowNo, ctx)
@@ -146,9 +155,11 @@ function saleRow(get: Get, row: number, ctx: Ctx): SaleRow | null {
     total = roundRM(qty * unitPrice - Math.sign(qty || 1) * Math.abs(discount));
   }
   // Some POS exports show refunds with a positive quantity and negative amount (or the reverse).
-  if (qty > 0 && total < 0) {
+  if (qty > 0 && total < 0 && (unitPrice === undefined || unitPrice > 0)) {
     qty = -qty;
     issue(ctx, row, 'warning', 'signFixed', 'qty');
+  } else if (qty > 0 && total < 0) {
+    issue(ctx, row, 'warning', 'negativePrice', 'unitPrice', get('unitPrice'));
   } else if (qty < 0 && total > 0) {
     total = -total;
     issue(ctx, row, 'warning', 'signFixed', 'total');
@@ -184,6 +195,7 @@ function productRow(get: Get, row: number, ctx: Ctx): ProductRow | null {
     return null;
   }
   if (qtyOnHand < 0) issue(ctx, row, 'warning', 'negativeStock', 'qtyOnHand', get('qtyOnHand'));
+  if (unitCost === 0) issue(ctx, row, 'warning', 'zeroCost', 'unitCost');
   return {
     row,
     rows: [row],
@@ -204,7 +216,7 @@ function mergeDuplicateSkus(rows: ProductRow[], ctx: Ctx): ProductRow[] {
   const bySku = new Map<string, ProductRow>();
   const order: ProductRow[] = [];
   for (const p of rows) {
-    const key = p.sku.toUpperCase();
+    const key = skuKey(p.sku);
     const existing = bySku.get(key);
     if (!existing) {
       const copy = { ...p, rows: [...p.rows] };
@@ -243,6 +255,8 @@ function invoiceRow(get: Get, row: number, ctx: Ctx): InvoiceRow | null {
     }
     total = roundRM((qty ?? 1) * unitPrice);
   }
+  // A unit price is only real if it was given, or derived from a given quantity.
+  const priceKnown = unitPrice !== undefined || qty !== undefined;
   if (qty === undefined) qty = unitPrice !== undefined && unitPrice !== 0 ? total / unitPrice : 1;
   if (unitPrice === undefined) unitPrice = qty !== 0 ? total / qty : total;
   return {
@@ -256,6 +270,7 @@ function invoiceRow(get: Get, row: number, ctx: Ctx): InvoiceRow | null {
     unitPrice,
     total,
     dueDate,
+    ...(priceKnown ? {} : { priceUnknown: true }),
   };
 }
 

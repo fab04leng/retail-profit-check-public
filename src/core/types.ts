@@ -44,6 +44,8 @@ export interface InvoiceRow {
   unitPrice: number;
   total: number;
   dueDate?: string;
+  /** True when neither quantity nor unit price was in the file (unit price = line total). */
+  priceUnknown?: boolean;
 }
 
 export interface PaymentRow {
@@ -63,6 +65,8 @@ export type IssueCode =
   | 'duplicateSku'
   | 'noAmount'
   | 'signFixed'
+  | 'negativePrice'
+  | 'zeroCost'
   | 'unknownSku';
 
 export interface RowIssue {

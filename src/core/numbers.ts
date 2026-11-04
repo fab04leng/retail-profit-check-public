@@ -9,11 +9,15 @@ export function parseNumber(value: unknown): number | null {
   if (typeof value === 'boolean') return null;
   if (value instanceof Date) return null;
   let s = String(value).trim();
-  if (s === '') return null;
+  // Real numbers are short; refusing long strings also rules out slow regex backtracking.
+  if (s === '' || s.length > 64) return null;
   // Full-width digits and punctuation (common in Chinese-locale exports).
   s = s.replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0));
   s = s.replace(/，/g, ',').replace(/．/g, '.').replace(/－/g, '-');
-  s = s.replace(/^(RM|MYR|\$|USD|SGD)\s*/i, '').replace(/\s*(RM|MYR)$/i, '');
+  s = s.replace(/^(RM|MYR|\$|USD|SGD)\s*/i, '');
+  const upper = s.toUpperCase();
+  if (upper.endsWith('MYR')) s = s.slice(0, -3).trimEnd();
+  else if (upper.endsWith('RM')) s = s.slice(0, -2).trimEnd();
   let negative = false;
   if (/^\(.*\)$/.test(s)) {
     negative = true;
@@ -29,6 +33,11 @@ export function parseNumber(value: unknown): number | null {
     s = s.slice(1).trim();
   } else if (s.startsWith('+')) {
     s = s.slice(1).trim();
+  }
+  s = s.replace(/^(RM|MYR)\s*/i, ''); // "-RM 5.00"
+  if (s.startsWith('(') && s.endsWith(')')) {
+    negative = !negative;
+    s = s.slice(1, -1).trim();
   }
   s = s.replace(/[\s\u00A0']/g, '');
   if (/^\d{1,3}(\.\d{3})+,\d{1,2}$/.test(s)) {

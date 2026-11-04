@@ -24,8 +24,8 @@ const total = (fs: Finding[]) => roundRM(fs.reduce((a, f) => a + (f.amount ?? 0)
 export function buildSummary(profit: ProfitResult, stock: StockResult, suppliers: SupplierResult, cash: CashflowResult, hasPayments: boolean, slowDays: number): Headline[] {
   const out: Headline[] = [];
   if (stock.items.length) {
-    const dead = stock.findings;
-    out.push({ key: 'slowStock', amount: stock.slowValue, count: stock.slowCount, findingIds: dead.map((f) => f.id), page: 'stock', params: { days: slowDays, deadValue: stock.deadValue, deadCount: stock.deadCount, totalValue: stock.totalValue } });
+    // Slow (STK-03) + dead (STK-02) findings add up to exactly this amount.
+    out.push({ key: 'slowStock', amount: stock.slowValue, count: stock.slowCount, findingIds: stock.findings.map((f) => f.id), page: 'stock', params: { days: slowDays, deadValue: stock.deadValue, deadCount: stock.deadCount, totalValue: stock.totalValue } });
   }
   if (profit.products.length) {
     const below = profit.findings.filter((f) => f.ruleId === 'PRF-02');

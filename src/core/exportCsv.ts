@@ -5,11 +5,17 @@
  */
 const DANGEROUS = /^[=+\-@\t\r]/;
 
+/** Dangerous if the first character — or the first after leading spaces/newlines — starts a formula. */
+function isDangerous(s: string): boolean {
+  if (/^-?\d+(\.\d+)?$/.test(s)) return false;
+  return DANGEROUS.test(s) || DANGEROUS.test(s.replace(/^[\s\u00A0]+/, ''));
+}
+
 export function safeCell(value: unknown): string {
   if (value === null || value === undefined) return '';
   if (typeof value === 'number') return Number.isFinite(value) ? String(value) : '';
   let s = String(value);
-  if (DANGEROUS.test(s) && !/^-?\d+(\.\d+)?$/.test(s)) s = `'${s}`;
+  if (isDangerous(s)) s = `'${s}`;
   if (/[",\n\r]/.test(s) || s !== s.trim()) s = `"${s.replace(/"/g, '""')}"`;
   return s;
 }
@@ -21,5 +27,5 @@ export function toCsv(rows: unknown[][]): string {
 /** Value for an Excel export cell: same guard, but numbers kept as numbers. */
 export function safeExcelText(value: unknown): string {
   const s = value === null || value === undefined ? '' : String(value);
-  return DANGEROUS.test(s) && !/^-?\d+(\.\d+)?$/.test(s) ? `'${s}` : s;
+  return isDangerous(s) ? `'${s}` : s;
 }

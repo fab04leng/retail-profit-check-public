@@ -35,6 +35,7 @@ export interface RuleDef {
   area: RuleArea;
   /** 'flag' rules create findings; 'method' rules only describe a calculation. */
   kind: 'flag' | 'method';
+  /** 'info' only for 'method' rules. */
   severity: 'high' | 'medium' | 'low' | 'info';
   title: string;
   description: string;
@@ -133,11 +134,11 @@ export const RULES: readonly RuleDef[] = [
   {
     id: 'STK-03',
     area: 'stock',
-    kind: 'method',
-    severity: 'info',
-    title: 'Slow stock (headline number)',
+    kind: 'flag',
+    severity: 'low',
+    title: 'Slow stock',
     description:
-      'The health check adds up the value of all stock with no sale for more than the slow-stock number of days (this includes dead stock).',
+      'Flags a product with stock on hand and no sale for more than the slow-stock number of days, but not yet dead stock. The health-check "slow stock" number adds up slow and dead stock.',
     why: 'Shows how much cash could be freed by selling down or not reordering slow lines.',
     thresholds: [
       { key: 'slowStockDays', label: 'No sale for more than', unit: 'days', default: 60, min: 7, max: 365, step: 1 },

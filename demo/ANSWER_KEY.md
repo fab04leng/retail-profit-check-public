@@ -14,6 +14,7 @@
 | PRF-02 | Products sold below cost | 10 | 10 | 0 | 0 |
 | PRF-03 | Margin below target (by design: thin-margin staples) | 22 | 22 | 0 | 0 |
 | STK-02 | Dead stock | 25 | 25 | 0 | 0 |
+| STK-03 | Slow stock (61–90 days, not dead) | 6 | 6 | 0 | 0 |
 | SUP-01 | Duplicate invoice — same number | 3 | 3 | 0 | 0 |
 | SUP-02 | Duplicate invoice — same amount within 7 days | 3 | 3 | 0 | 0 |
 | SUP-03 | Supplier price increase > 5% | 4 | 4 | 0 | 0 |

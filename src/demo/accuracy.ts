@@ -40,6 +40,7 @@ export function checkAccuracy(demo: DemoData, result: AnalysisResult): CategoryC
     { label: 'Products sold below cost', ruleId: 'PRF-02', expected: p.belowCost.map((x) => sk(x.sku)), found: byRule('PRF-02').map((f) => sk(String(f.params.sku))) },
     { label: 'Margin below target (by design: thin-margin staples)', ruleId: 'PRF-03', expected: p.lowMarginByDesign.map(sk), found: byRule('PRF-03').map((f) => sk(String(f.params.sku))) },
     { label: 'Dead stock', ruleId: 'STK-02', expected: p.deadStock.map((x) => sk(x.sku)), found: byRule('STK-02').map((f) => sk(String(f.params.sku))) },
+    { label: 'Slow stock (61–90 days, not dead)', ruleId: 'STK-03', expected: p.slowNotDead.map((x) => sk(x.sku)), found: byRule('STK-03').map((f) => sk(String(f.params.sku))) },
     { label: 'Duplicate invoice — same number', ruleId: 'SUP-01', expected: p.duplicateSameNumber.map((x) => inv(x.supplier, x.invoiceNo)), found: byRule('SUP-01').map((f) => inv(String(f.params.supplier), String(f.params.invoiceNo))) },
     {
       label: 'Duplicate invoice — same amount within 7 days',

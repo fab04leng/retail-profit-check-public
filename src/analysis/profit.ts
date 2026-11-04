@@ -58,8 +58,10 @@ function emptyGroup(): GroupProfit {
 }
 
 export function analyzeProfit(sales: SaleRow[], products: ProductRow[], t: Thresholds): ProfitResult {
+  // Products with unit cost 0 are treated as "no cost" (usually an unset cost, not a free item).
   const productByKey = new Map<string, ProductRow>();
   for (const p of products) productByKey.set(skuKey(p.sku), p);
+  const costOf = (p: ProductRow | undefined): number | null => (p && p.unitCost > 0 ? p.unitCost : null);
 
   interface Acc { sku: string; name: string; category: string; units: number; revenue: number; rows: number[] }
   const acc = new Map<string, Acc>();
@@ -80,9 +82,9 @@ export function analyzeProfit(sales: SaleRow[], products: ProductRow[], t: Thres
     if (!o) outletAcc.set(outlet, (o = { revenue: 0, cogs: 0, noCost: 0, receipts: new Set(), units: 0 }));
     o.revenue += s.total;
     o.units += s.qty;
-    if (s.receipt) o.receipts.add(s.receipt);
-    const p = productByKey.get(key);
-    if (p) o.cogs += s.qty * p.unitCost;
+    if (s.receipt) o.receipts.add(`${s.date}|${s.receipt}`); // POS receipt numbers often restart daily
+    const c = costOf(productByKey.get(key));
+    if (c !== null) o.cogs += s.qty * c;
     else o.noCost += s.total;
   }
 
@@ -90,8 +92,9 @@ export function analyzeProfit(sales: SaleRow[], products: ProductRow[], t: Thres
   const unknownSkus: ProfitResult['unknownSkus'] = [];
   for (const [key, a] of acc) {
     const p = productByKey.get(key);
+    const cost = costOf(p);
     const revenue = roundRM(a.revenue);
-    const cogs = p ? roundRM(a.units * p.unitCost) : null;
+    const cogs = cost !== null ? roundRM(a.units * cost) : null;
     const gp = cogs === null ? null : roundRM(revenue - cogs);
     result.push({
       sku: a.sku,
@@ -99,7 +102,7 @@ export function analyzeProfit(sales: SaleRow[], products: ProductRow[], t: Thres
       category: a.category,
       units: a.units,
       revenue,
-      unitCost: p ? p.unitCost : null,
+      unitCost: cost,
       cogs,
       grossProfit: gp,
       marginPct: gp === null ? null : pct(gp, revenue),
@@ -138,6 +141,8 @@ export function analyzeProfit(sales: SaleRow[], products: ProductRow[], t: Thres
   categories.forEach(finish);
   categories.sort((x, y) => y.grossProfit - x.grossProfit || x.category.localeCompare(y.category));
 
+  // Outlet revenue/cogs/margin use products with a known cost (same basis as the totals);
+  // average receipt uses all sales.
   const outlets: OutletProfit[] = [...outletAcc.entries()].map(([outlet, o]) => {
     const revenue = roundRM(o.revenue - o.noCost);
     const cogs = roundRM(o.cogs);

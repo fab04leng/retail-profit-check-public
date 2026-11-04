@@ -27,7 +27,9 @@ export interface CashWeek {
 export interface CashflowResult {
   weeks: CashWeek[];
   history: { start: string; sales: number }[];
-  method: { trendWeeks: number; intercept: number; slope: number; costRatio: number | null; termsWeeks: number; includeRestocking: boolean };
+  method: { trendWeeks: number; intercept: number; slope: number; costRatio: number | null; termsWeeks: number; includeRestocking: boolean; assumedPaidBeforeStart: boolean };
+  /** True when there is not even one complete week of sales history. */
+  insufficientHistory: boolean;
   laterSupplierOut: number;
   lowest?: { start: string; closing: number };
   findings: Finding[];
@@ -57,13 +59,16 @@ export function analyzeCashflow(
   t: Thresholds,
   inputs: CashflowInputs,
   costRatio: number | null,
+  /** Without a payments file, invoices due before the forecast start are assumed paid. */
+  hasPayments = true,
 ): CashflowResult {
   const termsWeeks = Math.round(t.defaultTermsDays / 7);
   const empty: CashflowResult = {
     weeks: [],
     history: [],
-    method: { trendWeeks: t.trendWeeks, intercept: 0, slope: 0, costRatio, termsWeeks, includeRestocking: inputs.includeRestocking },
+    method: { trendWeeks: t.trendWeeks, intercept: 0, slope: 0, costRatio, termsWeeks, includeRestocking: inputs.includeRestocking, assumedPaidBeforeStart: !hasPayments },
     laterSupplierOut: 0,
+    insufficientHistory: true,
     findings: [],
   };
   if (!asOf) return empty;
@@ -80,10 +85,11 @@ export function analyzeCashflow(
     const idx = Math.floor((Date.parse(s.date) - Date.parse(histStart)) / 604_800_000);
     if (idx >= 0 && idx < weekly.length) weekly[idx]! += s.total;
   }
-  // Only use weeks after the first sale in the file (a short file shouldn't look like a slump).
+  // Only use complete weeks on or after the first sale (a short file or partial first week would bias the trend).
   let firstWeek = 0;
-  while (firstSale && firstWeek < weekly.length && addDays(histStart, 7 * firstWeek + 6) < firstSale) firstWeek++;
+  while (firstSale && firstWeek < weekly.length && addDays(histStart, 7 * firstWeek) < firstSale) firstWeek++;
   const used = weekly.slice(firstWeek);
+  if (used.length === 0) return { ...empty, insufficientHistory: true };
   const { intercept, slope } = linearTrend(used);
   const history = used.map((v, i) => ({ start: addDays(histStart, 7 * (firstWeek + i)), sales: roundRM(v) }));
 
@@ -112,6 +118,7 @@ export function analyzeCashflow(
   let later = 0;
   for (const d of invoices) {
     if (d.outstanding <= 0.005) continue;
+    if (!hasPayments && d.dueDate < start) continue;
     if (d.dueDate > windowEnd) {
       later += d.outstanding;
       continue;
@@ -173,8 +180,9 @@ export function analyzeCashflow(
   return {
     weeks,
     history,
-    method: { trendWeeks: t.trendWeeks, intercept: roundRM(intercept), slope: roundRM(slope), costRatio, termsWeeks, includeRestocking: inputs.includeRestocking },
+    method: { trendWeeks: t.trendWeeks, intercept: roundRM(intercept), slope: roundRM(slope), costRatio, termsWeeks, includeRestocking: inputs.includeRestocking, assumedPaidBeforeStart: !hasPayments },
     laterSupplierOut: roundRM(later),
+    insufficientHistory: false,
     lowest,
     findings,
   };
