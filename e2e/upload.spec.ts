@@ -64,3 +64,15 @@ test.describe('uploading own files', () => {
     expect(await page.evaluate(() => (window as unknown as { __pwned?: number }).__pwned)).toBeUndefined();
   });
 });
+
+test('a SQL Account style invoice export is recognised as an unverified layout and mapped', async ({ page }) => {
+  await page.goto('/');
+  await page.getByTestId('upload-invoices').setInputFiles('e2e/fixtures/sqlaccount-pi.csv');
+  await expect(page.getByTestId('detected-invoices')).toContainText('SQL Account');
+  await expect(page.getByTestId('detected-invoices')).toContainText('unverified');
+  const card = page.locator('section.filecard', { hasText: 'Supplier invoices' });
+  await expect(card.getByText('Columns look complete.')).toBeVisible();
+  await expect(card.getByLabel('Invoice no.')).toHaveValue('0');
+  await expect(card.locator('tr', { hasText: 'Supplier' }).locator('select')).toHaveValue('2');
+  await expect(page.getByTestId('layout').locator('option')).toHaveCount(5);
+});

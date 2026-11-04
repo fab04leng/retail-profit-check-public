@@ -62,3 +62,8 @@ Decisions made while working unattended. Each entry: what was unclear, what was 
 
 ## Phase 5/8 — Builds
 - **Two builds:** `npm run build` → `dist/` for any static host or `npm run preview` (Web Worker, CSP). `npm run build:offline` → `dist-offline/` that opens from `file://` by double-click (classic script, no worker, same CSP). Both are covered by e2e tests.
+
+## Stretch goals
+- **POS/accounting presets are hints, not parsers.** They only add vendor-style header names to the column auto-detection; the user still confirms the mapping. Because no real AutoCount, SQL Account, StoreHub or Loyverse export was available and the vendor help sites were unreachable from this environment, every preset is marked "unverified" and every header is tagged "documented" or "guess" in `src/core/adapters.ts`. Before relying on one, export a small real file and adjust the preset.
+- **Detection needs two vendor-specific headers** (generic names like "Date" or "SKU" don't count), so ordinary files are not mislabelled.
+- **Reorder suggestions** are a "method" rule (STK-05), not a finding: they are estimates to discuss with suppliers, so they are not counted in findings, headlines or review status.

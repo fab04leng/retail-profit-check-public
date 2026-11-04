@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { sanitizeMapping, type Mapping } from '../core/mapping';
+import { detectPreset, presetById, presetMap } from '../core/adapters';
+import { sanitizeMapping, validateMapping, type Mapping } from '../core/mapping';
 import { clearAll as clearStorage, loadJSON, saveJSON } from '../core/storage';
 import type { FileKind } from '../core/types';
 import type { Lang } from '../i18n';
@@ -20,6 +21,9 @@ interface AppState {
   setLang: (l: Lang) => void;
   reviewMode: boolean;
   setReviewMode: (v: boolean) => void;
+  /** Layout preset id for new uploads, or 'auto'. */
+  layout: string;
+  setLayout: (id: string) => void;
   staged: Partial<Record<FileKind, StagedMeta>>;
   fileErrors: Partial<Record<FileKind, string>>;
   stageFile: (kind: FileKind, file: File) => Promise<void>;
@@ -75,6 +79,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
     return isLang(stored) ? stored : 'en';
   });
   const [reviewMode, setReviewModeState] = useState<boolean>(() => loadJSON('reviewMode') === true);
+  const [layout, setLayoutState] = useState<string>(() => {
+    const v = loadJSON('layout');
+    return typeof v === 'string' && (v === 'auto' || presetById(v)) ? v : 'auto';
+  });
+  const setLayout = useCallback((id: string) => {
+    setLayoutState(id);
+    saveJSON('layout', id);
+  }, []);
   const [staged, setStaged] = useState<Partial<Record<FileKind, StagedMeta>>>({});
   const [fileErrors, setFileErrors] = useState<Partial<Record<FileKind, string>>>({});
   const [isDemo, setIsDemo] = useState(false);
@@ -148,6 +160,15 @@ export function AppProvider({ children }: { children: ReactNode }) {
           const m = await engine.setMapping(kind, remembered);
           if (m.problems.length <= meta.problems.length) meta = { ...m, remembered: true };
           else await engine.setMapping(kind, meta.mapping); // keep engine and screen in step
+        } else {
+          // No remembered mapping: try the chosen (or detected) POS/accounting layout preset.
+          const preset = layout === 'auto' ? detectPreset(kind, meta.headers) : presetById(layout);
+          if (preset) {
+            const pm = presetMap(kind, meta.headers, preset);
+            if (validateMapping(kind, pm).length <= meta.problems.length && Object.keys(pm).length >= Object.keys(meta.mapping).length) {
+              meta = await engine.setMapping(kind, pm);
+            }
+          }
         }
         setStaged((s) => ({ ...s, [kind]: meta }));
         setPayload(null);
@@ -157,7 +178,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         setBusy(null);
       }
     },
-    [engine, isDemo],
+    [engine, isDemo, layout],
   );
 
   const setMapping = useCallback(
@@ -281,11 +302,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const getRows = useMemo(() => engine.getRows.bind(engine), [engine]);
   const value = useMemo<AppState>(
     () => ({
-      lang, setLang, reviewMode, setReviewMode, staged, fileErrors, stageFile, setMapping, removeFile,
+      lang, setLang, reviewMode, setReviewMode, layout, setLayout, staged, fileErrors, stageFile, setMapping, removeFile,
       isDemo, demoShop, loadDemo, clearEverything, settings, setThreshold, resetThresholds, setCashflow,
       payload, busy, analyse, error, reviews, setReview, getRows,
     }),
-    [lang, setLang, reviewMode, setReviewMode, staged, fileErrors, stageFile, setMapping, removeFile, isDemo, demoShop, loadDemo, clearEverything, settings, setThreshold, resetThresholds, setCashflow, payload, busy, analyse, error, reviews, setReview, getRows],
+    [lang, setLang, reviewMode, setReviewMode, layout, setLayout, staged, fileErrors, stageFile, setMapping, removeFile, isDemo, demoShop, loadDemo, clearEverything, settings, setThreshold, resetThresholds, setCashflow, payload, busy, analyse, error, reviews, setReview, getRows],
   );
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

@@ -121,6 +121,8 @@ const en = {
     adapterLabel: 'File layout',
     adapterAuto: 'Detect automatically',
     adapterNote: 'Layout presets only pre-select columns; always check the mapping.',
+    adapterDetected: 'Looks like a {name} export. This layout is unverified — please check every column below.',
+    unverified: 'unverified',
   },
   files: {
     sales: { title: 'Sales export', desc: 'One row per item sold: date, receipt no., SKU, product, quantity, price, discount, total, outlet.' },
