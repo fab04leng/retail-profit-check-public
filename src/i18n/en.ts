@@ -112,7 +112,7 @@ const en = {
     dataIssuesIntro: 'Rows with errors were skipped; rows with warnings were used. Row numbers match the rows you see when you open the file in Excel.',
     issueCounts: '{errors:num} skipped, {warnings:num} warnings',
     noIssues: 'All rows read without problems.',
-    unknownSkus: '{n:num} products in the sales file are not in the product list, so their profit cannot be worked out (sales RM {rm:rm}).',
+    unknownSkus: '{n:num} products in the sales file are not in the product list, so their profit cannot be worked out (sales {rm:rm}).',
     showIssues: 'Show rows',
     hideIssues: 'Hide rows',
     moreIssues: '…and {n:num} more',
@@ -195,11 +195,11 @@ const en = {
     method: 'How these numbers are worked out: see the Rules page. All RM amounts are arithmetic on your rows except the cash forecast, which is an estimate.',
   },
   headlines: {
-    slowStock: { title: 'Cash tied up in slow stock', desc: '{count:num} products with stock and no sale for more than {days:num} days, valued at cost. {deadCount:num} of them (RM {deadValue:rm}) have had no sale for more than 90 days.' },
+    slowStock: { title: 'Cash tied up in slow stock', desc: '{count:num} products with stock and no sale for more than {days:num} days, valued at cost. {deadCount:num} of them ({deadValue:rm}) have had no sale for more than 90 days.' },
     belowCost: { title: 'Sold below cost', desc: '{count:num} products sold for less than their unit cost. This is how much less than cost they sold for over the period.' },
     duplicates: { title: 'Possible duplicate supplier invoices', desc: '{count:num} possible duplicates — check before paying or ask the supplier for a credit note.' },
-    payments: { title: 'Possible overpayments to suppliers', desc: '{count:num} invoices paid more than their amount. Also {unmatchedCount:num} payments (RM {unmatchedAmount:rm}) have no matching invoice.' },
-    cashLow: { title: 'Lowest cash balance in the next 8 weeks', desc: 'Estimate for the week of {week:date}. {count:num} weeks may fall below your minimum balance.' },
+    payments: { title: 'Possible overpayments to suppliers', desc: '{count:num} invoices paid more than their amount. Also {unmatchedCount:num} payments ({unmatchedAmount:rm}) have no matching invoice.' },
+    cashLow: { title: 'Lowest cash balance in the next 8 weeks', desc: 'Estimate for the week of {week:date}. Weeks below your minimum balance: {count:num}.' },
   },
   profit: {
     title: 'Profit by product and category',

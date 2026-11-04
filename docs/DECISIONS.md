@@ -47,3 +47,15 @@ Decisions made while working unattended. Each entry: what was unclear, what was 
 - **Without a payments file**, payment rules do not run and the cash-flow outlook treats invoices due on/after the forecast start as unpaid (earlier ones assumed paid).
 - **Cash-flow method:** least-squares line through the last 8 complete Monday–Sunday weeks, extended 8 weeks, floored at zero. Cash in = forecast sales (retail is mostly cash/card). Out = unpaid invoices by due date (overdue → week 1), fixed monthly costs on their day of the month, and (optional, default on) estimated restocking = forecast sales × historical cost ratio, paid `round(terms/7)` weeks later. Possible duplicate invoices that are unpaid stay in the outlook (prudent); the accountant can mark them.
 - **Demo calibration:** the demo opening balance (RM 20,000) and fixed costs were chosen so exactly one week (16–22 Nov 2026) dips below zero, driven by the planted year-end orders. This calibration is stated in the answer key.
+
+## Phase 4 — UI
+
+- **Engine in a Web Worker:** files are read, normalised and analysed in a worker; the page asks it for source rows on demand when someone opens the evidence for a finding (max 200 rows shown, all row numbers listed). If the worker cannot start within 4 s (e.g. `file://`), the same engine runs on the page.
+- **Hash navigation** (`#/profit`) only ever carries page names, a rule id or a headline key — never file contents.
+- **Persisted in localStorage** (all wrapped in try/catch): language, review-mode toggle, thresholds, cash-flow inputs (separately for demo and own files), column mappings per layout, and review statuses/notes per dataset (demo, or a hash of the files' layouts, row counts and names). "Clear data and remembered settings" removes all of it.
+- **Review statuses:** Confirmed / Not an issue / Needs info, with a note. Typing a note on an unreviewed finding marks it "Needs info". The report counts confirmed findings (and their RM total, excluding estimates and margin gaps) separately from unreviewed ones.
+- **Colours:** single blue series for magnitude charts; the reserved "critical" red only for below-minimum cash weeks and always with an icon and a text label. Light theme only (a printed/business tool); system fonts only (no web-font download).
+- **Malay translation** was produced in the same pass as Chinese (stretch goal 1) because it costs little extra; all three dictionaries are checked for identical keys and placeholders by `tests/unit/i18n.test.ts`.
+- **Outlet comparison page** (stretch goal 2) was added with the core UI because the profit analysis already groups by outlet.
+- **Excel export of findings** (stretch goal 5) uses `write-excel-file`, loaded only when clicked; text cells are written as strings (never formulas) and guarded against formula injection; CSV export uses the same guard.
+- **Demo shop name** stays in English in all languages (it is data, not UI text).
