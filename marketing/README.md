@@ -12,6 +12,7 @@ Everything needed to market the **RM300 accountant-checked pilot** to retail sho
 | [`video/`](video/) | 60 s walkthrough (16:9) and three 20 s pitch clips (9:16), EN + 中文, burned-in captions + `.srt` | Part 2 |
 | [`social/`](social/) | 30 days of posts for Facebook, Instagram and Xiaohongshu (EN + casual Malaysian 中文), CSV content calendar, 10 short-video scripts | Part 3 |
 | [`ads/`](ads/) | 30 Facebook/Instagram ads (5 per pitch × EN/中文), Penang targeting, RM500 test plan with stop/scale rules, first-reply templates | Part 4 |
+| [`tracking/`](tracking/) | Leads and weekly scorecard CSV templates, and the decision rule: **0 paid pilots after 3 weeks → stop and rethink** | Part 5 |
 | [`scripts/`](scripts/) | Re-capture screenshots, record videos, build the social calendar and ads, check copy | Parts 1–4 |
 
 ## Landing page (`landing/`)
@@ -74,3 +75,19 @@ npm run marketing:check
 - [`ad-copy.md`](ads/ad-copy.md) / [`ads.csv`](ads/ads.csv): 30 ads with primary text, headline, description, creative, WhatsApp prefill and landing URL, each carrying a ref code such as `B-ad-b2-zh`.
 
 Edit `scripts/ads-data.mjs`, then run `npm run marketing:ads` and `npm run marketing:check`.
+
+## Tracking (`tracking/`)
+
+- [`leads.csv`](tracking/leads.csv): one row per person: source, ref code, pitch variant, demo booked, pilot paid and more. Delete the two synthetic `EXAMPLE` rows; keep the live copy in a private sheet, not in this repository (PDPA).
+- [`weekly-scorecard.csv`](tracking/weekly-scorecard.csv): weeks 1–3 × pitch, with cost-per-lead and cost-per-demo formulas and an automatic STOP/Continue cell for week 3.
+- [`README.md`](tracking/README.md): field values, summary formulas, and the **decision rule: if there are 0 paid pilots after 3 weeks, stop and rethink**, with the questions to answer before spending more.
+
+## Suggested first 3 weeks
+
+| When | Do |
+|---|---|
+| Before day 1 | Fill in the placeholders (WhatsApp number, Google Form, accountant's name with consent), deploy `landing/`, set up WhatsApp Business quick replies (`ads/README.md` §6), import the tracking sheets |
+| Days 1–7 | Post daily from `social/posts.md`; run the RM420 ad test (3 pitches × RM20/day); reply within an hour; log every lead |
+| Day 7 | Pick the winning pitch by demos booked, then cost per qualified lead (`ads/README.md` §4) |
+| Days 8–11 | RM80 on the winner; keep posting; run demos (`sales-kit/DEMO_SCRIPT*`) and ask for the pilot |
+| Day 21 | Week 3 scorecard: **0 paid pilots → stop and rethink**; otherwise put the next budget on the pitch that produced pilots |
