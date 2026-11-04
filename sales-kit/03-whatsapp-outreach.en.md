@@ -6,7 +6,7 @@
 
 ## 1. First message
 
-> Hi [Name], [your name] here Hope business is ok!
+> Hi [Name], [your name] here. Hope business is ok!
 >
 > My brother Fabian and his partner Joanne are working on something to help retail shops see where profit leaks: margins, slow stock, supplier invoice mistakes, cash flow. Before they build more, they want to *learn* from real shop owners how you handle these now.
 >
@@ -18,13 +18,13 @@
 
 ## 3. After no reply (send once, 4–5 days later)
 
-> Hi [Name], just floating this up in case it got buried No pressure at all. If now's not a good time, no problem. And if you know another shop owner who might be ok to chat for 15 min, that would help a lot too.
+> Hi [Name], just floating this up in case it got buried. No pressure at all. If now's not a good time, no problem. And if you know another shop owner who might be ok to chat for 15 min, that would help a lot too.
 
 *If still no reply: stop. Don't chase a third time.*
 
 ## 4. Thank you after the interview (same day)
 
-> Thanks a lot for your time today [Name] Really useful, especially what you said about [one specific thing they said].
+> Thanks a lot for your time today [Name]! Really useful, especially what you said about [one specific thing they said].
 >
 > We'll keep you posted. If anything else comes to mind, just WhatsApp me.
 
@@ -43,16 +43,16 @@
 
 ## 6. Asking for an introduction (optional)
 
-> Hi [Name], thanks again for helping us. One small favour: do you know 1–2 other shop owners who might be ok with a 15-min chat? I can message them myself if you're ok to share their number, or you can just forward this
+> Hi [Name], thanks again for helping us. One small favour: do you know 1–2 other shop owners who might be ok with a 15-min chat? I can message them myself if you're ok to share their number, or you can just forward this. Thanks!
 
 ---
 
 ## Optional: Bahasa Melayu version
 
 **1. Mesej pertama**
-> Hi [Nama], [nama anda] di sini Harap bisnes ok!
+> Hi [Nama], [nama anda] di sini. Harap bisnes ok!
 >
-> Adik/abang saya Fabian dan rakannya Joanne sedang buat sesuatu untuk bantu kedai runcit nampak di mana untung "bocor": margin, stok lambat jual, silap invois pembekal, aliran tunai. Sebelum teruskan, mereka nak *belajar* dulu dari tauke kedai macam mana anda uruskan sekarang.
+> [Adik/Abang] saya, Fabian, bersama rakannya Joanne sedang buat sesuatu untuk bantu kedai runcit nampak di mana untung "bocor": margin, stok lambat jual, silap invois pembekal, aliran tunai. Sebelum teruskan, mereka nak *belajar* dulu dari tauke kedai macam mana anda uruskan sekarang.
 >
 > Boleh sembang 15 minit (call atau minum kopi)? Bukan nak jual apa-apa, cuma nak dengar pengalaman anda. Kalau sibuk, tak apa.
 
@@ -60,10 +60,10 @@
 > Terima kasih [Nama]! [hari/masa] atau [hari/masa] ok? Boleh di kedai atau call, ikut mana senang. Fabian akan ikut sekali. Paling lama 15 minit.
 
 **3. Tiada balasan (sekali sahaja, 4–5 hari kemudian)**
-> Hi [Nama], cuma naikkan mesej ni kalau-kalau tertimbus Tak ada paksaan. Kalau ada kenalan tauke kedai lain yang ok sembang 15 minit, itu pun sangat membantu.
+> Hi [Nama], cuma naikkan mesej ni kalau-kalau tertimbus. Tak ada paksaan. Kalau ada kenalan tauke kedai lain yang ok sembang 15 minit, itu pun sangat membantu.
 
 **4. Terima kasih selepas temu bual**
-> Terima kasih banyak atas masa anda hari ini [Nama] Sangat berguna, terutamanya pasal [perkara khusus yang dia sebut]. Nanti kami update. Kalau teringat apa-apa, WhatsApp saja.
+> Terima kasih banyak atas masa anda hari ini [Nama]! Sangat berguna, terutamanya pasal [perkara khusus yang dia sebut]. Nanti kami update. Kalau teringat apa-apa, WhatsApp saja.
 
 **5. Jemputan pilot**
 > Hi [Nama], susulan dari sembang hari tu. Kami sekarang buat *2 pilot berbayar* guna data kedai sebenar:

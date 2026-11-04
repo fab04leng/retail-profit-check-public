@@ -23,7 +23,7 @@ We run your own sales, stock and supplier files through a set of checks, and a q
 | Cash flow | An 8-week outlook that flags weeks where cash **may** go negative (an estimate, not a forecast you can bank on) |
 | Health check | A one-page summary in RM. Every number links back to the rows it came from, so you can check it yourself |
 
-The checks are **plain-English rules written with an accountant**. You can read them and change the thresholds. There is no AI making guesses: every finding comes with the rows behind it, and anything unclear is marked "needs review".
+The checks are **plain-English rules an accountant can read and change**. You can read them and change the thresholds. There is no AI making guesses: every finding comes with the rows behind it, and anything unclear is marked "needs review".
 
 ## How the paid pilot works
 
