@@ -1,0 +1,35 @@
+[
+  {
+    "id": "TEST_PAGE_ID",
+    "time": 1762257900000,
+    "messaging": [
+      {
+        "sender": {
+          "id": "PSID_TEST_0007"
+        },
+        "recipient": {
+          "id": "TEST_PAGE_ID"
+        },
+        "timestamp": 1762257900000,
+        "message": {
+          "mid": "m_TEST_1",
+          "text": "Not interested, thanks"
+        }
+      },
+      {
+        "sender": {
+          "id": "TEST_PAGE_ID"
+        },
+        "recipient": {
+          "id": "PSID_TEST_0007"
+        },
+        "timestamp": 1762257900500,
+        "message": {
+          "mid": "m_TEST_ECHO",
+          "text": "echo of our own message",
+          "is_echo": true
+        }
+      }
+    ]
+  }
+]

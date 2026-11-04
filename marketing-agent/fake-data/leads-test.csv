@@ -1,0 +1,4 @@
+lead_id,source,contact_id,contact_name,first_contact_at,last_inbound_at,last_message_id,last_message,language,pitch_variant,intent,summary,draft_reply,compliance_flags,status,reply_sent_at,reply_message_id,do_not_contact,demo_booked,pilot_paid,notes,error
+L-TEST0001,whatsapp,60100000002,Test Owner A,2026-11-03 21:00,2026-11-03 21:00,,Can I see a demo? STOCK,en,cash_in_stock,wants_demo,,Sure! Which day suits you for a 5-min demo on a fictional sample shop?,,approved,,,,yes,,,
+L-TEST0002,messenger,PSID_TEST_0002,,2026-10-20 10:00,2026-10-20 10:00,,多少钱？,zh,supplier_invoice,question,,试点一次性 RM300，大约两个星期。,,approved,,,,,,,
+L-TEST0003,whatsapp,60100000003,,2026-10-28 09:00,2026-10-28 09:00,,INVOICE,en,supplier_invoice,wants_demo,,,,sent,,,,yes,yes,,

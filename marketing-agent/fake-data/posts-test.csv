@@ -1,0 +1,11 @@
+post_id,week,slot,scheduled_for,pitch,language,channels,status,text,image_idea,image_url,compliance_flags,reviewer_notes,fb_post_id,ig_media_id,published_at,error,created_at
+2026-W45-1-en,2026-W45,1,2026-11-02 20:30,cash_in_stock,en,facebook,approved,"[TEST] Some of your cash is sitting on the shelf. In our demo shop (fictional data), stock nobody bought in 90 days added up fast.
+
+👉 Free 15-min chat, or a 5-min demo on a fictional sample shop. WhatsApp us: https://wa.me/60100000001?text=STOCK (or just send ""STOCK"")",,,,,,,,,2026-10-30 10:00
+2026-W45-2-en,2026-W45,2,2026-11-04 20:30,cash_in_stock,en,facebook,approved,"[TEST] Stop supplier fraud before year-end!
+
+👉 Free 15-min chat, or a 5-min demo on a fictional sample shop. WhatsApp us: https://wa.me/60100000001?text=STOCK (or just send ""STOCK"")",,,,,,,,,2026-10-30 10:00
+2026-W45-3-en,2026-W45,3,2026-11-06 20:30,cash_in_stock,en,"facebook,instagram",approved,"[TEST] Instagram needs an image.
+
+👉 Free 15-min chat, or a 5-min demo on a fictional sample shop. WhatsApp us: https://wa.me/60100000001?text=STOCK (or just send ""STOCK"")",,,,,,,,,2026-10-30 10:00
+2026-W45-1-zh,2026-W45,1,2026-11-02 20:30,cash_in_stock,zh,facebook,needs approval,[TEST] 这一行还没批准，不应该被发布。,,,,,,,,,2026-10-30 10:00

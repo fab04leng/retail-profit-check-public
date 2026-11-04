@@ -1,0 +1,29 @@
+[
+  {
+    "messaging_product": "whatsapp",
+    "metadata": {
+      "display_phone_number": "60100000001",
+      "phone_number_id": "TEST_PHONE_NUMBER_ID"
+    },
+    "contacts": [
+      {
+        "profile": {
+          "name": "Test Owner C"
+        },
+        "wa_id": "60100000006"
+      }
+    ],
+    "messages": [
+      {
+        "from": "60100000006",
+        "id": "wamid.TEST_INBOUND_3",
+        "timestamp": "1762257800",
+        "type": "text",
+        "text": {
+          "body": "STOP"
+        }
+      }
+    ],
+    "field": "messages"
+  }
+]

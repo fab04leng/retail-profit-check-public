@@ -1,0 +1,29 @@
+[
+  {
+    "messaging_product": "whatsapp",
+    "metadata": {
+      "display_phone_number": "60100000001",
+      "phone_number_id": "TEST_PHONE_NUMBER_ID"
+    },
+    "contacts": [
+      {
+        "profile": {
+          "name": "Test Owner B"
+        },
+        "wa_id": "60100000004"
+      }
+    ],
+    "messages": [
+      {
+        "from": "60100000004",
+        "id": "wamid.TEST_INBOUND_1",
+        "timestamp": "1762257600",
+        "type": "text",
+        "text": {
+          "body": "Hi, I saw your post. Can I try a demo? STOCK"
+        }
+      }
+    ],
+    "field": "messages"
+  }
+]

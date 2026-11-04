@@ -1,0 +1,29 @@
+[
+  {
+    "messaging_product": "whatsapp",
+    "metadata": {
+      "display_phone_number": "60100000001",
+      "phone_number_id": "TEST_PHONE_NUMBER_ID"
+    },
+    "contacts": [
+      {
+        "profile": {
+          "name": "测试老板"
+        },
+        "wa_id": "60100000005"
+      }
+    ],
+    "messages": [
+      {
+        "from": "60100000005",
+        "id": "wamid.TEST_INBOUND_2",
+        "timestamp": "1762257700",
+        "type": "text",
+        "text": {
+          "body": "你好 INVOICE，请问资料会不会外泄？"
+        }
+      }
+    ],
+    "field": "messages"
+  }
+]
