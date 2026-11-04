@@ -4,12 +4,12 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { extname, join } from 'node:path';
 
-const ROOT = 'marketing';
+const ROOT = process.env.MARKETING_ROOT ?? 'marketing';
 const EXTS = new Set(['.md', '.csv', '.html', '.srt', '.txt']);
 
 // Always wrong, wherever they appear.
 const BANNED = [
-  [/\bfraud|\bscam|\bcheat(ing)?\b|embezzl/i, 'no fraud claims'],
+  [/\bfraud|\bscam|\bcheat\w*|embezzl/i, 'no fraud claims'],
   [/欺诈|诈骗|舞弊|作弊|做假账/, 'no fraud claims (ZH)'],
   [/AI[- ]powered|powered by AI|\bAI (finds|found|catches|caught|detects|spots|checks)\b|our AI\b/i, 'never present the product as AI'],
   [/AI\s*(帮你|找出|抓|检测|发现|分析你)/, 'never present the product as AI (ZH)'],
@@ -23,8 +23,8 @@ const BANNED = [
 
 // Allowed only when the same line says NOT.
 const NEEDS_NEGATION = [
-  [/replace(s|d)?( your| an)? accountant|replacement for (your|an) accountant/i, /\b(not|n't|never|no)\b/i, 'only say it does NOT replace an accountant'],
-  [/tax advice/i, /\b(not|n't|never|no)\b/i, 'only say it is NOT tax advice'],
+  [/replace(s|d)?( your| an)? accountant|replacement for (your|an) accountant/i, /\bnot\b|n't\b|\bnever\b|\bno\b/i, 'only say it does NOT replace an accountant'],
+  [/tax advice/i, /\bnot\b|n't\b|\bnever\b|\bno\b/i, 'only say it is NOT tax advice'],
   [/取代.{0,4}会计师|代替.{0,4}会计师/, /不|没/, 'only say it does NOT replace an accountant (ZH)'],
   [/税务意见|报税建议/, /不|没|找你的税务/, 'only say it is NOT tax advice (ZH)'],
 ];
@@ -42,10 +42,26 @@ function walk(dir, out = []) {
   return out;
 }
 
+/** Splits CSV text into records (quoted cells may contain newlines). */
+function csvRecords(text) {
+  const records = [];
+  let current = '';
+  let quoted = false;
+  for (const ch of text) {
+    if (ch === '"') quoted = !quoted;
+    if ((ch === '\n') && !quoted) {
+      records.push(current);
+      current = '';
+    } else current += ch;
+  }
+  if (current) records.push(current);
+  return records;
+}
+
 function chunks(file, text) {
   const ext = extname(file);
   if (ext === '.html') return [text]; // whole page must carry the label
-  if (ext === '.csv') return text.split(/\r?\n/);
+  if (ext === '.csv') return csvRecords(text); // each row (post, ad, lead) must carry its own label
   if (ext === '.srt') return [text]; // a caption file is one video
   return text.split(/\n\s*\n/); // markdown paragraphs
 }

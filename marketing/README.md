@@ -10,7 +10,8 @@ Everything needed to market the **RM300 accountant-checked pilot** to retail sho
 |---|---|---|
 | [`landing/`](landing/) | Static landing page, EN + 中文, three hero variants (`?v=a/b/c`), WhatsApp + Google Form lead capture, no trackers | Part 1 |
 | [`video/`](video/) | 60 s walkthrough (16:9) and three 20 s pitch clips (9:16), EN + 中文, burned-in captions + `.srt` | Part 2 |
-| [`scripts/`](scripts/) | Re-capture screenshots, record the demo videos, check copy | Parts 1–2 |
+| [`social/`](social/) | 30 days of posts for Facebook, Instagram and Xiaohongshu (EN + casual Malaysian 中文), CSV content calendar, 10 short-video scripts | Part 3 |
+| [`scripts/`](scripts/) | Re-capture screenshots, record videos, build the social calendar, check copy | Parts 1–3 |
 
 ## Landing page (`landing/`)
 
@@ -48,4 +49,20 @@ In another terminal:
 
 ```bash
 OUT=/tmp/rpc-raw node marketing/scripts/capture-assets.mjs && marketing/scripts/convert-assets.sh /tmp/rpc-raw
+```
+
+## Social content (`social/`)
+
+- [`posts.md`](social/posts.md): 30 days (Mon 9 Nov – Tue 8 Dec 2026), pitches rotating A → B → C. Each day has a hook, body and call to action in English and 中文, a suggested visual with the screenshot or video file to use, and ready-to-paste text for Facebook (bilingual), Instagram (bilingual + hashtags) and Xiaohongshu (中文 only, DM call to action, no links or numbers).
+- [`content-calendar.csv`](social/content-calendar.csv): the same 90 posts (30 days × 3 platforms) for a scheduler or Google Sheets, with date, time, platform, pitch, ref code, link and status. UTF-8 with BOM so Excel shows the Chinese correctly.
+- [`short-video-scripts.md`](social/short-video-scripts.md): 10 scripts (20–40 s) with timings, on-screen text and voice-over in EN + 中文, and no-face alternatives for the accountant scripts.
+
+Edit `scripts/social-data.mjs`, then regenerate:
+
+```bash
+npm run marketing:social
+```
+
+```bash
+npm run marketing:check
 ```
