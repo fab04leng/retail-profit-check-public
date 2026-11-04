@@ -27,6 +27,8 @@ if (!N8N_BIN || !existsSync(N8N_BIN)) {
 
 const requireLib = createRequire(import.meta.url);
 const { formatMyt, isoWeekOf, weekId } = requireLib('../src/lib/dates.cjs');
+const { leadIdFor } = requireLib('../src/lib/leads.cjs');
+const fixture = (name) => JSON.parse(readFileSync(join(ROOT, 'fake-data', name), 'utf8'));
 const n8nRequire = createRequire(join(dirname(N8N_BIN), '..', 'n8n', 'package.json'));
 const sqlite3 = n8nRequire('sqlite3');
 const { parse } = n8nRequire('flatted');
@@ -68,11 +70,11 @@ const nodeOf = (wf, name) => {
   return n;
 };
 
-function toCode(wf, name, jsCode) {
+function toCode(wf, name, jsCode, perItem = false) {
   const n = nodeOf(wf, name);
   n.type = 'n8n-nodes-base.code';
   n.typeVersion = 2;
-  n.parameters = { jsCode };
+  n.parameters = perItem ? { mode: 'runOnceForEachItem', jsCode } : { jsCode };
   for (const k of ['credentials', 'webhookId', 'retryOnFail', 'maxTries', 'waitBetweenTries']) delete n[k];
 }
 
@@ -299,6 +301,126 @@ scenario('2e publisher (live): missing FB_PAGE_ID in config stops before posting
   expect(!ran(r, 'Mark publishing'), 'nothing marked or posted');
 });
 
+
+// ===== Workflow 3 – lead inbox =====
+function inboxBase(wf, trigger, payload, cfg, leads = [{}]) {
+  startFrom(wf, trigger, payload);
+  toCode(wf, 'Read config', returnItems(config(cfg)));
+  toMock(wf, 'Fetch brand rules');
+  toMock(wf, 'Classify with LLM');
+  toCode(wf, 'Read leads', returnItems(leads));
+  toCode(wf, 'Save lead (needs approval)', passThrough);
+}
+const saved = (r) => out(r, 'Save lead (needs approval)') || [];
+
+scenario('3a inbox: new WhatsApp lead → wants_demo, pitch STOCK, privacy line, needs approval', '03-lead-inbox.json', (wf) => {
+  inboxBase(wf, 'WhatsApp Trigger', fixture('whatsapp-inbound.json'), {});
+}, (r) => {
+  expect(r.status === 'success', `status ${r.status}: ${r.error}`);
+  const s = saved(r);
+  expect(s.length === 1, `1 row, got ${s.length}`);
+  const row = s[0];
+  expect(row.lead_id === leadIdFor('whatsapp', '60100000004') && row.source === 'whatsapp', `lead ${json(row)}`);
+  expect(row.intent === 'wants_demo' && row.pitch_variant === 'cash_in_stock' && row.status === 'needs approval', `classification ${json(row)}`);
+  expect(/Reply STOP anytime/.test(row.draft_reply) && row.contact_name === 'Test Owner B' && row.first_contact_at, 'privacy line + first contact');
+  expect(row.demo_booked === undefined && row.pilot_paid === undefined, 'manual columns not touched');
+  expect(!ran(r, 'Classify with LLM'), 'fake LLM used');
+});
+
+scenario('3b inbox: the same WhatsApp message delivered twice is ignored', '03-lead-inbox.json', (wf) => {
+  inboxBase(wf, 'WhatsApp Trigger', fixture('whatsapp-inbound.json'), {}, [{ lead_id: leadIdFor('whatsapp', '60100000004'), last_message_id: 'wamid.TEST_INBOUND_1' }]);
+}, (r) => {
+  expect(r.status === 'success', `status ${r.status}: ${r.error}`);
+  expect(!ran(r, 'Save lead (needs approval)'), 'nothing saved');
+});
+
+scenario('3c inbox: STOP → do_not_contact without calling any LLM', '03-lead-inbox.json', (wf) => {
+  inboxBase(wf, 'WhatsApp Trigger', fixture('whatsapp-inbound-stop.json'), {});
+}, (r) => {
+  expect(r.status === 'success', `status ${r.status}: ${r.error}`);
+  const row = saved(r)[0];
+  expect(row.do_not_contact === 'yes' && row.intent === 'not_interested' && row.status === 'needs approval', `row ${json(row)}`);
+  expect(!ran(r, 'Classify with LLM') && !ran(r, 'Fake classify (test)'), 'no LLM for opt-outs');
+});
+
+scenario('3d inbox: Messenger + real LLM (mock): echo ignored, prompt treats message as untrusted', '03-lead-inbox.json', (wf) => {
+  inboxBase(wf, 'Messenger Trigger', fixture('messenger-inbound.json'), { USE_FAKE_LLM: 'FALSE', LLM_MODEL: 'test-model', LLM_BASE_URL: `${MOCK}/v1` });
+}, (r) => {
+  expect(r.status === 'success', `status ${r.status}: ${r.error}`);
+  const s = saved(r);
+  expect(s.length === 1 && s[0].source === 'messenger' && s[0].contact_id === 'PSID_TEST_0007', `rows ${json(s)}`);
+  expect(s[0].intent === 'not_interested' && s[0].draft_reply.startsWith('No problem'), `row ${json(s[0])}`);
+  const call = requests('/v1/chat/completions')[0];
+  expect(call.body.messages[1].content.includes('<<<\nNot interested, thanks\n>>>'), 'message passed between markers');
+  expect(/untrusted text/.test(call.body.messages[0].content), 'prompt-injection guard in the system prompt');
+  expect(/CHECK: brand rules could not be downloaded/.test(s[0].compliance_flags), 'warns that brand rules were missing');
+}, [{ method: 'POST', path: /\/v1\/chat\/completions$/, reply: { body: chatResponse({ intent: 'not_interested', summary: 'Declined', draft_reply: 'No problem, thanks for letting us know!' }) } }]);
+
+scenario('3e inbox: LLM down → lead still saved, no draft, flagged', '03-lead-inbox.json', (wf) => {
+  inboxBase(wf, 'WhatsApp Trigger', fixture('whatsapp-inbound-zh-question.json'), { USE_FAKE_LLM: 'FALSE', LLM_MODEL: 'test-model', LLM_BASE_URL: `${MOCK}/v1` });
+}, (r) => {
+  expect(r.status === 'success', `status ${r.status}: ${r.error}`);
+  const row = saved(r)[0];
+  expect(row && row.language === 'zh' && row.pitch_variant === 'supplier_invoice', `row ${json(row)}`);
+  expect(row.draft_reply === '' && /LLM failed/.test(row.compliance_flags) && row.status === 'needs approval', `row ${json(row)}`);
+}, [{ method: 'POST', path: /\/v1\/chat\/completions$/, reply: { status: 500, body: { error: { message: 'upstream down' } } } }]);
+
+// ===== Workflow 3b – reply sender =====
+const leadRow = (over) => ({ lead_id: 'L-A', source: 'whatsapp', contact_id: '60100000002', status: 'approved', intent: 'question', draft_reply: 'Thanks! Which day suits you for a 5-min demo on a fictional sample shop?', last_inbound_at: hoursAgo(2), do_not_contact: '', ...over });
+function senderBase(wf, leads, cfg, whatsAppStub) {
+  startFrom(wf, 'Every 20 min 08:00–23:40');
+  toCode(wf, 'Read config', returnItems(config(cfg)));
+  toCode(wf, 'Read leads', returnItems(leads));
+  toCode(wf, 'Mark sending', passThrough);
+  toCode(wf, 'Update lead row', passThrough);
+  toMock(wf, 'Send Messenger reply');
+  toCode(wf, 'Send WhatsApp reply', whatsAppStub || "return { json: { messaging_product: 'whatsapp', messages: [{ id: 'wamid.OUT-' + $json.lead_id }] } };", true);
+}
+const leadUpdates = (r) => Object.fromEntries((out(r, 'Update lead row') || []).map((u) => [u.lead_id, u]));
+
+scenario('3f sender (dry run): only approved replies inside 24h; DNC and banned claims blocked', '03b-lead-reply-sender.json', (wf) => {
+  senderBase(wf, [
+    leadRow({ lead_id: 'L-ok' }),
+    leadRow({ lead_id: 'L-late', source: 'messenger', contact_id: 'PSID_TEST_1', last_inbound_at: hoursAgo(30) }),
+    leadRow({ lead_id: 'L-dnc', do_not_contact: 'yes' }),
+    leadRow({ lead_id: 'L-tax', draft_reply: 'We can help you save tax this year.' }),
+    leadRow({ lead_id: 'L-wait', status: 'needs approval' }),
+  ], { DRY_RUN: 'TRUE' });
+}, (r) => {
+  expect(r.status === 'success', `status ${r.status}: ${r.error}`);
+  const u = leadUpdates(r);
+  expect(u['L-ok'] && u['L-ok'].status === 'sent (dry run)', `L-ok ${json(u['L-ok'])}`);
+  expect(u['L-late'].status === 'window closed' && u['L-dnc'].status === 'blocked' && u['L-tax'].status === 'blocked', `updates ${json(u)}`);
+  expect(!u['L-wait'], 'unapproved untouched');
+  expect(!ran(r, 'Send WhatsApp reply') && requests('/messages').length === 0, 'nothing sent in dry run');
+});
+
+scenario('3g sender (live, mock): WhatsApp + Messenger replies sent, opt-out ack scrubs personal data', '03b-lead-reply-sender.json', (wf) => {
+  senderBase(wf, [
+    leadRow({ lead_id: 'L-wa' }),
+    leadRow({ lead_id: 'L-fb', source: 'messenger', contact_id: 'PSID_TEST_2', draft_reply: '好的，哪一天方便？' }),
+    leadRow({ lead_id: 'L-stop', contact_id: '60100000006', intent: 'not_interested', do_not_contact: 'yes', draft_reply: 'Noted, thank you.' }),
+  ], { DRY_RUN: 'FALSE', WA_PHONE_NUMBER_ID: 'PHONE1', FB_PAGE_ID: 'PAGE123' });
+}, (r) => {
+  expect(r.status === 'success', `status ${r.status}: ${r.error}`);
+  const u = leadUpdates(r);
+  expect(u['L-wa'].status === 'sent' && u['L-wa'].reply_message_id === 'wamid.OUT-L-wa', `L-wa ${json(u['L-wa'])}`);
+  expect(u['L-fb'].status === 'sent' && u['L-fb'].reply_message_id === 'm_OUT_FB', `L-fb ${json(u['L-fb'])}`);
+  expect(u['L-stop'].status === 'sent' && u['L-stop'].contact_id === '[deleted on request]' && u['L-stop'].last_message === '[deleted on request]', `L-stop ${json(u['L-stop'])}`);
+  const fb = requests('/v25.0/PAGE123/messages')[0];
+  expect(fb && fb.body.recipient.id === 'PSID_TEST_2' && fb.body.messaging_type === 'RESPONSE' && fb.body.message.text === '好的，哪一天方便？', `messenger body ${json(fb)}`);
+  expect(out(r, 'Send WhatsApp reply').length === 2, 'two WhatsApp sends');
+}, [{ method: 'POST', path: /\/PAGE123\/messages$/, reply: { body: { recipient_id: 'PSID_TEST_2', message_id: 'm_OUT_FB' } } }]);
+
+scenario('3h sender (live): a WhatsApp API error is recorded as "error"', '03b-lead-reply-sender.json', (wf) => {
+  senderBase(wf, [leadRow({ lead_id: 'L-err' })], { DRY_RUN: 'FALSE', WA_PHONE_NUMBER_ID: 'PHONE1' },
+    "return { json: { error: { message: 'Message failed to send because more than 24 hours have passed' } } };");
+}, (r) => {
+  expect(r.status === 'success', `status ${r.status}: ${r.error}`);
+  const u = leadUpdates(r)['L-err'];
+  expect(u.status === 'error' && /24 hours/.test(u.error), `update ${json(u)}`);
+});
+
 // ---------- run ----------
 const selected = scenarios.filter((s) => s.name.includes(FILTER));
 const work = mkdtempSync(join(tmpdir(), 'rpc-n8n-'));
@@ -310,6 +432,7 @@ try {
     const wf = loadWorkflow(s.file);
     s.setup(wf);
     guardUnstubbed(wf);
+    wf.settings = { ...wf.settings, saveDataSuccessExecution: 'all' }; // the test reads results from the execution log
     wf.id = `rt${String(i).padStart(3, '0')}${'x'.repeat(11)}`;
     wf.name = `[runtime test] ${s.name}`;
     s.id = wf.id;

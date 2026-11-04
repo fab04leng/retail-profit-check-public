@@ -211,7 +211,7 @@ export function fetchTextNode(w, name, urlKey, position) {
   }, { executeOnce: true, onError: 'continueRegularOutput', notes: `Downloads the file at ${urlKey} (config tab). If it fails, the next node decides what to do.`, notesInFlow: true });
 }
 
-export function llmNode(w, name, position) {
+export function llmNode(w, name, position, extra = {}) {
   return w.add(name, 'n8n-nodes-base.httpRequest', V.http, position, {
     method: 'POST',
     url: `={{ ${CFG('LLM_BASE_URL')} }}/chat/completions`,
@@ -228,6 +228,7 @@ export function llmNode(w, name, position) {
     waitBetweenTries: 5000,
     notes: 'OpenAI-compatible POST {LLM_BASE_URL}/chat/completions. Credential: Header Auth, name "Authorization", value "Bearer <your key>".',
     notesInFlow: true,
+    ...extra,
   });
 }
 
