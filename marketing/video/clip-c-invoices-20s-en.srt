@@ -1,0 +1,15 @@
+1
+00:00:03,665 --> 00:00:06,834
+Possible duplicate: the same invoice number, entered twice.
+
+2
+00:00:06,834 --> 00:00:11,146
+Open it to see the exact rows, with row numbers.
+
+3
+00:00:11,146 --> 00:00:15,427
+Invoices that may have been paid twice are flagged too.
+
+4
+00:00:15,427 --> 00:00:17,832
+An accountant checks every flag before you see it.

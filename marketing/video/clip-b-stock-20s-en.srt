@@ -1,0 +1,15 @@
+1
+00:00:03,682 --> 00:00:06,285
+Stock value by days since the last sale.
+
+2
+00:00:06,285 --> 00:00:09,091
+Demo shop: RM 9,392.62 in stock with no sale for 60+ days.
+
+3
+00:00:09,091 --> 00:00:13,578
+Biggest item: leftover CNY hampers, no sale for 251 days.
+
+4
+00:00:13,578 --> 00:00:16,799
+Then decide what to clear, return or stop reordering.

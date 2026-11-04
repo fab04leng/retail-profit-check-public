@@ -9,6 +9,7 @@ Everything needed to market the **RM300 accountant-checked pilot** to retail sho
 | Folder | What | Status |
 |---|---|---|
 | [`landing/`](landing/) | Static landing page, EN + 中文, three hero variants (`?v=a/b/c`), WhatsApp + Google Form lead capture, no trackers | Part 1 |
+| [`video/`](video/) | 60 s walkthrough (16:9) and three 20 s pitch clips (9:16), EN + 中文, burned-in captions + `.srt` | Part 2 |
 | [`scripts/`](scripts/) | Re-capture screenshots, record the demo videos, check copy | Parts 1–2 |
 
 ## Landing page (`landing/`)

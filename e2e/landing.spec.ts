@@ -91,3 +91,11 @@ test.describe('marketing landing page', () => {
     await expect(page.locator('.sticky-cta a[data-wa]')).toBeVisible();
   });
 });
+
+test('shows the demo video in the chosen language only, without preloading', async ({ page }) => {
+  await page.goto(`${LANDING}?lang=zh`);
+  const videos = page.locator('#sample video:visible');
+  await expect(videos).toHaveCount(1);
+  await expect(videos).toHaveAttribute('poster', 'assets/demo-poster-zh.webp');
+  await expect(videos).toHaveAttribute('preload', 'none');
+});

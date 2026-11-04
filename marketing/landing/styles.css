@@ -149,3 +149,7 @@ details p { padding: 0 16px 14px; margin: 0; color: #2c3833; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Demo video */
+.video { margin: 24px 0 0; }
+.video video { width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--line); background: #0b4f42; }
