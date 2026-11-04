@@ -74,6 +74,8 @@ md.push('Generated from `marketing/scripts/social-data.mjs` by `npm run marketin
 md.push('');
 md.push('**Rules:** read [`../BRIEF.md`](../BRIEF.md). Every figure is from the **fictional demo shop** and says so in the same paragraph. No testimonials, no claims about AI or wrongdoing, no savings promises. Day 13 uses the accountant\'s name and photo: post it only after they approve.');
 md.push('');
+md.push('**Visuals:** the crops in `marketing/landing/assets/` already carry a "Demo data · fictional shop" / "示范资料 · 虚构店铺" badge. If you crop a screenshot from `docs/screenshots/` yourself, keep the yellow "Demo data" banner in the crop or add the same badge.');
+md.push('');
 md.push('| Platform | Language | Format | Call to action | Suggested time |');
 md.push('|---|---|---|---|---|');
 md.push(`| Facebook page | One bilingual post (EN, then 中文) | Text + visual | Landing link with a per-post ref code (\`src=fb-dNN\`) | ${TIMES.facebook} (after closing) |`);

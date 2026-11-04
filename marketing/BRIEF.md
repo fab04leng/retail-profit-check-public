@@ -49,6 +49,8 @@ You may quote these **only with a "demo data" / "示范资料" label in the same
 | Biggest single dead-stock item: leftover large CNY hampers (27 units) | RM 2,922.75 |
 | Example below-cost product: supplier cost up 15%, shelf price unchanged | RM 759.78 |
 
+**Images too:** the crops in `landing/assets/` carry a "Demo data · fictional shop" badge. A crop you make from `docs/screenshots/` must keep the app's yellow "Demo data" banner or get the same badge.
+
 Good: *"In our demo shop (fictional data), the check flagged RM 4,783.20 in possible duplicate invoices."*
 Bad: *"Shops lose RM 4,783 to duplicate invoices."* / *"A Penang minimart found RM 9,392."* <!-- copy-check: ignore -->
 

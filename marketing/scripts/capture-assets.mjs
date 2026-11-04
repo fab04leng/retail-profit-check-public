@@ -1,7 +1,7 @@
 // Captures cropped screenshots of the app on DEMO DATA for the landing page, in English and Chinese.
 // Usage: npm run build && npx vite preview --port 4173 &  then  node marketing/scripts/capture-assets.mjs
 // Writes PNGs to $OUT (default: marketing/landing/assets/raw); then run convert-assets.sh to make the WebP files.
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readdirSync, readFileSync } from 'node:fs';
 import { chromium, go, loadDemo, pageBox } from './lib.mjs';
 
 const OUT = process.env.OUT ?? 'marketing/landing/assets/raw';
@@ -72,6 +72,42 @@ async function capture(lang) {
   await browser.close();
 }
 
+/**
+ * Burns a "demo data" badge into every capture, so a crop reused anywhere (social posts, ads)
+ * still says it comes from the fictional demo shop. Drawn by the browser so Chinese renders.
+ */
+async function labelAll() {
+  const BADGE = { en: 'Demo data · fictional shop', zh: '示范资料 · 虚构店铺' };
+  const browser = await chromium.launch();
+  const page = await browser.newPage({ deviceScaleFactor: 1 });
+  for (const file of readdirSync(OUT).filter((f) => /^(en|zh)-.*\.png$/.test(f))) {
+    const lang = file.slice(0, 2);
+    const png = readFileSync(`${OUT}/${file}`).toString('base64');
+    // The badge sits on a strip below the image (never over data); its size follows the image width
+    // so it stays readable after scaling down to 1200 px.
+    await page.setContent(`<!doctype html><html><body style="margin:0">
+      <div id="frame" style="display:inline-block;background:#f4f6f4">
+        <img id="shot" src="data:image/png;base64,${png}" style="display:block">
+        <div id="strip" style="display:flex;justify-content:flex-end">
+          <div id="badge" style="background:#fdf3dc;color:#5c3d00;border:2px solid #f0d58a;
+            font-weight:700;line-height:1.2;font-family:system-ui,'PingFang SC','Noto Sans SC','WenQuanYi Zen Hei',sans-serif">${BADGE[lang]}</div>
+        </div>
+      </div></body></html>`);
+    await page.locator('#shot').evaluate((img) => img.decode());
+    const { width, height } = await page.locator('#shot').evaluate((img) => ({ width: img.naturalWidth, height: img.naturalHeight }));
+    await page.locator('#badge').evaluate((el, w) => {
+      const size = Math.round(Math.max(26, w / 45));
+      Object.assign(el.style, { fontSize: `${size}px`, padding: `${Math.round(size * 0.35)}px ${Math.round(size * 0.7)}px`,
+        borderRadius: `${Math.round(size * 0.5)}px` });
+      Object.assign(el.parentElement.style, { padding: `${Math.round(size * 0.5)}px ${Math.round(size * 0.8)}px` });
+    }, width);
+    await page.setViewportSize({ width, height: height + 400 });
+    await page.locator('#frame').screenshot({ path: `${OUT}/${file}` });
+  }
+  await browser.close();
+}
+
 mkdirSync(OUT, { recursive: true });
 for (const lang of ['en', 'zh']) await capture(lang);
+await labelAll();
 console.log('captured to', OUT);
