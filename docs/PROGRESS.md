@@ -59,3 +59,8 @@ Security:  PASS  no secrets, no console.log, no fetch/XHR/WebSocket/beacon in sr
 Overall:   READY for PR
 ```
 - Added `npm run build:offline` → `dist-offline/`: one classic script so the app opens by double-clicking `index.html` (module scripts and workers are blocked on `file://`); it runs the analysis on the page.
+
+## Phase 8 — Wrap-up
+- `README.md`: what it is, privacy, how to run (dev, static build, preview, double-click offline build), how to use it page by page, the rule table, what it does not do, demo data, tests, layout, security notes.
+- `docs/LIMITATIONS.md`: what is not validated (rules not yet reviewed by the partner accountant, accuracy only on synthetic data, demand unproven, POS layouts unverified), accounting simplifications, technical limits.
+- Pull request opened for the branch.
