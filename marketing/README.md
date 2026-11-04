@@ -11,7 +11,8 @@ Everything needed to market the **RM300 accountant-checked pilot** to retail sho
 | [`landing/`](landing/) | Static landing page, EN + 中文, three hero variants (`?v=a/b/c`), WhatsApp + Google Form lead capture, no trackers | Part 1 |
 | [`video/`](video/) | 60 s walkthrough (16:9) and three 20 s pitch clips (9:16), EN + 中文, burned-in captions + `.srt` | Part 2 |
 | [`social/`](social/) | 30 days of posts for Facebook, Instagram and Xiaohongshu (EN + casual Malaysian 中文), CSV content calendar, 10 short-video scripts | Part 3 |
-| [`scripts/`](scripts/) | Re-capture screenshots, record videos, build the social calendar, check copy | Parts 1–3 |
+| [`ads/`](ads/) | 30 Facebook/Instagram ads (5 per pitch × EN/中文), Penang targeting, RM500 test plan with stop/scale rules, first-reply templates | Part 4 |
+| [`scripts/`](scripts/) | Re-capture screenshots, record videos, build the social calendar and ads, check copy | Parts 1–4 |
 
 ## Landing page (`landing/`)
 
@@ -66,3 +67,10 @@ npm run marketing:social
 ```bash
 npm run marketing:check
 ```
+
+## Ads (`ads/`)
+
+- [`README.md`](ads/README.md): campaign setup (click-to-WhatsApp), Penang targeting, the **RM500 plan** (RM420 test across 3 pitches for 7 days, then RM80 on the winner), stop/scale rules and first-reply templates.
+- [`ad-copy.md`](ads/ad-copy.md) / [`ads.csv`](ads/ads.csv): 30 ads with primary text, headline, description, creative, WhatsApp prefill and landing URL, each carrying a ref code such as `B-ad-b2-zh`.
+
+Edit `scripts/ads-data.mjs`, then run `npm run marketing:ads` and `npm run marketing:check`.
