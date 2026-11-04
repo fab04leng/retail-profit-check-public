@@ -1,4 +1,4 @@
-import { Component, useEffect, useId, type ErrorInfo, type ReactNode } from 'react';
+import { Component, useEffect, useId, useRef, type ErrorInfo, type ReactNode } from 'react';
 import { I18nProvider, LANGS, useI18n, type Lang } from '../i18n';
 import { href, PAGES, useRoute, type Page } from './router';
 import { AppProvider, useApp } from './state';
@@ -92,7 +92,14 @@ function Shell() {
     document.documentElement.lang = LANGS.find((l) => l.code === lang)?.htmlLang ?? 'en';
     document.title = `${t(`nav.${route.page}`)} · ${t('app.name')}`;
   }, [lang, route.page, t]);
+  // Move focus to the new page's heading after navigation (not on first load,
+  // so keyboard users still reach the "skip to content" link first).
+  const firstRender = useRef(true);
   useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
     document.getElementById('page-title')?.focus({ preventScroll: true });
   }, [route.page]);
   const pages: Record<Page, ReactNode> = {

@@ -349,6 +349,7 @@ const ms: Dict = {
     units: { percent: '%', days: 'hari', weeks: 'minggu', rm: 'RM' },
   },
   ruleText: {
+    'STK-05': { title: 'Cadangan pesanan semula untuk barang laris', description: 'Barang laris ialah 20% produk teratas mengikut unit terjual dalam tempoh semakan. Apabila hari liputan stoknya kurang daripada titik pesanan semula, kuantiti cadangan ialah: purata unit sehari × hari liputan sasaran − kuantiti dalam tangan, dibundarkan ke atas. Ini cadangan untuk dibincang dengan pembekal, bukan pesanan.', why: 'Kehabisan stok barang laris menyebabkan jualan dan pelanggan hilang; menambah hanya apa yang laku mengelakkan stok lambat bertambah.' },
     'PRF-01': {
       title: 'Cara untung dikira',
       description: 'Hasil = jumlah baris jualan selepas diskaun, tolak pemulangan (kuantiti negatif). Kos barang dijual = unit bersih dijual × kos seunit daripada senarai produk anda. Untung kasar = hasil − kos. Margin % = untung kasar ÷ hasil.',
@@ -421,6 +422,8 @@ const ms: Dict = {
     },
   },
   thresholdLabels: {
+    reorderBelowCoverDays: 'Cadang pesan semula jika kurang daripada',
+    reorderTargetCoverDays: 'Tambah sehingga',
     targetMarginPct: 'Margin kasar sasaran',
     deadStockDays: 'Tiada jualan lebih daripada',
     slowStockDays: 'Tiada jualan lebih daripada',

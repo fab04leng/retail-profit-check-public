@@ -157,3 +157,29 @@ export function analyzeStock(sales: SaleRow[], products: ProductRow[], t: Thresh
   findings.sort((a, b) => (a.ruleId === b.ruleId ? 0 : a.ruleId === 'STK-02' ? -1 : 1) || (b.amount ?? 0) - (a.amount ?? 0));
   return { asOf, items, buckets, totalValue: roundRM(totalValue), deadValue: roundRM(deadValue), deadCount, slowValue: roundRM(slowValue), slowCount, findings };
 }
+
+export interface ReorderSuggestion {
+  sku: string;
+  name: string;
+  qtyOnHand: number;
+  perDay: number;
+  coverDays: number;
+  suggestedQty: number;
+  /** suggestedQty × unit cost — cash needed, at current cost. */
+  value: number;
+  productRows: number[];
+}
+
+/** STK-05: fast movers (top 20% by units in the look-back) with cover below the reorder point. */
+export function reorderSuggestions(stock: StockResult, t: Thresholds): ReorderSuggestion[] {
+  const selling = stock.items.filter((i) => i.unitsLookback > 0).sort((a, b) => b.unitsLookback - a.unitsLookback);
+  const fast = selling.slice(0, Math.max(1, Math.ceil(selling.length * 0.2)));
+  const out: ReorderSuggestion[] = [];
+  for (const i of fast) {
+    if (i.coverDays === null || i.coverDays >= t.reorderBelowCoverDays) continue;
+    const qty = Math.ceil(i.avgDailyUnits * t.reorderTargetCoverDays - Math.max(0, i.qtyOnHand) - 1e-9);
+    if (qty <= 0) continue;
+    out.push({ sku: i.sku, name: i.name, qtyOnHand: i.qtyOnHand, perDay: Math.round(i.avgDailyUnits * 10) / 10, coverDays: i.coverDays, suggestedQty: qty, value: roundRM(qty * i.unitCost), productRows: i.productRows });
+  }
+  return out.sort((a, b) => a.coverDays - b.coverDays || b.perDay - a.perDay);
+}

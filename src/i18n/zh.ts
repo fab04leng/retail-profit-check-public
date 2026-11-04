@@ -349,6 +349,7 @@ const zh: Dict = {
     units: { percent: '%', days: '天', weeks: '周', rm: 'RM' },
   },
   ruleText: {
+    'STK-05': { title: '畅销货补货建议', description: '畅销货是指在回顾期内销量排在前 20% 的产品。当某样畅销货的库存可卖天数低于补货点时，建议补货数量 = 每天平均销量 × 目标可卖天数 − 现有库存，向上取整。这只是可以和供应商商量的建议，不是订单。', why: '畅销货断货会流失生意和顾客；只补卖得动的货，可以避免增加滞销库存。' },
     'PRF-01': {
       title: '利润如何计算',
       description: '销售额 = 扣除折扣后的销售行总额，减去退货（负数数量）。销货成本 = 净卖出数量 × 产品清单中的单位成本。毛利 = 销售额 − 成本。毛利率 % = 毛利 ÷ 销售额。',
@@ -421,6 +422,8 @@ const zh: Dict = {
     },
   },
   thresholdLabels: {
+    reorderBelowCoverDays: '低于多少天时建议补货',
+    reorderTargetCoverDays: '补到可卖多少天',
     targetMarginPct: '目标毛利率',
     deadStockDays: '超过此天数没有销售',
     slowStockDays: '超过此天数没有销售',

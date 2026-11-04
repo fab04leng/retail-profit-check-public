@@ -48,6 +48,44 @@ export function StockPage() {
         <h2 className="section-title">{t('ruleText.STK-03.title')}</h2>
         <FindingList findings={s.findings.filter((f) => f.ruleId === 'STK-03')} limit={6} />
       </section>
+      <section className="card" aria-labelledby="reorder-title">
+        <h2 id="reorder-title">
+          <span className="rule-badge">STK-05</span> {t('stock.reorderTitle')} <span className="chip chip-est">{t('common.estimate')}</span>
+        </h2>
+        <p className="muted small">{t('stock.reorderIntro', { days: th.coverLookbackDays, cover: th.reorderBelowCoverDays, target: th.reorderTargetCoverDays })}</p>
+        {payload.result.reorder.length ? (
+          <TableWrap label={t('stock.reorderTitle')}>
+            <table className="data">
+              <thead>
+                <tr>
+                  <th scope="col">{t('common.sku')}</th>
+                  <th scope="col">{t('common.product')}</th>
+                  <th scope="col" className="num">{t('stock.onHand')}</th>
+                  <th scope="col" className="num">{t('stock.perDay')}</th>
+                  <th scope="col" className="num">{t('stock.cover')}</th>
+                  <th scope="col" className="num">{t('stock.suggest')}</th>
+                  <th scope="col" className="num">{t('common.value')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {payload.result.reorder.map((r) => (
+                  <tr key={r.sku}>
+                    <td>{r.sku}</td>
+                    <td>{r.name}</td>
+                    <td className="num">{num(r.qtyOnHand)}</td>
+                    <td className="num">{num(r.perDay, 1)}</td>
+                    <td className="num">{num(r.coverDays)}</td>
+                    <td className="num strong">{num(r.suggestedQty)}</td>
+                    <td className="num"><Money value={r.value} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </TableWrap>
+        ) : (
+          <p className="muted">{t('stock.noReorder')}</p>
+        )}
+      </section>
       <section className="card">
         <h2>{t('stock.coverTitle')}</h2>
         <p className="muted small">{t('stock.coverIntro', { days: th.coverLookbackDays })}</p>

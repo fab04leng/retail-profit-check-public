@@ -2,7 +2,7 @@ import type { Dataset } from '../core/types';
 import type { Settings } from '../rules/settings';
 import { analyzeCashflow, type CashflowResult } from './cashflow';
 import { analyzeProfit, type ProfitResult } from './profit';
-import { analyzeStock, type StockResult } from './stock';
+import { analyzeStock, reorderSuggestions, type ReorderSuggestion, type StockResult } from './stock';
 import { buildSummary, type Headline } from './summary';
 import { analyzeSuppliers, type SupplierResult } from './suppliers';
 import type { Finding } from './types';
@@ -12,6 +12,7 @@ export interface AnalysisResult {
   period?: { from: string; to: string };
   profit: ProfitResult;
   stock: StockResult;
+  reorder: ReorderSuggestion[];
   suppliers: SupplierResult;
   cashflow: CashflowResult;
   summary: Headline[];
@@ -35,6 +36,7 @@ export function runAll(ds: Dataset, settings: Settings): AnalysisResult {
     period: from && stock.asOf ? { from, to: stock.asOf } : undefined,
     profit,
     stock,
+    reorder: reorderSuggestions(stock, t),
     suppliers,
     cashflow,
     summary,

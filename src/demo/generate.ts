@@ -487,7 +487,7 @@ export function generateDemo(seed: number = DEMO_SEED): DemoData {
     else if (p.season) qty = 0;
     else {
       const recent = unitsSold(p.sku, addDays(DEMO_END, -27), DEMO_END);
-      qty = Math.max(2, Math.round(recent * rng.range(0.6, 1.8)));
+      qty = Math.max(2, Math.round(recent * rng.range(0.35, 1.8)));
     }
     if (p.season === 'yearend2026') qty = (p.plannedOnHand ?? 0);
     onHand.set(p.sku, qty);

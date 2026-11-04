@@ -51,6 +51,7 @@ export type RuleId =
   | 'STK-02'
   | 'STK-03'
   | 'STK-04'
+  | 'STK-05'
   | 'SUP-01'
   | 'SUP-02'
   | 'SUP-03'
@@ -64,6 +65,8 @@ export type ThresholdKey =
   | 'deadStockDays'
   | 'slowStockDays'
   | 'coverLookbackDays'
+  | 'reorderBelowCoverDays'
+  | 'reorderTargetCoverDays'
   | 'duplicateWindowDays'
   | 'priceIncreasePct'
   | 'paymentTolerance'
@@ -155,6 +158,20 @@ export const RULES: readonly RuleDef[] = [
     why: 'Tells you how long current stock will last at the recent selling rate, so you can avoid over-ordering.',
     thresholds: [
       { key: 'coverLookbackDays', label: 'Look-back period', unit: 'days', default: 90, min: 7, max: 365, step: 1 },
+    ],
+  },
+  {
+    id: 'STK-05',
+    area: 'stock',
+    kind: 'method',
+    severity: 'info',
+    title: 'Reorder suggestion for fast movers',
+    description:
+      'Fast movers are the top 20% of products by units sold in the look-back period. When one has fewer days of cover than the reorder point, the suggested quantity is: average units per day × target days of cover − quantity on hand, rounded up. It is a suggestion to discuss with the supplier, not an order.',
+    why: 'Running out of a best seller loses sales and customers; topping up only what sells avoids adding to slow stock.',
+    thresholds: [
+      { key: 'reorderBelowCoverDays', label: 'Suggest a reorder below', unit: 'days', default: 14, min: 1, max: 120, step: 1 },
+      { key: 'reorderTargetCoverDays', label: 'Top up to', unit: 'days', default: 30, min: 2, max: 180, step: 1 },
     ],
   },
   {

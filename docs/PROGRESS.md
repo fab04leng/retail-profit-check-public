@@ -64,3 +64,10 @@ Overall:   READY for PR
 - `README.md`: what it is, privacy, how to run (dev, static build, preview, double-click offline build), how to use it page by page, the rule table, what it does not do, demo data, tests, layout, security notes.
 - `docs/LIMITATIONS.md`: what is not validated (rules not yet reviewed by the partner accountant, accuracy only on synthetic data, demand unproven, POS layouts unverified), accounting simplifications, technical limits.
 - Pull request opened for the branch.
+
+## Stretch goals
+1. **Bahasa Melayu** — done in Phase 4 (full UI and rule text; key/placeholder parity tested).
+2. **Multi-outlet comparison** — done in Phase 4 (Outlets page: sales, share, gross profit, margin, receipts per day, average receipt).
+4. **Reorder suggestions for fast movers** — new transparent rule **STK-05** (method) with editable thresholds (reorder below 14 days of cover, top up to 30 days). Fast movers = top 20% by units in the look-back period. Test-first (`tests/unit/reorder.test.ts`); shown on the Stock page labelled "Estimate". The demo's on-hand range was widened so a few fast movers run low (7 suggestions); planted issues and headline numbers are unchanged.
+5. **Findings export to Excel** — done in Phase 4 (and CSV), formula-injection guarded.
+6. **Accessibility pass** — added axe-core (WCAG 2.1 A/AA) checks for the start page and every analysis page with review mode on, plus a keyboard-only journey test. Fixed: muted text contrast (`--ink-3` darkened to pass 4.5:1), focus no longer jumps past the skip link on first load. Earlier fixes from the React review also count here (focus ring on file pickers, `aria-pressed` review buttons, labelled regions for scrollable tables, colour never the only signal).
