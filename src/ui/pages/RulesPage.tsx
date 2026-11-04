@@ -4,6 +4,7 @@ import { RULES, type RuleArea } from '../../rules/rules.config';
 import type { Route } from '../router';
 import { useApp } from '../state';
 import { PageHeader } from '../components/common';
+import { DraftNumber } from '../components/DraftNumber';
 
 const AREAS: RuleArea[] = ['profit', 'stock', 'suppliers', 'cashflow'];
 
@@ -40,19 +41,7 @@ export function RulesPage({ route }: { route: Route }) {
                     <label htmlFor={`th-${th.key}`}>{t(`thresholdLabels.${th.key}`)}</label>
                     <div className="input-unit">
                       {th.unit === 'rm' ? <span className="unit">RM</span> : null}
-                      <input
-                        id={`th-${th.key}`}
-                        type="number"
-                        min={th.min}
-                        max={th.max}
-                        step={th.step}
-                        value={settings.thresholds[th.key]}
-                        onChange={(e) => {
-                          const v = Number(e.target.value);
-                          if (e.target.value !== '' && Number.isFinite(v)) setThreshold(th.key, v);
-                        }}
-                        data-testid={`threshold-${th.key}`}
-                      />
+                      <DraftNumber id={`th-${th.key}`} min={th.min} max={th.max} step={th.step} value={settings.thresholds[th.key]} onCommit={(n) => setThreshold(th.key, n)} data-testid={`threshold-${th.key}`} />
                       {th.unit !== 'rm' ? <span className="unit">{t(`rules.units.${th.unit}`)}</span> : null}
                     </div>
                     <span className="muted small">{t('rules.default', { value: `${th.unit === 'rm' ? 'RM ' : ''}${num(th.default, th.step < 1 ? 1 : 0)}${th.unit === 'percent' ? '%' : th.unit === 'rm' ? '' : ` ${t(`rules.units.${th.unit}`)}`}` })}</span>

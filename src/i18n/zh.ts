@@ -149,6 +149,8 @@ const zh: Dict = {
     reference: '参考',
   },
   mapping: {
+    requiredNote: '必填。',
+    oneOfNote: '标有 † 的栏位至少需要选择一个。',
     title: '检查栏位',
     intro: '我们根据标题猜测了每个栏位的用途。如有不对，请修改。',
     remembered: '正在使用您上次为这种文件格式选择的栏位。',
@@ -164,6 +166,7 @@ const zh: Dict = {
     colLetter: '第 {letter} 栏',
   },
   readErrors: {
+    workerCrashed: '分析已停止（浏览器可能内存不足）。请重新加载页面，并尝试较小的文件或较短的期间。',
     unsupportedType: '不支持这种文件类型。请使用 CSV 或 Excel（.xlsx）。',
     xlsNotSupported: '不支持旧版 Excel（.xls）文件。请用 Excel 打开，再“另存为” .xlsx 或 CSV。',
     emptyFile: '这个文件看来是空的。',
@@ -431,6 +434,7 @@ const zh: Dict = {
     minimumBalance: '最低现金结余',
   },
   report: {
+    colRule: '规则',
     title: '老板报告',
     subtitle: '零售健康检查',
     prepared: '编制于 {date:date} · 资料期间 {from:date} 至 {to:date}',

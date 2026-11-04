@@ -150,6 +150,8 @@ const en = {
     reference: 'Reference',
   },
   mapping: {
+    requiredNote: 'Needed.',
+    oneOfNote: 'At least one of the columns marked † is needed.',
     title: 'Check the columns',
     intro: 'We guessed which column is which from the headers. Change any that are wrong.',
     remembered: 'Using the columns you chose last time for this file layout.',
@@ -165,6 +167,7 @@ const en = {
     colLetter: 'Column {letter}',
   },
   readErrors: {
+    workerCrashed: 'The analysis stopped (the browser may have run out of memory). Reload the page and try a smaller file or a shorter period.',
     unsupportedType: 'This file type is not supported. Please use CSV or Excel (.xlsx).',
     xlsNotSupported: 'Old Excel (.xls) files are not supported. Open it in Excel and "Save as" .xlsx or CSV.',
     emptyFile: 'This file looks empty.',
@@ -350,6 +353,7 @@ const en = {
   ruleText: {} as Record<string, { title: string; description: string; why: string }>,
   thresholdLabels: {} as Record<string, string>,
   report: {
+    colRule: 'Rule',
     title: 'Owner report',
     subtitle: 'Retail health check',
     prepared: 'Prepared {date:date} · Data {from:date} to {to:date}',

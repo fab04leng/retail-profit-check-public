@@ -73,9 +73,9 @@ export function FindingCard({ finding: f }: { finding: Finding }) {
       {reviewMode ? (
         <fieldset className="review">
           <legend>{t('review.status')}</legend>
-          <div className="review-buttons" role="radiogroup" aria-label={t('review.status')}>
+          <div className="review-buttons">
             {STATUSES.map((s) => (
-              <button key={s} type="button" role="radio" aria-checked={review?.status === s} className={`btn btn-small review-${s} ${review?.status === s ? 'is-on' : ''}`} onClick={() => setReview(f.id, review?.status === s ? null : s)}>
+              <button key={s} type="button" aria-pressed={review?.status === s} className={`btn btn-small review-${s} ${review?.status === s ? 'is-on' : ''}`} onClick={() => setReview(f.id, review?.status === s ? null : s)}>
                 {t(`review.${s}`)}
               </button>
             ))}
@@ -84,6 +84,7 @@ export function FindingCard({ finding: f }: { finding: Finding }) {
             {t('review.note')}
           </label>
           <textarea
+            key={review ? 'has-review' : 'no-review'}
             id={noteId}
             className="note"
             placeholder={t('review.notePlaceholder')}

@@ -189,6 +189,7 @@ table.data.small { font-size: 0.84rem; }
 .filecard { display: flex; flex-direction: column; }
 .filecard.needs-fix { border-color: #e0a100; box-shadow: 0 0 0 2px #fde7b0; }
 .filecard-head { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; align-items: baseline; }
+.file-input:focus-visible + label { outline: 3px solid var(--focus); outline-offset: 2px; }
 .filecard-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 4px 0 8px; }
 .ok-line, .error-line, .warn-line, .info-line { display: flex; gap: 6px; align-items: flex-start; }
 .ok-line { color: var(--good); }
@@ -256,7 +257,11 @@ dialog.evidence::backdrop { background: rgb(10 20 18 / 45%); }
 .disclaimer-box { border: 1px solid var(--line); background: var(--surface-2); padding: 10px 12px; border-radius: 8px; font-size: 0.88rem; font-weight: 600; }
 .demo-note { background: var(--warn-soft); padding: 6px 10px; border-radius: 6px; font-size: 0.88rem; }
 .appendix-table td { overflow-wrap: anywhere; }
-.rules-used { font-size: 0.85rem; padding-left: 18px; }
+.rules-used { font-size: 0.85rem; padding-left: 18px; overflow-wrap: anywhere; }
+.report .table-wrap { border: none; }
+.appendix-table { min-width: 560px; }
+.appendix-table td.nowrap { white-space: nowrap; }
+.appendix-table td.review-col { min-width: 7.5em; overflow-wrap: normal; }
 
 /* Phones */
 @media (max-width: 700px) {
@@ -272,6 +277,9 @@ dialog.evidence::backdrop { background: rgb(10 20 18 / 45%); }
   .hbar-row .hbar-track { grid-column: 1 / -1; grid-row: 2; }
   .report-page, .report-appendix { padding: 16px; }
   .finding-amount { text-align: left; }
+  .report-key th, .report-key td { display: block; width: auto !important; border-bottom: none; padding: 2px 0; }
+  .report-key td.num { text-align: left; font-size: 1.15rem; }
+  .report-key tr { display: block; border-bottom: 1px solid var(--line); padding: 8px 0; }
 }
 
 /* Print: one-page owner summary, then the appendix */
@@ -286,6 +294,7 @@ dialog.evidence::backdrop { background: rgb(10 20 18 / 45%); }
   .card, .finding { box-shadow: none; break-inside: avoid; }
   a { color: inherit; text-decoration: none; }
   .table-wrap { overflow: visible; border: none; }
+  .appendix-table { min-width: 0; }
   .data thead th { position: static; }
   @page { size: A4; margin: 14mm; }
 }

@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import type { Mapping } from '../core/mapping';
+import { sanitizeMapping, type Mapping } from '../core/mapping';
 import { clearAll as clearStorage, loadJSON, saveJSON } from '../core/storage';
 import type { FileKind } from '../core/types';
 import type { Lang } from '../i18n';
@@ -87,6 +87,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const reviewKey = useRef<string | null>(null);
   const settingsRef = useRef(settings);
   settingsRef.current = settings;
+  /** Bumped by every change to the loaded data; results from older analyses are dropped. */
+  const runId = useRef(0);
+  const skipSave = useRef(false);
+  const bump = () => ++runId.current;
 
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
@@ -99,17 +103,19 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const runAnalysis = useCallback(
     async (s: Settings) => {
+      const id = bump();
       setBusy('analysing');
       setError(null);
       try {
         const p = await engine.analyse(s);
+        if (id !== runId.current) return false; // something changed while this ran
         setPayload(p);
         return true;
       } catch (e) {
-        setError(e instanceof EngineError ? e.code : 'generic');
+        if (id === runId.current) setError(e instanceof EngineError ? e.code : 'generic');
         return false;
       } finally {
-        setBusy(null);
+        if (id === runId.current) setBusy(null);
       }
     },
     [engine],
@@ -122,6 +128,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const stageFile = useCallback(
     async (kind: FileKind, file: File) => {
+      bump();
       setBusy('reading');
       setFileErrors((e) => ({ ...e, [kind]: undefined }));
       try {
@@ -136,10 +143,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
         const buffer = await file.arrayBuffer();
         // Look up a remembered mapping for this layout after reading headers.
         let meta = await engine.stageFile(kind, file.name.slice(0, 120), buffer);
-        const remembered = loadJSON(`mapping.${meta.signature}`);
-        if (remembered && !meta.remembered) {
-          const m = await engine.setMapping(kind, remembered as Mapping);
-          if (!m.problems.length || m.problems.length <= meta.problems.length) meta = { ...m, remembered: true };
+        const remembered = sanitizeMapping(kind, loadJSON(`mapping.${meta.signature}`), meta.headers.length);
+        if (remembered && Object.keys(remembered).length) {
+          const m = await engine.setMapping(kind, remembered);
+          if (m.problems.length <= meta.problems.length) meta = { ...m, remembered: true };
+          else await engine.setMapping(kind, meta.mapping); // keep engine and screen in step
         }
         setStaged((s) => ({ ...s, [kind]: meta }));
         setPayload(null);
@@ -154,17 +162,23 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const setMapping = useCallback(
     async (kind: FileKind, mapping: Mapping) => {
-      const meta = await engine.setMapping(kind, mapping);
-      saveJSON(`mapping.${meta.signature}`, mapping);
-      setStaged((s) => ({ ...s, [kind]: meta }));
-      setPayload(null);
+      bump();
+      try {
+        const meta = await engine.setMapping(kind, mapping);
+        saveJSON(`mapping.${meta.signature}`, mapping);
+        setStaged((s) => ({ ...s, [kind]: meta }));
+        setPayload(null);
+      } catch (e) {
+        setFileErrors((x) => ({ ...x, [kind]: e instanceof EngineError ? e.code : 'generic' }));
+      }
     },
     [engine],
   );
 
   const removeFile = useCallback(
     async (kind: FileKind) => {
-      await engine.remove(kind);
+      bump();
+      await engine.remove(kind).catch(() => undefined);
       setStaged((s) => {
         const n = { ...s };
         delete n[kind];
@@ -177,6 +191,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   );
 
   const loadDemo = useCallback(async () => {
+    bump();
     setBusy('demo');
     setError(null);
     try {
@@ -189,6 +204,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setDemoShop(demo.shopName);
       const stored = loadJSON('cashflow.demo');
       const s = mergeSettings({ thresholds: settingsRef.current.thresholds, cashflow: stored ?? { ...defaultCashflowInputs(), ...demo.cashflow } });
+      skipSave.current = true; // runAnalysis below already uses these settings
       setSettings(s);
       loadReviewsFor('demo');
       return await runAnalysis(s);
@@ -205,8 +221,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [isDemo, staged, runAnalysis, loadReviewsFor]);
 
   const clearEverything = useCallback(async () => {
-    await engine.clear();
+    bump();
+    setBusy(null);
+    await engine.clear().catch(() => undefined);
     clearStorage();
+    skipSave.current = true;
     setStaged({});
     setFileErrors({});
     setIsDemo(false);
@@ -224,11 +243,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
       first.current = false;
       return;
     }
+    if (skipSave.current) {
+      skipSave.current = false;
+      return;
+    }
     saveJSON('thresholds', settings.thresholds);
     saveJSON(isDemo ? 'cashflow.demo' : 'cashflow.files', settings.cashflow);
     if (!payload) return;
     const id = setTimeout(() => void runAnalysis(settings), 250);
     return () => clearTimeout(id);
+    // Only settings changes should trigger this; payload/isDemo are read at that moment on purpose.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [settings]);
 
@@ -243,16 +267,26 @@ export function AppProvider({ children }: { children: ReactNode }) {
       const next = { ...r };
       if (status === null) delete next[id];
       else next[id] = { status, note: (note ?? r[id]?.note ?? '').slice(0, 2000), at: new Date().toISOString().slice(0, 10) };
-      if (reviewKey.current) saveJSON(`reviews.${reviewKey.current}`, next);
       return next;
     });
+    reviewsDirty.current = true;
   }, []);
+  const reviewsDirty = useRef(false);
+  useEffect(() => {
+    if (!reviewsDirty.current || !reviewKey.current) return;
+    reviewsDirty.current = false;
+    saveJSON(`reviews.${reviewKey.current}`, reviews);
+  }, [reviews]);
 
-  const value: AppState = {
-    lang, setLang, reviewMode, setReviewMode, staged, fileErrors, stageFile, setMapping, removeFile,
-    isDemo, demoShop, loadDemo, clearEverything, settings, setThreshold, resetThresholds, setCashflow,
-    payload, busy, analyse, error, reviews, setReview, getRows: engine.getRows.bind(engine),
-  };
+  const getRows = useMemo(() => engine.getRows.bind(engine), [engine]);
+  const value = useMemo<AppState>(
+    () => ({
+      lang, setLang, reviewMode, setReviewMode, staged, fileErrors, stageFile, setMapping, removeFile,
+      isDemo, demoShop, loadDemo, clearEverything, settings, setThreshold, resetThresholds, setCashflow,
+      payload, busy, analyse, error, reviews, setReview, getRows,
+    }),
+    [lang, setLang, reviewMode, setReviewMode, staged, fileErrors, stageFile, setMapping, removeFile, isDemo, demoShop, loadDemo, clearEverything, settings, setThreshold, resetThresholds, setCashflow, payload, busy, analyse, error, reviews, setReview, getRows],
+  );
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
 

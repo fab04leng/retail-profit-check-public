@@ -1,0 +1,10 @@
+Laporan Jualan Jan 2026
+
+Tarikh,No. Resit,Kod Item,Nama Barang,Kuantiti,Harga Seunit (RM),Jumlah (RM),Cawangan
+02/01/2026,R1,A1,Beras Wangi 5kg,2,"28.90","57.80",Jelutong
+03/01/2026,R2,A2,Kopi O 1kg,1,24.50,24.50,Jelutong
+31/02/2026,R3,A1,Beras Wangi 5kg,1,28.90,28.90,Jelutong
+04/01/2026,R4,,,1,5.00,5.00,Jelutong
+05/01/2026,R5,A2,Kopi O 1kg,dua,24.50,49.00,Jelutong
+06/01/2026,R6,A1,Beras Wangi 5kg,-1,28.90,-28.90,Jelutong
+,Jumlah,,,,,135.70,

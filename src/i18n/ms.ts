@@ -149,6 +149,8 @@ const ms: Dict = {
     reference: 'Rujukan',
   },
   mapping: {
+    requiredNote: 'Diperlukan.',
+    oneOfNote: 'Sekurang-kurangnya satu lajur bertanda † diperlukan.',
     title: 'Semak lajur',
     intro: 'Kami meneka lajur mana untuk apa berdasarkan tajuknya. Tukar mana-mana yang salah.',
     remembered: 'Menggunakan lajur yang anda pilih kali lepas untuk susun atur fail ini.',
@@ -164,6 +166,7 @@ const ms: Dict = {
     colLetter: 'Lajur {letter}',
   },
   readErrors: {
+    workerCrashed: 'Analisis terhenti (pelayar mungkin kehabisan memori). Muat semula halaman dan cuba fail yang lebih kecil atau tempoh yang lebih pendek.',
     unsupportedType: 'Jenis fail ini tidak disokong. Sila guna CSV atau Excel (.xlsx).',
     xlsNotSupported: 'Fail Excel lama (.xls) tidak disokong. Buka dalam Excel dan "Simpan sebagai" .xlsx atau CSV.',
     emptyFile: 'Fail ini nampaknya kosong.',
@@ -431,6 +434,7 @@ const ms: Dict = {
     minimumBalance: 'Baki tunai minimum',
   },
   report: {
+    colRule: 'Peraturan',
     title: 'Laporan pemilik',
     subtitle: 'Semakan kesihatan runcit',
     prepared: 'Disediakan {date:date} · Data {from:date} hingga {to:date}',

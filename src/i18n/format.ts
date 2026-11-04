@@ -27,7 +27,7 @@ export function formatNum(n: number, lang: Lang = 'en', digits = 0): string {
 
 export function formatPct(n: number, lang: Lang = 'en'): string {
   if (!Number.isFinite(n)) return '—';
-  return `${numberFormat(lang, Math.abs(n) < 10 && n % 1 !== 0 ? 1 : 1).format(n)}%`;
+  return `${numberFormat(lang, 1).format(n)}%`;
 }
 
 /** ISO date → "16 Nov 2026" / "2026年11月16日" / "16 Nov 2026". */

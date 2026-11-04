@@ -5,13 +5,14 @@ import { CashChart } from '../components/Charts';
 import { FindingList } from '../components/FindingCard';
 import { Money, NoData, PageHeader, TableWrap } from '../components/common';
 import { AlertIcon } from '../components/Icons';
+import { DraftNumber } from '../components/DraftNumber';
 
 function NumberInput({ value, onChange, label, step = 100, min }: { value: number; onChange: (n: number) => void; label: string; step?: number; min?: number }) {
   const id = useId();
   return (
     <div className="field">
       <label htmlFor={id}>{label}</label>
-      <input id={id} type="number" inputMode="decimal" step={step} min={min} value={Number.isFinite(value) ? value : 0} onChange={(e) => onChange(Number(e.target.value) || 0)} />
+      <DraftNumber id={id} step={step} min={min} value={Number.isFinite(value) ? value : 0} onCommit={onChange} />
     </div>
   );
 }

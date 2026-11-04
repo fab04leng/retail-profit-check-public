@@ -12,7 +12,7 @@ function colLetter(i: number): string {
   return s;
 }
 
-export function MappingWizard({ meta, onChange }: { meta: StagedMeta; onChange: (m: Mapping) => void }) {
+export function MappingWizard({ meta, onChange, disabled }: { meta: StagedMeta; onChange: (m: Mapping) => void; disabled?: boolean }) {
   const { t } = useI18n();
   const base = useId();
   const fields = FIELDS[meta.kind];
@@ -44,11 +44,12 @@ export function MappingWizard({ meta, onChange }: { meta: StagedMeta; onChange: 
                       {fieldName(f.key)}
                       {f.required ? <span className="req" aria-hidden="true"> *</span> : null}
                     </label>
-                    {needed && !f.required ? <span className="muted small"> ({t('start.optional')}*)</span> : null}
+                    {needed && !f.required ? <span className="req" aria-hidden="true"> †</span> : null}
                   </th>
                   <td>
                     <select
                       id={id}
+                      disabled={disabled}
                       value={col === undefined ? '' : String(col)}
                       onChange={(e) => {
                         const next: Mapping = { ...meta.mapping };
@@ -72,6 +73,9 @@ export function MappingWizard({ meta, onChange }: { meta: StagedMeta; onChange: 
           </tbody>
         </table>
       </TableWrap>
+      <p className="muted small">
+        <span className="req">*</span> {t('mapping.requiredNote')} <span className="req">†</span> {t('mapping.oneOfNote')}
+      </p>
       {meta.problems.length ? (
         <ul className="problems" role="alert">
           {meta.problems.map((p, i) => (

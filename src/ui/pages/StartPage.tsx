@@ -36,7 +36,8 @@ function FileCard({ kind }: { kind: FileKind }) {
           id={id}
           type="file"
           accept=".csv,.txt,.tsv,.xlsx,.xlsm,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-          className="sr-only"
+          className="sr-only file-input"
+          disabled={!!busy}
           onChange={(e) => {
             const f = e.target.files?.[0];
             if (f) void stageFile(kind, f);
@@ -64,7 +65,7 @@ function FileCard({ kind }: { kind: FileKind }) {
             <CheckIcon size={14} /> {t('start.rowsRead', { n: meta.dataRowCount, file: meta.fileName })}
           </p>
           {meta.dataRowCount > 50000 ? <p className="muted small">{t('start.largeFile')}</p> : null}
-          {!isDemo ? <MappingWizard meta={meta} onChange={(m) => void setMapping(kind, m)} /> : null}
+          {!isDemo ? <MappingWizard meta={meta} disabled={!!busy} onChange={(m) => void setMapping(kind, m)} /> : null}
         </>
       ) : null}
     </section>
@@ -138,7 +139,10 @@ export function StartPage() {
   const { t } = useI18n();
   const app = useApp();
   const { staged, busy, isDemo, payload } = app;
-  const [msg, setMsg] = useState<string | null>(null);
+  // A status message belongs to the files it was about; it disappears when they change.
+  const [status, setStatus] = useState<{ text: string; files: typeof staged } | null>(null);
+  const msg = status && status.files === staged ? status.text : null;
+  const setMsg = (text: string) => setStatus({ text, files: staged });
   const hasRequired = REQUIRED.every((k) => staged[k]);
   const problems = Object.values(staged).some((m) => m && m.problems.length);
   return (

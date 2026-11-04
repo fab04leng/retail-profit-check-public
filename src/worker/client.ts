@@ -1,7 +1,6 @@
 import type { Mapping } from '../core/mapping';
 import type { FileKind } from '../core/types';
 import type { Settings } from '../rules/settings';
-import { EngineCore } from './core';
 import type { AnalysisPayload, DemoInfo, Engine, Request, Response, SourceRows, StagedMeta } from './protocol';
 
 export class EngineError extends Error {
@@ -17,6 +16,7 @@ type Op = Request['op'];
 class WorkerEngine implements Engine {
   private nextId = 1;
   private pending = new Map<number, Pending>();
+  private dead = false;
   constructor(private worker: Worker) {
     worker.onmessage = (e: MessageEvent<Response>) => {
       const p = this.pending.get(e.data.id);
@@ -25,12 +25,22 @@ class WorkerEngine implements Engine {
       if (e.data.ok) p.resolve(e.data.value);
       else p.reject(new EngineError(e.data.error.code, e.data.error.message));
     };
-    worker.onerror = () => {
-      for (const p of this.pending.values()) p.reject(new EngineError('generic', 'worker error'));
+    const fail = () => {
+      // A crashed worker (e.g. out of memory on a huge file) is not reused.
+      this.dead = true;
+      worker.terminate();
+      for (const p of this.pending.values()) p.reject(new EngineError('workerCrashed', 'worker error'));
       this.pending.clear();
     };
+    worker.onerror = fail;
+    worker.onmessageerror = fail;
+  }
+  terminate(): void {
+    this.dead = true;
+    this.worker.terminate();
   }
   private call<T>(op: Op, args: unknown[], transfer: Transferable[] = []): Promise<T> {
+    if (this.dead) return Promise.reject(new EngineError('workerCrashed', 'worker stopped'));
     const id = this.nextId++;
     return new Promise<T>((resolve, reject) => {
       this.pending.set(id, { resolve: resolve as (v: unknown) => void, reject });
@@ -62,32 +72,35 @@ class WorkerEngine implements Engine {
 
 /** Wrap the in-page engine so its errors look the same as worker errors. */
 class InlineEngine implements Engine {
-  private core = new EngineCore();
-  private wrap<T>(p: Promise<T>): Promise<T> {
-    return p.catch((err) => {
+  // Loaded only when the worker is unavailable, so the normal page download stays small.
+  private core = import('./core').then((m) => new m.EngineCore());
+  private async run<T>(f: (c: Engine) => Promise<T>): Promise<T> {
+    try {
+      return await f(await this.core);
+    } catch (err) {
       throw new EngineError((err as { code?: string }).code ?? 'generic', String((err as Error).message ?? err));
-    });
+    }
   }
   stageFile(kind: FileKind, fileName: string, buffer: ArrayBuffer, remembered?: unknown) {
-    return this.wrap(this.core.stageFile(kind, fileName, buffer, remembered));
+    return this.run((c) => c.stageFile(kind, fileName, buffer, remembered));
   }
   loadDemo() {
-    return this.wrap(this.core.loadDemo());
+    return this.run((c) => c.loadDemo());
   }
   setMapping(kind: FileKind, mapping: Mapping) {
-    return this.wrap(this.core.setMapping(kind, mapping));
+    return this.run((c) => c.setMapping(kind, mapping));
   }
   remove(kind: FileKind) {
-    return this.wrap(this.core.remove(kind));
+    return this.run((c) => c.remove(kind));
   }
   clear() {
-    return this.wrap(this.core.clear());
+    return this.run((c) => c.clear());
   }
   analyse(settings: Settings) {
-    return this.wrap(this.core.analyse(settings));
+    return this.run((c) => c.analyse(settings));
   }
   getRows(kind: FileKind, rows: number[]) {
-    return this.wrap(this.core.getRows(kind, rows));
+    return this.run((c) => c.getRows(kind, rows));
   }
 }
 
@@ -100,7 +113,12 @@ class AutoEngine implements Engine {
         if (typeof Worker === 'undefined') throw new Error('no worker');
         const w = new Worker(new URL('./analysis.worker.ts', import.meta.url), { type: 'module' });
         const engine = new WorkerEngine(w);
-        await Promise.race([engine.clear(), new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 4000))]);
+        try {
+          await Promise.race([engine.clear(), new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 4000))]);
+        } catch (e) {
+          engine.terminate();
+          throw e;
+        }
         return engine;
       } catch {
         return new InlineEngine();

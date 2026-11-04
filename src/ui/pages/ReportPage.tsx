@@ -4,7 +4,7 @@ import { useI18n } from '../../i18n';
 import { RULES, RULES_BY_ID, type RuleArea } from '../../rules/rules.config';
 import { useApp } from '../state';
 import { findingMessage } from '../components/FindingCard';
-import { Money, NoData } from '../components/common';
+import { Money, NoData, TableWrap } from '../components/common';
 import { PrintIcon } from '../components/Icons';
 import { exportFindingsCsv, exportFindingsXlsx } from '../exportFindings';
 
@@ -57,16 +57,17 @@ export function ReportPage() {
         <p className="muted small">{t('report.printHint')}</p>
       </div>
 
-      <section className="report-page" aria-labelledby="report-title">
+      <section className="report-page" aria-labelledby="page-title">
         <header className="report-head">
           <div>
             <p className="eyebrow">{t('app.name')} · {t('report.subtitle')}</p>
-            <h1 id="report-title">{isDemo && demoShop ? demoShop : t('report.title')}</h1>
+            <h1 id="page-title" tabIndex={-1}>{isDemo && demoShop ? demoShop : t('report.title')}</h1>
             {r.period ? <p className="muted">{t('report.prepared', { date: today, from: r.period.from, to: r.period.to })}</p> : null}
           </div>
         </header>
         {isDemo ? <p className="demo-note">{t('app.demoBanner', { shop: demoShop ?? '' })}</p> : null}
         <h2>{t('report.keyNumbers')}</h2>
+        <TableWrap label={t('report.keyNumbers')}>
         <table className="report-key">
           <tbody>
             <tr>
@@ -83,6 +84,7 @@ export function ReportPage() {
             ))}
           </tbody>
         </table>
+        </TableWrap>
         <h2>{t('report.reviewStatus')}</h2>
         <p>{t('report.reviewSummary', counts)}</p>
         <p className="muted small">{t('report.reviewNote')}</p>
@@ -99,15 +101,19 @@ export function ReportPage() {
         <h2 id="appendix-title">{t('report.appendix')}</h2>
         <p className="muted small">{t('report.appendixIntro')}</p>
         {AREAS.map((area) => {
-          const list = appendix.filter((f) => RULES_BY_ID[f.ruleId].area === area);
+          const rank = { high: 0, medium: 1, low: 2 } as const;
+          const list = appendix
+            .filter((f) => RULES_BY_ID[f.ruleId].area === area)
+            .sort((a, b) => rank[a.severity] - rank[b.severity] || (b.amount ?? 0) - (a.amount ?? 0));
           if (!list.length) return null;
           return (
             <div key={area} className="appendix-area">
               <h3>{t(`findings.areas.${area}`)} ({num(list.length)})</h3>
+              <TableWrap label={t(`findings.areas.${area}`)}>
               <table className="data small appendix-table">
                 <thead>
                   <tr>
-                    <th scope="col">{t('common.ruleFired', { id: '' }).trim()}</th>
+                    <th scope="col">{t('report.colRule')}</th>
                     <th scope="col">{t('common.product')} / {t('common.supplier')}</th>
                     <th scope="col">{t('common.amount')}</th>
                     <th scope="col">{t('review.status')}</th>
@@ -118,7 +124,7 @@ export function ReportPage() {
                     const rv = reviews[f.id];
                     return (
                       <tr key={f.id}>
-                        <td>{f.ruleId}</td>
+                        <td className="nowrap">{f.ruleId}</td>
                         <td>
                           <strong>{f.subject}</strong>
                           <div>{findingMessage(f, t, date)}</div>
@@ -128,7 +134,7 @@ export function ReportPage() {
                           {f.amount !== undefined ? <Money value={f.amount} /> : null}
                           {f.amountKind ? <div className="muted">{t(`amountKind.${f.amountKind}`)}</div> : null}
                         </td>
-                        <td>
+                        <td className="review-col">
                           {rv ? t(`review.${rv.status}`) : t('review.unreviewed')}
                           {rv?.note ? <div className="muted">{rv.note}</div> : null}
                         </td>
@@ -137,6 +143,7 @@ export function ReportPage() {
                   })}
                 </tbody>
               </table>
+              </TableWrap>
             </div>
           );
         })}
