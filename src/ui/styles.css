@@ -298,3 +298,5 @@ dialog.evidence::backdrop { background: rgb(10 20 18 / 45%); }
   .data thead th { position: static; }
   @page { size: A4; margin: 14mm; }
 }
+
+.layout-field { max-width: 420px; margin: 0 0 16px; }

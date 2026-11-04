@@ -61,6 +61,8 @@ Do not deploy it publicly with real customer data in mind: it is meant to run on
 6. **Report** — a one-page owner summary (print or save as PDF), then an appendix of every finding with its rows and review status. Findings can be downloaded as CSV or Excel for the accountant.
 7. Switch language (English / 中文 / Bahasa Melayu) at the top right.
 
+**POS / accounting exports:** the Start page has a **File layout** selector with presets for Loyverse, StoreHub, AutoCount and SQL Account. They are **unverified** — built from public help pages and guesses, not tested on real exports — and only pre-select columns; always check the mapping. See `src/core/adapters.ts`.
+
 ## What it checks
 
 All thresholds live in one file: [`src/rules/rules.config.ts`](src/rules/rules.config.ts).
@@ -74,6 +76,7 @@ All thresholds live in one file: [`src/rules/rules.config.ts`](src/rules/rules.c
 | STK-02 | Dead stock: no sale for more than 90 days |
 | STK-03 | Slow stock: no sale for more than 60 days (not yet dead) |
 | STK-04 | Days of stock cover (on hand ÷ average daily units over 90 days) |
+| STK-05 | Reorder suggestion for fast movers below 14 days of cover (estimate) |
 | SUP-01 | Possible duplicate invoice: same supplier + same invoice number |
 | SUP-02 | Possible duplicate invoice: same supplier + same amount within 7 days |
 | SUP-03 | Supplier unit price up more than 5% on the previous price |
@@ -96,11 +99,11 @@ It does not replace an accountant, produce audited accounts or give tax advice; 
 
 | Command | What |
 |---|---|
-| `npm test` | 225 unit, accuracy and performance tests (Vitest) |
+| `npm test` | 233 unit, accuracy and performance tests (Vitest) |
 | `npm run test:accuracy` | Analyses on the demo data vs the answer key, with a false-positive report |
 | `npm run test:perf` | 100,000 sales rows end to end |
 | `npm run test:coverage` | Coverage of the non-UI code (≈94% statements) |
-| `npm run test:e2e` | 17 Playwright tests (demo journey, every page, evidence, languages, review mode, print/PDF, uploads, XSS, 100k-row upload, offline build); screenshots go to `docs/screenshots/` |
+| `npm run test:e2e` | 21 Playwright tests (demo journey, every page, evidence, languages, review mode, print/PDF, uploads, POS layout preset, XSS, 100k-row upload, offline build, axe WCAG 2.1 AA on every page, keyboard-only journey); screenshots go to `docs/screenshots/` |
 | `npm run lint` / `npm run typecheck` | ESLint (bans `dangerouslySetInnerHTML`) and TypeScript strict |
 | `npm run verify` | All of the above |
 
