@@ -118,11 +118,13 @@ src/worker     Web Worker engine (+ on-page fallback)
 src/i18n       English, 中文, Bahasa Melayu
 src/ui         React pages and components
 tests/         unit, accuracy, perf      e2e/   Playwright
-sales-kit/     offer, interview script, WhatsApp messages, objections, pilot agreement draft, demo script (EN + 中文)
+sales-kit/     offer, interview script, WhatsApp messages, objections, pilot agreement draft, pilot onboarding guide, demo script (EN + 中文)
 marketing/     landing page, demo videos, 30-day social calendar, ads + RM500 test plan, lead tracking (see marketing/README.md)
 research/      synthetic objection rehearsal — NOT market validation
 marketing-agent/  n8n marketing agent: post drafts, publisher, lead inbox, weekly report (human approval for everything)
-docs/          PLAN, PROGRESS, DECISIONS, LIMITATIONS, screenshots
+docs/          PLAN, PROGRESS, DECISIONS, LIMITATIONS, FINAL_REVIEW, screenshots,
+               accountant-review/ (rule-review pack for the accountant, EN + 中文 PDF)
+src/review     builds the accountant rule-review pack (npm run accountant:pdf)
 .claude/       selected ECC agents, skills and rules used to build this (no hooks)
 ```
 
@@ -135,6 +137,7 @@ docs/          PLAN, PROGRESS, DECISIONS, LIMITATIONS, screenshots
 - Only settings, column mappings and review notes are kept, in the browser's localStorage; **Clear data and remembered settings** on the Start page removes them.
 - File contents are only ever rendered as text (React escaping; no `innerHTML`), long cells are capped, and crafted files (zip bombs, huge rows, slow-regex strings) are refused or capped.
 - Exported CSV/Excel cells that start with `=`, `+`, `-`, `@`, tab or CR are prefixed with `'` so spreadsheets do not run them as formulas.
+- Before a pilot, give the owner `sales-kit/06-pilot-onboarding.en.md` (or `.zh.md`): what to export and which personal data to delete before sending.
 - For pilots, keep owners' files on an encrypted laptop and delete them after the pilot (see `sales-kit/05-pilot-agreement-draft.en.md`, a draft that must be reviewed by a lawyer).
 
 ## Licence and credits

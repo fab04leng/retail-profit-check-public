@@ -189,3 +189,12 @@ Made unattended; each decision logged here instead of asking.
 - **The sign-off says what it is not:** "a review of the tool's rules only … not an audit, review or other assurance engagement", so the accountant's signature cannot be presented as assurance on a shop's numbers.
 - **Professional body field is generic** ("Professional body and membership no.") rather than assuming ACCA or MIA.
 - **Price-controlled goods are mentioned with "may be"**: the pack says some staples "may be price-controlled" rather than naming which items are controlled today, because that list changes and could not be checked from here.
+
+### Part 2 — Pilot onboarding guide
+- **One guide per language (`sales-kit/06-pilot-onboarding.{en,zh}.md`), numbered after the agreement** because it is handed over after signing. Linked from both sales-kit READMEs (new step 6 in the suggested flow) and the main README.
+- **Every system section is marked "unverified"**, with one banner explaining why: no real Loyverse, StoreHub, AutoCount or SQL Account export has been tested, and the vendor help sites could not be opened from here (same as the "unverified" layout presets). Menu paths are given as "look for…" where they are guesses, and the fallback is always "send us a screenshot of the Reports menu" rather than retyping data.
+- **Ask for supplier invoices from 1–2 months before the sales period** and payments up to today. This removes the most likely SUP-05 false positive (payments early in the period for older invoices), found while writing the accountant pack.
+- **Privacy list goes beyond names and phones:** IC numbers, membership numbers, staff names, bank account and card numbers, and till notes. It also covers hidden columns and extra sheets, because only the first sheet is read but every sheet is sent.
+- **The note to send includes cash in bank, overdraft and fixed monthly costs with their payment day**, because the cash outlook needs them and owners rarely put them in an export.
+- **Chinese wording uses 试点 for "pilot"**, matching the rest of the Chinese sales kit and landing page (one sentence of the agreement draft uses 试用; left as is since it describes the service as a trial).
+- **No promises beyond the agreement:** timelines and deletion refer to "your pilot agreement" rather than restating numbers that are still in square brackets for the lawyer.
