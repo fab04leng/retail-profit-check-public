@@ -104,4 +104,12 @@ Reply as a person, not a bot. Fill in the names; keep it short.
 **中文：**
 > 你好，谢谢你的信息！我是 [NAME]，跟 [ACCOUNTANT NAME]（ACCA 会计师，槟城）一起做的。可以用虚构的示范店给你看 5 分钟演示，视频或见面都可以。请问你开的是什么店？大概几间分店？
 
+**Greeting message** (WhatsApp Business → Business tools → Greeting message), sent automatically to new contacts:
+
+**EN:**
+> Hi, thanks for messaging Retail Profit Check! We'll reply soon (9 am–10 pm). Our replies may be drafted with an AI writing tool and are checked by a person before they are sent. Reply STOP anytime.
+
+**中文：**
+> 你好，谢谢你联系 Retail Profit Check！我们很快会回复（早上 9 点到晚上 10 点）。我们的回复可能先用 AI 写作工具起草，再由真人检查后才发出。随时回 STOP 就不再联系你。
+
 **After they answer:** offer two time slots for the demo. Then use `sales-kit/DEMO_SCRIPT*.md`, `sales-kit/04-objection-handling.*` and, for the pilot ask, `sales-kit/03-whatsapp-outreach.*` message 5. Never quote a monthly price as fixed; it's still being tested.

@@ -292,6 +292,25 @@ test('finaliseLead drafts for approval, adds a privacy line for new leads and ha
   assert.match(weird.compliance_flags, /BLOCK B4/);
 });
 
+test('the first reply to a new contact says replies may be drafted with an AI tool and checked by a person', () => {
+  // Arrange
+  const lead = leads.prepareLeads(leads.normaliseWhatsApp([waPayload]), [], cfg())[0];
+  // Act
+  const row = leads.finaliseLead(lead, leads.fakeClassify(lead), cfg(), new Date());
+  // Assert: the notice is there and does not trip brand rule B5 ("the product is not AI")
+  assert.match(row.draft_reply, /may be drafted with an AI writing tool and are checked by a person before they are sent/);
+  assert.doesNotMatch(row.compliance_flags || '', /B5/);
+  const repeat = leads.finaliseLead({ ...lead, is_new: false }, leads.fakeClassify(lead), cfg(), new Date());
+  assert.doesNotMatch(repeat.draft_reply, /AI writing tool/, 'only the first reply carries the notice');
+});
+
+test('the AI-drafting notice exists in English, Chinese and Malay and passes the brand rules', () => {
+  assert.match(leads.privacyLine('en'), /AI writing tool.*checked by a person/);
+  assert.match(leads.privacyLine('zh'), /AI 写作工具.*真人检查/);
+  assert.match(leads.privacyLine('ms'), /alat penulisan AI.*disemak oleh orang/);
+  for (const lang of ['en', 'zh', 'ms']) assert.deepEqual(blockIds(leads.privacyLine(lang, 'https://example.test/privacy')), [], lang);
+});
+
 // ---------- replies ----------
 const leadRow = { lead_id: 'L-1', source: 'whatsapp', contact_id: '60100000002', status: 'approved', draft_reply: 'Thanks! Which day suits you?', last_inbound_at: '2026-11-09 10:00', intent: 'question', do_not_contact: '' };
 

@@ -80,7 +80,7 @@ Polite, relaxed, short sentences. Use "anda", or "boss" for owners.
 
 - We **only reply to people who messaged us first.** No cold outreach, no bulk or broadcast messages, no buying or scraping contact lists (Malaysia PDPA; WhatsApp and Meta policies).
 - Replies go out only after a human approves them, and only within **24 hours of the person's last message** (the WhatsApp/Messenger service window). After that, the person must write to us again.
-- The first reply to a new contact includes a short privacy line: we use the number only to reply, and they can reply STOP at any time. Added automatically.
+- The first reply to a new contact includes a short privacy line: we use the number only to reply, replies may be drafted with an AI writing tool and are checked by a person before sending, and they can reply STOP at any time. Added automatically. (This is about how we write messages. It does not make the product "AI": rule B5 still applies.)
 - If someone says STOP, not interested, or asks us not to message them: one short, polite acknowledgement, then no more messages. Their details are deleted after the acknowledgement is sent.
 - Replies: at most 80 words (120 characters in Chinese). Answer the question, then offer one next step (15-min chat or 5-min demo). No links except our privacy notice. No price except the RM300 pilot.
 - Never ask for their files, bank details or IC number in chat. Files for a pilot are arranged after a call.
