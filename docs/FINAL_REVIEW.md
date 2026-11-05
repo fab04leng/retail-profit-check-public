@@ -83,3 +83,15 @@ The review was done inline: reading the code, running the five messy fixtures th
 | `npm run agent:check` (n8n build, 26 unit tests, workflow validator) | Passed |
 | `npm run build`, `npm run build:offline` | Built |
 | `npm audit --omit=dev` | 0 vulnerabilities |
+
+### After the `quick-fixes` branch (items 8, 13, 15, 17)
+
+| Check | Result |
+|---|---|
+| `npm run lint`, `npm run typecheck` | Clean |
+| `npm test` (Vitest) | 25 files, 301 tests passed |
+| `npm run test:e2e` (Playwright) | 32 passed, including the new day/month order test |
+| `npm run marketing:check` | Copy check passed |
+| `npm run agent:check` (n8n build, 30 unit tests, workflow validator against n8n 2.46.6 and 1.123.92) | Passed |
+| `npm run build`, `npm run build:offline` | Built |
+| `npm audit --omit=dev` | 0 vulnerabilities |
