@@ -21,7 +21,13 @@
     "test:coverage": "vitest run --coverage --coverage.include='src/**' --coverage.exclude='src/ui/**' --coverage.exclude='src/main.tsx' --coverage.exclude='src/worker/analysis.worker.ts' --coverage.exclude='src/worker/client.ts' --coverage.exclude='src/i18n/zh.ts' --coverage.exclude='src/i18n/ms.ts'",
     "marketing:check": "node marketing/scripts/check-copy.mjs",
     "marketing:social": "node marketing/scripts/build-social.mjs",
-    "marketing:ads": "node marketing/scripts/build-ads.mjs"
+    "marketing:ads": "node marketing/scripts/build-ads.mjs",
+    "agent:build": "node marketing-agent/src/build.mjs",
+    "agent:test": "node --test marketing-agent/tests/*.test.mjs",
+    "agent:schema": "bash marketing-agent/scripts/fetch-n8n-schema.sh 2.46.6 && bash marketing-agent/scripts/fetch-n8n-schema.sh 1.123.92",
+    "agent:validate": "node marketing-agent/scripts/validate.mjs --report",
+    "agent:check": "npm run agent:build && npm run agent:test && npm run agent:validate",
+    "agent:runtime": "node marketing-agent/scripts/runtime-test.mjs"
   },
   "dependencies": {
     "papaparse": "^5.7.0",

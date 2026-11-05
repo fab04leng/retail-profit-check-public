@@ -121,9 +121,14 @@ tests/         unit, accuracy, perf      e2e/   Playwright
 sales-kit/     offer, interview script, WhatsApp messages, objections, pilot agreement draft, demo script (EN + 中文)
 marketing/     landing page, demo videos, 30-day social calendar, ads + RM500 test plan, lead tracking (see marketing/README.md)
 research/      synthetic objection rehearsal — NOT market validation
+marketing-agent/  n8n marketing agent: post drafts, publisher, lead inbox, weekly report (human approval for everything)
 docs/          PLAN, PROGRESS, DECISIONS, LIMITATIONS, screenshots
 .claude/       selected ECC agents, skills and rules used to build this (no hooks)
 ```
+
+## Marketing agent (n8n)
+
+[`marketing-agent/`](marketing-agent/README.md) holds importable n8n workflows that draft social posts (EN + casual Malaysian Chinese), publish the ones you approve to a Facebook Page and Instagram, turn inbound WhatsApp/Messenger messages into leads with draft replies for approval, and send a weekly report per pitch. It replies only to people who wrote first. It is separate from the app and never touches owners' files. Start with [`marketing-agent/SETUP.md`](marketing-agent/SETUP.md).
 
 ## Privacy and security notes
 

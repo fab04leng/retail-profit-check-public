@@ -6,3 +6,5 @@ test-results
 .DS_Store
 coverage
 dist-offline
+marketing-agent/.n8n-schema
+marketing-agent/.runtime-test

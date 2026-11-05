@@ -1,0 +1,26 @@
+key,value,notes
+DRY_RUN,TRUE,"TRUE = nothing is posted or sent; rows are marked ""(dry run)"". Set FALSE only when you are ready to go live."
+USE_FAKE_LLM,TRUE,"TRUE = canned test text, no LLM call or API key needed. Set FALSE to use your LLM."
+LLM_BASE_URL,https://api.openai.com/v1,"OpenAI-compatible base URL ending in /v1 (OpenAI, OpenRouter, DeepSeek, Groq, local Ollama http://localhost:11434/v1 ...)."
+LLM_MODEL,PLACEHOLDER_MODEL_NAME,"Model name your provider expects, for example the cheapest capable chat model they offer."
+LLM_JSON_MODE,TRUE,TRUE sends response_format json_object. Set FALSE if your provider rejects it.
+LLM_TEMPERATURE,0.7,"0 = plain and repetitive, 1 = varied. 0.7 is a good start for posts."
+BRAND_RULES_URL,PLACEHOLDER_BRAND_RULES_URL,"Public raw link to brand-rules.md (for example a secret GitHub Gist ""Raw"" link)."
+CONTENT_BRIEF_URL,PLACEHOLDER_CONTENT_BRIEF_URL,Public raw link to content-brief.md.
+WHATSAPP_NUMBER,60XXXXXXXXX,"Your business WhatsApp number, digits only with country code and no leading 0, in the form 601XXXXXXXX. Used in the wa.me link in posts."
+FB_PAGE_ID,PLACEHOLDER_FB_PAGE_ID,"Facebook Page ID (Page > About > Page transparency, or Meta Business Suite > Settings)."
+IG_USER_ID,PLACEHOLDER_IG_USER_ID,Instagram professional account ID linked to the Page (see SETUP.md).
+WA_PHONE_NUMBER_ID,PLACEHOLDER_WA_PHONE_NUMBER_ID,"WhatsApp Cloud API ""Phone number ID"" (Meta app > WhatsApp > API setup). Not the phone number itself."
+GRAPH_API_VERSION,v25.0,"Meta Graph API version, for example v25.0. Check developers.facebook.com/docs/graph-api/changelog."
+POST_DAYS,"Mon,Wed,Fri","Posting days, comma separated. One pitch per day, rotated weekly."
+POST_TIME,21:00,"Posting time (Malaysia time), HH:mm. The publisher runs at the start of every hour from 07:00 to 23:00, so use a full hour (for example 21:00)."
+LANGUAGES,"en,zh","en, zh and/or ms. One draft per language per day."
+DEFAULT_CHANNELS,"facebook,instagram",facebook and/or instagram. Change per row in the posts tab if needed.
+WEEK_OFFSET,1,1 = the generator (Friday) writes next week's posts. 0 = this week.
+PRIVACY_NOTICE_URL,,"Optional link to your privacy notice, added to the first reply to a new contact."
+REPLY_WINDOW_HOURS,23,"Replies are only sent within this many hours of their last message (max 24, enforced)."
+MAX_REPLIES_PER_RUN,5,"Safety cap on replies sent per 5-minute run (max 10, enforced)."
+REPORT_CHANNEL,email,"email, telegram or both."
+REPORT_EMAIL_TO,you@example.com,Where the weekly report goes.
+REPORT_EMAIL_FROM,n8n@example.com,Sender address allowed by your SMTP account.
+TELEGRAM_CHAT_ID,PLACEHOLDER_TELEGRAM_CHAT_ID,Your chat ID with your Telegram bot (see SETUP.md).
