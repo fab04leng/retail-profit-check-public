@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rule review pack · 179bfdc7</title>
+<style>
+@page { size: A4; margin: 14mm 13mm 16mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", "WenQuanYi Zen Hei", sans-serif; font-size: 9.5pt; line-height: 1.4; color: #1a1a1a; background: #fff; margin: 0; }
+main { max-width: 190mm; margin: 0 auto; padding: 8mm 0; }
+h1 { font-size: 18pt; margin: 0 0 2mm; }
+h2 { font-size: 13pt; margin: 0 0 1.5mm; border-bottom: 1.5px solid #1f4e79; padding-bottom: 1mm; }
+h3 { font-size: 10pt; margin: 3mm 0 1mm; color: #1f4e79; }
+p { margin: 1mm 0; }
+ul, ol { margin: 1mm 0 1mm 5mm; padding: 0; }
+li { margin: 0.4mm 0; }
+.rid { display: inline-block; background: #1f4e79; color: #fff; border-radius: 3px; padding: 0 2mm; margin-right: 1mm; font-size: 11pt; }
+.kind, .muted, .meta { color: #555; }
+.small { font-size: 8pt; color: #444; }
+.tcap { font-weight: 600; margin-top: 2mm; font-size: 8.5pt; }
+table { border-collapse: collapse; width: 100%; margin: 1mm 0; }
+th, td { border: 0.5px solid #999; padding: 0.6mm 1.2mm; text-align: left; vertical-align: top; }
+th { background: #e8eef5; }
+table.rows { font-size: 7.3pt; }
+table.rows td { overflow-wrap: anywhere; }
+.two { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5mm; }
+.decision { border: 1.5px solid #1f4e79; border-radius: 2mm; padding: 2mm 3mm; margin-top: 3mm; break-inside: avoid; }
+.decision h3 { margin-top: 0; }
+.opt { margin: 1.5mm 0; }
+.box { display: inline-block; width: 3.6mm; height: 3.6mm; border: 1px solid #222; margin-right: 2mm; vertical-align: -0.6mm; }
+.blank { display: inline-block; width: 28mm; border-bottom: 1px solid #222; height: 3.5mm; }
+.blank.wide { width: 100mm; }
+.notes-label { margin-top: 2mm; }
+.lines div { border-bottom: 1px solid #aaa; height: 6.5mm; }
+.cover { min-height: 255mm; }
+.cover h2 { font-size: 11.5pt; margin-top: 4mm; }
+.sign { border: 1.5px solid #1f4e79; border-radius: 2mm; padding: 2mm 4mm; margin-top: 4mm; }
+.sign .field { display: grid; grid-template-columns: 60mm 1fr; align-items: end; height: 8mm; }
+.sign .field span:last-child { border-bottom: 1px solid #222; height: 6mm; }
+section.rule, section.summary { break-before: page; }
+table.summary td { height: 9mm; }
+table.summary td:first-child, table.summary th:first-child { white-space: nowrap; }
+@media screen { main { padding: 10mm; } section.rule, section.summary { border-top: 3px dashed #ccc; padding-top: 6mm; margin-top: 10mm; } }
+</style>
+</head>
+<body>
+<main>
+<section class="cover">
+<h1>Retail Profit Check — rule review pack</h1>
+<p><strong>For the partner accountant, before the first paid pilot.</strong></p>
+<p class="meta">Rules version 179bfdc7 · 15 rules · worked examples from the demo data: Pinangria Mart (fictional demo shop), 2025-11-03 to 2026-11-01</p>
+<h2>What the tool does</h2><ul><li>Reads a shop&#39;s own exports (sales, product/stock list, supplier invoices, optionally payments) inside the browser. Nothing is uploaded.</li><li>Applies the rules in this pack and shows every finding with the rule that fired and the exact source rows.</li><li>Lets an accountant mark each finding Confirmed, Not an issue or Needs info, and prints a one-page owner summary.</li></ul>
+<h2>What it does not do</h2><ul><li>It is not audited accounts, a review engagement or tax advice, and it does not replace an accountant.</li><li>It does not value stock for the accounts (current cost, no net realisable value), separate SST, or know about rebates, credit notes, loans or tax payments.</li><li>It does not prove that anything is wrong. Every finding is a possibility to check against documents. Accuracy has only been measured on synthetic data.</li></ul>
+<h2>How to review</h2><ol><li>For each rule, read the description and the worked example. Row numbers are spreadsheet rows in the demo files in demo/data/ (row 1 = header), so you can open them in Excel and check.</li><li>Tick Agree, Change to (write the new number or wording) or Remove, and add notes, especially false positives you see in practice. The last page collects your decisions.</li><li>Sign below. The founder changes src/rules/rules.config.ts and the app&#39;s Rules page to match before the first pilot, and gives you the new version number.</li></ol>
+<div class="sign"><h2>Sign-off</h2><p>I have read every rule in this pack and recorded my decisions. This is a review of the tool&#39;s rules only. It is not an audit, review or other assurance engagement on any business&#39;s financial information.</p>
+<div class="field"><span>Name</span><span></span></div>
+<div class="field"><span>Professional body and membership no.</span><span></span></div>
+<div class="field"><span>Firm</span><span></span></div>
+<div class="field"><span>Signature</span><span></span></div>
+<div class="field"><span>Date</span><span></span></div>
+</div>
+</section>
+<section class="rule" id="PRF-01">
+<h2><span class="rid">PRF-01</span> How profit is calculated</h2>
+<p class="kind">Method (describes a calculation; creates no findings)</p>
+<p><strong>What it does:</strong> Revenue = sales line totals after discounts, minus refunds (negative quantities). Cost of goods sold = net units sold × unit cost from your product list. Gross profit = revenue − cost. Margin % = gross profit ÷ revenue.</p>
+<p><strong>Why it matters:</strong> Owners often look at sales, not profit. A product can sell a lot and still make little or no money.</p>
+<p><strong>Threshold:</strong> No editable threshold.</p>
+<h3>Worked example (demo data)</h3>
+<ol><li>Product DE-009 Telur Ayam Kampung 10 biji: 192 sales lines in the period, including 1 refund line (negative quantity).</li><li>Revenue = sum of line totals after discount, refunds negative = RM 3,297.50.</li><li>Net units sold = 265. Unit cost (products row 117) = RM 7.81.</li><li>Cost of goods sold = 265 × RM 7.81 = RM 2,069.65.</li><li>Gross profit = RM 3,297.50 − RM 2,069.65 = RM 1,227.85. Margin = RM 1,227.85 ÷ RM 3,297.50 = 37.2%.</li></ol>
+<p class="tcap">Products — demo/data/products.csv</p><table class="rows"><thead><tr><th>Row</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>117</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>7.81</td><td>16</td><td>29/10/2026</td></tr></tbody></table>
+<p class="tcap">Sales — demo/data/sales.csv</p><table class="rows"><thead><tr><th>Row</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>177</td><td>04/11/2025</td><td>BL-200048</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>2</td><td>12.50</td><td>0.00</td><td>25.00</td><td>Bayan Lepas</td></tr><tr><td>255</td><td>04/11/2025</td><td>BL-200086</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>3</td><td>12.50</td><td>0.00</td><td>37.50</td><td>Bayan Lepas</td></tr><tr><td>830</td><td>07/11/2025</td><td>BL-200231</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>2</td><td>12.50</td><td>0.00</td><td>25.00</td><td>Bayan Lepas</td></tr><tr><td>1897</td><td>12/11/2025</td><td>BL-200460</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>1</td><td>12.50</td><td>0.00</td><td>12.50</td><td>Bayan Lepas</td></tr><tr><td>2232</td><td>13/11/2025</td><td>JL-100709</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>1</td><td>12.50</td><td>1.25</td><td>11.25</td><td>Jelutong</td></tr><tr><td>27919</td><td>28/02/2026</td><td>RF-220334</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>-1</td><td>12.50</td><td>0.00</td><td>-12.50</td><td>Bayan Lepas</td></tr></tbody></table><p class="small">Showing 6 of 192 rows. All 192 rows are in evidence/PRF-01-sales.csv, with their row numbers.</p>
+<div class="two">
+<div><h3>Where the calculation is approximate</h3><ul><li>Unit cost is today&#39;s cost from the product list, applied to the whole period (no FIFO or weighted-average history). If a cost changed during the year, profit by product is approximate.</li><li>If the POS &quot;Total&quot; column includes SST, revenue is overstated by the tax and margins look better than they are. The tool does not separate SST.</li><li>Supplier rebates, volume incentives, free goods (&quot;10 + 1&quot;) and promotion support are not in the product cost, so real margins may be higher.</li><li>Shrinkage, expired and damaged goods are not counted (cost is units sold × unit cost), so real margins may be lower.</li><li>Products with no cost (missing from the product list or cost 0) are left out of margin and listed separately.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Profit after operating costs (rent, salaries, utilities): only gross profit is calculated.</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is this calculation acceptable for an owner-level health check (not for the accounts)?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change the method or wording <span class="blank wide"></span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="PRF-02">
+<h2><span class="rid">PRF-02</span> Product sold below cost</h2>
+<p class="kind">Check (creates findings) · Severity: High</p>
+<p><strong>What it does:</strong> Flags a product when its average selling price per unit (after discounts and refunds) is lower than its unit cost in the product list.</p>
+<p><strong>Why it matters:</strong> Every unit sold below cost reduces profit. Common causes: cost went up but the shelf price did not, wrong price in the POS, or a promotion left running.</p>
+<p><strong>Threshold:</strong> No editable threshold.</p>
+<h3>Worked example (demo data)</h3>
+<ol><li>Product CT-002 Kopi O Kaw Serbuk 1kg: 567 net units sold for RM 11,453.40 → average selling price RM 20.20 per unit.</li><li>Unit cost in the product list = RM 21.54. Average price &lt; unit cost → flagged.</li><li>Amount below cost = cost of goods sold RM 12,213.18 − revenue RM 11,453.40 = RM 759.78.</li><li>Check before agreeing: the supplier invoices show the cost rose from RM 18.73 (13 Apr 2026) to RM 21.54 (12 May 2026). Sales before the rise were compared with the new cost, so part of this amount is the cost rise, not a pricing mistake.</li></ol>
+<p class="tcap">Products — demo/data/products.csv</p><table class="rows"><thead><tr><th>Row</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>80</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>21.54</td><td>46</td><td>26/10/2026</td></tr></tbody></table>
+<p class="tcap">Sales — demo/data/sales.csv</p><table class="rows"><thead><tr><th>Row</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>259</td><td>04/11/2025</td><td>JL-100061</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>1</td><td>20.20</td><td>0.00</td><td>20.20</td><td>Jelutong</td></tr><tr><td>436</td><td>05/11/2025</td><td>JL-100119</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>3</td><td>20.20</td><td>0.00</td><td>60.60</td><td>Jelutong</td></tr><tr><td>881</td><td>07/11/2025</td><td>JL-100268</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>2</td><td>20.20</td><td>0.00</td><td>40.40</td><td>Jelutong</td></tr><tr><td>1153</td><td>08/11/2025</td><td>JL-100348</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>1</td><td>20.20</td><td>0.00</td><td>20.20</td><td>Jelutong</td></tr><tr><td>36720</td><td>07/04/2026</td><td>RF-220346</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>-1</td><td>20.20</td><td>0.00</td><td>-20.20</td><td>Bayan Lepas</td></tr></tbody></table><p class="small">Showing 5 of 415 rows. All 415 rows are in evidence/PRF-02-sales.csv, with their row numbers.</p>
+<p class="tcap">Supplier invoices — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>Row</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>2692</td><td>Kopisenja Beverage Agency</td><td>KB-00384</td><td>13/04/2026</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>54</td><td>18.73</td><td>1011.42</td><td>13/05/2026</td></tr><tr><td>3142</td><td>Kopisenja Beverage Agency</td><td>KB-00391</td><td>12/05/2026</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>36</td><td>21.54</td><td>775.44</td><td>11/06/2026</td></tr></tbody></table>
+<div class="two">
+<div><h3>Known false positives</h3><ul><li>The cost in the product list was raised recently, but the whole period&#39;s sales are compared with the new cost. Sales made before the rise were not below cost (see the worked example: the supplier raised the price in May).</li><li>Unit of measure mix-up: cost per carton or pack in the product list, selling price per piece in the POS (or the reverse).</li><li>A planned loss leader, or a promotion where the supplier pays back the difference (promotion claim). The claim is not in these files.</li><li>&quot;Buy 1 free 1&quot; or bundle lines recorded with a zero price on the free item.</li><li>Staff purchases at or below cost.</li><li>Supplier rebates that bring the real cost below the invoice cost.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>A short promotion below cost: the average over the whole period can still be above cost.</li><li>Products missing from the product list (no cost to compare).</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Should &quot;below cost&quot; be judged on the whole period, or on recent months only?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change the method or wording <span class="blank wide"></span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="PRF-03">
+<h2><span class="rid">PRF-03</span> Margin below target</h2>
+<p class="kind">Check (creates findings) · Severity: Medium</p>
+<p><strong>What it does:</strong> Flags a product that makes a profit but whose gross margin is below the target margin.</p>
+<p><strong>Why it matters:</strong> Thin-margin products may still be worth selling (traffic builders), but the owner should choose that on purpose.</p>
+<p><strong>Threshold:</strong> </p><ul><li>Target gross margin: <strong>25%</strong> (can be set from 0% – 90%)</li></ul>
+<h3>Worked example (demo data)</h3>
+<ol><li>Product RG-002 Beras Wangi 10kg: revenue RM 30,644.60, gross profit RM 4,485.18 → margin 14.6%.</li><li>Target margin = 25.0%. 14.6% &lt; 25.0% and the product makes a profit → flagged (not PRF-02).</li><li>Amount shown = gross profit at target (25.0% × RM 30,644.60) − actual gross profit = RM 3,175.97. This is profit short of target, not a loss.</li></ol>
+<p class="tcap">Products — demo/data/products.csv</p><table class="rows"><thead><tr><th>Row</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>3</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>31.67</td><td>55</td><td>30/10/2026</td></tr></tbody></table>
+<p class="tcap">Sales — demo/data/sales.csv</p><table class="rows"><thead><tr><th>Row</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>57</td><td>03/11/2025</td><td>BL-200035</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>1</td><td>37.10</td><td>0.00</td><td>37.10</td><td>Bayan Lepas</td></tr><tr><td>162</td><td>03/11/2025</td><td>JL-100057</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>1</td><td>37.10</td><td>0.00</td><td>37.10</td><td>Jelutong</td></tr><tr><td>209</td><td>04/11/2025</td><td>BL-200061</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>1</td><td>37.10</td><td>0.00</td><td>37.10</td><td>Bayan Lepas</td></tr><tr><td>214</td><td>04/11/2025</td><td>BL-200064</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>1</td><td>37.10</td><td>0.00</td><td>37.10</td><td>Bayan Lepas</td></tr><tr><td>75730</td><td>26/09/2026</td><td>RF-127532</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>-1</td><td>37.10</td><td>0.00</td><td>-37.10</td><td>Jelutong</td></tr></tbody></table><p class="small">Showing 5 of 744 rows. All 744 rows are in evidence/PRF-03-sales.csv, with their row numbers.</p>
+<div class="two">
+<div><h3>Known false positives</h3><ul><li>Thin-margin staples (rice, sugar, cooking oil, flour, eggs), some of which may be price-controlled; cigarettes, prepaid top-ups and bill payments. Their normal margin is well below a general 25% target.</li><li>Products the owner keeps cheap on purpose to bring customers in.</li><li>Rebates and back margins from the supplier that are not in the product cost.</li><li>The RM amount on the finding is the extra gross profit needed to reach the target, not money lost.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Products sold below cost are reported under PRF-02 instead, not here.</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is one target margin for all products right, or should staples have their own target? (Per-category targets are not supported yet; write the targets you would use.)</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> % <span class="muted">(Target gross margin)</span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="STK-01">
+<h2><span class="rid">STK-01</span> Stock value and age</h2>
+<p class="kind">Method (describes a calculation; creates no findings)</p>
+<p><strong>What it does:</strong> Stock value = quantity on hand × unit cost. Age = days from the last sale of that product to the analysis date (the latest sale date in the file). If a product never sold in the period, age is counted from its last received date, or from the first date in the sales file. Age groups: 0–30, 31–60, 61–90, 91–180 and over 180 days. Negative quantities on hand count as zero.</p>
+<p><strong>Why it matters:</strong> Money sitting in stock that does not sell cannot pay rent, salaries or suppliers.</p>
+<p><strong>Threshold:</strong> No editable threshold.</p>
+<h3>Worked example (demo data)</h3>
+<ol><li>Analysis date = latest sale date in the sales file = 1 Nov 2026.</li><li>Product SC-011 Cuka Putih 375ml: last sale 26 Oct 2026 (sales row 82467) → age 6 days → group &quot;0-30&quot; days.</li><li>Stock value = 27 on hand × RM 1.61 = RM 43.47.</li></ol>
+<p class="tcap">Products — demo/data/products.csv</p><table class="rows"><thead><tr><th>Row</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>54</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>1.61</td><td>27</td><td>15/10/2026</td></tr></tbody></table>
+<p class="tcap">Sales — demo/data/sales.csv</p><table class="rows"><thead><tr><th>Row</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>82467</td><td>26/10/2026</td><td>BL-219954</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>2</td><td>3.60</td><td>0.00</td><td>7.20</td><td>Bayan Lepas</td></tr></tbody></table>
+<div class="two">
+<div><h3>Where the calculation is approximate</h3><ul><li>&quot;Age&quot; means days since the last sale, not days since the goods were received. It is not the stock ageing an accountant prepares from goods received notes (GRN).</li><li>Stock value is quantity × current unit cost. It is not a year-end valuation (no lower of cost and net realisable value).</li><li>Quantity on hand comes from the POS or stock system and is often wrong without a recent stock-take. Negative quantities count as zero.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Stock held at another location that is not in the product list.</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is &quot;days since last sale&quot; a fair way to show owners where cash is stuck?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change the method or wording <span class="blank wide"></span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="STK-02">
+<h2><span class="rid">STK-02</span> Dead stock</h2>
+<p class="kind">Check (creates findings) · Severity: High</p>
+<p><strong>What it does:</strong> Flags a product with stock on hand and no sale for more than the dead-stock number of days.</p>
+<p><strong>Why it matters:</strong> Dead stock ties up cash and often has to be cleared at a discount. The earlier it is found, the more of its value can be recovered.</p>
+<p><strong>Threshold:</strong> </p><ul><li>No sale for more than: <strong>90 days</strong> (can be set from 14 days – 365 days)</li></ul>
+<h3>Worked example (demo data)</h3>
+<ol><li>Product FS-007 Hamper Tahun Baru Cina Besar: last sale 23 Feb 2026 (sales row 26780). Analysis date 1 Nov 2026 → 251 days without a sale.</li><li>251 &gt; 90 days, with 27 on hand → flagged.</li><li>Stock value = 27 × RM 108.25 = RM 2,922.75.</li></ol>
+<p class="tcap">Products — demo/data/products.csv</p><table class="rows"><thead><tr><th>Row</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>240</td><td>FS-007</td><td>Hamper Tahun Baru Cina Besar</td><td>Festive</td><td>108.25</td><td>27</td><td>13/01/2026</td></tr></tbody></table>
+<p class="tcap">Sales — demo/data/sales.csv</p><table class="rows"><thead><tr><th>Row</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>26780</td><td>23/02/2026</td><td>JL-108745</td><td>FS-007</td><td>Hamper Tahun Baru Cina Besar</td><td>Festive</td><td>1</td><td>153.30</td><td>0.00</td><td>153.30</td><td>Jelutong</td></tr></tbody></table>
+<div class="two">
+<div><h3>Known false positives</h3><ul><li>Seasonal stock kept for next season: Chinese New Year, Hari Raya, Deepavali, Christmas, back-to-school (the worked example is a CNY hamper).</li><li>The system quantity is wrong: the goods were sold, expired or thrown away but never adjusted, so the &quot;dead stock&quot; may not exist.</li><li>Consignment or sale-or-return stock that belongs to the supplier.</li><li>The item sells under another SKU or barcode, or inside a bundle or hamper.</li><li>Sales through another channel that is not in the sales file (wholesale, online, an outlet whose POS was not exported).</li><li>A product restocked recently that has not sold for a long time is still flagged (on purpose: the restock is the question to ask).</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Overstocked items that still sell a unit now and then. Days of cover (STK-04) shows those.</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is 90 days right for a minimart? Should fresh or seasonal categories use a different number?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> days <span class="muted">(No sale for more than)</span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="STK-03">
+<h2><span class="rid">STK-03</span> Slow stock</h2>
+<p class="kind">Check (creates findings) · Severity: Low</p>
+<p><strong>What it does:</strong> Flags a product with stock on hand and no sale for more than the slow-stock number of days, but not yet dead stock. The health-check &quot;slow stock&quot; number adds up slow and dead stock.</p>
+<p><strong>Why it matters:</strong> Shows how much cash could be freed by selling down or not reordering slow lines.</p>
+<p><strong>Threshold:</strong> </p><ul><li>No sale for more than: <strong>60 days</strong> (can be set from 7 days – 365 days)</li></ul>
+<h3>Worked example (demo data)</h3>
+<ol><li>Product RG-009 Beras Pulut 2kg: last sale 22 Aug 2026 (sales row 67413). Analysis date 1 Nov 2026 → 71 days without a sale.</li><li>71 &gt; 60 days and not more than 90 (dead stock), with 23 on hand → flagged.</li><li>Stock value = 23 × RM 9.28 = RM 213.44.</li></ol>
+<p class="tcap">Products — demo/data/products.csv</p><table class="rows"><thead><tr><th>Row</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>10</td><td>RG-009</td><td>Beras Pulut 2kg</td><td>Rice &amp; Grains</td><td>9.28</td><td>23</td><td>06/08/2026</td></tr></tbody></table>
+<p class="tcap">Sales — demo/data/sales.csv</p><table class="rows"><thead><tr><th>Row</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>67413</td><td>22/08/2026</td><td>BL-216320</td><td>RG-009</td><td>Beras Pulut 2kg</td><td>Rice &amp; Grains</td><td>1</td><td>15.00</td><td>0.00</td><td>15.00</td><td>Bayan Lepas</td></tr></tbody></table>
+<div class="two">
+<div><h3>Known false positives</h3><ul><li>Slow-moving lines by nature (kitchenware, small electrical items, hardware), where 60 days between sales is normal.</li><li>The same causes as dead stock: seasonal stock, wrong system quantity, consignment stock, sales under another SKU or channel.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Overstock on items that sell often but in small numbers (see days of cover).</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is 60 days useful as an early warning, or does it create too many findings?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> days <span class="muted">(No sale for more than)</span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="STK-04">
+<h2><span class="rid">STK-04</span> Days of stock cover</h2>
+<p class="kind">Method (describes a calculation; creates no findings)</p>
+<p><strong>What it does:</strong> Days of cover = quantity on hand ÷ average units sold per day over the look-back period. Products with no sales in the look-back period show &quot;no recent sales&quot;.</p>
+<p><strong>Why it matters:</strong> Tells you how long current stock will last at the recent selling rate, so you can avoid over-ordering.</p>
+<p><strong>Threshold:</strong> </p><ul><li>Look-back period: <strong>90 days</strong> (can be set from 7 days – 365 days)</li></ul>
+<h3>Worked example (demo data)</h3>
+<ol><li>Look-back = 90 days: 4 Aug 2026 to 1 Nov 2026.</li><li>Product SC-011: 79 net units sold in 53 sales lines → 79 ÷ 90 = 0.88 units per day.</li><li>Days of cover = 27 on hand ÷ 0.88 = 31 days (rounded).</li></ol>
+<p class="tcap">Products — demo/data/products.csv</p><table class="rows"><thead><tr><th>Row</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>54</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>1.61</td><td>27</td><td>15/10/2026</td></tr></tbody></table>
+<p class="tcap">Sales — demo/data/sales.csv</p><table class="rows"><thead><tr><th>Row</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>63218</td><td>04/08/2026</td><td>BL-215302</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>1</td><td>3.60</td><td>0.00</td><td>3.60</td><td>Bayan Lepas</td></tr><tr><td>63364</td><td>04/08/2026</td><td>JL-120684</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>3</td><td>3.60</td><td>0.00</td><td>10.80</td><td>Jelutong</td></tr><tr><td>63755</td><td>06/08/2026</td><td>JL-120806</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>2</td><td>3.60</td><td>0.00</td><td>7.20</td><td>Jelutong</td></tr><tr><td>63789</td><td>06/08/2026</td><td>JL-120821</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>3</td><td>3.60</td><td>0.00</td><td>10.80</td><td>Jelutong</td></tr><tr><td>63839</td><td>07/08/2026</td><td>BL-215453</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>2</td><td>3.60</td><td>0.00</td><td>7.20</td><td>Bayan Lepas</td></tr><tr><td>64154</td><td>08/08/2026</td><td>BL-215544</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>1</td><td>3.60</td><td>0.00</td><td>3.60</td><td>Bayan Lepas</td></tr><tr><td>64240</td><td>08/08/2026</td><td>JL-120942</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>3</td><td>3.60</td><td>0.00</td><td>10.80</td><td>Jelutong</td></tr><tr><td>64778</td><td>10/08/2026</td><td>JL-121147</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>2</td><td>3.60</td><td>0.00</td><td>7.20</td><td>Jelutong</td></tr></tbody></table><p class="small">Showing 8 of 53 rows. All 53 rows are in evidence/STK-04-sales.csv, with their row numbers.</p>
+<div class="two">
+<div><h3>Where the calculation is approximate</h3><ul><li>Seasonality is ignored: a festive peak in the look-back period makes cover look short afterwards; a quiet period makes it look long.</li><li>Days when the item was out of stock lower the average, so cover looks longer than it is.</li><li>For several outlets, stock and sales are added together. One outlet may be out of stock while another is overstocked.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Products with no sale in the look-back period show &quot;no recent sales&quot; instead of a number.</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is a 90-day look-back right, or would 30 or 60 days reflect current selling better?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> days <span class="muted">(Look-back period)</span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="STK-05">
+<h2><span class="rid">STK-05</span> Reorder suggestion for fast movers</h2>
+<p class="kind">Method (describes a calculation; creates no findings)</p>
+<p><strong>What it does:</strong> Fast movers are the top 20% of products by units sold in the look-back period. When one has fewer days of cover than the reorder point, the suggested quantity is: average units per day × target days of cover − quantity on hand, rounded up. It is a suggestion to discuss with the supplier, not an order.</p>
+<p><strong>Why it matters:</strong> Running out of a best seller loses sales and customers; topping up only what sells avoids adding to slow stock.</p>
+<p><strong>Threshold:</strong> </p><ul><li>Suggest a reorder below: <strong>14 days</strong> (can be set from 1 days – 120 days)</li><li>Top up to: <strong>30 days</strong> (can be set from 2 days – 180 days)</li></ul>
+<h3>Worked example (demo data)</h3>
+<ol><li>217 products sold in the look-back; the top 20% by units (44 products) are fast movers. BR-002 Roti Putih Sandwic 600g is number 13.</li><li>250 units in 90 days = 2.78 per day. Cover = 22 ÷ 2.78 = 8 days, below the reorder point of 14.</li><li>Suggested quantity = 2.78 × 30 days − 22 on hand = 62 (rounded up). Cash needed at cost: RM 252.96.</li></ol>
+<p class="tcap">Products — demo/data/products.csv</p><table class="rows"><thead><tr><th>Row</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>149</td><td>BR-002</td><td>Roti Putih Sandwic 600g</td><td>Bread</td><td>4.08</td><td>22</td><td>25/10/2026</td></tr></tbody></table>
+<div class="two">
+<div><h3>Where the calculation is approximate</h3><ul><li>&quot;Fast movers&quot; are the top 20% by units, not by value or profit.</li><li>The suggestion ignores supplier lead time, minimum order quantity, carton size and shelf life. The worked example is bread, which cannot be stocked for 30 days.</li><li>It is a suggestion to discuss with the supplier, not an order.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Fast movers that are already out of stock and so show no recent sales.</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is this useful to owners, or should it be removed to keep the report about money at risk?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> days <span class="muted">(Suggest a reorder below)</span></div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> days <span class="muted">(Top up to)</span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="SUP-01">
+<h2><span class="rid">SUP-01</span> Possible duplicate invoice (same invoice number)</h2>
+<p class="kind">Check (creates findings) · Severity: High</p>
+<p><strong>What it does:</strong> Flags when the same supplier and the same invoice number appear on different dates, or when all the lines of an invoice were entered twice. Invoice numbers are compared ignoring spaces, dashes and upper/lower case (so &quot;INV-0012&quot; = &quot;inv 0012&quot;).</p>
+<p><strong>Why it matters:</strong> An invoice keyed in twice may also be paid twice. The accountants we spoke to said these are often found only at the year-end audit, if at all.</p>
+<p><strong>Threshold:</strong> No editable threshold.</p>
+<h3>Worked example (demo data)</h3>
+<ol><li>Haiwania Pet Supplies, invoice HP-01155: the same number appears on 11 Mar 2026 and 14 Mar 2026 (rows below).</li><li>Same supplier + same invoice number on different dates → flagged. Amount = total of the extra copy = RM 286.20.</li></ol>
+<p class="tcap">Supplier invoices — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>Row</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>2172</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>11/03/2026</td><td>PT-002</td><td>Makanan Kucing Kering 3kg</td><td>6</td><td>26.78</td><td>160.68</td><td>10/04/2026</td></tr><tr><td>2173</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>11/03/2026</td><td>PT-003</td><td>Makanan Kucing Tin 400g</td><td>12</td><td>2.61</td><td>31.32</td><td>10/04/2026</td></tr><tr><td>2174</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>11/03/2026</td><td>PT-004</td><td>Pasir Kucing 10L</td><td>12</td><td>7.85</td><td>94.20</td><td>10/04/2026</td></tr><tr><td>2204</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>14/03/2026</td><td>PT-002</td><td>Makanan Kucing Kering 3kg</td><td>6</td><td>26.78</td><td>160.68</td><td>13/04/2026</td></tr><tr><td>2205</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>14/03/2026</td><td>PT-003</td><td>Makanan Kucing Tin 400g</td><td>12</td><td>2.61</td><td>31.32</td><td>13/04/2026</td></tr><tr><td>2206</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>14/03/2026</td><td>PT-004</td><td>Pasir Kucing 10L</td><td>12</td><td>7.85</td><td>94.20</td><td>13/04/2026</td></tr></tbody></table>
+<div class="two">
+<div><h3>Known false positives</h3><ul><li>The supplier restarts its invoice numbering (each year or month), or several supplier branches use the same numbers.</li><li>Two different companies with nearly the same name are treated as one supplier, because names are compared ignoring case, punctuation and &quot;Sdn Bhd&quot;.</li><li>One invoice delivered in parts and recorded on each delivery date under the same invoice number.</li><li>A credit note or debit note keyed in with the original invoice number.</li><li>An export that lists the invoice and its knock-off or payment line together.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>A copy keyed in with a typing mistake in the invoice number (SUP-02 may catch it if the total is the same).</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> In your experience, are re-keyed invoices common enough to keep this as a high-severity check?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change the method or wording <span class="blank wide"></span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="SUP-02">
+<h2><span class="rid">SUP-02</span> Possible duplicate invoice (same amount, close dates)</h2>
+<p class="kind">Check (creates findings) · Severity: Medium</p>
+<p><strong>What it does:</strong> Flags two invoices from the same supplier with different invoice numbers but exactly the same total (to the sen), dated within the window of each other.</p>
+<p><strong>Why it matters:</strong> A supplier may re-send an invoice under a new number, or a statement may be keyed in as a new invoice. It may also be a genuine repeat order, so it needs review.</p>
+<p><strong>Threshold:</strong> </p><ul><li>Within: <strong>7 days</strong> (can be set from 0 days – 60 days)</li></ul>
+<h3>Worked example (demo data)</h3>
+<ol><li>Rotimas Bakery Supply: invoice RM/26/0830 (12 Oct 2026) and invoice RM/26/0841 (17 Oct 2026) each total RM 297.66.</li><li>Different numbers, exactly the same total, 5 days apart (window: 7 days) → flagged.</li></ol>
+<p class="tcap">Supplier invoices — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>Row</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>5654</td><td>Rotimas Bakery Supply</td><td>RM/26/0830</td><td>12/10/2026</td><td>BR-001</td><td>Roti Putih Sandwic 400g</td><td>24</td><td>3.12</td><td>74.88</td><td>26/10/2026</td></tr><tr><td>5655</td><td>Rotimas Bakery Supply</td><td>RM/26/0830</td><td>12/10/2026</td><td>BR-002</td><td>Roti Putih Sandwic 600g</td><td>18</td><td>4.08</td><td>73.44</td><td>26/10/2026</td></tr><tr><td>5656</td><td>Rotimas Bakery Supply</td><td>RM/26/0830</td><td>12/10/2026</td><td>BR-003</td><td>Roti Gandum Penuh 400g</td><td>18</td><td>3.55</td><td>63.90</td><td>26/10/2026</td></tr><tr><td>5657</td><td>Rotimas Bakery Supply</td><td>RM/26/0830</td><td>12/10/2026</td><td>BR-004</td><td>Roti Bun Kaya 4 biji</td><td>18</td><td>2.20</td><td>39.60</td><td>26/10/2026</td></tr><tr><td>5658</td><td>Rotimas Bakery Supply</td><td>RM/26/0830</td><td>12/10/2026</td><td>BR-005</td><td>Kaya Kelapa 250g</td><td>12</td><td>3.82</td><td>45.84</td><td>26/10/2026</td></tr><tr><td>5740</td><td>Rotimas Bakery Supply</td><td>RM/26/0841</td><td>17/10/2026</td><td>BR-001</td><td>Roti Putih Sandwic 400g</td><td>24</td><td>3.12</td><td>74.88</td><td>31/10/2026</td></tr><tr><td>5741</td><td>Rotimas Bakery Supply</td><td>RM/26/0841</td><td>17/10/2026</td><td>BR-002</td><td>Roti Putih Sandwic 600g</td><td>18</td><td>4.08</td><td>73.44</td><td>31/10/2026</td></tr><tr><td>5742</td><td>Rotimas Bakery Supply</td><td>RM/26/0841</td><td>17/10/2026</td><td>BR-003</td><td>Roti Gandum Penuh 400g</td><td>18</td><td>3.55</td><td>63.90</td><td>31/10/2026</td></tr></tbody></table><p class="small">Showing 8 of 10 rows. All rows: 5654–5658, 5740–5744 (also in evidence/SUP-02-invoices.csv).</p>
+<div class="two">
+<div><h3>Known false positives</h3><ul><li>Genuine repeat orders of the same amount: a standing weekly order (bread, newspapers, ice), or the same fixed order each time.</li><li>Fixed charges that are the same every time: delivery fee, chiller or display rental.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>A copy whose total differs by a few sen (rounding, SST) or that is dated more than the window apart.</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is 7 days the right window? Is &quot;exactly the same total&quot; too strict or too loose?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> days <span class="muted">(Within)</span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="SUP-03">
+<h2><span class="rid">SUP-03</span> Supplier price increase</h2>
+<p class="kind">Check (creates findings) · Severity: Medium</p>
+<p><strong>What it does:</strong> For each supplier and item (SKU, or description if there is no SKU), compares each invoice unit price with the previous unit price from that supplier. Flags increases larger than the threshold.</p>
+<p><strong>Why it matters:</strong> Small price rises are easy to miss and quietly cut margin unless shelf prices are updated or the supplier is challenged.</p>
+<p><strong>Threshold:</strong> </p><ul><li>Increase larger than: <strong>5%</strong> (can be set from 0% – 100%)</li></ul>
+<h3>Worked example (demo data)</h3>
+<ol><li>Kopisenja Beverage Agency, CT-002 Kopi O Kaw Serbuk 1kg: previous unit price RM 18.73 (13 Apr 2026), new unit price RM 21.54 (12 May 2026, invoice KB-00391).</li><li>Rise = (RM 21.54 − RM 18.73) ÷ RM 18.73 = 15.0%, more than 5.0% → flagged.</li><li>Extra cost on the newer invoice = price difference × 36 units = RM 101.16.</li></ol>
+<p class="tcap">Supplier invoices — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>Row</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>2692</td><td>Kopisenja Beverage Agency</td><td>KB-00384</td><td>13/04/2026</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>54</td><td>18.73</td><td>1011.42</td><td>13/05/2026</td></tr><tr><td>3142</td><td>Kopisenja Beverage Agency</td><td>KB-00391</td><td>12/05/2026</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>36</td><td>21.54</td><td>775.44</td><td>11/06/2026</td></tr></tbody></table>
+<div class="two">
+<div><h3>Known false positives</h3><ul><li>The price returns to normal after a promotion: the previous price was a discounted price.</li><li>A different pack size or unit of measure under the same SKU or description (carton vs piece).</li><li>Free goods: a line with &quot;10 + 1&quot; free units lowers that invoice&#39;s unit price, so the next normal price looks like a rise.</li><li>SST included on one invoice and not on another.</li><li>Without an SKU, items are matched by description, so two different items with the same description are compared.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Lines with no quantity or unit price (only a total) cannot be compared and are skipped.</li><li>Many small rises, each below the threshold.</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is a 5% rise the right trigger for a minimart?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> % <span class="muted">(Increase larger than)</span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="SUP-04">
+<h2><span class="rid">SUP-04</span> Invoice possibly overpaid or paid twice</h2>
+<p class="kind">Check (creates findings) · Severity: High</p>
+<p><strong>What it does:</strong> Matches payments to invoices: first by the payment reference containing the invoice number (same supplier), otherwise by the same supplier and exactly the same amount on or after the invoice date (within the matching window). Flags an invoice when the payments matched to it add up to more than the invoice total plus the tolerance. Only runs when a payments file is provided.</p>
+<p><strong>Why it matters:</strong> An overpayment may be recoverable from the supplier, but only if someone notices it.</p>
+<p><strong>Threshold:</strong> </p><ul><li>Tolerance: <strong>RM 1</strong> (can be set from RM 0 – RM 100)</li><li>Amount-matching window after invoice date: <strong>120 days</strong> (can be set from 7 days – 365 days)</li></ul>
+<h3>Worked example (demo data)</h3>
+<ol><li>Bersihana Household Supply, invoice BH-00663: total of the invoice lines = RM 3,010.86.</li><li>2 payments were matched to it (payments rows 344, 361), by the reference containing the invoice number or by the same amount after the invoice date. They add up to RM 6,021.72.</li><li>RM 6,021.72 − RM 3,010.86 = RM 3,010.86, more than the RM 1.00 tolerance → flagged as possibly paid twice.</li></ol>
+<p class="tcap">Supplier invoices — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>Row</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>2491</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-001</td><td>Sabun Basuh Pinggan Limau 900ml</td><td>60</td><td>3.16</td><td>189.60</td><td>16/05/2026</td></tr><tr><td>2492</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-002</td><td>Sabun Basuh Pinggan Limau 3.6L</td><td>48</td><td>10.40</td><td>499.20</td><td>16/05/2026</td></tr><tr><td>2493</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-003</td><td>Serbuk Pencuci Pakaian 2kg</td><td>24</td><td>10.12</td><td>242.88</td><td>16/05/2026</td></tr><tr><td>2494</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-004</td><td>Serbuk Pencuci Pakaian 4kg</td><td>36</td><td>18.87</td><td>679.32</td><td>16/05/2026</td></tr><tr><td>2495</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-005</td><td>Cecair Pencuci Pakaian 2L</td><td>30</td><td>11.29</td><td>338.70</td><td>16/05/2026</td></tr><tr><td>2496</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-006</td><td>Cecair Pencuci Pakaian 3.8L</td><td>30</td><td>20.08</td><td>602.40</td><td>16/05/2026</td></tr><tr><td>2497</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-007</td><td>Pelembut Pakaian 2L</td><td>30</td><td>7.93</td><td>237.90</td><td>16/05/2026</td></tr><tr><td>2498</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-008</td><td>Pencuci Lantai Pine 2L</td><td>18</td><td>5.72</td><td>102.96</td><td>16/05/2026</td></tr></tbody></table><p class="small">Showing 8 of 9 rows. All rows: 2491–2499 (also in evidence/SUP-04-invoices.csv).</p>
+<p class="tcap">Payments — demo/data/payments.csv</p><table class="rows"><thead><tr><th>Row</th><th>Payment Date</th><th>Supplier</th><th>Amount</th><th>Reference</th></tr></thead><tbody><tr><td>344</td><td>11/05/2026</td><td>Bersihana Household Supply</td><td>3010.86</td><td>BH-00663</td></tr><tr><td>361</td><td>20/05/2026</td><td>Bersihana Household Supply</td><td>3010.86</td><td>BH-00663</td></tr></tbody></table>
+<div class="two">
+<div><h3>Known false positives</h3><ul><li>One lump-sum payment for several invoices whose reference names only one of them: the whole payment is matched to that invoice, which then looks overpaid.</li><li>The payment includes a deposit or advance for a later order, or other charges (delivery, an old balance).</li><li>A cheque was cancelled or bounced and paid again, but both appear in the payment listing.</li><li>Several invoices from the same supplier with the same amount: amount matching may pick the wrong one.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Overpayments smaller than the tolerance.</li><li>Payments to the wrong supplier (see SUP-05).</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is RM 1 the right tolerance, and is a 120-day matching window reasonable?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> RM <span class="muted">(Tolerance)</span></div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> days <span class="muted">(Amount-matching window after invoice date)</span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="SUP-05">
+<h2><span class="rid">SUP-05</span> Payment with no matching invoice</h2>
+<p class="kind">Check (creates findings) · Severity: Medium</p>
+<p><strong>What it does:</strong> Flags a payment that could not be matched to any invoice from the same supplier using the matching method in SUP-04. Only runs when a payments file is provided.</p>
+<p><strong>Why it matters:</strong> Could be a deposit, an invoice missing from the file, or a payment to the wrong supplier. All need a document.</p>
+<p><strong>Threshold:</strong> No editable threshold.</p>
+<h3>Worked example (demo data)</h3>
+<ol><li>Payment of RM 1,286.40 to Bilisora Dry Seafood on 14 Jul 2026, reference &quot;BS-99871&quot; (payments row 477).</li><li>No invoice from this supplier has a number in the reference, and no unpaid invoice from this supplier has exactly this amount within 120 days before the payment → flagged.</li></ol>
+<p class="tcap">Payments — demo/data/payments.csv</p><table class="rows"><thead><tr><th>Row</th><th>Payment Date</th><th>Supplier</th><th>Amount</th><th>Reference</th></tr></thead><tbody><tr><td>477</td><td>14/07/2026</td><td>Bilisora Dry Seafood</td><td>1286.40</td><td>BS-99871</td></tr></tbody></table>
+<div class="two">
+<div><h3>Known false positives</h3><ul><li>Deposits or advance payments (in the demo data: &quot;DEPOSIT HAMPER ORDER&quot;, payments row 633).</li><li>Payment for an invoice dated before the start of the invoices file. This is common in the first weeks of the period.</li><li>The invoice has not been entered yet (it arrived late).</li><li>A lump-sum payment for several invoices with no reference and an amount that matches no single invoice.</li><li>The supplier name in the payment file differs from the invoices (bank payee name vs trading name).</li><li>Non-stock payments (rent, utilities) included in the payments file.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>A payment to the wrong supplier whose amount happens to match one of that supplier&#39;s invoices.</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Should payments dated in the first month be ignored, to avoid flagging last period&#39;s invoices?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change the method or wording <span class="blank wide"></span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="CSH-01">
+<h2><span class="rid">CSH-01</span> How the 8-week cash outlook is estimated</h2>
+<p class="kind">Method (describes a calculation; creates no findings)</p>
+<p><strong>What it does:</strong> Cash in: a straight-line trend (least squares) is drawn through weekly sales of the last complete weeks and extended 8 weeks ahead (never below zero). Cash out: unpaid supplier invoices in the week they are due (overdue ones in week 1; invoices with no due date are due after the default terms), fixed monthly costs you enter on their day of the month, and, if switched on, estimated restocking: forecast sales × your historical cost ratio, paid after the default supplier terms. Weeks run Monday to Sunday. This is an estimate, not a promise.</p>
+<p><strong>Why it matters:</strong> A shop can be profitable and still run short of cash in a particular week, for example when a big supplier payment and rent fall together.</p>
+<p><strong>Threshold:</strong> </p><ul><li>Weeks of sales used for the trend: <strong>8 weeks</strong> (can be set from 2 weeks – 26 weeks)</li><li>Default supplier terms: <strong>30 days</strong> (can be set from 0 days – 120 days)</li></ul>
+<h3>Worked example (demo data)</h3>
+<ol><li>Weekly sales of the last 8 complete weeks (table 1) → straight line: week sales ≈ RM 22,842.07 + RM 620.09 × week number (0 = first week in table 1; the forecast continues the count).</li><li>Inputs for the demo shop: cash in bank RM 20,000.00; Rent (2 outlets) RM 7,800.00 on day 1; Salaries, EPF &amp; SOCSO RM 9,600.00 on day 7; Utilities &amp; internet RM 1,900.00 on day 15.</li><li>Unpaid supplier invoices fall in the week they are due. Restocking = forecast sales × cost ratio 69.3%, paid 4 weeks later (default terms 30 days).</li><li>Closing = opening + sales in − supplier invoices − fixed costs − restocking (table 2).</li></ol>
+<p class="tcap">Table 1: weekly sales used for the trend</p><table class="rows"><thead><tr><th>Week from</th><th>Sales</th></tr></thead><tbody><tr><td>2026-09-07</td><td>RM 23,929.00</td></tr><tr><td>2026-09-14</td><td>RM 23,528.16</td></tr><tr><td>2026-09-21</td><td>RM 23,359.80</td></tr><tr><td>2026-09-28</td><td>RM 25,002.86</td></tr><tr><td>2026-10-05</td><td>RM 22,978.28</td></tr><tr><td>2026-10-12</td><td>RM 25,709.72</td></tr><tr><td>2026-10-19</td><td>RM 28,466.38</td></tr><tr><td>2026-10-26</td><td>RM 27,124.90</td></tr></tbody></table>
+<p class="tcap">Table 2: 8-week outlook</p><table class="rows"><thead><tr><th>Week from</th><th>Opening</th><th>Sales in</th><th>Supplier invoices</th><th>Fixed costs</th><th>Restocking</th><th>Closing</th></tr></thead><tbody><tr><td>2026-11-02</td><td>RM 20,000.00</td><td>RM 27,802.79</td><td>RM 12,890.28</td><td>RM 9,600.00</td><td>RM 0.00</td><td>RM 25,312.51</td></tr><tr><td>2026-11-09</td><td>RM 25,312.51</td><td>RM 28,422.88</td><td>RM 13,402.08</td><td>RM 1,900.00</td><td>RM 0.00</td><td>RM 38,433.31</td></tr><tr><td>2026-11-16</td><td>RM 38,433.31</td><td>RM 29,042.97</td><td>RM 71,625.05</td><td>RM 0.00</td><td>RM 0.00</td><td>−RM 4,148.77</td></tr><tr><td>2026-11-23</td><td>−RM 4,148.77</td><td>RM 29,663.06</td><td>RM 18,110.46</td><td>RM 0.00</td><td>RM 0.00</td><td>RM 7,403.83</td></tr><tr><td>2026-11-30</td><td>RM 7,403.83</td><td>RM 30,283.15</td><td>RM 2,483.76</td><td>RM 7,800.00</td><td>RM 19,270.96</td><td>RM 8,132.26</td></tr><tr><td>2026-12-07</td><td>RM 8,132.26</td><td>RM 30,903.24</td><td>RM 6,395.22</td><td>RM 9,600.00</td><td>RM 19,700.77</td><td>RM 3,339.51</td></tr><tr><td>2026-12-14</td><td>RM 3,339.51</td><td>RM 31,523.33</td><td>RM 1,408.02</td><td>RM 1,900.00</td><td>RM 20,130.57</td><td>RM 11,424.25</td></tr><tr><td>2026-12-21</td><td>RM 11,424.25</td><td>RM 32,143.43</td><td>RM 534.54</td><td>RM 0.00</td><td>RM 20,560.37</td><td>RM 22,472.77</td></tr></tbody></table>
+<div class="two">
+<div><h3>Where the calculation is approximate</h3><ul><li>Cash in = sales in the same week. Card and e-wallet settlement delays and credit customers are not modelled.</li><li>A straight-line trend ignores festive peaks (CNY, Hari Raya) and school holidays. Just after a peak the trend can point the wrong way.</li><li>Not included unless entered as fixed monthly costs: loans and hire purchase, income tax instalments (CP204), SST payments, EPF/SOCSO, owner drawings, equipment purchases.</li><li>Restocking is estimated as forecast sales × the historical cost ratio, paid after the default terms. It is rough.</li><li>Without a payments file, invoices due before the forecast start are assumed paid.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Anything outside the next 8 weeks.</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is this method clear and cautious enough to show an owner, with the word &quot;estimate&quot; on it?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> weeks <span class="muted">(Weeks of sales used for the trend)</span></div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> days <span class="muted">(Default supplier terms)</span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="CSH-02">
+<h2><span class="rid">CSH-02</span> Week where cash may run short</h2>
+<p class="kind">Check (creates findings) · Severity: High</p>
+<p><strong>What it does:</strong> Flags a forecast week whose estimated closing cash balance is below the minimum balance.</p>
+<p><strong>Why it matters:</strong> Knowing weeks ahead gives time to delay an order, agree supplier terms or arrange financing.</p>
+<p><strong>Threshold:</strong> </p><ul><li>Minimum cash balance: <strong>RM 0</strong> (can be set from RM -1,000,000 – RM 10,000,000)</li></ul>
+<h3>Worked example (demo data)</h3>
+<ol><li>Week 3 (16 Nov 2026 – 22 Nov 2026): opening RM 38,433.31 + sales in RM 29,042.97 − supplier invoices due RM 71,625.05 − fixed costs RM 0.00 − restocking RM 0.00 = closing −RM 4,148.77.</li><li>−RM 4,148.77 is below the minimum balance of RM 0.00 → flagged. Shortfall RM 4,148.77 (an estimate).</li><li>The supplier invoices due that week are 72 invoice lines (sample below; all rows in the evidence file).</li></ol>
+<p class="tcap">Supplier invoices — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>Row</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>5286</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-001</td><td>Syampu Herba 400ml</td><td>24</td><td>9.52</td><td>228.48</td><td>18/11/2026</td></tr><tr><td>5287</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-003</td><td>Sabun Mandi Cecair 500ml</td><td>24</td><td>8.51</td><td>204.24</td><td>18/11/2026</td></tr><tr><td>5288</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-004</td><td>Sabun Mandi Cecair 1L</td><td>18</td><td>15.49</td><td>278.82</td><td>18/11/2026</td></tr><tr><td>5289</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-005</td><td>Ubat Gigi Herba 150g</td><td>36</td><td>4.08</td><td>146.88</td><td>18/11/2026</td></tr><tr><td>5290</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-006</td><td>Ubat Gigi Herba 2 x 150g</td><td>18</td><td>8.87</td><td>159.66</td><td>18/11/2026</td></tr><tr><td>5291</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-007</td><td>Berus Gigi Lembut 2 batang</td><td>24</td><td>3.01</td><td>72.24</td><td>18/11/2026</td></tr><tr><td>5292</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-008</td><td>Deodoran Roll-on 50ml</td><td>18</td><td>6.87</td><td>123.66</td><td>18/11/2026</td></tr><tr><td>5293</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-010</td><td>Tuala Wanita Siang 16 keping</td><td>24</td><td>5.74</td><td>137.76</td><td>18/11/2026</td></tr></tbody></table><p class="small">Showing 8 of 72 rows. All 72 rows are in evidence/CSH-02-invoices.csv, with their row numbers.</p>
+<div class="two">
+<div><h3>Known false positives</h3><ul><li>Supplier invoices that were already paid, when the payments file is incomplete or missing: unpaid invoices are overstated and a short week appears that is not real.</li><li>Possible duplicate invoices (SUP-01, SUP-02) that are still unpaid add to the cash going out.</li><li>The opening balance is out of date, or the shop has an overdraft facility. In that case set the minimum balance to minus the overdraft limit.</li><li>Suppliers who in practice accept payment later than the due date in the file.</li></ul></div>
+<div><h3>What it can miss</h3><ul><li>Large payments not in any file (tax, loan repayment, a big festive order not yet invoiced).</li></ul></div>
+</div>
+<div class="decision">
+<h3>Your decision</h3>
+<p><strong>Question for you:</strong> Is RM 0 the right default minimum, or should it be, say, two weeks of fixed costs?</p>
+<div class="opt"><span class="box"></span>Agree</div>
+<div class="opt"><span class="box"></span>Change to <span class="blank"></span> RM <span class="muted">(Minimum cash balance)</span></div>
+<div class="opt"><span class="box"></span>Remove this rule</div>
+<p class="notes-label">Notes:</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="summary"><h2>Summary of decisions</h2><p>Copy your decision for each rule here, so the changes can be made in one go.</p><table class="summary"><thead><tr><th>Rule</th><th>Title</th><th>Current threshold</th><th>Agree / Change / Remove</th><th>New value or wording</th></tr></thead><tbody><tr><td>PRF-01</td><td>How profit is calculated</td><td>—</td><td></td><td></td></tr><tr><td>PRF-02</td><td>Product sold below cost</td><td>—</td><td></td><td></td></tr><tr><td>PRF-03</td><td>Margin below target</td><td>Target gross margin 25%</td><td></td><td></td></tr><tr><td>STK-01</td><td>Stock value and age</td><td>—</td><td></td><td></td></tr><tr><td>STK-02</td><td>Dead stock</td><td>No sale for more than 90 days</td><td></td><td></td></tr><tr><td>STK-03</td><td>Slow stock</td><td>No sale for more than 60 days</td><td></td><td></td></tr><tr><td>STK-04</td><td>Days of stock cover</td><td>Look-back period 90 days</td><td></td><td></td></tr><tr><td>STK-05</td><td>Reorder suggestion for fast movers</td><td>Suggest a reorder below 14 days; Top up to 30 days</td><td></td><td></td></tr><tr><td>SUP-01</td><td>Possible duplicate invoice (same invoice number)</td><td>—</td><td></td><td></td></tr><tr><td>SUP-02</td><td>Possible duplicate invoice (same amount, close dates)</td><td>Within 7 days</td><td></td><td></td></tr><tr><td>SUP-03</td><td>Supplier price increase</td><td>Increase larger than 5%</td><td></td><td></td></tr><tr><td>SUP-04</td><td>Invoice possibly overpaid or paid twice</td><td>Tolerance RM 1; Amount-matching window after invoice date 120 days</td><td></td><td></td></tr><tr><td>SUP-05</td><td>Payment with no matching invoice</td><td>—</td><td></td><td></td></tr><tr><td>CSH-01</td><td>How the 8-week cash outlook is estimated</td><td>Weeks of sales used for the trend 8 weeks; Default supplier terms 30 days</td><td></td><td></td></tr><tr><td>CSH-02</td><td>Week where cash may run short</td><td>Minimum cash balance RM 0</td><td></td><td></td></tr></tbody></table></section>
+</main>
+</body>
+</html>

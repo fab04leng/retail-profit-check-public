@@ -10,7 +10,7 @@ import { addDays, dayNumber, daysBetween, fromDayNumber, weekdayMon0 } from '../
 import { roundRM } from '../core/numbers';
 import type { FileKind } from '../core/types';
 import { TEMPLATE_HEADERS } from '../core/templates';
-import { FIELDS } from '../core/fields';
+import { templateFields } from '../core/fields';
 import type { FixedCost } from '../rules/settings';
 import { BASE_ITEMS, OUTLETS, SHOP_NAME, SUPPLIERS, type MarginBand, type Season } from './catalog';
 import { Rng } from './rng';
@@ -546,7 +546,7 @@ export function generateDemo(seed: number = DEMO_SEED): DemoData {
 }
 
 function header(kind: FileKind): string[] {
-  return FIELDS[kind].map((f) => TEMPLATE_HEADERS[kind][f.key] ?? f.key);
+  return templateFields(kind).map((f) => TEMPLATE_HEADERS[kind][f.key] ?? f.key);
 }
 
 export { dayNumber, fromDayNumber };

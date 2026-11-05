@@ -56,18 +56,24 @@ export interface PaymentRow {
   reference: string;
 }
 
-export type IssueCode =
-  | 'missingRequired'
-  | 'badNumber'
-  | 'badDate'
-  | 'negativeStock'
-  | 'negativeCost'
-  | 'duplicateSku'
-  | 'noAmount'
-  | 'signFixed'
-  | 'negativePrice'
-  | 'zeroCost'
-  | 'unknownSku';
+/** Every row-level message the import can show. Each needs text under `issues.<code>` in every language. */
+export const ISSUE_CODES = [
+  'missingRequired',
+  'badNumber',
+  'badDate',
+  'negativeStock',
+  'negativeCost',
+  'duplicateSku',
+  'noAmount',
+  'signFixed',
+  'negativePrice',
+  'zeroCost',
+  'unknownSku',
+  'dateOrderAssumed',
+  'dateOrderMixed',
+  'voidSkipped',
+] as const;
+export type IssueCode = (typeof ISSUE_CODES)[number];
 
 export interface RowIssue {
   file: FileKind;

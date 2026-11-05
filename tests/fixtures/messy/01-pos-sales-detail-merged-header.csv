@@ -1,0 +1,23 @@
+Kedai Contoh Jelutong (fictional test shop),,,,,,,,
+Sales Detail Report,,,,,,,,
+Period: 01/10/2026 - 03/10/2026,,,,,,,,
+,,,,,,,,
+Transaction,,,Item,,,Amount (RM),,
+Date,Receipt,Outlet,Code,Description,Qty,Price,Disc,Net
+01/10/2026 09:12,J-100231,Jelutong,RG-002,Beras Wangi 10kg,1,38.90,0.00,38.90
+01/10/2026 09:12,J-100231,Jelutong,CT-002,Kopi O Kaw Serbuk 1kg,2,20.20,0.00,40.40
+01/10/2026 10:05,J-100232,Jelutong,HH-015,Tisu Tandas 20 gulung,1,29.90,2.99,26.91
+,,,Sub Total,,,,,106.21
+,,,,,,,,
+02/10/2026 11:40,J-100240,Jelutong,EL-001,Periuk Nasi Elektrik 1.8L,1,"1,299.00",100.00,"1,199.00"
+02/10/2026 11:52,J-100241,Jelutong,CT-002,Kopi O Kaw Serbuk 1kg,-1,20.20,0.00,-20.20
+02/10/2026 12:10,J-100242,Jelutong,RG-002,Beras Wangi 10kg,1,38.90,0.00,(38.90)
+31/09/2026 12:30,J-100243,Jelutong,HH-015,Tisu Tandas 20 gulung,1,29.90,0.00,29.90
+,,,Sub Total,,,,,"1,169.80"
+,,,,,,,,
+03/10/2026 18:01,J-100250,Jelutong,DR-009,Minuman Isotonik 1.5L,12,4.20,5.04,45.36
+03/10/2026 18:01,J-100250,Jelutong,SB-015,Biskut Coklat Cip 400g,3,7.30,0.00,21.90
+,,,Sub Total,,,,,67.26
+,,,,,,,,
+Grand Total,,,,,,,,"1,343.27"
+Printed by: system on 04/10/2026,,,,,,,,

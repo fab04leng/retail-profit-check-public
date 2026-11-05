@@ -1,0 +1,193 @@
+Row,Date,Receipt No,SKU,Product Name,Category,Quantity,Unit Price,Discount,Total,Outlet
+177,04/11/2025,BL-200048,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+255,04/11/2025,BL-200086,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Bayan Lepas
+830,07/11/2025,BL-200231,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+1897,12/11/2025,BL-200460,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+2232,13/11/2025,JL-100709,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,1.25,11.25,Jelutong
+2306,14/11/2025,BL-200571,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+2443,14/11/2025,JL-100777,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+2565,15/11/2025,BL-200645,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+3385,19/11/2025,BL-200831,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+3517,19/11/2025,JL-101127,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+4500,23/11/2025,JL-101461,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+4719,25/11/2025,BL-201155,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,1.25,11.25,Bayan Lepas
+4744,25/11/2025,BL-201171,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+5096,27/11/2025,BL-201264,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+5315,28/11/2025,BL-201320,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+5749,29/11/2025,JL-101867,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+5834,30/11/2025,BL-201423,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,2.50,22.50,Bayan Lepas
+6739,04/12/2025,JL-102174,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+7190,06/12/2025,JL-102309,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+7777,09/12/2025,BL-201896,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+8563,12/12/2025,JL-102791,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+9245,15/12/2025,BL-202259,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+9442,15/12/2025,JL-103082,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+10848,21/12/2025,BL-202645,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+11648,24/12/2025,BL-202853,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+11987,25/12/2025,JL-103897,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+12904,28/12/2025,JL-104165,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+13204,29/12/2025,JL-104288,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+13726,31/12/2025,JL-104467,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+13756,01/01/2026,BL-203345,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+14016,02/01/2026,BL-203422,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+14476,03/01/2026,JL-104712,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+14524,04/01/2026,BL-203539,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+14904,05/01/2026,JL-104834,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+15162,07/01/2026,BL-203688,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+15459,08/01/2026,JL-105013,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+16429,12/01/2026,JL-105337,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+17344,17/01/2026,BL-204198,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+17508,17/01/2026,JL-105680,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+18279,21/01/2026,JL-105932,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+18364,21/01/2026,JL-105981,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+19324,25/01/2026,JL-106291,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+20148,30/01/2026,BL-204889,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,1.25,11.25,Bayan Lepas
+20194,30/01/2026,BL-204914,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+20775,01/02/2026,JL-106746,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+20815,01/02/2026,JL-106768,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+21547,04/02/2026,JL-107008,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+21985,06/02/2026,BL-205355,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+21987,06/02/2026,BL-205355,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+22121,06/02/2026,JL-107178,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+22352,07/02/2026,BL-205448,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+22509,07/02/2026,JL-107301,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+22812,08/02/2026,JL-107389,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+23387,10/02/2026,JL-107594,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+23988,12/02/2026,JL-107812,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+24128,13/02/2026,BL-205878,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+25964,20/02/2026,JL-108449,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+26048,20/02/2026,JL-108496,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+26351,22/02/2026,BL-206384,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,2.50,22.50,Bayan Lepas
+27429,27/02/2026,BL-206656,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+27919,28/02/2026,RF-220334,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,-1,12.50,0.00,-12.50,Bayan Lepas
+28334,02/03/2026,JL-109253,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+29342,07/03/2026,JL-109556,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Jelutong
+29540,08/03/2026,BL-207178,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+30182,11/03/2026,BL-207296,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+30845,13/03/2026,JL-110030,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+30922,13/03/2026,JL-110074,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Jelutong
+30934,13/03/2026,JL-110078,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+31729,16/03/2026,BL-207679,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+32679,19/03/2026,JL-110647,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+32809,20/03/2026,JL-110679,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Jelutong
+33361,23/03/2026,JL-110860,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+33396,23/03/2026,JL-110880,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+33869,26/03/2026,BL-208219,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+34213,27/03/2026,JL-111144,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+34219,27/03/2026,JL-111147,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+34220,27/03/2026,JL-111148,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+35038,31/03/2026,BL-208479,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+36394,06/04/2026,BL-208809,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+36569,07/04/2026,BL-208843,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+36777,08/04/2026,BL-208915,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+37159,10/04/2026,BL-209010,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+38059,13/04/2026,JL-112428,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+38284,15/04/2026,BL-209276,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+38812,17/04/2026,JL-112660,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+39005,18/04/2026,JL-112702,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+39077,18/04/2026,JL-112739,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Jelutong
+39282,19/04/2026,JL-112781,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+39599,20/04/2026,JL-112915,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+40601,25/04/2026,JL-113243,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+41016,27/04/2026,JL-113370,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+41724,01/05/2026,BL-210126,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+41778,01/05/2026,BL-210153,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Bayan Lepas
+42105,02/05/2026,JL-113731,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+42851,06/05/2026,BL-210387,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+43516,09/05/2026,BL-210561,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+43915,10/05/2026,JL-114334,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+44667,14/05/2026,JL-114590,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+44775,15/05/2026,BL-210871,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+45287,16/05/2026,JL-114812,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+45333,17/05/2026,BL-211007,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+45334,17/05/2026,BL-211007,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+45494,17/05/2026,JL-114868,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+45582,18/05/2026,BL-211059,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+45869,19/05/2026,JL-114984,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+45931,19/05/2026,JL-115020,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+46260,21/05/2026,JL-115105,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+46693,23/05/2026,BL-211343,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+47239,25/05/2026,JL-115424,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+48142,29/05/2026,JL-115724,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+48218,30/05/2026,BL-211699,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+49169,03/06/2026,BL-211907,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Bayan Lepas
+49357,04/06/2026,BL-211939,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+49832,06/06/2026,BL-212070,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+50534,08/06/2026,JL-116514,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+51210,12/06/2026,BL-212426,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+51435,13/06/2026,BL-212473,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+51700,14/06/2026,BL-212534,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+52249,16/06/2026,JL-117069,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+52473,17/06/2026,JL-117152,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,1.25,11.25,Jelutong
+52706,19/06/2026,BL-212762,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Bayan Lepas
+52903,19/06/2026,JL-117279,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+52953,20/06/2026,BL-212818,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+53209,20/06/2026,JL-117371,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+54364,26/06/2026,BL-213183,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+54607,27/06/2026,BL-213243,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+55369,30/06/2026,BL-213419,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+57425,09/07/2026,JL-118739,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,1.25,11.25,Jelutong
+57797,11/07/2026,BL-214008,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+58761,15/07/2026,JL-119152,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Jelutong
+59226,17/07/2026,JL-119310,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+59263,17/07/2026,JL-119332,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+59295,17/07/2026,JL-119352,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+59920,20/07/2026,BL-214496,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+61503,27/07/2026,BL-214888,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+61700,28/07/2026,BL-214940,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+62634,01/08/2026,JL-120431,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Jelutong
+62760,02/08/2026,BL-215196,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+63342,04/08/2026,JL-120667,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+63927,07/08/2026,JL-120843,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+63960,07/08/2026,JL-120863,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+64825,10/08/2026,JL-121173,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Jelutong
+64895,11/08/2026,BL-215713,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+65056,12/08/2026,BL-215734,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+65278,13/08/2026,BL-215790,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+65729,15/08/2026,BL-215896,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+66305,17/08/2026,BL-216052,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+67078,21/08/2026,BL-216215,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+67382,22/08/2026,BL-216300,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+67922,24/08/2026,BL-216418,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+68174,25/08/2026,BL-216492,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+68272,25/08/2026,JL-122275,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+68307,26/08/2026,BL-216502,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Bayan Lepas
+68458,26/08/2026,JL-122338,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+68503,27/08/2026,BL-216560,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,2.50,22.50,Bayan Lepas
+68623,27/08/2026,JL-122378,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+69012,29/08/2026,BL-216708,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+69271,30/08/2026,BL-216763,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+69356,30/08/2026,BL-216810,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+69717,31/08/2026,JL-122739,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+69778,01/09/2026,BL-216873,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+69857,01/09/2026,JL-122772,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+69890,01/09/2026,JL-122793,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+71195,07/09/2026,BL-217228,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+73004,15/09/2026,BL-217669,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+73174,16/09/2026,BL-217698,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+73708,18/09/2026,JL-124024,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+73728,18/09/2026,JL-124034,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+74099,19/09/2026,JL-124164,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+74625,22/09/2026,BL-218043,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Bayan Lepas
+75278,25/09/2026,BL-218232,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+75969,27/09/2026,JL-124775,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+75980,27/09/2026,JL-124781,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+76052,28/09/2026,BL-218405,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+76116,28/09/2026,JL-124809,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+76258,29/09/2026,BL-218458,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+76367,29/09/2026,JL-124899,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+77107,03/10/2026,BL-218670,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+79717,14/10/2026,JL-125986,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+79889,15/10/2026,JL-126038,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+80263,17/10/2026,BL-219403,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+80490,17/10/2026,JL-126257,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+80705,18/10/2026,JL-126311,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Jelutong
+81465,22/10/2026,BL-219723,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+81633,23/10/2026,BL-219744,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,2,12.50,0.00,25.00,Bayan Lepas
+81982,24/10/2026,BL-219858,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+82006,24/10/2026,JL-126733,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+82410,25/10/2026,JL-126892,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,3,12.50,0.00,37.50,Jelutong
+82691,27/10/2026,BL-220018,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,1.25,11.25,Bayan Lepas
+83101,29/10/2026,BL-220111,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Bayan Lepas
+83483,30/10/2026,JL-127237,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong
+83948,01/11/2026,JL-127361,DE-009,Telur Ayam Kampung 10 biji,Dairy & Eggs,1,12.50,0.00,12.50,Jelutong

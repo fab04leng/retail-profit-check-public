@@ -1,19 +1,19 @@
-# Retail Profit Check — accountant-reviewed check of your shop's numbers
+# Retail Profit Check — accountant-checked look at your shop's numbers
 
 *For owners of shopping-mall shops, minimarts, lifestyle stores and hotel retail in Malaysia.*
 
 ## The problem
 
-Most retail owners we speak to want the same thing: **reduce the loss, increase the profit.** But the answers are usually buried in exports nobody has time to go through:
+The goal is simple: **reduce the loss, increase the profit.** But the answers are often buried in exports nobody has time to go through:
 
-- Some products may be selling **below cost or at a thin margin**, and nobody notices until year-end.
+- Some products may be selling **below cost or at a thin margin**, and it may not be noticed until year-end.
 - Cash is **sitting on the shelf** as slow or dead stock.
-- **Duplicate or wrong supplier invoices** can slip through — often a few thousand ringgit — and are usually found only at audit, if at all.
+- **Duplicate or wrong supplier invoices** can slip through, and may be found only at the audit, if at all.
 - It is hard to see **which weeks cash may run short** before it happens.
 
 ## What you get
 
-We run your own sales, stock and supplier files through a set of checks, and a qualified (ACCA) accountant reviews every finding before you see it.
+We run your own sales, stock and supplier files through a set of checks, and a qualified (ACCA) accountant reviews every finding before you see it, against the files and any documents you give us. It is a check, not an audit.
 
 | Check | What it shows you |
 |---|---|
@@ -38,7 +38,7 @@ The checks are **plain-English rules an accountant can read and change**. You ca
 ## Your data
 
 - **Demo:** the demo runs entirely in your web browser. Files are analysed on the computer in front of you. Nothing is uploaded, and no AI service is called.
-- **Pilot:** your files are kept only on an encrypted laptop and used only for your pilot. They are seen only by our team (Fabian, Joanne and the reviewing accountant). They are **never shared or sold**, and they are **deleted after the pilot when you ask**, with written confirmation. You can remove customer names and phone numbers before sending, because we don't need them. We handle personal data in line with Malaysia's Personal Data Protection Act 2010 (PDPA).
+- **Pilot:** your files are kept only on an encrypted laptop and used only for your pilot. They are seen only by our team (Fabian, Joanne and the reviewing accountant). They are **never shared or sold** (unless the law requires it), and they are **deleted after the pilot when you ask**, with written confirmation. You can remove customer names and phone numbers before sending, because we don't need them. We handle personal data in line with Malaysia's Personal Data Protection Act 2010 (PDPA).
 
 ## What this is not
 

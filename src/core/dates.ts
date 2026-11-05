@@ -54,20 +54,40 @@ export function excelSerialToISO(serial: number): string | null {
   return toISO(d.getUTCFullYear(), d.getUTCMonth() + 1, d.getUTCDate());
 }
 
-/** Look at a column's text values to decide day-first or month-first. */
-export function detectDateOrder(values: Iterable<unknown>): DateOrder {
-  let dmyEvidence = 0;
-  let mdyEvidence = 0;
+export interface DateOrderEvidence {
+  /** Values that only make sense day-first (first part above 12), e.g. 25/03/2026. */
+  dmy: number;
+  /** Values that only make sense month-first (middle part above 12), e.g. 03/25/2026. */
+  mdy: number;
+  /** Values that read differently either way, e.g. 03/04/2026. */
+  ambiguous: number;
+  /** Index (in the iterable) of the first value of each kind, for pointing at a row. */
+  first: { dmy?: number; mdy?: number; ambiguous?: number };
+}
+
+/** Count which reading (day-first or month-first) a column's slash/dash dates support. */
+export function dateOrderEvidence(values: Iterable<unknown>): DateOrderEvidence {
+  const ev: DateOrderEvidence = { dmy: 0, mdy: 0, ambiguous: 0, first: {} };
+  let i = -1;
   for (const v of values) {
+    i++;
     if (typeof v !== 'string') continue;
     const m = v.trim().match(/^(\d{1,2})[/.-](\d{1,2})[/.-](\d{2,4})/);
     if (!m) continue;
     const a = Number(m[1]);
     const b = Number(m[2]);
-    if (a > 12 && b <= 12) dmyEvidence++;
-    else if (b > 12 && a <= 12) mdyEvidence++;
+    const kind = a > 12 && b <= 12 ? 'dmy' : b > 12 && a <= 12 ? 'mdy' : a !== b && a <= 12 && b <= 12 ? 'ambiguous' : null;
+    if (!kind) continue;
+    ev[kind]++;
+    ev.first[kind] ??= i;
   }
-  return mdyEvidence > 0 && dmyEvidence === 0 ? 'MDY' : 'DMY';
+  return ev;
+}
+
+/** Look at a column's text values to decide day-first or month-first. */
+export function detectDateOrder(values: Iterable<unknown>): DateOrder {
+  const ev = dateOrderEvidence(values);
+  return ev.mdy > 0 && ev.dmy === 0 ? 'MDY' : 'DMY';
 }
 
 /** Parse many date shapes. Returns ISO date or null. */

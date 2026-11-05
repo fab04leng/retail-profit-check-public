@@ -45,13 +45,13 @@ describe('parsing fixes', () => {
     expect(parseNumber('RM (5.00)')).toBe(-5);
   });
   it('does not turn a negative-price line (discount/rounding) into a refund', () => {
-    const table: Table = [['Date', 'SKU', 'Qty', 'Unit Price', 'Total'], ['01/02/2026', 'DISC', '1', '-0.50', '-0.50']];
+    const table: Table = [['Date', 'SKU', 'Qty', 'Unit Price', 'Total'], ['15/02/2026', 'DISC', '1', '-0.50', '-0.50']];
     const res = normalizeTable('sales', table, autoMap('sales', table[0]!), 0);
     expect((res.rows[0] as SaleRow).qty).toBe(1);
     expect(res.issues[0]).toMatchObject({ code: 'negativePrice', level: 'warning' });
   });
   it('skips "Total" footer rows silently', () => {
-    const table: Table = [['Date', 'SKU', 'Qty', 'Total'], ['01/02/2026', 'A', '1', '5'], ['Total', '', '1', '5'], ['', 'Jumlah', '', '5']];
+    const table: Table = [['Date', 'SKU', 'Qty', 'Total'], ['15/02/2026', 'A', '1', '5'], ['Total', '', '1', '5'], ['', 'Jumlah', '', '5']];
     const res = normalizeTable('sales', table, autoMap('sales', table[0]!), 0);
     expect(res.rows).toHaveLength(1);
     expect(res.issues).toEqual([]);

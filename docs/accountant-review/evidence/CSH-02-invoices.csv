@@ -1,0 +1,73 @@
+Row,Supplier,Invoice No,Invoice Date,SKU,Description,Quantity,Unit Price,Total,Due Date
+5286,Wangisari Personal Care,518892,19/09/2026,PC-001,Syampu Herba 400ml,24,9.52,228.48,18/11/2026
+5287,Wangisari Personal Care,518892,19/09/2026,PC-003,Sabun Mandi Cecair 500ml,24,8.51,204.24,18/11/2026
+5288,Wangisari Personal Care,518892,19/09/2026,PC-004,Sabun Mandi Cecair 1L,18,15.49,278.82,18/11/2026
+5289,Wangisari Personal Care,518892,19/09/2026,PC-005,Ubat Gigi Herba 150g,36,4.08,146.88,18/11/2026
+5290,Wangisari Personal Care,518892,19/09/2026,PC-006,Ubat Gigi Herba 2 x 150g,18,8.87,159.66,18/11/2026
+5291,Wangisari Personal Care,518892,19/09/2026,PC-007,Berus Gigi Lembut 2 batang,24,3.01,72.24,18/11/2026
+5292,Wangisari Personal Care,518892,19/09/2026,PC-008,Deodoran Roll-on 50ml,18,6.87,123.66,18/11/2026
+5293,Wangisari Personal Care,518892,19/09/2026,PC-010,Tuala Wanita Siang 16 keping,24,5.74,137.76,18/11/2026
+5294,Wangisari Personal Care,518892,19/09/2026,PC-011,Tuala Wanita Malam 10 keping,24,6.26,150.24,18/11/2026
+5295,Wangisari Personal Care,518892,19/09/2026,PC-012,Sabun Basuh Tangan 250ml,12,4.40,52.80,18/11/2026
+5554,Bersihana Household Supply,BH-00717,05/10/2026,HH-001,Sabun Basuh Pinggan Limau 900ml,54,3.16,170.64,19/11/2026
+5555,Bersihana Household Supply,BH-00717,05/10/2026,HH-002,Sabun Basuh Pinggan Limau 3.6L,42,10.40,436.80,19/11/2026
+5556,Bersihana Household Supply,BH-00717,05/10/2026,HH-003,Serbuk Pencuci Pakaian 2kg,42,10.12,425.04,19/11/2026
+5557,Bersihana Household Supply,BH-00717,05/10/2026,HH-004,Serbuk Pencuci Pakaian 4kg,42,19.12,803.04,19/11/2026
+5558,Bersihana Household Supply,BH-00717,05/10/2026,HH-005,Cecair Pencuci Pakaian 2L,36,11.29,406.44,19/11/2026
+5559,Bersihana Household Supply,BH-00717,05/10/2026,HH-006,Cecair Pencuci Pakaian 3.8L,24,20.65,495.60,19/11/2026
+5560,Bersihana Household Supply,BH-00717,05/10/2026,HH-007,Pelembut Pakaian 2L,24,7.93,190.32,19/11/2026
+5561,Bersihana Household Supply,BH-00717,05/10/2026,HH-008,Pencuci Lantai Pine 2L,36,5.72,205.92,19/11/2026
+5562,Bersihana Household Supply,BH-00717,05/10/2026,HH-010,Ubat Nyamuk Lingkar 10 lingkar,30,3.93,117.90,19/11/2026
+5571,Rempahku Spice House,RK/26/0333,06/10/2026,SP-001,Serbuk Kari Daging 250g,24,3.15,75.60,20/11/2026
+5572,Rempahku Spice House,RK/26/0333,06/10/2026,SP-002,Serbuk Kari Daging 1kg,18,11.52,207.36,20/11/2026
+5573,Rempahku Spice House,RK/26/0333,06/10/2026,SP-003,Serbuk Kari Ikan 250g,12,3.06,36.72,20/11/2026
+5574,Rempahku Spice House,RK/26/0333,06/10/2026,SP-004,Serbuk Kari Ikan 1kg,12,10.95,131.40,20/11/2026
+5575,Rempahku Spice House,RK/26/0333,06/10/2026,SP-005,Serbuk Cili 250g,24,2.62,62.88,20/11/2026
+5576,Rempahku Spice House,RK/26/0333,06/10/2026,SP-006,Serbuk Cili 500g,18,5.03,90.54,20/11/2026
+5577,Rempahku Spice House,RK/26/0333,06/10/2026,SP-009,Bunga Lawang 100g,12,3.40,40.80,20/11/2026
+5578,Rempahku Spice House,RK/26/0333,06/10/2026,SP-010,Kayu Manis 100g,12,2.89,34.68,20/11/2026
+5579,Rempahku Spice House,RK/26/0333,06/10/2026,SP-012,Lada Hitam Tumbuk 250g,6,10.38,62.28,20/11/2026
+5580,Rempahku Spice House,RK/26/0333,06/10/2026,SP-013,Pes Rendang 200g,18,3.91,70.38,20/11/2026
+5581,Rempahku Spice House,RK/26/0333,06/10/2026,SP-014,Pes Tom Yam 200g,18,3.59,64.62,20/11/2026
+5605,Tulisana Stationery,INV2610-1143,08/10/2026,ST-002,Buku Latihan Sekolah 120 muka,18,1.93,34.74,22/11/2026
+5606,Tulisana Stationery,INV2610-1143,08/10/2026,ST-003,Pen Biru 3 batang,18,2.17,39.06,22/11/2026
+5607,Tulisana Stationery,INV2610-1143,08/10/2026,ST-004,Pita Pelekat Lutsinar 2 gulung,12,1.82,21.84,22/11/2026
+5608,Tulisana Stationery,INV2610-1143,08/10/2026,ST-005,Sampul Duit Raya 10 keping,18,2.10,37.80,22/11/2026
+5609,Tulisana Stationery,INV2610-1143,08/10/2026,ST-006,Angpau Merah 10 keping,6,2.33,13.98,22/11/2026
+5745,Bayimesra Baby Care Agency,INV2610-0764,17/10/2026,BB-001,Lampin Bayi Pakai Buang Saiz M 60 keping,36,33.08,1190.88,16/11/2026
+5746,Bayimesra Baby Care Agency,INV2610-0764,17/10/2026,BB-002,Lampin Bayi Pakai Buang Saiz L 52 keping,42,32.86,1380.12,16/11/2026
+5747,Bayimesra Baby Care Agency,INV2610-0764,17/10/2026,BB-003,Lampin Bayi Pakai Buang Saiz XL 44 keping,42,33.15,1392.30,16/11/2026
+5748,Bayimesra Baby Care Agency,INV2610-0764,17/10/2026,BB-004,Susu Tepung Kanak-kanak 1.2kg,30,38.85,1165.50,16/11/2026
+5749,Bayimesra Baby Care Agency,INV2610-0764,17/10/2026,BB-005,Susu Tepung Kanak-kanak 1.8kg,24,57.98,1391.52,16/11/2026
+5750,Bayimesra Baby Care Agency,INV2610-0764,17/10/2026,BB-006,Tisu Basah Bayi 80 keping,60,4.56,273.60,16/11/2026
+5751,Bayimesra Baby Care Agency,INV2610-0764,17/10/2026,BB-007,Tisu Basah Bayi 3 x 80 keping,30,10.47,314.10,16/11/2026
+5752,Bayimesra Baby Care Agency,INV2610-0764,17/10/2026,BB-008,Bubur Bijirin Bayi 250g,18,7.63,137.34,16/11/2026
+5756,Sawitara Oils Distribution,SO-00257,18/10/2026,SF-009,Minyak Masak Sawit 1kg,60,7.06,423.60,17/11/2026
+5757,Sawitara Oils Distribution,SO-00257,18/10/2026,SF-010,Minyak Masak Sawit 2kg,54,13.81,745.74,17/11/2026
+5758,Sawitara Oils Distribution,SO-00257,18/10/2026,SF-011,Minyak Masak Sawit 5kg,54,33.18,1791.72,17/11/2026
+5759,Sawitara Oils Distribution,SO-00257,18/10/2026,SF-012,Minyak Bijan 320ml,18,7.36,132.48,17/11/2026
+5760,Sawitara Oils Distribution,SO-00257,18/10/2026,SF-013,Minyak Zaitun 500ml,18,18.37,330.66,17/11/2026
+5761,Sawitara Oils Distribution,SO-00257,18/10/2026,SF-014,Minyak Zaitun 1L,6,35.37,212.22,17/11/2026
+5762,Sawitara Oils Distribution,SO-00257,18/10/2026,SF-015,Marjerin 240g,36,4.06,146.16,17/11/2026
+5763,Sawitara Oils Distribution,SO-00257,18/10/2026,SF-016,Marjerin 480g,24,7.85,188.40,17/11/2026
+5764,Sawitara Oils Distribution,SO-00257,18/10/2026,SF-017,Santan Kotak 200ml,54,2.11,113.94,17/11/2026
+5765,Sawitara Oils Distribution,SO-00257,18/10/2026,SF-018,Santan Kotak 1L,36,9.30,334.80,17/11/2026
+5806,Snekria Snacks Trading,SN-00527,20/10/2026,FS-020,Biskut Mentega Tin Hadiah Tin 700g,239,16.72,3996.08,19/11/2026
+5807,Hamperia Gift Supply,HG-00818,20/10/2026,FS-018,Hamper Korporat 2026 Standard,213,84.19,17932.47,19/11/2026
+5808,Hamperia Gift Supply,HG-00818,20/10/2026,FS-019,Hamper Korporat 2026 Premium,240,126.51,30362.40,19/11/2026
+5809,Gandumas Flour & Sugar Trading,INV2610-0262,21/10/2026,SF-001,Gula Pasir Halus 1kg,54,2.67,144.18,20/11/2026
+5810,Gandumas Flour & Sugar Trading,INV2610-0262,21/10/2026,SF-002,Gula Pasir Halus 2kg,48,5.48,263.04,20/11/2026
+5811,Gandumas Flour & Sugar Trading,INV2610-0262,21/10/2026,SF-003,Tepung Gandum Serbaguna 1kg,36,2.27,81.72,20/11/2026
+5812,Gandumas Flour & Sugar Trading,INV2610-0262,21/10/2026,SF-004,Tepung Gandum Serbaguna 2kg,18,4.35,78.30,20/11/2026
+5813,Gandumas Flour & Sugar Trading,INV2610-0262,21/10/2026,SF-005,Tepung Beras 500g,18,1.87,33.66,20/11/2026
+5814,Gandumas Flour & Sugar Trading,INV2610-0262,21/10/2026,SF-006,Tepung Beras 1kg,18,3.54,63.72,20/11/2026
+5815,Gandumas Flour & Sugar Trading,INV2610-0262,21/10/2026,SF-007,Tepung Jagung 400g,24,2.16,51.84,20/11/2026
+5816,Gandumas Flour & Sugar Trading,INV2610-0262,21/10/2026,SF-019,Serbuk Penaik 100g,6,1.85,11.10,20/11/2026
+5817,Bilisora Dry Seafood,BS-01006,21/10/2026,SP-015,Belacan Blok 250g,18,4.34,78.12,20/11/2026
+5818,Bilisora Dry Seafood,BS-01006,21/10/2026,DS-001,Ikan Bilis Gred A 250g,24,7.40,177.60,20/11/2026
+5819,Bilisora Dry Seafood,BS-01006,21/10/2026,DS-002,Ikan Bilis Gred A 500g,24,14.08,337.92,20/11/2026
+5820,Bilisora Dry Seafood,BS-01006,21/10/2026,DS-003,Udang Kering 200g,6,11.62,69.72,20/11/2026
+5821,Bilisora Dry Seafood,BS-01006,21/10/2026,DS-004,Ikan Masin Kurau 200g,12,17.32,207.84,20/11/2026
+5822,Haiwania Pet Supplies,HP-01228,21/10/2026,PT-002,Makanan Kucing Kering 3kg,6,26.78,160.68,20/11/2026
+5823,Haiwania Pet Supplies,HP-01228,21/10/2026,PT-003,Makanan Kucing Tin 400g,12,2.61,31.32,20/11/2026
+5824,Haiwania Pet Supplies,HP-01228,21/10/2026,PT-004,Pasir Kucing 10L,6,7.85,47.10,20/11/2026

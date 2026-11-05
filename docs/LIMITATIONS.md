@@ -10,7 +10,9 @@ Retail Profit Check is a **demo and pilot tool**, not a finished product. Its fi
 
 ## Accounting simplifications
 - **Unit cost** is the current cost from the product list, applied to the whole period (no FIFO, no weighted-average history). If costs changed during the period, profit by product is approximate. Products with cost 0 are treated as "no cost".
-- **Sales totals** are taken as net of discount when a Total column exists; tax (SST) is not separated.
+- **Sales totals** are taken as net of discount when a Total column exists. **Tax (SST):** when a file has separate before-tax and after-tax amount columns, sales use the before-tax amount and supplier invoices and payments use the after-tax amount (what is paid); a column holding only the tax is never used. When a sales file has only one total and it includes tax, the tax is not separated and revenue is overstated by it.
+- **Refunds and voids:** refunds are recognised from negative quantities or amounts, or from a line-type column saying "Refund"/"Return"/"Pulangan"/退货; lines marked "Void"/"Cancelled"/"Batal"/作废 are skipped with a message.
+- **Date order:** dates are read day-first (DD/MM/YYYY) unless a column proves month-first (a middle part above 12). When every date in a column could be read either way (for example a file covering only the 1st–12th of a month), the app says so on the Start page; the reading cannot be changed by hand yet.
 - **Below cost** is judged on the average selling price over the period, so a short promotion below cost may not show, and a product whose cost rose recently may look worse than it was earlier in the year.
 - **Stock age** counts from the last sale. A product that was restocked recently but has not sold for a long time is still flagged as dead stock (on purpose: the restock is the question to ask).
 - **Days of cover** uses the average daily units over the look-back period; seasonality is ignored.

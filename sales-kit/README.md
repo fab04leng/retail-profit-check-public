@@ -11,8 +11,9 @@ Each file comes in English (`.en.md` / `.md`) and Simplified Chinese (`.zh.md`).
 | 3 | `03-whatsapp-outreach.en.md` / `.zh.md` | Short WhatsApp messages from the accountant to his contacts (English file includes an optional Malay version) | The accountant |
 | 4 | `04-objection-handling.en.md` / `.zh.md` | Honest answers and questions to ask back for common objections | Everyone |
 | 5 | `05-pilot-agreement-draft.en.md` / `.zh.md` | Pilot agreement **draft**, which **must be reviewed by a lawyer before use**. English prevails | Fabian / Joanne + lawyer |
-| 6 | `DEMO_SCRIPT.md` / `DEMO_SCRIPT.zh.md` | 5-minute demo walkthrough with clicks, talking points and the pilot ask | Whoever runs the demo |
-| 7 | `README.md` / `README.zh.md` | This index | Everyone |
+| 6 | `06-pilot-onboarding.en.md` / `.zh.md` | What the owner sends and how to export it from Loyverse, StoreHub, AutoCount, SQL Account and others (**all steps unverified**), what personal data to delete, and a checklist | Owner, after signing |
+| 7 | `DEMO_SCRIPT.md` / `DEMO_SCRIPT.zh.md` | 5-minute demo walkthrough with clicks, talking points and the pilot ask | Whoever runs the demo |
+| 8 | `README.md` / `README.zh.md` | This index | Everyone |
 
 ## Suggested flow
 
@@ -21,7 +22,8 @@ Each file comes in English (`.en.md` / `.md`) and Simplified Chinese (`.zh.md`).
 3. **Demo (5 min), if the owner is interested:** use `DEMO_SCRIPT`. Always say the numbers come from a fictional shop.
 4. **Pilot ask:** leave `01-offer` behind and handle concerns with `04`.
 5. **Agreement:** only once a lawyer has reviewed `05`.
-6. **Track:** interviews done / pilots agreed / data received / introductions. Count only real commitments (time, money, data, introductions), not compliments.
+6. **Onboarding:** after signing, send the owner `06` and offer a short call to help with the exports.
+7. **Track:** interviews done / pilots agreed / data received / introductions. Count only real commitments (time, money, data, introductions), not compliments.
 
 ## Rules for everyone using this kit
 

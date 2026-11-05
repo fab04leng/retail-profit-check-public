@@ -89,7 +89,7 @@ Wording is deliberate: "possible duplicate", "needs review", "estimate". RM amou
 
 ## What it does not do
 
-It does not replace an accountant, produce audited accounts or give tax advice; it does not connect to POS or accounting systems; it does not store anything on a server; and its forecast is a simple trend, not a prediction. See **[docs/LIMITATIONS.md](docs/LIMITATIONS.md)**.
+It does not replace an accountant, produce audited accounts or give tax advice; it does not connect to POS or accounting systems; it does not store anything on a server; and its forecast is a simple trend, not a prediction. See **[docs/LIMITATIONS.md](docs/LIMITATIONS.md)**, and **[docs/FINAL_REVIEW.md](docs/FINAL_REVIEW.md)** for what is still open before the first paid pilot.
 
 ## Demo data
 
@@ -99,11 +99,12 @@ It does not replace an accountant, produce audited accounts or give tax advice; 
 
 | Command | What |
 |---|---|
-| `npm test` | 233 unit, accuracy and performance tests (Vitest) |
+| `npm test` | 275 unit, accuracy and performance tests (Vitest), including five messy real-world exports in `tests/fixtures/messy/` and a check that the accountant review pack is up to date |
 | `npm run test:accuracy` | Analyses on the demo data vs the answer key, with a false-positive report |
 | `npm run test:perf` | 100,000 sales rows end to end |
 | `npm run test:coverage` | Coverage of the non-UI code (≈94% statements) |
-| `npm run test:e2e` | 21 Playwright tests (demo journey, every page, evidence, languages, review mode, print/PDF, uploads, POS layout preset, XSS, 100k-row upload, offline build, axe WCAG 2.1 AA on every page, keyboard-only journey); screenshots go to `docs/screenshots/` |
+| `npm run test:e2e` | 31 Playwright tests (demo journey, messy-file uploads, landing page, every page, evidence, languages, review mode, print/PDF, uploads, POS layout preset, XSS, 100k-row upload, offline build, axe WCAG 2.1 AA on every page, keyboard-only journey); screenshots go to `docs/screenshots/` |
+| `npm run accountant:pdf` | Regenerates the accountant rule-review pack (Markdown, HTML, PDF, evidence CSVs) in `docs/accountant-review/` |
 | `npm run lint` / `npm run typecheck` | ESLint (bans `dangerouslySetInnerHTML`) and TypeScript strict |
 | `npm run verify` | All of the above |
 
@@ -118,11 +119,13 @@ src/worker     Web Worker engine (+ on-page fallback)
 src/i18n       English, 中文, Bahasa Melayu
 src/ui         React pages and components
 tests/         unit, accuracy, perf      e2e/   Playwright
-sales-kit/     offer, interview script, WhatsApp messages, objections, pilot agreement draft, demo script (EN + 中文)
+sales-kit/     offer, interview script, WhatsApp messages, objections, pilot agreement draft, pilot onboarding guide, demo script (EN + 中文)
 marketing/     landing page, demo videos, 30-day social calendar, ads + RM500 test plan, lead tracking (see marketing/README.md)
 research/      synthetic objection rehearsal — NOT market validation
 marketing-agent/  n8n marketing agent: post drafts, publisher, lead inbox, weekly report (human approval for everything)
-docs/          PLAN, PROGRESS, DECISIONS, LIMITATIONS, screenshots
+docs/          PLAN, PROGRESS, DECISIONS, LIMITATIONS, FINAL_REVIEW, screenshots,
+               accountant-review/ (rule-review pack for the accountant, EN + 中文 PDF)
+src/review     builds the accountant rule-review pack (npm run accountant:pdf)
 .claude/       selected ECC agents, skills and rules used to build this (no hooks)
 ```
 
@@ -135,6 +138,7 @@ docs/          PLAN, PROGRESS, DECISIONS, LIMITATIONS, screenshots
 - Only settings, column mappings and review notes are kept, in the browser's localStorage; **Clear data and remembered settings** on the Start page removes them.
 - File contents are only ever rendered as text (React escaping; no `innerHTML`), long cells are capped, and crafted files (zip bombs, huge rows, slow-regex strings) are refused or capped.
 - Exported CSV/Excel cells that start with `=`, `+`, `-`, `@`, tab or CR are prefixed with `'` so spreadsheets do not run them as formulas.
+- Before a pilot, give the owner `sales-kit/06-pilot-onboarding.en.md` (or `.zh.md`): what to export and which personal data to delete before sending.
 - For pilots, keep owners' files on an encrypted laptop and delete them after the pilot (see `sales-kit/05-pilot-agreement-draft.en.md`, a draft that must be reviewed by a lawyer).
 
 ## Licence and credits

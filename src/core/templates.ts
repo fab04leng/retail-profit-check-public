@@ -1,5 +1,5 @@
 import { toCsv } from './exportCsv';
-import { FIELDS } from './fields';
+import { templateFields } from './fields';
 import type { FileKind } from './types';
 
 /** English column headers used in the blank templates (the wizard also accepts BM/中文). */
@@ -12,7 +12,7 @@ export const TEMPLATE_HEADERS: Record<FileKind, Record<string, string>> = {
 
 /** Blank template: header row plus two example rows (examples are invented). */
 export function templateCsv(kind: FileKind): string {
-  const fields = FIELDS[kind];
+  const fields = templateFields(kind);
   const header = fields.map((f) => TEMPLATE_HEADERS[kind][f.key] ?? f.key);
   const ex1 = fields.map((f) => f.example[0]);
   const ex2 = fields.map((f) => f.example[1]);

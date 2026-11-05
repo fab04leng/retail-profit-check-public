@@ -1,0 +1,11 @@
+Date,Receipt number,Receipt type,SKU,Item,Category,Quantity,Unit price,Discount,Net sales,Store
+03/14/2026 10:02 AM,1-1001,Sale,FZ-008,Kentang Goreng Sejuk Beku 1kg,Frozen,2,RM 9.90,0%,RM 19.80,Bayan Lepas
+03/14/2026 10:02 AM,1-1001,Sale,BR-002,Roti Putih Sandwic 600g,Bread,1,RM 4.50,0%,RM 4.50,Bayan Lepas
+03/04/2026 4:15 PM,1-1002,Sale,FZ-008,Kentang Goreng Sejuk Beku 1kg,Frozen,1,RM 9.90,10%,RM 8.91,Bayan Lepas
+
+03/20/2026 11:30 AM,1-1003,Refund,FZ-008,Kentang Goreng Sejuk Beku 1kg,Frozen,1,RM 9.90,0%,RM 9.90,Bayan Lepas
+04/02/2026 9:00 AM,1-1004,Sale,BR-002,Roti Putih Sandwic 600g,Bread,10,RM 4.50,0%,RM 45.00,Bayan Lepas
+04/02/2026 9:05 AM,1-1005,Void,BR-002,Roti Putih Sandwic 600g,Bread,10,RM 4.50,0%,RM 45.00,Bayan Lepas
+04/03/2026 9:10 AM,1-1006,Sale,BR-002,Roti Putih Sandwic 600g,Bread,1,RM 4.50,0%,(RM 4.50),Bayan Lepas
+
+TOTAL:,,,,,,13,,,RM 128.61,

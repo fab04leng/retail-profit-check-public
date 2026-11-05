@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>规则审阅资料 · 179bfdc7</title>
+<style>
+@page { size: A4; margin: 14mm 13mm 16mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", "WenQuanYi Zen Hei", sans-serif; font-size: 9.5pt; line-height: 1.4; color: #1a1a1a; background: #fff; margin: 0; }
+main { max-width: 190mm; margin: 0 auto; padding: 8mm 0; }
+h1 { font-size: 18pt; margin: 0 0 2mm; }
+h2 { font-size: 13pt; margin: 0 0 1.5mm; border-bottom: 1.5px solid #1f4e79; padding-bottom: 1mm; }
+h3 { font-size: 10pt; margin: 3mm 0 1mm; color: #1f4e79; }
+p { margin: 1mm 0; }
+ul, ol { margin: 1mm 0 1mm 5mm; padding: 0; }
+li { margin: 0.4mm 0; }
+.rid { display: inline-block; background: #1f4e79; color: #fff; border-radius: 3px; padding: 0 2mm; margin-right: 1mm; font-size: 11pt; }
+.kind, .muted, .meta { color: #555; }
+.small { font-size: 8pt; color: #444; }
+.tcap { font-weight: 600; margin-top: 2mm; font-size: 8.5pt; }
+table { border-collapse: collapse; width: 100%; margin: 1mm 0; }
+th, td { border: 0.5px solid #999; padding: 0.6mm 1.2mm; text-align: left; vertical-align: top; }
+th { background: #e8eef5; }
+table.rows { font-size: 7.3pt; }
+table.rows td { overflow-wrap: anywhere; }
+.two { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5mm; }
+.decision { border: 1.5px solid #1f4e79; border-radius: 2mm; padding: 2mm 3mm; margin-top: 3mm; break-inside: avoid; }
+.decision h3 { margin-top: 0; }
+.opt { margin: 1.5mm 0; }
+.box { display: inline-block; width: 3.6mm; height: 3.6mm; border: 1px solid #222; margin-right: 2mm; vertical-align: -0.6mm; }
+.blank { display: inline-block; width: 28mm; border-bottom: 1px solid #222; height: 3.5mm; }
+.blank.wide { width: 100mm; }
+.notes-label { margin-top: 2mm; }
+.lines div { border-bottom: 1px solid #aaa; height: 6.5mm; }
+.cover { min-height: 255mm; }
+.cover h2 { font-size: 11.5pt; margin-top: 4mm; }
+.sign { border: 1.5px solid #1f4e79; border-radius: 2mm; padding: 2mm 4mm; margin-top: 4mm; }
+.sign .field { display: grid; grid-template-columns: 60mm 1fr; align-items: end; height: 8mm; }
+.sign .field span:last-child { border-bottom: 1px solid #222; height: 6mm; }
+section.rule, section.summary { break-before: page; }
+table.summary td { height: 9mm; }
+table.summary td:first-child, table.summary th:first-child { white-space: nowrap; }
+@media screen { main { padding: 10mm; } section.rule, section.summary { border-top: 3px dashed #ccc; padding-top: 6mm; margin-top: 10mm; } }
+</style>
+</head>
+<body>
+<main>
+<section class="cover">
+<h1>Retail Profit Check — 规则审阅资料</h1>
+<p><strong>给合作会计师，在第一个付费试用之前审阅.</strong></p>
+<p class="meta">规则版本 179bfdc7 · 共 15 条规则 · 实例来自示范资料：Pinangria Mart (fictional demo shop)，2025-11-03 至 2026-11-01</p>
+<h2>这个工具做什么</h2><ul><li>在浏览器里读取店铺自己导出的文件（销售、产品/库存清单、供应商发票，以及可选的付款）。不会上传任何资料。</li><li>套用本资料中的规则，每项发现都显示触发的规则和具体的原始资料行。</li><li>让会计师把每项发现标为“已确认”“没有问题”或“需要更多资料”，并打印一页的老板摘要。</li></ul>
+<h2>这个工具不做什么</h2><ul><li>它不是经审计的账目、审阅业务或税务建议，也不能取代会计师。</li><li>它不会为账目做存货估值（用当前成本，没有可变现净值），不会把 SST 分开，也不知道回扣、贷项通知单、贷款或税款。</li><li>它不能证明任何事情有错。每项发现都只是需要对照单据核查的可能性。准确度目前只在虚构资料上测试过。</li></ul>
+<h2>如何审阅</h2><ol><li>每条规则请阅读说明和实例。行号是 demo/data/ 里示范文件的电子表格行号（第 1 行是标题），您可以用 Excel 打开核对。</li><li>勾选“同意”“改为”（写下新的数字或文字）或“删除”，并写下备注，特别是您在实务中见过的误报情况。最后一页汇总您的决定。</li><li>在下方签名。创办人会在第一个试用之前，按照您的决定修改 src/rules/rules.config.ts 和应用程序的“规则”页面，并告诉您新的版本号。</li></ol>
+<div class="sign"><h2>签署</h2><p>本人已阅读本资料中的每一条规则，并记录了我的决定。这只是对本工具规则的审阅，并不是对任何企业财务资料的审计、审阅或其他鉴证业务。</p>
+<div class="field"><span>姓名</span><span></span></div>
+<div class="field"><span>专业团体及会员编号</span><span></span></div>
+<div class="field"><span>事务所</span><span></span></div>
+<div class="field"><span>签名</span><span></span></div>
+<div class="field"><span>日期</span><span></span></div>
+</div>
+</section>
+<section class="rule" id="PRF-01">
+<h2><span class="rid">PRF-01</span> 利润如何计算</h2>
+<p class="kind">计算方法（说明计算方式；不会产生发现）</p>
+<p><strong>规则内容：</strong> 销售额 = 扣除折扣后的销售行总额，减去退货（负数数量）。销货成本 = 净卖出数量 × 产品清单中的单位成本。毛利 = 销售额 − 成本。毛利率 % = 毛利 ÷ 销售额。</p>
+<p><strong>为什么重要：</strong> 老板常常只看销售额，不看利润。一种产品可能卖得很多，却几乎不赚钱，甚至没赚。</p>
+<p><strong>门槛：</strong> 没有可修改的门槛。</p>
+<h3>实例（示范资料）</h3>
+<ol><li>产品 DE-009 Telur Ayam Kampung 10 biji：期间内共有 192 行销售，其中 1 行是退货（数量为负数）。</li><li>销售额 = 扣除折扣后的各行总额相加，退货为负数 = RM 3,297.50。</li><li>净卖出数量 = 265。单位成本（产品第 117 行）= RM 7.81。</li><li>销货成本 = 265 × RM 7.81 = RM 2,069.65。</li><li>毛利 = RM 3,297.50 − RM 2,069.65 = RM 1,227.85。毛利率 = RM 1,227.85 ÷ RM 3,297.50 = 37.2%。</li></ol>
+<p class="tcap">产品 — demo/data/products.csv</p><table class="rows"><thead><tr><th>行</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>117</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>7.81</td><td>16</td><td>29/10/2026</td></tr></tbody></table>
+<p class="tcap">销售 — demo/data/sales.csv</p><table class="rows"><thead><tr><th>行</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>177</td><td>04/11/2025</td><td>BL-200048</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>2</td><td>12.50</td><td>0.00</td><td>25.00</td><td>Bayan Lepas</td></tr><tr><td>255</td><td>04/11/2025</td><td>BL-200086</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>3</td><td>12.50</td><td>0.00</td><td>37.50</td><td>Bayan Lepas</td></tr><tr><td>830</td><td>07/11/2025</td><td>BL-200231</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>2</td><td>12.50</td><td>0.00</td><td>25.00</td><td>Bayan Lepas</td></tr><tr><td>1897</td><td>12/11/2025</td><td>BL-200460</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>1</td><td>12.50</td><td>0.00</td><td>12.50</td><td>Bayan Lepas</td></tr><tr><td>2232</td><td>13/11/2025</td><td>JL-100709</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>1</td><td>12.50</td><td>1.25</td><td>11.25</td><td>Jelutong</td></tr><tr><td>27919</td><td>28/02/2026</td><td>RF-220334</td><td>DE-009</td><td>Telur Ayam Kampung 10 biji</td><td>Dairy &amp; Eggs</td><td>-1</td><td>12.50</td><td>0.00</td><td>-12.50</td><td>Bayan Lepas</td></tr></tbody></table><p class="small">显示 192 行中的 6 行。全部 192 行连同行号都在 evidence/PRF-01-sales.csv。</p>
+<div class="two">
+<div><h3>计算只是近似的地方</h3><ul><li>单位成本取自产品清单中的当前成本，并套用到整个期间（不是先进先出，也不是加权平均历史成本）。如果期间内成本有变动，按产品计算的利润只是近似值。</li><li>如果 POS 的“总额”栏包含 SST，销售额会多算了税额，毛利率看起来会比实际好。本工具不会把 SST 分开。</li><li>供应商回扣、销量奖励、免费货品（“10 送 1”）和促销补贴都不在产品成本里，所以实际毛利可能更高。</li><li>损耗、过期和损坏的货品没有计算在内（成本 = 卖出数量 × 单位成本），所以实际毛利可能更低。</li><li>没有成本的产品（不在产品清单中，或成本为 0）不计入毛利，会另外列出。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>扣除营运开销（租金、薪水、水电）后的利润：本工具只计算毛利。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 作为给老板看的健康检查（不是用来做账），这个计算方法可以接受吗？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>修改计算方法或文字 <span class="blank wide"></span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="PRF-02">
+<h2><span class="rid">PRF-02</span> 产品低于成本出售</h2>
+<p class="kind">检查（会产生发现） · 严重度： 高</p>
+<p><strong>规则内容：</strong> 当一种产品每单位的平均售价（扣除折扣和退货后）低于产品清单中的单位成本时，就会标出。</p>
+<p><strong>为什么重要：</strong> 每低于成本卖出一个，利润就减少一些。常见原因：成本涨了但货架价格没调整、POS 里的价格错了，或促销忘了结束。</p>
+<p><strong>门槛：</strong> 没有可修改的门槛。</p>
+<h3>实例（示范资料）</h3>
+<ol><li>产品 CT-002 Kopi O Kaw Serbuk 1kg：净卖出 567 个，销售额 RM 11,453.40 → 平均售价每个 RM 20.20。</li><li>产品清单中的单位成本 = RM 21.54。平均售价 &lt; 单位成本 → 标出。</li><li>低于成本的金额 = 销货成本 RM 12,213.18 − 销售额 RM 11,453.40 = RM 759.78。</li><li>同意之前请核对：供应商发票显示成本从 RM 18.73（2026年4月13日）涨到 RM 21.54（2026年5月12日）。涨价前的销售也拿新成本来比较，所以这笔金额有一部分是成本上涨，不是定价错误。</li></ol>
+<p class="tcap">产品 — demo/data/products.csv</p><table class="rows"><thead><tr><th>行</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>80</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>21.54</td><td>46</td><td>26/10/2026</td></tr></tbody></table>
+<p class="tcap">销售 — demo/data/sales.csv</p><table class="rows"><thead><tr><th>行</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>259</td><td>04/11/2025</td><td>JL-100061</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>1</td><td>20.20</td><td>0.00</td><td>20.20</td><td>Jelutong</td></tr><tr><td>436</td><td>05/11/2025</td><td>JL-100119</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>3</td><td>20.20</td><td>0.00</td><td>60.60</td><td>Jelutong</td></tr><tr><td>881</td><td>07/11/2025</td><td>JL-100268</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>2</td><td>20.20</td><td>0.00</td><td>40.40</td><td>Jelutong</td></tr><tr><td>1153</td><td>08/11/2025</td><td>JL-100348</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>1</td><td>20.20</td><td>0.00</td><td>20.20</td><td>Jelutong</td></tr><tr><td>36720</td><td>07/04/2026</td><td>RF-220346</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>Coffee &amp; Tea</td><td>-1</td><td>20.20</td><td>0.00</td><td>-20.20</td><td>Bayan Lepas</td></tr></tbody></table><p class="small">显示 415 行中的 5 行。全部 415 行连同行号都在 evidence/PRF-02-sales.csv。</p>
+<p class="tcap">供应商发票 — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>行</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>2692</td><td>Kopisenja Beverage Agency</td><td>KB-00384</td><td>13/04/2026</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>54</td><td>18.73</td><td>1011.42</td><td>13/05/2026</td></tr><tr><td>3142</td><td>Kopisenja Beverage Agency</td><td>KB-00391</td><td>12/05/2026</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>36</td><td>21.54</td><td>775.44</td><td>11/06/2026</td></tr></tbody></table>
+<div class="two">
+<div><h3>已知的误报情况</h3><ul><li>产品清单里的成本最近才调高，但整个期间的销售都拿新成本来比较。成本上涨之前的销售其实没有低于成本（见实例：供应商在 5 月涨价）。</li><li>单位搞混：产品清单里的成本是每箱或每包，POS 里的售价是每件（或者相反）。</li><li>有意的引客产品，或由供应商补回差价的促销（促销补贴申请）。这些补贴不在这些文件里。</li><li>“买一送一”或配套组合，送出的那件以零价格记录。</li><li>员工以成本价或更低价格购买。</li><li>供应商回扣使实际成本低于发票成本。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>短期低于成本的促销：整个期间的平均售价可能仍高于成本。</li><li>不在产品清单中的产品（没有成本可以比较）。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> “低于成本”应该按整个期间判断，还是只看最近几个月？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>修改计算方法或文字 <span class="blank wide"></span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="PRF-03">
+<h2><span class="rid">PRF-03</span> 毛利率低于目标</h2>
+<p class="kind">检查（会产生发现） · 严重度： 中</p>
+<p><strong>规则内容：</strong> 当一种产品有赚钱，但毛利率低于目标毛利率时，就会标出。</p>
+<p><strong>为什么重要：</strong> 薄利产品可能仍值得卖（用来吸引客人），但这应该是老板有意的选择。</p>
+<p><strong>门槛：</strong> </p><ul><li>目标毛利率：<strong>25%</strong>（可设定范围 0% – 90%）</li></ul>
+<h3>实例（示范资料）</h3>
+<ol><li>产品 RG-002 Beras Wangi 10kg：销售额 RM 30,644.60，毛利 RM 4,485.18 → 毛利率 14.6%。</li><li>目标毛利率 = 25.0%。14.6% &lt; 25.0%，而且产品有赚钱 → 标出（不属于 PRF-02）。</li><li>显示的金额 = 按目标计算的毛利（25.0% × RM 30,644.60）− 实际毛利 = RM 3,175.97。这是未达目标的毛利，不是亏损。</li></ol>
+<p class="tcap">产品 — demo/data/products.csv</p><table class="rows"><thead><tr><th>行</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>3</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>31.67</td><td>55</td><td>30/10/2026</td></tr></tbody></table>
+<p class="tcap">销售 — demo/data/sales.csv</p><table class="rows"><thead><tr><th>行</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>57</td><td>03/11/2025</td><td>BL-200035</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>1</td><td>37.10</td><td>0.00</td><td>37.10</td><td>Bayan Lepas</td></tr><tr><td>162</td><td>03/11/2025</td><td>JL-100057</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>1</td><td>37.10</td><td>0.00</td><td>37.10</td><td>Jelutong</td></tr><tr><td>209</td><td>04/11/2025</td><td>BL-200061</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>1</td><td>37.10</td><td>0.00</td><td>37.10</td><td>Bayan Lepas</td></tr><tr><td>214</td><td>04/11/2025</td><td>BL-200064</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>1</td><td>37.10</td><td>0.00</td><td>37.10</td><td>Bayan Lepas</td></tr><tr><td>75730</td><td>26/09/2026</td><td>RF-127532</td><td>RG-002</td><td>Beras Wangi 10kg</td><td>Rice &amp; Grains</td><td>-1</td><td>37.10</td><td>0.00</td><td>-37.10</td><td>Jelutong</td></tr></tbody></table><p class="small">显示 744 行中的 5 行。全部 744 行连同行号都在 evidence/PRF-03-sales.csv。</p>
+<div class="two">
+<div><h3>已知的误报情况</h3><ul><li>薄利必需品（米、糖、食油、面粉、鸡蛋，其中有些可能受价格管制）、香烟、预付充值和代缴账单。这些产品的正常毛利率远低于一般 25% 的目标。</li><li>老板有意卖便宜、用来吸引客人的产品。</li><li>供应商给的回扣和后台毛利，没有算进产品成本。</li><li>发现上显示的 RM 金额，是达到目标毛利所需的额外毛利，不是亏掉的钱。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>低于成本出售的产品会在 PRF-02 报告，不会在这里出现。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 所有产品用同一个目标毛利率合适吗？还是必需品应该有自己的目标？（目前还不支持按类别设定目标；请写下您会用的目标。）</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> % <span class="muted">(目标毛利率)</span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="STK-01">
+<h2><span class="rid">STK-01</span> 库存价值和库龄</h2>
+<p class="kind">计算方法（说明计算方式；不会产生发现）</p>
+<p><strong>规则内容：</strong> 库存价值 = 现有库存数量 × 单位成本。库龄 = 该产品最后一次销售到分析日期（文件中最后的销售日期）的天数。如果产品在这段期间从未卖出，库龄就从最后进货日期起算，或从销售文件的第一个日期起算。库龄分组：0–30、31–60、61–90、91–180 和超过 180 天。现有库存为负数时以零计算。</p>
+<p><strong>为什么重要：</strong> 压在卖不出去的库存里的钱，不能用来付租金、薪水或供应商。</p>
+<p><strong>门槛：</strong> 没有可修改的门槛。</p>
+<h3>实例（示范资料）</h3>
+<ol><li>分析日期 = 销售文件中最后的销售日期 = 2026年11月1日。</li><li>产品 SC-011 Cuka Putih 375ml：最后一次销售在 2026年10月26日（销售第 82467 行）→ 库龄 6 天 → 分组“0-30”天。</li><li>库存价值 = 现有 27 × RM 1.61 = RM 43.47。</li></ol>
+<p class="tcap">产品 — demo/data/products.csv</p><table class="rows"><thead><tr><th>行</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>54</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>1.61</td><td>27</td><td>15/10/2026</td></tr></tbody></table>
+<p class="tcap">销售 — demo/data/sales.csv</p><table class="rows"><thead><tr><th>行</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>82467</td><td>26/10/2026</td><td>BL-219954</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>2</td><td>3.60</td><td>0.00</td><td>7.20</td><td>Bayan Lepas</td></tr></tbody></table>
+<div class="two">
+<div><h3>计算只是近似的地方</h3><ul><li>这里的“库龄”是指距离最后一次销售的天数，不是距离进货的天数。这不是会计师按进货单（GRN）编制的库存账龄。</li><li>库存价值 = 数量 × 当前单位成本。这不是年终存货估值（没有按成本与可变现净值孰低计算）。</li><li>现有库存数量来自 POS 或库存系统，如果最近没有盘点，往往不准确。负数库存以零计算。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>存放在其他地点、不在产品清单中的库存。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 用“距离最后一次销售的天数”来让老板看到现金卡在哪里，这个做法合理吗？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>修改计算方法或文字 <span class="blank wide"></span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="STK-02">
+<h2><span class="rid">STK-02</span> 死货</h2>
+<p class="kind">检查（会产生发现） · 严重度： 高</p>
+<p><strong>规则内容：</strong> 当一种产品有库存，且超过死货天数没有销售时，就会标出。</p>
+<p><strong>为什么重要：</strong> 死货占用现金，往往要打折清货。越早发现，能收回的价值越多。</p>
+<p><strong>门槛：</strong> </p><ul><li>超过此天数没有销售：<strong>90 天</strong>（可设定范围 14 天 – 365 天）</li></ul>
+<h3>实例（示范资料）</h3>
+<ol><li>产品 FS-007 Hamper Tahun Baru Cina Besar：最后一次销售在 2026年2月23日（销售第 26780 行）。分析日期 2026年11月1日 → 已 251 天没有销售。</li><li>251 &gt; 90 天，现有库存 27 → 标出。</li><li>库存价值 = 27 × RM 108.25 = RM 2,922.75。</li></ol>
+<p class="tcap">产品 — demo/data/products.csv</p><table class="rows"><thead><tr><th>行</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>240</td><td>FS-007</td><td>Hamper Tahun Baru Cina Besar</td><td>Festive</td><td>108.25</td><td>27</td><td>13/01/2026</td></tr></tbody></table>
+<p class="tcap">销售 — demo/data/sales.csv</p><table class="rows"><thead><tr><th>行</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>26780</td><td>23/02/2026</td><td>JL-108745</td><td>FS-007</td><td>Hamper Tahun Baru Cina Besar</td><td>Festive</td><td>1</td><td>153.30</td><td>0.00</td><td>153.30</td><td>Jelutong</td></tr></tbody></table>
+<div class="two">
+<div><h3>已知的误报情况</h3><ul><li>留到下一个节日季节卖的季节性货品：农历新年、开斋节、屠妖节、圣诞节、开学季（实例就是一个新年礼篮）。</li><li>系统数量不对：货已经卖掉、过期或丢掉，但没有调整库存，所以“死货”可能根本不存在。</li><li>属于供应商的寄卖货或可退货品。</li><li>该产品用另一个 SKU 或条码卖出，或放在配套组合、礼篮里卖。</li><li>通过其他渠道卖出、不在销售文件里（批发、网店、没有导出 POS 资料的分店）。</li><li>最近补过货、但很久没有卖出的产品仍然会被标出（这是有意的：为什么补货正是要问的问题）。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>库存过多、但偶尔还会卖出一件的产品。可卖天数（STK-04）会显示这些产品。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 对迷你市场来说，90 天合适吗？新鲜货或季节性类别是否应该用不同的天数？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> 天 <span class="muted">(超过此天数没有销售)</span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="STK-03">
+<h2><span class="rid">STK-03</span> 滞销库存</h2>
+<p class="kind">检查（会产生发现） · 严重度： 低</p>
+<p><strong>规则内容：</strong> 当一种产品有库存，且超过滞销天数没有销售、但还未算死货时，就会标出。健康检查里的“滞销库存”数字是滞销库存加上死货的总和。</p>
+<p><strong>为什么重要：</strong> 显示通过减价卖掉或停止补货滞销产品，可以释放多少现金。</p>
+<p><strong>门槛：</strong> </p><ul><li>超过此天数没有销售：<strong>60 天</strong>（可设定范围 7 天 – 365 天）</li></ul>
+<h3>实例（示范资料）</h3>
+<ol><li>产品 RG-009 Beras Pulut 2kg：最后一次销售在 2026年8月22日（销售第 67413 行）。分析日期 2026年11月1日 → 已 71 天没有销售。</li><li>71 &gt; 60 天，而且不超过 90 天（死货），现有库存 23 → 标出。</li><li>库存价值 = 23 × RM 9.28 = RM 213.44。</li></ol>
+<p class="tcap">产品 — demo/data/products.csv</p><table class="rows"><thead><tr><th>行</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>10</td><td>RG-009</td><td>Beras Pulut 2kg</td><td>Rice &amp; Grains</td><td>9.28</td><td>23</td><td>06/08/2026</td></tr></tbody></table>
+<p class="tcap">销售 — demo/data/sales.csv</p><table class="rows"><thead><tr><th>行</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>67413</td><td>22/08/2026</td><td>BL-216320</td><td>RG-009</td><td>Beras Pulut 2kg</td><td>Rice &amp; Grains</td><td>1</td><td>15.00</td><td>0.00</td><td>15.00</td><td>Bayan Lepas</td></tr></tbody></table>
+<div class="two">
+<div><h3>已知的误报情况</h3><ul><li>本来就卖得慢的产品（厨具、小电器、五金），两次销售相隔 60 天是正常的。</li><li>与死货相同的原因：季节性货品、系统数量不对、寄卖货、用其他 SKU 或渠道卖出。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>经常卖出但数量少的产品的库存过多（见可卖天数）。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 60 天作为提早警示有用吗？还是会产生太多发现？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> 天 <span class="muted">(超过此天数没有销售)</span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="STK-04">
+<h2><span class="rid">STK-04</span> 库存可用天数</h2>
+<p class="kind">计算方法（说明计算方式；不会产生发现）</p>
+<p><strong>规则内容：</strong> 可用天数 = 现有库存数量 ÷ 回顾期间内每天平均卖出数量。在回顾期间内没有销售的产品会显示“最近没有销售”。</p>
+<p><strong>为什么重要：</strong> 让您知道按最近的销售速度，现有库存可以卖多久，避免进货过多。</p>
+<p><strong>门槛：</strong> </p><ul><li>回顾期间：<strong>90 天</strong>（可设定范围 7 天 – 365 天）</li></ul>
+<h3>实例（示范资料）</h3>
+<ol><li>回顾期间 = 90 天：2026年8月4日 至 2026年11月1日。</li><li>产品 SC-011：在 53 行销售中净卖出 79 个 → 79 ÷ 90 = 每天 0.88 个。</li><li>可卖天数 = 现有 27 ÷ 0.88 = 31 天（四舍五入）。</li></ol>
+<p class="tcap">产品 — demo/data/products.csv</p><table class="rows"><thead><tr><th>行</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>54</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>1.61</td><td>27</td><td>15/10/2026</td></tr></tbody></table>
+<p class="tcap">销售 — demo/data/sales.csv</p><table class="rows"><thead><tr><th>行</th><th>Date</th><th>Receipt No</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Total</th><th>Outlet</th></tr></thead><tbody><tr><td>63218</td><td>04/08/2026</td><td>BL-215302</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>1</td><td>3.60</td><td>0.00</td><td>3.60</td><td>Bayan Lepas</td></tr><tr><td>63364</td><td>04/08/2026</td><td>JL-120684</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>3</td><td>3.60</td><td>0.00</td><td>10.80</td><td>Jelutong</td></tr><tr><td>63755</td><td>06/08/2026</td><td>JL-120806</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>2</td><td>3.60</td><td>0.00</td><td>7.20</td><td>Jelutong</td></tr><tr><td>63789</td><td>06/08/2026</td><td>JL-120821</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>3</td><td>3.60</td><td>0.00</td><td>10.80</td><td>Jelutong</td></tr><tr><td>63839</td><td>07/08/2026</td><td>BL-215453</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>2</td><td>3.60</td><td>0.00</td><td>7.20</td><td>Bayan Lepas</td></tr><tr><td>64154</td><td>08/08/2026</td><td>BL-215544</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>1</td><td>3.60</td><td>0.00</td><td>3.60</td><td>Bayan Lepas</td></tr><tr><td>64240</td><td>08/08/2026</td><td>JL-120942</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>3</td><td>3.60</td><td>0.00</td><td>10.80</td><td>Jelutong</td></tr><tr><td>64778</td><td>10/08/2026</td><td>JL-121147</td><td>SC-011</td><td>Cuka Putih 375ml</td><td>Sauces &amp; Condiments</td><td>2</td><td>3.60</td><td>0.00</td><td>7.20</td><td>Jelutong</td></tr></tbody></table><p class="small">显示 53 行中的 8 行。全部 53 行连同行号都在 evidence/STK-04-sales.csv。</p>
+<div class="two">
+<div><h3>计算只是近似的地方</h3><ul><li>没有考虑季节性：回顾期内的节日高峰，会让之后的可卖天数看起来偏短；淡季则会让它看起来偏长。</li><li>缺货的日子会拉低每天平均销量，所以可卖天数看起来比实际长。</li><li>有多间分店时，库存和销售是合起来算的。可能一间分店缺货，另一间却库存过多。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>回顾期内没有销售的产品会显示“最近没有销售”，而不是一个数字。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 回顾 90 天合适吗？还是 30 或 60 天更能反映目前的销售？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> 天 <span class="muted">(回顾期间)</span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="STK-05">
+<h2><span class="rid">STK-05</span> 畅销货补货建议</h2>
+<p class="kind">计算方法（说明计算方式；不会产生发现）</p>
+<p><strong>规则内容：</strong> 畅销货是指在回顾期内销量排在前 20% 的产品。当某样畅销货的库存可卖天数低于补货点时，建议补货数量 = 每天平均销量 × 目标可卖天数 − 现有库存，向上取整。这只是可以和供应商商量的建议，不是订单。</p>
+<p><strong>为什么重要：</strong> 畅销货断货会流失生意和顾客；只补卖得动的货，可以避免增加滞销库存。</p>
+<p><strong>门槛：</strong> </p><ul><li>低于多少天时建议补货：<strong>14 天</strong>（可设定范围 1 天 – 120 天）</li><li>补到可卖多少天：<strong>30 天</strong>（可设定范围 2 天 – 180 天）</li></ul>
+<h3>实例（示范资料）</h3>
+<ol><li>回顾期内有 217 种产品有销售；按数量排前 20%（44 种）是畅销货。BR-002 Roti Putih Sandwic 600g 排第 13。</li><li>90 天卖出 250 个 = 每天 2.78 个。可卖天数 = 22 ÷ 2.78 = 8 天，低于 14 天的补货点。</li><li>建议数量 = 2.78 × 30 天 − 现有 22 = 62（向上取整）。按成本需要的现金：RM 252.96。</li></ol>
+<p class="tcap">产品 — demo/data/products.csv</p><table class="rows"><thead><tr><th>行</th><th>SKU</th><th>Product Name</th><th>Category</th><th>Unit Cost</th><th>Quantity On Hand</th><th>Last Received Date</th></tr></thead><tbody><tr><td>149</td><td>BR-002</td><td>Roti Putih Sandwic 600g</td><td>Bread</td><td>4.08</td><td>22</td><td>25/10/2026</td></tr></tbody></table>
+<div class="two">
+<div><h3>计算只是近似的地方</h3><ul><li>“畅销货”是按销售数量排在前 20%，不是按金额或利润。</li><li>这个建议没有考虑供应商交货时间、最低订货量、每箱数量和保质期。实例是面包，不可能存放 30 天。</li><li>这只是可以和供应商商量的建议，不是订单。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>已经断货、因此最近没有销售的畅销货。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 这对老板有用吗？还是应该拿掉，让报告专注在有风险的钱？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> 天 <span class="muted">(低于多少天时建议补货)</span></div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> 天 <span class="muted">(补到可卖多少天)</span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="SUP-01">
+<h2><span class="rid">SUP-01</span> 可能重复的发票（相同发票号码）</h2>
+<p class="kind">检查（会产生发现） · 严重度： 高</p>
+<p><strong>规则内容：</strong> 当同一供应商的同一发票号码出现在不同日期，或一张发票的所有项目都输入了两次时，就会标出。比较发票号码时不理会空格、横线和大小写（所以“INV-0012” = “inv 0012”）。</p>
+<p><strong>为什么重要：</strong> 输入了两次的发票，也可能会被付两次。我们请教过的会计师说，这类情况往往要到年底审计时才被发现，甚至一直没被发现。</p>
+<p><strong>门槛：</strong> 没有可修改的门槛。</p>
+<h3>实例（示范资料）</h3>
+<ol><li>Haiwania Pet Supplies，发票 HP-01155：同一个号码出现在 2026年3月11日 和 2026年3月14日（见下表各行）。</li><li>同一供应商 + 同一发票号码出现在不同日期 → 标出。金额 = 多出来那一份的总额 = RM 286.20。</li></ol>
+<p class="tcap">供应商发票 — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>行</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>2172</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>11/03/2026</td><td>PT-002</td><td>Makanan Kucing Kering 3kg</td><td>6</td><td>26.78</td><td>160.68</td><td>10/04/2026</td></tr><tr><td>2173</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>11/03/2026</td><td>PT-003</td><td>Makanan Kucing Tin 400g</td><td>12</td><td>2.61</td><td>31.32</td><td>10/04/2026</td></tr><tr><td>2174</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>11/03/2026</td><td>PT-004</td><td>Pasir Kucing 10L</td><td>12</td><td>7.85</td><td>94.20</td><td>10/04/2026</td></tr><tr><td>2204</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>14/03/2026</td><td>PT-002</td><td>Makanan Kucing Kering 3kg</td><td>6</td><td>26.78</td><td>160.68</td><td>13/04/2026</td></tr><tr><td>2205</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>14/03/2026</td><td>PT-003</td><td>Makanan Kucing Tin 400g</td><td>12</td><td>2.61</td><td>31.32</td><td>13/04/2026</td></tr><tr><td>2206</td><td>Haiwania Pet Supplies</td><td>HP-01155</td><td>14/03/2026</td><td>PT-004</td><td>Pasir Kucing 10L</td><td>12</td><td>7.85</td><td>94.20</td><td>13/04/2026</td></tr></tbody></table>
+<div class="two">
+<div><h3>已知的误报情况</h3><ul><li>供应商重新开始编号（每年或每月），或供应商的几间分行用相同的号码。</li><li>两间名字几乎一样的不同公司被当成同一个供应商，因为比较名字时不理会大小写、标点和“Sdn Bhd”。</li><li>一张发票分几次送货，每次送货日期都用同一个发票号码记录。</li><li>贷项通知单或借项通知单用原发票号码输入。</li><li>导出的报表把发票和它的冲销（knock-off）或付款行一起列出。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>重复输入时发票号码打错了（如果总额相同，SUP-02 可能会抓到）。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 依您的经验，重复输入发票的情况是否常见到值得保留为高严重度的检查？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>修改计算方法或文字 <span class="blank wide"></span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="SUP-02">
+<h2><span class="rid">SUP-02</span> 可能重复的发票（相同金额、日期相近）</h2>
+<p class="kind">检查（会产生发现） · 严重度： 中</p>
+<p><strong>规则内容：</strong> 当同一供应商的两张发票号码不同，但总额完全相同（精确到仙），且日期在设定的天数内时，就会标出。</p>
+<p><strong>为什么重要：</strong> 供应商可能用新号码重新发出同一张发票，或月结单被当成新发票输入。也可能真的是重复下单，所以需要核查。</p>
+<p><strong>门槛：</strong> </p><ul><li>相隔天数之内：<strong>7 天</strong>（可设定范围 0 天 – 60 天）</li></ul>
+<h3>实例（示范资料）</h3>
+<ol><li>Rotimas Bakery Supply：发票 RM/26/0830（2026年10月12日）和发票 RM/26/0841（2026年10月17日）的总额都是 RM 297.66。</li><li>号码不同、总额完全相同、相隔 5 天（范围：7 天）→ 标出。</li></ol>
+<p class="tcap">供应商发票 — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>行</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>5654</td><td>Rotimas Bakery Supply</td><td>RM/26/0830</td><td>12/10/2026</td><td>BR-001</td><td>Roti Putih Sandwic 400g</td><td>24</td><td>3.12</td><td>74.88</td><td>26/10/2026</td></tr><tr><td>5655</td><td>Rotimas Bakery Supply</td><td>RM/26/0830</td><td>12/10/2026</td><td>BR-002</td><td>Roti Putih Sandwic 600g</td><td>18</td><td>4.08</td><td>73.44</td><td>26/10/2026</td></tr><tr><td>5656</td><td>Rotimas Bakery Supply</td><td>RM/26/0830</td><td>12/10/2026</td><td>BR-003</td><td>Roti Gandum Penuh 400g</td><td>18</td><td>3.55</td><td>63.90</td><td>26/10/2026</td></tr><tr><td>5657</td><td>Rotimas Bakery Supply</td><td>RM/26/0830</td><td>12/10/2026</td><td>BR-004</td><td>Roti Bun Kaya 4 biji</td><td>18</td><td>2.20</td><td>39.60</td><td>26/10/2026</td></tr><tr><td>5658</td><td>Rotimas Bakery Supply</td><td>RM/26/0830</td><td>12/10/2026</td><td>BR-005</td><td>Kaya Kelapa 250g</td><td>12</td><td>3.82</td><td>45.84</td><td>26/10/2026</td></tr><tr><td>5740</td><td>Rotimas Bakery Supply</td><td>RM/26/0841</td><td>17/10/2026</td><td>BR-001</td><td>Roti Putih Sandwic 400g</td><td>24</td><td>3.12</td><td>74.88</td><td>31/10/2026</td></tr><tr><td>5741</td><td>Rotimas Bakery Supply</td><td>RM/26/0841</td><td>17/10/2026</td><td>BR-002</td><td>Roti Putih Sandwic 600g</td><td>18</td><td>4.08</td><td>73.44</td><td>31/10/2026</td></tr><tr><td>5742</td><td>Rotimas Bakery Supply</td><td>RM/26/0841</td><td>17/10/2026</td><td>BR-003</td><td>Roti Gandum Penuh 400g</td><td>18</td><td>3.55</td><td>63.90</td><td>31/10/2026</td></tr></tbody></table><p class="small">显示 10 行中的 8 行。所有行：5654–5658, 5740–5744（也在 evidence/SUP-02-invoices.csv）。</p>
+<div class="two">
+<div><h3>已知的误报情况</h3><ul><li>真正的重复订单、金额相同：每周固定订单（面包、报纸、冰块），或每次都一样的固定订货。</li><li>每次金额都一样的固定收费：运费、冷藏柜或陈列架租金。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>总额相差几仙（四舍五入、SST）的副本，或日期相隔超过设定天数的副本。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 7 天的范围合适吗？“总额完全相同”是太严格还是太宽松？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> 天 <span class="muted">(相隔天数之内)</span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="SUP-03">
+<h2><span class="rid">SUP-03</span> 供应商涨价</h2>
+<p class="kind">检查（会产生发现） · 严重度： 中</p>
+<p><strong>规则内容：</strong> 按每个供应商和项目（SKU；没有 SKU 时用项目说明），把每张发票的单价与该供应商上一次的单价比较。涨幅超过门槛时就会标出。</p>
+<p><strong>为什么重要：</strong> 小幅涨价很容易被忽略，如果没有调整货架价格或向供应商提出，就会悄悄吃掉毛利。</p>
+<p><strong>门槛：</strong> </p><ul><li>涨幅超过：<strong>5%</strong>（可设定范围 0% – 100%）</li></ul>
+<h3>实例（示范资料）</h3>
+<ol><li>Kopisenja Beverage Agency，CT-002 Kopi O Kaw Serbuk 1kg：上一次单价 RM 18.73（2026年4月13日），新单价 RM 21.54（2026年5月12日，发票 KB-00391）。</li><li>涨幅 = (RM 21.54 − RM 18.73) ÷ RM 18.73 = 15.0%，超过 5.0% → 标出。</li><li>较新发票上的额外成本 = 差价 × 36 个 = RM 101.16。</li></ol>
+<p class="tcap">供应商发票 — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>行</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>2692</td><td>Kopisenja Beverage Agency</td><td>KB-00384</td><td>13/04/2026</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>54</td><td>18.73</td><td>1011.42</td><td>13/05/2026</td></tr><tr><td>3142</td><td>Kopisenja Beverage Agency</td><td>KB-00391</td><td>12/05/2026</td><td>CT-002</td><td>Kopi O Kaw Serbuk 1kg</td><td>36</td><td>21.54</td><td>775.44</td><td>11/06/2026</td></tr></tbody></table>
+<div class="two">
+<div><h3>已知的误报情况</h3><ul><li>促销结束后价格恢复正常：上一次的价格是折扣价。</li><li>同一个 SKU 或项目说明下，包装大小或单位不同（箱和件）。</li><li>免费货品：有“10 送 1”的那一行单价会被拉低，所以下一次的正常价格看起来像涨价。</li><li>一张发票含 SST，另一张不含。</li><li>没有 SKU 时按项目说明对比，所以两样说明相同的不同货品会被拿来比较。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>没有数量或单价（只有总额）的行无法比较，会被跳过。</li><li>许多次小幅涨价，每次都低于门槛。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 对迷你市场来说，5% 的涨幅作为门槛合适吗？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> % <span class="muted">(涨幅超过)</span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="SUP-04">
+<h2><span class="rid">SUP-04</span> 发票可能多付或付了两次</h2>
+<p class="kind">检查（会产生发现） · 严重度： 高</p>
+<p><strong>规则内容：</strong> 把付款对应到发票：先看付款参考是否包含发票号码（同一供应商）；否则看是否同一供应商、金额完全相同，且在发票日期当天或之后（在对应期间内）。当对应到某张发票的付款总额超过发票总额加上容差时，就会标出。只在有提供付款文件时进行。</p>
+<p><strong>为什么重要：</strong> 多付的款项或许可以向供应商追回，但前提是有人发现。</p>
+<p><strong>门槛：</strong> </p><ul><li>容差：<strong>RM 1</strong>（可设定范围 RM 0 – RM 100）</li><li>发票日期后的金额对应期间：<strong>120 天</strong>（可设定范围 7 天 – 365 天）</li></ul>
+<h3>实例（示范资料）</h3>
+<ol><li>Bersihana Household Supply，发票 BH-00663：发票各行总额 = RM 3,010.86。</li><li>有 2 笔付款对应到这张发票（付款第 344, 361 行），依据是参考号包含发票号码，或在发票日期之后金额相同。合计 RM 6,021.72。</li><li>RM 6,021.72 − RM 3,010.86 = RM 3,010.86，超过 RM 1.00 的容差 → 标出为可能付了两次。</li></ol>
+<p class="tcap">供应商发票 — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>行</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>2491</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-001</td><td>Sabun Basuh Pinggan Limau 900ml</td><td>60</td><td>3.16</td><td>189.60</td><td>16/05/2026</td></tr><tr><td>2492</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-002</td><td>Sabun Basuh Pinggan Limau 3.6L</td><td>48</td><td>10.40</td><td>499.20</td><td>16/05/2026</td></tr><tr><td>2493</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-003</td><td>Serbuk Pencuci Pakaian 2kg</td><td>24</td><td>10.12</td><td>242.88</td><td>16/05/2026</td></tr><tr><td>2494</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-004</td><td>Serbuk Pencuci Pakaian 4kg</td><td>36</td><td>18.87</td><td>679.32</td><td>16/05/2026</td></tr><tr><td>2495</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-005</td><td>Cecair Pencuci Pakaian 2L</td><td>30</td><td>11.29</td><td>338.70</td><td>16/05/2026</td></tr><tr><td>2496</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-006</td><td>Cecair Pencuci Pakaian 3.8L</td><td>30</td><td>20.08</td><td>602.40</td><td>16/05/2026</td></tr><tr><td>2497</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-007</td><td>Pelembut Pakaian 2L</td><td>30</td><td>7.93</td><td>237.90</td><td>16/05/2026</td></tr><tr><td>2498</td><td>Bersihana Household Supply</td><td>BH-00663</td><td>01/04/2026</td><td>HH-008</td><td>Pencuci Lantai Pine 2L</td><td>18</td><td>5.72</td><td>102.96</td><td>16/05/2026</td></tr></tbody></table><p class="small">显示 9 行中的 8 行。所有行：2491–2499（也在 evidence/SUP-04-invoices.csv）。</p>
+<p class="tcap">付款 — demo/data/payments.csv</p><table class="rows"><thead><tr><th>行</th><th>Payment Date</th><th>Supplier</th><th>Amount</th><th>Reference</th></tr></thead><tbody><tr><td>344</td><td>11/05/2026</td><td>Bersihana Household Supply</td><td>3010.86</td><td>BH-00663</td></tr><tr><td>361</td><td>20/05/2026</td><td>Bersihana Household Supply</td><td>3010.86</td><td>BH-00663</td></tr></tbody></table>
+<div class="two">
+<div><h3>已知的误报情况</h3><ul><li>一笔整数付款支付几张发票，但参考号只写了其中一张：整笔付款会对应到那张发票，看起来就像多付了。</li><li>付款包括下一次订货的订金或预付款，或其他费用（运费、旧欠款）。</li><li>支票被取消或退票后再付一次，但两笔都出现在付款清单里。</li><li>同一供应商有几张金额相同的发票：按金额对应时可能对错发票。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>小于容差的多付款项。</li><li>付错供应商的款项（见 SUP-05）。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> RM 1 的容差合适吗？120 天的对应期间合理吗？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> RM <span class="muted">(容差)</span></div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> 天 <span class="muted">(发票日期后的金额对应期间)</span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="SUP-05">
+<h2><span class="rid">SUP-05</span> 找不到对应发票的付款</h2>
+<p class="kind">检查（会产生发现） · 严重度： 中</p>
+<p><strong>规则内容：</strong> 用 SUP-04 的对应方法，当一笔付款无法对应到同一供应商的任何发票时，就会标出。只在有提供付款文件时进行。</p>
+<p><strong>为什么重要：</strong> 可能是订金、文件里缺少的发票，或付错了供应商。每一种情况都需要有单据。</p>
+<p><strong>门槛：</strong> 没有可修改的门槛。</p>
+<h3>实例（示范资料）</h3>
+<ol><li>2026年7月14日 付给 Bilisora Dry Seafood 的 RM 1,286.40，参考“BS-99871”（付款第 477 行）。</li><li>这个供应商没有任何发票号码出现在参考号里，也没有在付款前 120 天内金额完全相同的未付发票 → 标出。</li></ol>
+<p class="tcap">付款 — demo/data/payments.csv</p><table class="rows"><thead><tr><th>行</th><th>Payment Date</th><th>Supplier</th><th>Amount</th><th>Reference</th></tr></thead><tbody><tr><td>477</td><td>14/07/2026</td><td>Bilisora Dry Seafood</td><td>1286.40</td><td>BS-99871</td></tr></tbody></table>
+<div class="two">
+<div><h3>已知的误报情况</h3><ul><li>订金或预付款（示范资料中：“DEPOSIT HAMPER ORDER”，付款第 633 行）。</li><li>支付的发票日期早于发票文件的开始日期。这在期间开头几周很常见。</li><li>发票还没有输入（迟到的发票）。</li><li>一笔没有参考号的整数付款支付几张发票，金额与任何一张发票都不相同。</li><li>付款文件中的供应商名称与发票不同（银行收款人名称和商号名称）。</li><li>付款文件中包括非货品的付款（租金、水电）。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>付错供应商、但金额刚好与该供应商某张发票相同的款项。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 是否应该忽略第一个月的付款，以免标出上一期的发票？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>修改计算方法或文字 <span class="blank wide"></span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="CSH-01">
+<h2><span class="rid">CSH-01</span> 8 周现金展望如何估计</h2>
+<p class="kind">计算方法（说明计算方式；不会产生发现）</p>
+<p><strong>规则内容：</strong> 现金流入：以最近几个完整周的每周销售画一条直线趋势（最小二乘法），再向后延伸 8 周（不会低于零）。现金流出：未付的供应商发票放在到期的那一周（已逾期的放在第 1 周；没有到期日的发票按默认付款期限计算到期），您输入的每月固定开销放在每月的付款日；如果有开启，还包括估计补货开销：预测销售额 × 您过往的成本比率，在默认供应商付款期限后支付。每周由星期一到星期日。这只是估计，不是保证。</p>
+<p><strong>为什么重要：</strong> 一间店可能有盈利，却仍在某一周现金不足，例如大笔供应商付款和租金刚好同一时间到期。</p>
+<p><strong>门槛：</strong> </p><ul><li>用于趋势的销售周数：<strong>8 周</strong>（可设定范围 2 周 – 26 周）</li><li>默认供应商付款期限：<strong>30 天</strong>（可设定范围 0 天 – 120 天）</li></ul>
+<h3>实例（示范资料）</h3>
+<ol><li>最近 8 个完整周的每周销售（表 1）→ 直线：每周销售 ≈ RM 22,842.07 + RM 620.09 × 周数（表 1 第一周为 0；预测接着往下数）。</li><li>示范店的输入：银行现金 RM 20,000.00；Rent (2 outlets) RM 7,800.00，每月 1 日；Salaries, EPF &amp; SOCSO RM 9,600.00，每月 7 日；Utilities &amp; internet RM 1,900.00，每月 15 日。</li><li>未付的供应商发票放在到期的那一周。补货开销 = 预测销售 × 成本比率 69.3%，在 4 周后支付（默认付款期限 30 天）。</li><li>期末结余 = 期初 + 销售流入 − 供应商发票 − 固定开销 − 补货开销（表 2）。</li></ol>
+<p class="tcap">表 1：用于趋势的每周销售</p><table class="rows"><thead><tr><th>周开始</th><th>销售</th></tr></thead><tbody><tr><td>2026-09-07</td><td>RM 23,929.00</td></tr><tr><td>2026-09-14</td><td>RM 23,528.16</td></tr><tr><td>2026-09-21</td><td>RM 23,359.80</td></tr><tr><td>2026-09-28</td><td>RM 25,002.86</td></tr><tr><td>2026-10-05</td><td>RM 22,978.28</td></tr><tr><td>2026-10-12</td><td>RM 25,709.72</td></tr><tr><td>2026-10-19</td><td>RM 28,466.38</td></tr><tr><td>2026-10-26</td><td>RM 27,124.90</td></tr></tbody></table>
+<p class="tcap">表 2：8 周展望</p><table class="rows"><thead><tr><th>周开始</th><th>期初</th><th>销售流入</th><th>供应商发票</th><th>固定开销</th><th>补货</th><th>期末</th></tr></thead><tbody><tr><td>2026-11-02</td><td>RM 20,000.00</td><td>RM 27,802.79</td><td>RM 12,890.28</td><td>RM 9,600.00</td><td>RM 0.00</td><td>RM 25,312.51</td></tr><tr><td>2026-11-09</td><td>RM 25,312.51</td><td>RM 28,422.88</td><td>RM 13,402.08</td><td>RM 1,900.00</td><td>RM 0.00</td><td>RM 38,433.31</td></tr><tr><td>2026-11-16</td><td>RM 38,433.31</td><td>RM 29,042.97</td><td>RM 71,625.05</td><td>RM 0.00</td><td>RM 0.00</td><td>−RM 4,148.77</td></tr><tr><td>2026-11-23</td><td>−RM 4,148.77</td><td>RM 29,663.06</td><td>RM 18,110.46</td><td>RM 0.00</td><td>RM 0.00</td><td>RM 7,403.83</td></tr><tr><td>2026-11-30</td><td>RM 7,403.83</td><td>RM 30,283.15</td><td>RM 2,483.76</td><td>RM 7,800.00</td><td>RM 19,270.96</td><td>RM 8,132.26</td></tr><tr><td>2026-12-07</td><td>RM 8,132.26</td><td>RM 30,903.24</td><td>RM 6,395.22</td><td>RM 9,600.00</td><td>RM 19,700.77</td><td>RM 3,339.51</td></tr><tr><td>2026-12-14</td><td>RM 3,339.51</td><td>RM 31,523.33</td><td>RM 1,408.02</td><td>RM 1,900.00</td><td>RM 20,130.57</td><td>RM 11,424.25</td></tr><tr><td>2026-12-21</td><td>RM 11,424.25</td><td>RM 32,143.43</td><td>RM 534.54</td><td>RM 0.00</td><td>RM 20,560.37</td><td>RM 22,472.77</td></tr></tbody></table>
+<div class="two">
+<div><h3>计算只是近似的地方</h3><ul><li>现金流入 = 同一周的销售。没有考虑信用卡和电子钱包的结算延迟，也没有考虑赊账客户。</li><li>直线趋势没有考虑节日高峰（农历新年、开斋节）和学校假期。高峰刚过时，趋势可能指向错误的方向。</li><li>除非输入为每月固定开销，否则不包括：贷款和分期付款、所得税分期（CP204）、SST 缴付、EPF/SOCSO、老板提款、购买设备。</li><li>补货开销的估计 = 预测销售额 × 过往成本比率，在默认付款期限后支付。这只是粗略估计。</li><li>没有付款文件时，假设预测开始前到期的发票都已付清。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>8 周以后的任何事情。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 这个方法够清楚、够谨慎，可以标上“估计”给老板看吗？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> 周 <span class="muted">(用于趋势的销售周数)</span></div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> 天 <span class="muted">(默认供应商付款期限)</span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="rule" id="CSH-02">
+<h2><span class="rid">CSH-02</span> 可能现金不足的那一周</h2>
+<p class="kind">检查（会产生发现） · 严重度： 高</p>
+<p><strong>规则内容：</strong> 当预测某一周的估计期末现金结余低于最低结余时，就会标出。</p>
+<p><strong>为什么重要：</strong> 提早几周知道，就有时间延后订货、和供应商商量付款期限或安排融资。</p>
+<p><strong>门槛：</strong> </p><ul><li>最低现金结余：<strong>RM 0</strong>（可设定范围 RM -1,000,000 – RM 10,000,000）</li></ul>
+<h3>实例（示范资料）</h3>
+<ol><li>第 3 周（2026年11月16日 – 2026年11月22日）：期初 RM 38,433.31 + 销售流入 RM 29,042.97 − 到期供应商发票 RM 71,625.05 − 固定开销 RM 0.00 − 补货 RM 0.00 = 期末 −RM 4,148.77。</li><li>−RM 4,148.77 低于 RM 0.00 的最低结余 → 标出。短缺 RM 4,148.77（估计）。</li><li>当周到期的供应商发票共 72 行（下表为部分；所有行见证据文件）。</li></ol>
+<p class="tcap">供应商发票 — demo/data/supplier-invoices.csv</p><table class="rows"><thead><tr><th>行</th><th>Supplier</th><th>Invoice No</th><th>Invoice Date</th><th>SKU</th><th>Description</th><th>Quantity</th><th>Unit Price</th><th>Total</th><th>Due Date</th></tr></thead><tbody><tr><td>5286</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-001</td><td>Syampu Herba 400ml</td><td>24</td><td>9.52</td><td>228.48</td><td>18/11/2026</td></tr><tr><td>5287</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-003</td><td>Sabun Mandi Cecair 500ml</td><td>24</td><td>8.51</td><td>204.24</td><td>18/11/2026</td></tr><tr><td>5288</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-004</td><td>Sabun Mandi Cecair 1L</td><td>18</td><td>15.49</td><td>278.82</td><td>18/11/2026</td></tr><tr><td>5289</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-005</td><td>Ubat Gigi Herba 150g</td><td>36</td><td>4.08</td><td>146.88</td><td>18/11/2026</td></tr><tr><td>5290</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-006</td><td>Ubat Gigi Herba 2 x 150g</td><td>18</td><td>8.87</td><td>159.66</td><td>18/11/2026</td></tr><tr><td>5291</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-007</td><td>Berus Gigi Lembut 2 batang</td><td>24</td><td>3.01</td><td>72.24</td><td>18/11/2026</td></tr><tr><td>5292</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-008</td><td>Deodoran Roll-on 50ml</td><td>18</td><td>6.87</td><td>123.66</td><td>18/11/2026</td></tr><tr><td>5293</td><td>Wangisari Personal Care</td><td>518892</td><td>19/09/2026</td><td>PC-010</td><td>Tuala Wanita Siang 16 keping</td><td>24</td><td>5.74</td><td>137.76</td><td>18/11/2026</td></tr></tbody></table><p class="small">显示 72 行中的 8 行。全部 72 行连同行号都在 evidence/CSH-02-invoices.csv。</p>
+<div class="two">
+<div><h3>已知的误报情况</h3><ul><li>已经付清的供应商发票，在付款文件不完整或没有付款文件时：未付发票被高估，出现了其实不存在的现金不足周。</li><li>尚未付款的可能重复发票（SUP-01、SUP-02）会增加现金流出。</li><li>期初结余不是最新的，或店铺有透支额度。这种情况下，请把最低结余设为负的透支额度。</li><li>实际上接受在文件所列到期日之后才付款的供应商。</li></ul></div>
+<div><h3>可能漏掉的情况</h3><ul><li>不在任何文件里的大笔付款（税款、还贷、还没有开发票的大笔节日订货）。</li></ul></div>
+</div>
+<div class="decision">
+<h3>您的决定</h3>
+<p><strong>想请教您：</strong> 默认最低结余 RM 0 合适吗？还是应该设为例如两周的固定开销？</p>
+<div class="opt"><span class="box"></span>同意</div>
+<div class="opt"><span class="box"></span>改为 <span class="blank"></span> RM <span class="muted">(最低现金结余)</span></div>
+<div class="opt"><span class="box"></span>删除这条规则</div>
+<p class="notes-label">备注：</p>
+<div class="lines"><div></div><div></div><div></div><div></div></div>
+</div>
+</section>
+<section class="summary"><h2>决定汇总</h2><p>请把每条规则的决定抄在这里，方便一次过修改。</p><table class="summary"><thead><tr><th>规则</th><th>名称</th><th>目前门槛</th><th>同意 / 修改 / 删除</th><th>新的数值或文字</th></tr></thead><tbody><tr><td>PRF-01</td><td>利润如何计算</td><td>—</td><td></td><td></td></tr><tr><td>PRF-02</td><td>产品低于成本出售</td><td>—</td><td></td><td></td></tr><tr><td>PRF-03</td><td>毛利率低于目标</td><td>目标毛利率 25%</td><td></td><td></td></tr><tr><td>STK-01</td><td>库存价值和库龄</td><td>—</td><td></td><td></td></tr><tr><td>STK-02</td><td>死货</td><td>超过此天数没有销售 90 天</td><td></td><td></td></tr><tr><td>STK-03</td><td>滞销库存</td><td>超过此天数没有销售 60 天</td><td></td><td></td></tr><tr><td>STK-04</td><td>库存可用天数</td><td>回顾期间 90 天</td><td></td><td></td></tr><tr><td>STK-05</td><td>畅销货补货建议</td><td>低于多少天时建议补货 14 天; 补到可卖多少天 30 天</td><td></td><td></td></tr><tr><td>SUP-01</td><td>可能重复的发票（相同发票号码）</td><td>—</td><td></td><td></td></tr><tr><td>SUP-02</td><td>可能重复的发票（相同金额、日期相近）</td><td>相隔天数之内 7 天</td><td></td><td></td></tr><tr><td>SUP-03</td><td>供应商涨价</td><td>涨幅超过 5%</td><td></td><td></td></tr><tr><td>SUP-04</td><td>发票可能多付或付了两次</td><td>容差 RM 1; 发票日期后的金额对应期间 120 天</td><td></td><td></td></tr><tr><td>SUP-05</td><td>找不到对应发票的付款</td><td>—</td><td></td><td></td></tr><tr><td>CSH-01</td><td>8 周现金展望如何估计</td><td>用于趋势的销售周数 8 周; 默认供应商付款期限 30 天</td><td></td><td></td></tr><tr><td>CSH-02</td><td>可能现金不足的那一周</td><td>最低现金结余 RM 0</td><td></td><td></td></tr></tbody></table></section>
+</main>
+</body>
+</html>

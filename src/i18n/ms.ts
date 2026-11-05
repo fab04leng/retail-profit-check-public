@@ -149,6 +149,7 @@ const ms: Dict = {
     dueDate: 'Tarikh akhir bayaran',
     amount: 'Amaun dibayar',
     reference: 'Rujukan',
+    lineType: 'Jenis baris (jualan / pemulangan / batal)',
   },
   mapping: {
     requiredNote: 'Diperlukan.',
@@ -186,6 +187,11 @@ const ms: Dict = {
     noAmount: 'Tiada jumlah dan tiada harga seunit — baris dilangkau.',
     signFixed: 'Kuantiti dan amaun mempunyai tanda bertentangan; dianggap sebagai pemulangan.',
     unknownSku: 'SKU tiada dalam senarai produk.',
+    zeroCost: 'Kos seunit ialah 0, jadi produk ini dianggap tiada kos dan tidak dikira dalam semakan untung dan margin.',
+    negativePrice: 'Harga seunit negatif ({value}) dengan kuantiti positif. Baris disimpan seperti asal — sila semak.',
+    dateOrderAssumed: '{field}: tarikh seperti "{value}" boleh dibaca hari dahulu atau bulan dahulu. Kami membacanya hari dahulu (DD/MM/YYYY), seperti biasa di Malaysia. Jika sistem anda menulis MM/DD/YYYY, eksport tempoh yang lebih panjang atau dengan nama bulan (cth. 03 Feb 2026).',
+    dateOrderMixed: '{field}: sesetengah tarikh kelihatan hari dahulu (DD/MM/YYYY) dan sesetengahnya bulan dahulu (MM/DD/YYYY), contohnya "{value}". Kami membacanya hari dahulu; baris yang tidak sepadan disenaraikan sebagai ralat.',
+    voidSkipped: 'Baris yang dibatalkan ("{value}") — tidak dikira sebagai jualan.',
     error: 'Dilangkau',
     warning: 'Amaran',
   },
@@ -390,7 +396,7 @@ const ms: Dict = {
     'SUP-01': {
       title: 'Kemungkinan pendua invois (nombor invois sama)',
       description: 'Menanda apabila pembekal yang sama dan nombor invois yang sama muncul pada tarikh berbeza, atau apabila semua baris sesuatu invois dimasukkan dua kali. Nombor invois dibandingkan tanpa mengambil kira ruang, sengkang dan huruf besar/kecil (jadi "INV-0012" = "inv 0012").',
-      why: 'Invois yang dimasukkan dua kali selalunya dibayar dua kali. Akauntan mengatakan kes begini biasanya hanya ditemui semasa audit akhir tahun.',
+      why: 'Invois yang dimasukkan dua kali mungkin juga dibayar dua kali. Akauntan yang kami temui berkata kes begini selalunya hanya ditemui semasa audit akhir tahun, atau tidak langsung.',
     },
     'SUP-02': {
       title: 'Kemungkinan pendua invois (amaun sama, tarikh berdekatan)',
@@ -405,7 +411,7 @@ const ms: Dict = {
     'SUP-04': {
       title: 'Invois mungkin terlebih bayar atau dibayar dua kali',
       description: 'Memadankan bayaran dengan invois: pertama melalui rujukan bayaran yang mengandungi nombor invois (pembekal yang sama), jika tidak melalui pembekal yang sama dan amaun yang sama tepat pada atau selepas tarikh invois (dalam tetingkap padanan). Menanda invois apabila bayaran yang dipadankan dengannya berjumlah lebih daripada jumlah invois campur toleransi. Hanya dijalankan apabila fail bayaran disediakan.',
-      why: 'Lebihan bayaran boleh dituntut semula daripada pembekal, tetapi hanya jika ada orang yang perasan.',
+      why: 'Lebihan bayaran mungkin boleh dituntut semula daripada pembekal, tetapi hanya jika ada orang yang perasan.',
     },
     'SUP-05': {
       title: 'Bayaran tanpa invois sepadan',
@@ -446,7 +452,7 @@ const ms: Dict = {
     keyNumbers: 'Angka utama',
     reviewStatus: 'Status semakan',
     reviewSummary: '{confirmed:num} disahkan ({confirmedAmount:rm}) · {notIssue:num} bukan isu · {needsInfo:num} perlu maklumat · {unreviewed:num} belum disemak',
-    reviewNote: 'Disahkan bermaksud akauntan bertauliah telah menyemak penemuan itu dengan dokumen. Penemuan yang belum disemak hanyalah kemungkinan.',
+    reviewNote: 'Disahkan bermaksud akauntan bertauliah telah menyemak penemuan itu dengan dokumen atau rekod yang diberikan oleh kedai. Ini bukan audit. Penemuan yang belum disemak hanyalah kemungkinan.',
     nextSteps: 'Langkah seterusnya yang dicadangkan',
     step1: 'Semak kemungkinan pendua invois dan lebihan bayaran dengan dokumen asal sebelum pusingan bayaran pembekal yang seterusnya.',
     step2: 'Semak harga rak bagi produk yang dijual bawah kos.',
