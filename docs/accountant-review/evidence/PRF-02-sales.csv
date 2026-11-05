@@ -1,0 +1,416 @@
+Row,Date,Receipt No,SKU,Product Name,Category,Quantity,Unit Price,Discount,Total,Outlet
+259,04/11/2025,JL-100061,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+436,05/11/2025,JL-100119,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+881,07/11/2025,JL-100268,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+1153,08/11/2025,JL-100348,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+1206,08/11/2025,JL-100377,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+1254,08/11/2025,JL-100406,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+1332,09/11/2025,BL-200336,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+1393,09/11/2025,JL-100422,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+1674,10/11/2025,JL-100537,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+2652,15/11/2025,JL-100827,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+2680,15/11/2025,JL-100840,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+2830,16/11/2025,BL-200704,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+3056,17/11/2025,BL-200751,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+3101,17/11/2025,JL-100970,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+3209,18/11/2025,BL-200782,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+3277,18/11/2025,JL-101031,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+3408,19/11/2025,BL-200844,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+3505,19/11/2025,JL-101122,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+3816,21/11/2025,BL-200956,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+3841,21/11/2025,BL-200969,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+3923,21/11/2025,JL-101252,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+4057,22/11/2025,BL-201028,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+4294,23/11/2025,BL-201077,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+4354,23/11/2025,JL-101382,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+4637,24/11/2025,JL-101493,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+5066,27/11/2025,BL-201247,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+5193,27/11/2025,JL-101678,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+5519,29/11/2025,BL-201348,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+5523,29/11/2025,BL-201350,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+6047,01/12/2025,BL-201467,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+6576,03/12/2025,JL-102126,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+6601,03/12/2025,JL-102141,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+6759,04/12/2025,JL-102186,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+6786,04/12/2025,JL-102202,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+6922,05/12/2025,JL-102226,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+6972,05/12/2025,JL-102255,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+7021,05/12/2025,JL-102282,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+7025,05/12/2025,JL-102285,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+7166,06/12/2025,JL-102295,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+7180,06/12/2025,JL-102304,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+7376,07/12/2025,BL-201806,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+7521,07/12/2025,JL-102445,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+7860,09/12/2025,JL-102553,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+7940,10/12/2025,BL-201926,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+8248,11/12/2025,JL-102684,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+8263,11/12/2025,JL-102692,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+8331,12/12/2025,BL-202035,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+8558,12/12/2025,JL-102787,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+8872,13/12/2025,JL-102895,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+8878,13/12/2025,JL-102899,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+9440,15/12/2025,JL-103081,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+9483,16/12/2025,BL-202320,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+10152,18/12/2025,JL-103301,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+10175,18/12/2025,JL-103315,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+10228,19/12/2025,BL-202505,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+10299,19/12/2025,BL-202546,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+10375,19/12/2025,JL-103364,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+10814,20/12/2025,JL-103523,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+10817,20/12/2025,JL-103524,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+11061,21/12/2025,JL-103593,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+11265,22/12/2025,JL-103650,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+11307,22/12/2025,JL-103670,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+11349,22/12/2025,JL-103693,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+11352,22/12/2025,JL-103695,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+11614,24/12/2025,BL-202836,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+11759,24/12/2025,JL-103829,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+12015,25/12/2025,JL-103916,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+12080,26/12/2025,BL-202943,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+12510,27/12/2025,BL-203082,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+12577,27/12/2025,JL-104071,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+12603,27/12/2025,JL-104084,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+12719,27/12/2025,JL-104144,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+13306,30/12/2025,BL-203240,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+13330,30/12/2025,BL-203257,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+13953,01/01/2026,JL-104553,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+14106,02/01/2026,JL-104577,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+14838,05/01/2026,BL-203618,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+15024,06/01/2026,JL-104863,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+15331,08/01/2026,BL-203725,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+16010,10/01/2026,JL-105214,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+16276,11/01/2026,JL-105297,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+16509,13/01/2026,BL-204010,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+16541,13/01/2026,BL-204027,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+16638,13/01/2026,JL-105411,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+16982,15/01/2026,JL-105504,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+17138,16/01/2026,BL-204158,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+17721,18/01/2026,JL-105741,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+17934,19/01/2026,JL-105817,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+17946,19/01/2026,JL-105825,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+18980,24/01/2026,JL-106150,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+19384,26/01/2026,BL-204703,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+19897,28/01/2026,JL-106479,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+19988,29/01/2026,BL-204855,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+20576,31/01/2026,JL-106692,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+20614,31/01/2026,JL-106714,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+20640,01/02/2026,BL-205002,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+20661,01/02/2026,BL-205015,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+21224,03/02/2026,JL-106888,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+21699,05/02/2026,BL-205286,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+21754,05/02/2026,JL-107061,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+21873,05/02/2026,JL-107127,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+21874,05/02/2026,JL-107128,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+22163,06/02/2026,JL-107201,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+22172,06/02/2026,JL-107205,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+22243,06/02/2026,JL-107245,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+22292,07/02/2026,BL-205414,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+22316,07/02/2026,BL-205428,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+22360,07/02/2026,BL-205453,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+22373,07/02/2026,BL-205460,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+22428,07/02/2026,JL-107255,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+23213,09/02/2026,JL-107564,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+23329,10/02/2026,BL-205675,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+23331,10/02/2026,BL-205676,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+23564,11/02/2026,BL-205734,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+23574,11/02/2026,BL-205741,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+23835,12/02/2026,BL-205808,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+23932,12/02/2026,JL-107780,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+24015,12/02/2026,JL-107830,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+24132,13/02/2026,BL-205881,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+24233,13/02/2026,JL-107872,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+24309,13/02/2026,JL-107916,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+24345,13/02/2026,JL-107934,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+24746,14/02/2026,JL-108067,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+24813,14/02/2026,JL-108106,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+24873,15/02/2026,BL-206047,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+24888,15/02/2026,BL-206059,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+25045,15/02/2026,JL-108146,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+25080,15/02/2026,JL-108165,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+26028,20/02/2026,JL-108485,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+26194,21/02/2026,BL-206382,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+26354,22/02/2026,BL-206385,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+26489,22/02/2026,JL-108618,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+27172,25/02/2026,JL-108873,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+27325,26/02/2026,JL-108911,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+27862,28/02/2026,JL-109090,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+27948,01/03/2026,BL-206777,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+27989,01/03/2026,BL-206800,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+28122,01/03/2026,JL-109178,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+28279,02/03/2026,JL-109221,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+28668,04/03/2026,JL-109347,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+28832,05/03/2026,JL-109386,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+29113,06/03/2026,JL-109495,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+29557,08/03/2026,BL-207188,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+29584,08/03/2026,JL-109630,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+29841,09/03/2026,JL-109719,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+29847,09/03/2026,JL-109724,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+29854,09/03/2026,JL-109728,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+30022,10/03/2026,BL-207284,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+30095,10/03/2026,JL-109798,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+30185,11/03/2026,BL-207299,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+30259,11/03/2026,BL-207343,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+30304,11/03/2026,JL-109858,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+30312,11/03/2026,JL-109863,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+30569,12/03/2026,JL-109942,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+30584,12/03/2026,JL-109953,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+30887,13/03/2026,JL-110052,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+30927,13/03/2026,JL-110075,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+31022,14/03/2026,BL-207513,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+31265,14/03/2026,JL-110179,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+31523,15/03/2026,BL-207674,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+31951,16/03/2026,JL-110422,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+32363,18/03/2026,JL-110538,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+32795,20/03/2026,BL-207967,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+32900,21/03/2026,BL-207974,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+33225,22/03/2026,JL-110825,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+33264,22/03/2026,JL-110847,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+33604,24/03/2026,JL-110956,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+33649,25/03/2026,BL-208153,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+34171,27/03/2026,JL-111121,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+34298,28/03/2026,BL-208311,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+34300,28/03/2026,BL-208312,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+34343,28/03/2026,BL-208337,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+34622,29/03/2026,BL-208410,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+34697,29/03/2026,JL-111288,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+34705,29/03/2026,JL-111294,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+35130,31/03/2026,JL-111435,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+35135,31/03/2026,JL-111438,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+35141,31/03/2026,JL-111443,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+35318,01/04/2026,JL-111494,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+35572,02/04/2026,JL-111592,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+35663,03/04/2026,BL-208645,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+35715,03/04/2026,JL-111615,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+35796,03/04/2026,JL-111671,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+35902,04/04/2026,BL-208711,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+35982,04/04/2026,JL-111708,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+36051,04/04/2026,JL-111748,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+36113,05/04/2026,BL-208739,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+36146,05/04/2026,BL-208755,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+36189,05/04/2026,BL-208778,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+36611,07/04/2026,BL-208877,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+36720,07/04/2026,RF-220346,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,-1,20.20,0.00,-20.20,Bayan Lepas
+36833,08/04/2026,JL-112004,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+36919,09/04/2026,BL-208934,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+37146,10/04/2026,BL-209000,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+37174,10/04/2026,BL-209017,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+37764,12/04/2026,JL-112301,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+37815,12/04/2026,JL-112333,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+38084,14/04/2026,BL-209224,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+38428,15/04/2026,JL-112546,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+38473,16/04/2026,BL-209323,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+38885,18/04/2026,BL-209419,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+39238,19/04/2026,BL-209529,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+39816,22/04/2026,BL-209657,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+40143,23/04/2026,JL-113098,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+40329,24/04/2026,JL-113149,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+40894,26/04/2026,JL-113341,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+40945,27/04/2026,BL-209927,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+40970,27/04/2026,BL-209941,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+40989,27/04/2026,BL-209951,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+41629,30/04/2026,JL-113574,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+41673,30/04/2026,JL-113595,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+41707,01/05/2026,BL-210114,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+41780,01/05/2026,BL-210154,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+41905,01/05/2026,JL-113679,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+42112,02/05/2026,JL-113737,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+42313,03/05/2026,JL-113796,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+42744,05/05/2026,JL-113941,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+43437,08/05/2026,JL-114188,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+44134,11/05/2026,JL-114406,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+44141,11/05/2026,JL-114409,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+44558,13/05/2026,JL-114574,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+44619,14/05/2026,BL-210842,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+44690,14/05/2026,JL-114604,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+44954,15/05/2026,JL-114690,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+45050,16/05/2026,BL-210946,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+45299,16/05/2026,RF-220353,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,-1,20.20,0.00,-20.20,Bayan Lepas
+45322,17/05/2026,BL-210999,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+45413,17/05/2026,JL-114823,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+45484,17/05/2026,JL-114863,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+45565,18/05/2026,BL-211049,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+45680,18/05/2026,JL-114928,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+46154,20/05/2026,RF-127490,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,-1,20.20,0.00,-20.20,Jelutong
+46307,21/05/2026,JL-115135,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+46405,22/05/2026,BL-211259,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+46536,22/05/2026,JL-115206,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+47141,24/05/2026,JL-115408,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+47526,26/05/2026,JL-115537,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+48135,29/05/2026,JL-115721,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+48171,29/05/2026,JL-115743,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+48230,30/05/2026,BL-211704,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+48242,30/05/2026,BL-211710,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+48353,30/05/2026,JL-115782,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+48504,31/05/2026,BL-211755,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+48800,01/06/2026,BL-211831,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+49308,03/06/2026,JL-116105,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+49553,04/06/2026,JL-116187,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+49751,05/06/2026,JL-116240,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+50051,06/06/2026,JL-116340,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+50209,07/06/2026,BL-212190,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+50242,07/06/2026,JL-116387,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+50502,08/06/2026,JL-116496,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+50515,08/06/2026,JL-116504,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+50796,10/06/2026,BL-212323,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+50857,10/06/2026,JL-116607,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+51360,12/06/2026,JL-116778,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+51425,13/06/2026,BL-212468,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+51536,13/06/2026,JL-116818,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+51585,13/06/2026,JL-116845,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+51778,14/06/2026,JL-116890,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+51886,14/06/2026,JL-116954,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+51937,15/06/2026,BL-212587,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+52060,15/06/2026,JL-117004,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+52191,16/06/2026,JL-117035,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+52505,18/06/2026,BL-212708,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+52603,18/06/2026,JL-117170,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+52705,19/06/2026,BL-212761,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+52888,19/06/2026,JL-117272,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+53068,20/06/2026,JL-117294,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+53384,21/06/2026,JL-117407,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+53600,22/06/2026,JL-117487,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+53693,22/06/2026,JL-117539,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+53791,23/06/2026,JL-117552,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+54039,24/06/2026,JL-117651,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+54269,25/06/2026,JL-117731,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+54405,26/06/2026,JL-117745,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+54504,26/06/2026,JL-117808,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+54621,27/06/2026,BL-213250,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+54648,27/06/2026,JL-117821,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+54743,27/06/2026,JL-117873,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+54855,28/06/2026,BL-213279,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+54927,28/06/2026,BL-213320,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+55083,28/06/2026,JL-117992,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+55448,30/06/2026,JL-118107,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+55495,01/07/2026,BL-213436,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+55732,02/07/2026,BL-213510,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+56168,04/07/2026,BL-213604,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+56238,04/07/2026,JL-118332,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+56257,04/07/2026,JL-118344,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+56566,05/07/2026,JL-118441,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+56645,05/07/2026,JL-118486,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+56655,05/07/2026,JL-118493,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+57030,07/07/2026,JL-118609,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+57206,08/07/2026,JL-118659,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+57724,11/07/2026,BL-213966,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+57853,11/07/2026,JL-118860,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+57897,11/07/2026,JL-118884,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+58012,12/07/2026,BL-214046,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+58136,12/07/2026,JL-118964,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+58317,13/07/2026,BL-214135,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+58751,15/07/2026,BL-214234,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+59003,16/07/2026,JL-119244,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+59166,17/07/2026,BL-214335,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+59259,17/07/2026,JL-119330,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+59530,18/07/2026,JL-119411,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+59551,18/07/2026,JL-119427,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+59857,19/07/2026,JL-119539,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+60160,21/07/2026,BL-214570,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+60212,21/07/2026,JL-119652,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+60377,22/07/2026,JL-119701,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+60830,24/07/2026,JL-119858,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+60914,25/07/2026,BL-214746,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+61050,25/07/2026,JL-119921,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+62478,01/08/2026,BL-215135,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+62802,02/08/2026,BL-215217,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+62959,02/08/2026,JL-120553,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+63312,04/08/2026,JL-120651,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+63321,04/08/2026,JL-120656,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+63356,04/08/2026,JL-120678,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+63519,05/08/2026,JL-120720,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+63742,06/08/2026,JL-120796,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+63750,06/08/2026,JL-120801,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+63970,07/08/2026,JL-120867,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+64725,10/08/2026,BL-215683,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+65122,12/08/2026,BL-215771,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+65692,14/08/2026,JL-121456,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+65694,14/08/2026,JL-121457,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+65985,15/08/2026,JL-121560,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+66232,16/08/2026,JL-121632,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+66304,17/08/2026,BL-216051,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+66882,20/08/2026,BL-216166,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+66958,20/08/2026,JL-121844,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+67062,20/08/2026,JL-121903,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+67132,21/08/2026,BL-216248,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+67698,23/08/2026,BL-216383,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+67724,23/08/2026,BL-216398,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+67754,23/08/2026,JL-122091,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+67760,23/08/2026,JL-122095,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+67870,23/08/2026,JL-122155,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+67915,24/08/2026,BL-216415,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+68005,24/08/2026,JL-122180,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+68070,24/08/2026,JL-122215,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+68297,26/08/2026,BL-216496,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+68488,27/08/2026,BL-216549,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+68608,27/08/2026,JL-122370,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+68647,27/08/2026,JL-122390,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+68864,28/08/2026,JL-122452,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+69279,30/08/2026,BL-216768,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+69704,31/08/2026,JL-122733,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+69777,01/09/2026,BL-216872,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+69809,01/09/2026,BL-216892,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+69845,01/09/2026,JL-122766,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+69860,01/09/2026,JL-122774,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+69912,01/09/2026,JL-122804,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+70027,02/09/2026,JL-122824,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+70622,05/09/2026,BL-217086,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+70647,05/09/2026,BL-217102,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+71644,09/09/2026,JL-123360,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+71943,11/09/2026,BL-217402,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+72211,12/09/2026,BL-217472,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+72901,14/09/2026,JL-123781,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+73577,18/09/2026,BL-217794,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+73700,18/09/2026,JL-124020,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+73899,19/09/2026,BL-217891,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+73912,19/09/2026,BL-217897,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+73942,19/09/2026,BL-217912,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Bayan Lepas
+74305,20/09/2026,JL-124218,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+74364,20/09/2026,JL-124248,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+74617,22/09/2026,BL-218039,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+74683,22/09/2026,JL-124322,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+75055,24/09/2026,BL-218152,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+75064,24/09/2026,BL-218158,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+75269,25/09/2026,BL-218224,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+75277,25/09/2026,BL-218231,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+75357,25/09/2026,JL-124545,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+75363,25/09/2026,JL-124548,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+75592,26/09/2026,JL-124613,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+75976,27/09/2026,JL-124778,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+76027,28/09/2026,BL-218390,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+76292,29/09/2026,JL-124855,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+76360,29/09/2026,JL-124896,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+76556,30/09/2026,JL-124963,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+77320,03/10/2026,JL-125215,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+77409,04/10/2026,BL-218738,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+77446,04/10/2026,BL-218759,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+77780,05/10/2026,JL-125357,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+78007,07/10/2026,BL-218863,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+78483,09/10/2026,BL-219002,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+78680,10/10/2026,BL-219035,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+78698,10/10/2026,BL-219043,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+78792,10/10/2026,JL-125679,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+78824,10/10/2026,JL-125697,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+78844,10/10/2026,JL-125711,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+79799,15/10/2026,BL-219298,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+80177,16/10/2026,JL-126145,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+80189,16/10/2026,JL-126152,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+80248,17/10/2026,BL-219397,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+80979,19/10/2026,JL-126418,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+81185,20/10/2026,JL-126495,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+81204,21/10/2026,BL-219636,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+81269,21/10/2026,JL-126497,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+81359,21/10/2026,JL-126551,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+81442,22/10/2026,BL-219712,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+81444,22/10/2026,BL-219713,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+81810,23/10/2026,JL-126697,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong
+81837,23/10/2026,JL-126710,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+81841,23/10/2026,JL-126712,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+82105,24/10/2026,JL-126791,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Jelutong
+82602,26/10/2026,JL-126958,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+83292,30/10/2026,BL-220135,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,2,20.20,0.00,40.40,Bayan Lepas
+83503,31/10/2026,BL-220179,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+83531,31/10/2026,BL-220192,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+83626,31/10/2026,BL-220244,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Bayan Lepas
+83679,31/10/2026,JL-127269,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+83702,31/10/2026,JL-127282,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,1,20.20,0.00,20.20,Jelutong
+83788,31/10/2026,JL-127332,CT-002,Kopi O Kaw Serbuk 1kg,Coffee & Tea,3,20.20,0.00,60.60,Jelutong

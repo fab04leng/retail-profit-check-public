@@ -1,0 +1,745 @@
+Row,Date,Receipt No,SKU,Product Name,Category,Quantity,Unit Price,Discount,Total,Outlet
+57,03/11/2025,BL-200035,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+162,03/11/2025,JL-100057,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+209,04/11/2025,BL-200061,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+214,04/11/2025,BL-200064,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+539,06/11/2025,BL-200134,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+612,06/11/2025,BL-200172,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+677,06/11/2025,JL-100206,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+732,06/11/2025,JL-100238,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+802,07/11/2025,BL-200215,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+1127,08/11/2025,JL-100335,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+1152,08/11/2025,JL-100347,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+1222,08/11/2025,JL-100389,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+1383,09/11/2025,JL-100416,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+1471,09/11/2025,JL-100466,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+1480,09/11/2025,JL-100471,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+1822,11/11/2025,JL-100576,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+2004,12/11/2025,JL-100637,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+2130,13/11/2025,BL-200536,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+2198,13/11/2025,JL-100692,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+2407,14/11/2025,JL-100756,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+2485,14/11/2025,JL-100803,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+2674,15/11/2025,JL-100837,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+3019,17/11/2025,BL-200732,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+3154,17/11/2025,JL-100998,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+3293,18/11/2025,JL-101040,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+3373,19/11/2025,BL-200823,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+3571,20/11/2025,BL-200879,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+3945,21/11/2025,JL-101265,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+4007,22/11/2025,BL-200994,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+4159,22/11/2025,JL-101327,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+4349,23/11/2025,JL-101379,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+4497,23/11/2025,JL-101460,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+4564,24/11/2025,BL-201129,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+4573,24/11/2025,BL-201133,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+4692,24/11/2025,JL-101528,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+5186,27/11/2025,JL-101674,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+5404,28/11/2025,JL-101746,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+5414,28/11/2025,JL-101754,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+5534,29/11/2025,BL-201355,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+5554,29/11/2025,BL-201368,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+5585,29/11/2025,BL-201384,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+5642,29/11/2025,JL-101803,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+5747,29/11/2025,JL-101865,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+6264,02/12/2025,BL-201526,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+6348,02/12/2025,JL-102042,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+6652,04/12/2025,BL-201620,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+6665,04/12/2025,BL-201630,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+6765,04/12/2025,JL-102188,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+6796,04/12/2025,JL-102209,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+6999,05/12/2025,JL-102269,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+7098,06/12/2025,BL-201743,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+7218,06/12/2025,JL-102324,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+7223,06/12/2025,JL-102327,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+7369,07/12/2025,BL-201802,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+7588,08/12/2025,BL-201847,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+7671,08/12/2025,JL-102489,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+7679,08/12/2025,JL-102496,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+7767,09/12/2025,BL-201891,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+7807,09/12/2025,BL-201911,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+7849,09/12/2025,JL-102547,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+7870,09/12/2025,JL-102559,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+7944,10/12/2025,BL-201929,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+8053,10/12/2025,JL-102623,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+8120,11/12/2025,BL-201974,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+8132,11/12/2025,BL-201980,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+8389,12/12/2025,BL-202069,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+8456,12/12/2025,JL-102732,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+8771,13/12/2025,JL-102831,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+9108,14/12/2025,JL-102947,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+9130,14/12/2025,JL-102961,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+9163,14/12/2025,JL-102977,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+9267,15/12/2025,BL-202268,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+9479,16/12/2025,BL-202318,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+9501,16/12/2025,BL-202329,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+9505,16/12/2025,BL-202332,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+9518,16/12/2025,BL-202340,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+9636,16/12/2025,JL-103136,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+9642,16/12/2025,JL-103140,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+9838,17/12/2025,JL-103188,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+9928,18/12/2025,BL-202419,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+10033,18/12/2025,BL-202473,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+10073,18/12/2025,JL-103255,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+10231,19/12/2025,BL-202508,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+10232,19/12/2025,BL-202508,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+10260,19/12/2025,BL-202523,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+10644,20/12/2025,JL-103433,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+10803,20/12/2025,JL-103518,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+11008,21/12/2025,JL-103570,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+11187,22/12/2025,BL-202733,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+11346,22/12/2025,JL-103690,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+11469,23/12/2025,JL-103711,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+11474,23/12/2025,JL-103713,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+11602,24/12/2025,BL-202829,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+11813,24/12/2025,JL-103857,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+11883,25/12/2025,BL-202905,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+12044,25/12/2025,JL-103934,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+12051,25/12/2025,JL-103939,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+12179,26/12/2025,BL-202993,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+12224,26/12/2025,JL-103958,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+12313,26/12/2025,JL-104010,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+12473,27/12/2025,BL-203061,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+12502,27/12/2025,BL-203077,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+12514,27/12/2025,BL-203083,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+12568,27/12/2025,JL-104066,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+12586,27/12/2025,JL-104075,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+12607,27/12/2025,JL-104086,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+12809,28/12/2025,BL-203123,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+12850,28/12/2025,BL-203147,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+12984,28/12/2025,JL-104216,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+13036,28/12/2025,JL-104246,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+13163,29/12/2025,JL-104264,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+13344,30/12/2025,BL-203264,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+13569,31/12/2025,BL-203307,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+13686,31/12/2025,JL-104443,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+13793,01/01/2026,BL-203365,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+13823,01/01/2026,BL-203384,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+13848,01/01/2026,JL-104494,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+13903,01/01/2026,JL-104524,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+14088,02/01/2026,JL-104566,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+14157,02/01/2026,JL-104605,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+14260,03/01/2026,BL-203486,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+14435,03/01/2026,JL-104689,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+14489,04/01/2026,BL-203518,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+14629,04/01/2026,JL-104725,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+14754,04/01/2026,JL-104790,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+14793,05/01/2026,BL-203590,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+14823,05/01/2026,BL-203607,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+14927,05/01/2026,JL-104849,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+14996,06/01/2026,BL-203655,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+15306,07/01/2026,JL-104970,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+15324,08/01/2026,BL-203721,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+15520,09/01/2026,BL-203763,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+15549,09/01/2026,BL-203777,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+15566,09/01/2026,BL-203785,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+15735,09/01/2026,JL-105119,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+15847,10/01/2026,BL-203878,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+15929,10/01/2026,JL-105166,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+16056,11/01/2026,BL-203904,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+16110,11/01/2026,BL-203933,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+16721,14/01/2026,BL-204078,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+16918,15/01/2026,BL-204116,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+16957,15/01/2026,JL-105493,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+17260,16/01/2026,JL-105596,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+17363,17/01/2026,BL-204210,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+17423,17/01/2026,JL-105634,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+17466,17/01/2026,JL-105658,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+17619,18/01/2026,BL-204270,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+17704,18/01/2026,JL-105729,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+17770,18/01/2026,JL-105771,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+17984,19/01/2026,JL-105848,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+18075,20/01/2026,BL-204393,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+18656,23/01/2026,BL-204535,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+18695,23/01/2026,JL-106059,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+18721,23/01/2026,JL-106071,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+18764,23/01/2026,JL-106092,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+18818,24/01/2026,BL-204552,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+19047,24/01/2026,JL-106188,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+19380,26/01/2026,BL-204701,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+19559,27/01/2026,BL-204742,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+19702,27/01/2026,JL-106413,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+19855,28/01/2026,JL-106455,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+19903,28/01/2026,JL-106483,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+20308,30/01/2026,JL-106618,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+20413,31/01/2026,BL-204966,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+20483,31/01/2026,JL-106640,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+20501,31/01/2026,JL-106648,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+20528,31/01/2026,JL-106664,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+20653,01/02/2026,BL-205011,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+20759,01/02/2026,JL-106739,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+20765,01/02/2026,JL-106742,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+20774,01/02/2026,JL-106746,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+20841,01/02/2026,JL-106780,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+20927,02/02/2026,BL-205075,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+21010,02/02/2026,JL-106827,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+21213,03/02/2026,JL-106880,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+21389,04/02/2026,BL-205188,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+21418,04/02/2026,BL-205207,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+21589,04/02/2026,JL-107036,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+21593,04/02/2026,JL-107039,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+21616,05/02/2026,BL-205241,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+21885,05/02/2026,JL-107135,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+21886,05/02/2026,JL-107136,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+21917,06/02/2026,BL-205316,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+22023,06/02/2026,BL-205378,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+22035,06/02/2026,BL-205385,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+22285,07/02/2026,BL-205409,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+22560,07/02/2026,JL-107329,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+22810,08/02/2026,BL-205579,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+23123,09/02/2026,JL-107509,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+23136,09/02/2026,JL-107519,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+23197,09/02/2026,JL-107554,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+23296,10/02/2026,BL-205662,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+23340,10/02/2026,BL-205682,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+23351,10/02/2026,BL-205688,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+23463,10/02/2026,JL-107641,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+23549,11/02/2026,BL-205724,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+23580,11/02/2026,BL-205743,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+23854,12/02/2026,BL-205818,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+23936,12/02/2026,JL-107782,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+24037,12/02/2026,JL-107844,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+24412,13/02/2026,JL-107969,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+24491,14/02/2026,BL-205964,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+24761,14/02/2026,JL-108076,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+24834,15/02/2026,BL-206027,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+24870,15/02/2026,BL-206046,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+25185,15/02/2026,JL-108217,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+25295,16/02/2026,BL-206151,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+25370,16/02/2026,JL-108257,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+25433,16/02/2026,JL-108294,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+25509,17/02/2026,BL-206184,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+25524,17/02/2026,BL-206193,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+25693,18/02/2026,JL-108382,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+25926,20/02/2026,BL-206306,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+26039,20/02/2026,JL-108491,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+26049,20/02/2026,JL-108496,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+26165,21/02/2026,BL-206365,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+26342,21/02/2026,JL-108602,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+26592,22/02/2026,JL-108682,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+26653,23/02/2026,BL-206465,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+26722,23/02/2026,JL-108711,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+26798,23/02/2026,JL-108756,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+27076,25/02/2026,JL-108815,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+27157,25/02/2026,JL-108867,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+27391,26/02/2026,JL-108948,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+27790,28/02/2026,JL-109055,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+28114,01/03/2026,JL-109174,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+28379,03/03/2026,BL-206882,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+28749,05/03/2026,BL-206968,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+29067,06/03/2026,JL-109463,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+29177,07/03/2026,BL-207073,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+29201,07/03/2026,BL-207088,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+29213,07/03/2026,BL-207092,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+29223,07/03/2026,BL-207098,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+29259,07/03/2026,BL-207116,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+29317,07/03/2026,JL-109542,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+29420,07/03/2026,JL-109599,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+29576,08/03/2026,JL-109625,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+29771,09/03/2026,BL-207224,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+30253,11/03/2026,BL-207339,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+30266,11/03/2026,BL-207347,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+30308,11/03/2026,JL-109861,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+30520,12/03/2026,BL-207405,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+30632,12/03/2026,JL-109982,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+30699,13/03/2026,BL-207427,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+30719,13/03/2026,BL-207437,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+30772,13/03/2026,BL-207467,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+31318,14/03/2026,JL-110209,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+31370,14/03/2026,JL-110240,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+31557,15/03/2026,JL-110257,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+31679,15/03/2026,JL-110330,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+32068,17/03/2026,JL-110427,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+32138,17/03/2026,JL-110470,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+32268,18/03/2026,BL-207832,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+32302,18/03/2026,BL-207853,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+32365,18/03/2026,JL-110539,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+32498,19/03/2026,BL-207877,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+32560,19/03/2026,BL-207915,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+32584,19/03/2026,JL-110593,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+32805,20/03/2026,JL-110676,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+32916,21/03/2026,BL-207982,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+33147,22/03/2026,BL-208052,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+33207,22/03/2026,JL-110814,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+33266,23/03/2026,BL-208057,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+33651,25/03/2026,BL-208155,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+33675,25/03/2026,BL-208167,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+33681,25/03/2026,BL-208169,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+33900,26/03/2026,JL-111034,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+33928,26/03/2026,JL-111050,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+33964,26/03/2026,JL-111071,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+34163,27/03/2026,JL-111117,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+34168,27/03/2026,JL-111119,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+34177,27/03/2026,JL-111125,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+34558,29/03/2026,BL-208378,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+34672,29/03/2026,JL-111278,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+34696,29/03/2026,JL-111288,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+34792,29/03/2026,JL-111337,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+34901,30/03/2026,BL-208467,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+35186,31/03/2026,JL-111470,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+35275,01/04/2026,BL-208560,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+35304,01/04/2026,JL-111488,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+35390,02/04/2026,BL-208566,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+35427,02/04/2026,BL-208587,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+35466,02/04/2026,BL-208607,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+35488,02/04/2026,JL-111544,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+35503,02/04/2026,JL-111554,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+35555,02/04/2026,JL-111582,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+35564,02/04/2026,JL-111587,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+35742,03/04/2026,JL-111632,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+35923,04/04/2026,BL-208721,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+35998,04/04/2026,JL-111719,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+36143,05/04/2026,BL-208754,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+36178,05/04/2026,BL-208773,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+36212,05/04/2026,BL-208795,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+36299,05/04/2026,JL-111821,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+36339,05/04/2026,JL-111844,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+36675,07/04/2026,JL-111964,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+36916,09/04/2026,BL-208932,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+36924,09/04/2026,BL-208936,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+36993,09/04/2026,JL-112055,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+37002,09/04/2026,JL-112058,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+37034,09/04/2026,JL-112079,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+37041,09/04/2026,JL-112086,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+37163,10/04/2026,BL-209012,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+37247,10/04/2026,JL-112141,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+37255,10/04/2026,JL-112146,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+37272,10/04/2026,JL-112156,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+37292,10/04/2026,JL-112167,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+37306,10/04/2026,JL-112176,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+37404,11/04/2026,BL-209073,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+37423,11/04/2026,BL-209084,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+37430,11/04/2026,BL-209087,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+37598,11/04/2026,JL-112276,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+37612,11/04/2026,JL-112283,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+37676,12/04/2026,BL-209139,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+37734,12/04/2026,BL-209167,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+37768,12/04/2026,JL-112304,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+38243,14/04/2026,JL-112483,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+38251,14/04/2026,JL-112489,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+38295,15/04/2026,BL-209281,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+38318,15/04/2026,BL-209294,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+38336,15/04/2026,JL-112490,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+38356,15/04/2026,JL-112503,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+38488,16/04/2026,BL-209334,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+38553,16/04/2026,JL-112570,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+38682,17/04/2026,BL-209375,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+38690,17/04/2026,BL-209379,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+38960,18/04/2026,BL-209463,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+39139,18/04/2026,JL-112771,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+39408,19/04/2026,JL-112852,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+39632,21/04/2026,BL-209604,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+39681,21/04/2026,JL-112926,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+39826,22/04/2026,BL-209664,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+40058,23/04/2026,JL-113050,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+40105,23/04/2026,JL-113078,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+40347,24/04/2026,JL-113162,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+40366,24/04/2026,JL-113172,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+40457,25/04/2026,BL-209823,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+40546,25/04/2026,JL-113209,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+40966,27/04/2026,BL-209940,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+40981,27/04/2026,BL-209947,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+41044,27/04/2026,JL-113385,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+41059,27/04/2026,JL-113395,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+41304,28/04/2026,JL-113485,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+41756,01/05/2026,BL-210142,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+41847,01/05/2026,JL-113644,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+41855,01/05/2026,JL-113648,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+41915,01/05/2026,JL-113685,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+41997,02/05/2026,BL-210203,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+42036,02/05/2026,JL-113692,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+42162,02/05/2026,JL-113771,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+42248,03/05/2026,BL-210269,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+42354,03/05/2026,JL-113813,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+42364,03/05/2026,JL-113818,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+42729,05/05/2026,BL-210381,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+42746,05/05/2026,JL-113942,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+42834,05/05/2026,JL-113992,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+42972,06/05/2026,JL-114029,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+42978,06/05/2026,JL-114032,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+42987,06/05/2026,JL-114035,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+43060,07/05/2026,BL-210442,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+43079,07/05/2026,BL-210450,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+43105,07/05/2026,BL-210463,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+43267,08/05/2026,BL-210500,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+43458,08/05/2026,JL-114201,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+43489,09/05/2026,BL-210546,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+43530,09/05/2026,BL-210571,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+43716,09/05/2026,JL-114286,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+43833,10/05/2026,BL-210664,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+43928,10/05/2026,JL-114342,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+44201,11/05/2026,JL-114441,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+44329,12/05/2026,JL-114470,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+44363,12/05/2026,JL-114495,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+44471,13/05/2026,JL-114516,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+44725,14/05/2026,JL-114625,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+44732,14/05/2026,JL-114631,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+44977,15/05/2026,JL-114704,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+44994,15/05/2026,JL-114716,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+45055,16/05/2026,BL-210948,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+45224,16/05/2026,JL-114780,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+45406,17/05/2026,JL-114820,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+45520,17/05/2026,JL-114882,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+45641,18/05/2026,BL-211090,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+45728,18/05/2026,JL-114956,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+45733,18/05/2026,JL-114958,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+46039,20/05/2026,JL-115032,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+46083,20/05/2026,JL-115055,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+46362,21/05/2026,JL-115165,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+46370,22/05/2026,BL-211235,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+46715,23/05/2026,BL-211354,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+47044,24/05/2026,JL-115354,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+47070,24/05/2026,JL-115370,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+47247,25/05/2026,JL-115429,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+47676,27/05/2026,JL-115569,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+47692,27/05/2026,JL-115578,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+47837,28/05/2026,JL-115609,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+47849,28/05/2026,JL-115615,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+47951,28/05/2026,JL-115674,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+48051,29/05/2026,JL-115675,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+48054,29/05/2026,JL-115676,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+48111,29/05/2026,JL-115709,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+48424,30/05/2026,JL-115822,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+48533,31/05/2026,BL-211770,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+48557,31/05/2026,BL-211783,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+48656,31/05/2026,JL-115890,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+48738,31/05/2026,JL-115934,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+48751,01/06/2026,BL-211802,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+48828,01/06/2026,JL-115943,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+49050,02/06/2026,JL-116027,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+49105,02/06/2026,JL-116054,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+49244,03/06/2026,JL-116072,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+49274,03/06/2026,JL-116089,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+49342,03/06/2026,JL-116125,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+49434,04/06/2026,BL-211982,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+49456,04/06/2026,JL-116133,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+49583,05/06/2026,BL-211998,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+49881,06/06/2026,BL-212097,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+50047,06/06/2026,JL-116339,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+50129,07/06/2026,BL-212142,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+50134,07/06/2026,BL-212144,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+50358,08/06/2026,BL-212198,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+50375,08/06/2026,BL-212208,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+50422,08/06/2026,JL-116452,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+50691,09/06/2026,JL-116561,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+50791,10/06/2026,BL-212322,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+50800,10/06/2026,JL-116576,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+50807,10/06/2026,JL-116579,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+50858,10/06/2026,JL-116608,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+50888,10/06/2026,JL-116623,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+51020,11/06/2026,JL-116647,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+51051,11/06/2026,JL-116668,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+51465,13/06/2026,BL-212493,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+51601,13/06/2026,JL-116853,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+51673,14/06/2026,BL-212519,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+51740,14/06/2026,BL-212556,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+51760,14/06/2026,JL-116878,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+52029,15/06/2026,JL-116987,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+52066,15/06/2026,JL-117006,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+52071,15/06/2026,JL-117009,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+52104,16/06/2026,BL-212610,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+52477,17/06/2026,JL-117153,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+52486,18/06/2026,BL-212700,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+52499,18/06/2026,BL-212704,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+52531,18/06/2026,BL-212721,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+52543,18/06/2026,BL-212727,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+52556,18/06/2026,BL-212735,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+52909,19/06/2026,JL-117281,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+52962,20/06/2026,BL-212823,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+52991,20/06/2026,BL-212843,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+53123,20/06/2026,JL-117325,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+53132,20/06/2026,JL-117330,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+53229,20/06/2026,JL-117380,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+53323,21/06/2026,BL-212922,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+53581,22/06/2026,BL-212981,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+53659,22/06/2026,JL-117519,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+54124,25/06/2026,BL-213121,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+54279,26/06/2026,BL-213131,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+54354,26/06/2026,BL-213177,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+54407,26/06/2026,JL-117746,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+54412,26/06/2026,JL-117751,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+54496,26/06/2026,JL-117802,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+54624,27/06/2026,BL-213252,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+54784,27/06/2026,JL-117895,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+54887,28/06/2026,BL-213295,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+55070,28/06/2026,JL-117987,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+55074,28/06/2026,JL-117989,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+55213,29/06/2026,JL-118019,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+55404,30/06/2026,JL-118081,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+55421,30/06/2026,JL-118091,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+55531,01/07/2026,BL-213457,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+55860,02/07/2026,JL-118239,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+55907,03/07/2026,BL-213534,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+56101,03/07/2026,JL-118314,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+56203,04/07/2026,BL-213624,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+56288,04/07/2026,JL-118362,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+56349,04/07/2026,JL-118388,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+56588,05/07/2026,JL-118455,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+56601,05/07/2026,JL-118462,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+56912,07/07/2026,BL-213771,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+56936,07/07/2026,BL-213783,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+56992,07/07/2026,JL-118584,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+57126,08/07/2026,BL-213836,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+57195,08/07/2026,JL-118652,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+57207,08/07/2026,JL-118659,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+57265,08/07/2026,JL-118693,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+57280,09/07/2026,BL-213863,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+57561,10/07/2026,BL-213956,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+57811,11/07/2026,BL-214016,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+57843,11/07/2026,JL-118854,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+57980,12/07/2026,BL-214027,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+58383,13/07/2026,JL-119050,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+58395,13/07/2026,JL-119058,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+58508,14/07/2026,BL-214172,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+58541,14/07/2026,JL-119086,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+58542,14/07/2026,JL-119086,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+58560,14/07/2026,JL-119096,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+58571,14/07/2026,JL-119103,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+58763,15/07/2026,JL-119154,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+59044,16/07/2026,JL-119271,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+59065,16/07/2026,JL-119281,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+59099,17/07/2026,BL-214298,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+59314,17/07/2026,JL-119363,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+59340,18/07/2026,BL-214360,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+59423,18/07/2026,BL-214401,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+59503,18/07/2026,JL-119397,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+59689,19/07/2026,BL-214456,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+59706,19/07/2026,BL-214464,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+59710,19/07/2026,BL-214465,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+59806,19/07/2026,JL-119504,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+59871,19/07/2026,JL-119546,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+59924,20/07/2026,BL-214498,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+59949,20/07/2026,BL-214512,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+60084,21/07/2026,BL-214523,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+60109,21/07/2026,BL-214538,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+60246,21/07/2026,JL-119671,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+60248,21/07/2026,JL-119672,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+60374,22/07/2026,JL-119699,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+60501,23/07/2026,BL-214648,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+60519,23/07/2026,BL-214658,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+60560,23/07/2026,JL-119751,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+60633,23/07/2026,JL-119795,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+60643,23/07/2026,JL-119800,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+60773,24/07/2026,JL-119821,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+60911,25/07/2026,BL-214744,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+61096,25/07/2026,JL-119946,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+61159,25/07/2026,JL-119977,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+61263,26/07/2026,BL-214848,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+61416,26/07/2026,JL-120054,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+61438,26/07/2026,JL-120067,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+61690,28/07/2026,BL-214934,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+61694,28/07/2026,BL-214936,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+61756,28/07/2026,JL-120148,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+61792,28/07/2026,JL-120166,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+61866,29/07/2026,BL-214971,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+61915,29/07/2026,JL-120192,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+61966,29/07/2026,JL-120221,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+62445,01/08/2026,BL-215116,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+62454,01/08/2026,BL-215121,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+62636,01/08/2026,JL-120432,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+62712,01/08/2026,JL-120472,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+62791,02/08/2026,BL-215210,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+62910,02/08/2026,JL-120523,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+63020,03/08/2026,BL-215260,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+63123,03/08/2026,JL-120597,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+63224,04/08/2026,BL-215306,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+63246,04/08/2026,BL-215316,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+63406,05/08/2026,BL-215349,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+63459,05/08/2026,BL-215379,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+63461,05/08/2026,BL-215379,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+63505,05/08/2026,JL-120713,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+63568,05/08/2026,JL-120745,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+63660,06/08/2026,BL-215417,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+63827,07/08/2026,BL-215447,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+63994,07/08/2026,JL-120880,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+64011,07/08/2026,JL-120887,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+64171,08/08/2026,BL-215553,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+64342,08/08/2026,JL-121004,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+64374,08/08/2026,JL-121023,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+64418,09/08/2026,BL-215597,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+64463,09/08/2026,BL-215625,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+64477,09/08/2026,BL-215633,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+64642,09/08/2026,JL-121113,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+64847,11/08/2026,BL-215686,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+64914,11/08/2026,BL-215725,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+64935,11/08/2026,JL-121187,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+65047,11/08/2026,JL-121247,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+65068,12/08/2026,BL-215741,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+65071,12/08/2026,BL-215742,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+65252,12/08/2026,JL-121309,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+65393,13/08/2026,JL-121340,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+65486,14/08/2026,BL-215842,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+65513,14/08/2026,BL-215857,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+65631,14/08/2026,JL-121423,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+66034,16/08/2026,BL-215983,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+66063,16/08/2026,BL-216002,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+66181,16/08/2026,JL-121610,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+66291,17/08/2026,BL-216043,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+66449,18/08/2026,BL-216072,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+66565,18/08/2026,JL-121734,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+66617,18/08/2026,JL-121762,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+67138,21/08/2026,BL-216251,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+67300,21/08/2026,JL-121970,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+67402,22/08/2026,BL-216315,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+67425,22/08/2026,BL-216325,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+67664,23/08/2026,BL-216363,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+67741,23/08/2026,JL-122085,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+67797,23/08/2026,JL-122113,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+67930,24/08/2026,BL-216422,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+67932,24/08/2026,BL-216423,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+68087,24/08/2026,JL-122224,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+68159,25/08/2026,BL-216485,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+68181,25/08/2026,JL-122229,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+68220,25/08/2026,JL-122249,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+68354,26/08/2026,BL-216530,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+68457,26/08/2026,JL-122338,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+68514,27/08/2026,BL-216565,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+68627,27/08/2026,JL-122380,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+68895,28/08/2026,JL-122469,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+68923,28/08/2026,JL-122489,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+69405,30/08/2026,JL-122623,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+69449,30/08/2026,JL-122648,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+69482,30/08/2026,JL-122668,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+69564,31/08/2026,BL-216828,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+69772,01/09/2026,BL-216870,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+69886,01/09/2026,JL-122791,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+69943,02/09/2026,BL-216912,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+69967,02/09/2026,BL-216926,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+70049,02/09/2026,JL-122839,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+70088,02/09/2026,JL-122860,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+70161,03/09/2026,BL-216980,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+70366,04/09/2026,BL-217024,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+70401,04/09/2026,BL-217047,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+70403,04/09/2026,BL-217049,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+70455,04/09/2026,JL-122963,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+70488,04/09/2026,JL-122983,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+70503,04/09/2026,JL-122990,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+70538,04/09/2026,JL-123009,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+70573,04/09/2026,JL-123027,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+70578,04/09/2026,JL-123029,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+70607,05/09/2026,BL-217078,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+70648,05/09/2026,BL-217102,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+70667,05/09/2026,BL-217112,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+70700,05/09/2026,BL-217134,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+70910,06/09/2026,BL-217150,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+70940,06/09/2026,BL-217163,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+71026,06/09/2026,JL-123153,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+71067,06/09/2026,JL-123176,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+71207,07/09/2026,BL-217235,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+71252,07/09/2026,JL-123237,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+71621,09/09/2026,BL-217346,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+71648,09/09/2026,JL-123363,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+71781,10/09/2026,BL-217379,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+71809,10/09/2026,BL-217393,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+71854,10/09/2026,JL-123428,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+71877,10/09/2026,JL-123440,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+71898,10/09/2026,JL-123452,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+71903,10/09/2026,JL-123456,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+72237,12/09/2026,BL-217486,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+72244,12/09/2026,BL-217490,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+72344,12/09/2026,JL-123584,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+72656,13/09/2026,JL-123694,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+72743,14/09/2026,BL-217596,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+72764,14/09/2026,BL-217605,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+72815,14/09/2026,BL-217633,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+72891,14/09/2026,JL-123775,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+73003,15/09/2026,BL-217669,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+73165,16/09/2026,BL-217691,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+73299,16/09/2026,JL-123899,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+73389,17/09/2026,BL-217752,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+73521,17/09/2026,JL-123975,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+73613,18/09/2026,BL-217811,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+73828,19/09/2026,BL-217854,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+73958,19/09/2026,JL-124092,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+74059,19/09/2026,JL-124145,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+74076,19/09/2026,JL-124153,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+74267,20/09/2026,JL-124192,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+74306,20/09/2026,JL-124219,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+74308,20/09/2026,JL-124220,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+74318,20/09/2026,JL-124227,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+74349,20/09/2026,JL-124242,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+74611,22/09/2026,BL-218035,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+74643,22/09/2026,BL-218055,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+74723,22/09/2026,JL-124340,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+74807,23/09/2026,BL-218086,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+75000,24/09/2026,BL-218124,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+75008,24/09/2026,BL-218128,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+75117,24/09/2026,JL-124456,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+75424,25/09/2026,JL-124587,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+75730,26/09/2026,RF-127532,RG-002,Beras Wangi 10kg,Rice & Grains,-1,37.10,0.00,-37.10,Jelutong
+75777,27/09/2026,BL-218330,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+75892,27/09/2026,JL-124723,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+76000,28/09/2026,BL-218374,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+76026,28/09/2026,BL-218389,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+76087,28/09/2026,JL-124791,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+76089,28/09/2026,JL-124792,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+76111,28/09/2026,JL-124805,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+76196,29/09/2026,BL-218422,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+76221,29/09/2026,BL-218435,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+76351,29/09/2026,JL-124892,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+76505,30/09/2026,JL-124932,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+76673,01/10/2026,JL-124977,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+76702,01/10/2026,JL-124991,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+76709,01/10/2026,JL-124995,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+76782,01/10/2026,JL-125041,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+76953,02/10/2026,JL-125079,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+76989,02/10/2026,JL-125102,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+77027,02/10/2026,JL-125122,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+77112,03/10/2026,BL-218673,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+77322,03/10/2026,JL-125216,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+77452,04/10/2026,BL-218762,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+77637,05/10/2026,BL-218773,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+78204,08/10/2026,BL-218913,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+78336,08/10/2026,JL-125540,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+78501,09/10/2026,JL-125573,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+78549,09/10/2026,JL-125606,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+78619,09/10/2026,JL-125646,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+78627,09/10/2026,JL-125648,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+78688,10/10/2026,BL-219039,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+78865,10/10/2026,JL-125722,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+78874,10/10/2026,JL-125727,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+78889,10/10/2026,JL-125737,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+78937,11/10/2026,BL-219083,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+79189,11/10/2026,JL-125839,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+79305,12/10/2026,JL-125854,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+79479,13/10/2026,JL-125901,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+79575,13/10/2026,JL-125955,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+79691,14/10/2026,JL-125970,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+80005,16/10/2026,BL-219349,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+80059,16/10/2026,BL-219383,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+80073,16/10/2026,BL-219392,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+80150,16/10/2026,JL-126130,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+80163,16/10/2026,JL-126137,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+80179,16/10/2026,JL-126147,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+80209,16/10/2026,JL-126164,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+80216,16/10/2026,JL-126168,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+80309,17/10/2026,BL-219433,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+80362,17/10/2026,JL-126187,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+80453,17/10/2026,JL-126234,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+80562,18/10/2026,BL-219471,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+80646,18/10/2026,BL-219522,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+80931,19/10/2026,JL-126395,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+81146,20/10/2026,JL-126476,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+81355,21/10/2026,JL-126548,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+81546,22/10/2026,JL-126608,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+81594,22/10/2026,JL-126634,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+81669,23/10/2026,BL-219766,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+81676,23/10/2026,BL-219769,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+81839,23/10/2026,JL-126711,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+81915,24/10/2026,BL-219824,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Bayan Lepas
+81950,24/10/2026,BL-219841,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+82273,25/10/2026,JL-126826,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+82328,25/10/2026,JL-126848,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+82430,26/10/2026,BL-219931,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+82468,26/10/2026,BL-219955,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+82486,26/10/2026,BL-219966,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+82517,26/10/2026,JL-126908,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+82528,26/10/2026,JL-126914,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+82709,27/10/2026,JL-126965,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+82782,27/10/2026,JL-127005,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+82818,27/10/2026,JL-127026,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+82821,27/10/2026,RF-220390,RG-002,Beras Wangi 10kg,Rice & Grains,-1,37.10,0.00,-37.10,Bayan Lepas
+83059,29/10/2026,BL-220090,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Bayan Lepas
+83136,29/10/2026,JL-127097,RG-002,Beras Wangi 10kg,Rice & Grains,2,37.10,0.00,74.20,Jelutong
+83178,29/10/2026,JL-127118,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong
+83775,31/10/2026,JL-127325,RG-002,Beras Wangi 10kg,Rice & Grains,1,37.10,0.00,37.10,Jelutong

@@ -1,0 +1,11 @@
+Row,Supplier,Invoice No,Invoice Date,SKU,Description,Quantity,Unit Price,Total,Due Date
+5654,Rotimas Bakery Supply,RM/26/0830,12/10/2026,BR-001,Roti Putih Sandwic 400g,24,3.12,74.88,26/10/2026
+5655,Rotimas Bakery Supply,RM/26/0830,12/10/2026,BR-002,Roti Putih Sandwic 600g,18,4.08,73.44,26/10/2026
+5656,Rotimas Bakery Supply,RM/26/0830,12/10/2026,BR-003,Roti Gandum Penuh 400g,18,3.55,63.90,26/10/2026
+5657,Rotimas Bakery Supply,RM/26/0830,12/10/2026,BR-004,Roti Bun Kaya 4 biji,18,2.20,39.60,26/10/2026
+5658,Rotimas Bakery Supply,RM/26/0830,12/10/2026,BR-005,Kaya Kelapa 250g,12,3.82,45.84,26/10/2026
+5740,Rotimas Bakery Supply,RM/26/0841,17/10/2026,BR-001,Roti Putih Sandwic 400g,24,3.12,74.88,31/10/2026
+5741,Rotimas Bakery Supply,RM/26/0841,17/10/2026,BR-002,Roti Putih Sandwic 600g,18,4.08,73.44,31/10/2026
+5742,Rotimas Bakery Supply,RM/26/0841,17/10/2026,BR-003,Roti Gandum Penuh 400g,18,3.55,63.90,31/10/2026
+5743,Rotimas Bakery Supply,RM/26/0841,17/10/2026,BR-004,Roti Bun Kaya 4 biji,18,2.20,39.60,31/10/2026
+5744,Rotimas Bakery Supply,RM/26/0841,17/10/2026,BR-005,Kaya Kelapa 250g,12,3.82,45.84,31/10/2026
