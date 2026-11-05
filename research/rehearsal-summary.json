@@ -1,0 +1,1404 @@
+{
+  "_warning": "SYNTHETIC SIMULATION. 200 invented personas scored by a hand-written rule-based model. Results reflect the assumptions coded in research/rehearsal.mjs, NOT real owners. Not evidence of demand or willingness to pay. Use only to rehearse objections and prepare interview questions.",
+  "modelVersion": "1.0.0",
+  "seed": 20261104,
+  "nPersonas": 200,
+  "pitches": {
+    "A": "See your real profit by product",
+    "B": "Free up cash stuck in stock",
+    "C": "Catch costly supplier invoice mistakes"
+  },
+  "personaDistributions": {
+    "shopType": {
+      "minimart": 34,
+      "hardware": 18,
+      "phone_acc": 18,
+      "pharmacy": 18,
+      "fashion_mall": 16,
+      "electrical": 14,
+      "kids_toys": 13,
+      "bakery_cafe": 13,
+      "books_stationery": 12,
+      "cosmetics": 11,
+      "sports": 11,
+      "hotel_gift": 8,
+      "optical": 7,
+      "pet_supplies": 7
+    },
+    "revenueBand": {
+      "micro": 48,
+      "small_hi": 51,
+      "small_lo": 74,
+      "medium_lo": 19,
+      "medium_hi": 8
+    },
+    "outlets": {
+      "1": 122,
+      "2": 37,
+      "3": 24,
+      "4": 14,
+      "5": 1,
+      "6": 2
+    },
+    "state": {
+      "KL/Selangor": 61,
+      "Penang": 58,
+      "Sarawak": 18,
+      "Johor": 18,
+      "Perak": 14,
+      "Melaka": 9,
+      "Sabah": 7,
+      "Pahang": 6,
+      "Negeri Sembilan": 5,
+      "Kedah": 4
+    },
+    "language": {
+      "Malay": 72,
+      "Mandarin/Hokkien": 57,
+      "English": 36,
+      "Cantonese": 18,
+      "Tamil": 17
+    },
+    "ageBand": {
+      "20s": 11,
+      "50s": 43,
+      "40s": 68,
+      "60+": 26,
+      "30s": 52
+    },
+    "digitalComfort": {
+      "high": 73,
+      "medium": 88,
+      "low": 39
+    },
+    "accountingSetup": {
+      "shoebox_yearly": 48,
+      "inhouse_clerk": 34,
+      "pos_spreadsheet": 33,
+      "firm_monthly": 32,
+      "bookkeeper_parttime": 30,
+      "cloud_accounting": 23
+    },
+    "posUsage": {
+      "pos_reports": 114,
+      "pos_linked": 34,
+      "register": 31,
+      "none": 21
+    },
+    "decisionMaker": {
+      "sole": 98,
+      "family": 75,
+      "partners": 27
+    },
+    "dataReadiness": {
+      "partial": 55,
+      "digital": 117,
+      "paper": 28
+    },
+    "pain": {
+      "stockHeavy": 131,
+      "thinMargins": 107,
+      "pastCashCrunch": 90,
+      "pastInvoiceMistake": 69,
+      "cashHeavy": 99,
+      "supplierCountMedian": 13
+    }
+  },
+  "interestByPitch": {
+    "A": {
+      "mean": 3.31,
+      "distribution": {
+        "1": 5,
+        "2": 31,
+        "3": 80,
+        "4": 66,
+        "5": 18
+      },
+      "share4plus": 0.42
+    },
+    "B": {
+      "mean": 3.58,
+      "distribution": {
+        "1": 5,
+        "2": 19,
+        "3": 65,
+        "4": 77,
+        "5": 34
+      },
+      "share4plus": 0.56
+    },
+    "C": {
+      "mean": 3.4,
+      "distribution": {
+        "1": 6,
+        "2": 28,
+        "3": 69,
+        "4": 75,
+        "5": 22
+      },
+      "share4plus": 0.49
+    }
+  },
+  "bestPitchPerPersona": {
+    "tie": 83,
+    "A": 24,
+    "B": 54,
+    "C": 39
+  },
+  "topObjections": {
+    "overall": {
+      "PRICE": 144,
+      "RESULTS_FIRST": 97,
+      "POS_REPORTS": 80,
+      "ACCOUNTANT": 64,
+      "MESSY_DATA": 54,
+      "PRIVACY": 48,
+      "PARTNER": 23,
+      "TOO_SMALL": 23,
+      "LANGUAGE": 18,
+      "AI_DISTRUST": 13,
+      "TAX_FEAR": 12,
+      "SUPPLIER_TRUST": 12,
+      "ALREADY_KNOW": 12
+    },
+    "byPitch": {
+      "A": {
+        "POS_REPORTS": 75,
+        "PRICE": 47,
+        "RESULTS_FIRST": 26,
+        "MESSY_DATA": 17,
+        "ACCOUNTANT": 15,
+        "PARTNER": 7,
+        "TAX_FEAR": 6,
+        "TOO_SMALL": 3,
+        "LANGUAGE": 2,
+        "ALREADY_KNOW": 2
+      },
+      "B": {
+        "PRICE": 57,
+        "RESULTS_FIRST": 36,
+        "ACCOUNTANT": 25,
+        "MESSY_DATA": 17,
+        "PARTNER": 13,
+        "PRIVACY": 11,
+        "AI_DISTRUST": 9,
+        "LANGUAGE": 9,
+        "ALREADY_KNOW": 9,
+        "TOO_SMALL": 6,
+        "POS_REPORTS": 5,
+        "TAX_FEAR": 3
+      },
+      "C": {
+        "PRICE": 40,
+        "PRIVACY": 37,
+        "RESULTS_FIRST": 35,
+        "ACCOUNTANT": 24,
+        "MESSY_DATA": 20,
+        "TOO_SMALL": 14,
+        "SUPPLIER_TRUST": 12,
+        "LANGUAGE": 7,
+        "AI_DISTRUST": 4,
+        "TAX_FEAR": 3,
+        "PARTNER": 3,
+        "ALREADY_KNOW": 1
+      }
+    },
+    "amongInterested4plus": {
+      "PRICE": 108,
+      "PRIVACY": 47,
+      "RESULTS_FIRST": 40,
+      "POS_REPORTS": 30,
+      "ACCOUNTANT": 21,
+      "MESSY_DATA": 16,
+      "PARTNER": 13,
+      "LANGUAGE": 8,
+      "TAX_FEAR": 3,
+      "ALREADY_KNOW": 3,
+      "AI_DISTRUST": 3
+    },
+    "inTop2": {
+      "RESULTS_FIRST": 240,
+      "PRICE": 233,
+      "POS_REPORTS": 152,
+      "ACCOUNTANT": 101,
+      "PRIVACY": 101,
+      "PARTNER": 77,
+      "MESSY_DATA": 68,
+      "TOO_SMALL": 51,
+      "TAX_FEAR": 39,
+      "AI_DISTRUST": 37,
+      "LANGUAGE": 34,
+      "ALREADY_KNOW": 29,
+      "SUPPLIER_TRUST": 26,
+      "NO_TIME": 12
+    }
+  },
+  "objectionLabels": {
+    "PRICE": "Price / no budget (\"RM300 is a lot\")",
+    "ACCOUNTANT": "\"My accountant already does this\"",
+    "PRIVACY": "Data privacy / sharing files",
+    "AI_DISTRUST": "Distrust of software/\"AI\" getting numbers right",
+    "NO_TIME": "No time",
+    "POS_REPORTS": "\"My POS already shows reports\"",
+    "MESSY_DATA": "Data is messy / not digital",
+    "TOO_SMALL": "\"Too small to need it\"",
+    "RESULTS_FIRST": "Prefers to see results first",
+    "LANGUAGE": "Language barrier",
+    "TAX_FEAR": "Fear of tax/authorities seeing data",
+    "PARTNER": "Partner/family decision",
+    "ALREADY_KNOW": "\"I already know my shop by feel\"",
+    "SUPPLIER_TRUST": "\"My suppliers are long-time, they won't overcharge\""
+  },
+  "likelyQuestions": {
+    "overall": {
+      "Q_MONTHLY": 108,
+      "Q_POS_DIFF": 80,
+      "Q_ACCOUNTANT_DIFF": 60,
+      "Q_SEE_EXAMPLE": 57,
+      "Q_NO_DATA": 54,
+      "Q_SAVINGS": 40,
+      "Q_SUPPLIER_CONFIDENTIAL": 37,
+      "Q_PRICE_WORTH": 36,
+      "Q_PARTNER": 23,
+      "Q_TOO_SMALL": 23,
+      "Q_LANGUAGE": 18,
+      "Q_ACCURACY": 13,
+      "Q_TAX": 12,
+      "Q_SUPPLIER_TRUST": 12,
+      "Q_DATA_WHERE": 11,
+      "Q_KNOW_SHOP": 7,
+      "Q_DEAD_STOCK_ACTION": 5,
+      "Q_CLERK_CHECKS": 4
+    },
+    "byPitch": {
+      "A": {
+        "Q_POS_DIFF": 75,
+        "Q_MONTHLY": 34,
+        "Q_NO_DATA": 17,
+        "Q_SEE_EXAMPLE": 16,
+        "Q_ACCOUNTANT_DIFF": 15,
+        "Q_PRICE_WORTH": 13,
+        "Q_SAVINGS": 10,
+        "Q_PARTNER": 7,
+        "Q_TAX": 6,
+        "Q_TOO_SMALL": 3,
+        "Q_LANGUAGE": 2,
+        "Q_KNOW_SHOP": 2
+      },
+      "B": {
+        "Q_MONTHLY": 42,
+        "Q_ACCOUNTANT_DIFF": 25,
+        "Q_SAVINGS": 18,
+        "Q_SEE_EXAMPLE": 18,
+        "Q_NO_DATA": 17,
+        "Q_PRICE_WORTH": 15,
+        "Q_PARTNER": 13,
+        "Q_DATA_WHERE": 11,
+        "Q_ACCURACY": 9,
+        "Q_LANGUAGE": 9,
+        "Q_TOO_SMALL": 6,
+        "Q_POS_DIFF": 5,
+        "Q_DEAD_STOCK_ACTION": 5,
+        "Q_KNOW_SHOP": 4,
+        "Q_TAX": 3
+      },
+      "C": {
+        "Q_SUPPLIER_CONFIDENTIAL": 37,
+        "Q_MONTHLY": 32,
+        "Q_SEE_EXAMPLE": 23,
+        "Q_NO_DATA": 20,
+        "Q_ACCOUNTANT_DIFF": 20,
+        "Q_TOO_SMALL": 14,
+        "Q_SAVINGS": 12,
+        "Q_SUPPLIER_TRUST": 12,
+        "Q_PRICE_WORTH": 8,
+        "Q_LANGUAGE": 7,
+        "Q_ACCURACY": 4,
+        "Q_CLERK_CHECKS": 4,
+        "Q_TAX": 3,
+        "Q_PARTNER": 3,
+        "Q_KNOW_SHOP": 1
+      }
+    }
+  },
+  "questionCatalogue": {
+    "Q_PRICE_WORTH": {
+      "q": "Why RM300? What exactly do I get for it?",
+      "a": "One health check on your own files: profit by product, below-cost items, slow/dead stock value, possible duplicate or overpaid supplier invoices, price jumps and an 8-week cash outlook, with the findings reviewed by an ACCA accountant. We cannot promise it will find more than RM300 of issues; if it finds little, you will see that too. (Founders: decide and state the refund/\"no findings\" policy before interviews.)"
+    },
+    "Q_MONTHLY": {
+      "q": "After the pilot, how much is it per month, and can I stop any time?",
+      "a": "We have not fixed the monthly price yet; we are testing it with pilot shops. The pilot itself has no lock-in. Ask back: \"What would it need to show you each month to be worth paying for?\" Do not quote a number you have not decided."
+    },
+    "Q_ACCOUNTANT_DIFF": {
+      "q": "My accountant already handles my accounts. What is different?",
+      "a": "Most accountants prepare statutory accounts and tax from summaries. This looks at transaction rows: margin per product, stock age, duplicate/overpaid supplier invoices. It is meant to complement your accountant, not replace them, and you can share the findings with them. If your accountant already does product-level and invoice checks, this may add little - say so."
+    },
+    "Q_CLERK_CHECKS": {
+      "q": "My clerk already checks every invoice. What would you find that she misses?",
+      "a": "Possibly nothing. The checks look for patterns that are hard to see by hand at volume: the same invoice number twice months apart, the same amount twice within 7 days, unit price rises over 5% against the previous price, payments that match no invoice. If nothing is found, that is useful confirmation of her work."
+    },
+    "Q_DATA_WHERE": {
+      "q": "Where does my data go? Who can see it?",
+      "a": "The tool runs in your web browser on your own computer; files are not uploaded and the page makes no network connections. The accountant only sees the findings you choose to show or share. (Founders: describe the exact review hand-over and put it in the pilot agreement, in line with PDPA.)"
+    },
+    "Q_SUPPLIER_CONFIDENTIAL": {
+      "q": "Will my supplier prices end up with other shops or my competitors?",
+      "a": "No. Your files are not uploaded or pooled with other shops’ data, and nothing is compared across clients. Put a confidentiality clause in the pilot agreement so this is in writing."
+    },
+    "Q_ACCURACY": {
+      "q": "How do I know the computer got my numbers right?",
+      "a": "It is not AI: each check is a written rule, and every finding shows which rule fired and the exact rows in your file, so you can check it yourself. Findings are worded as \"possible\" or \"needs review\", and an accountant reviews them before you act. It can still be wrong if the input files are wrong."
+    },
+    "Q_TIME": {
+      "q": "How much of my time will this take?",
+      "a": "Give an honest range, not a promise: exporting sales, stock and supplier files, a session to map columns, then a walkthrough of findings. We can sit with you to do the export. (Founders: time the first pilots and update this answer with real numbers.)"
+    },
+    "Q_POS_DIFF": {
+      "q": "My POS already gives me sales reports. What is extra?",
+      "a": "A POS usually shows what sold. This combines sales with stock cost and supplier invoices to show margin after cost, cash tied up in aging stock, and invoice problems the POS never sees. If your POS already shows margins by product with correct costs, the profit part may add little - ask them to show you what their POS report contains."
+    },
+    "Q_NO_DATA": {
+      "q": "My records are mostly on paper / quite messy. Can it still work?",
+      "a": "It needs at least a digital sales export and a stock list. If records are mostly paper, this is probably not a fit right now; say so rather than oversell. Partial use (e.g. only supplier invoices typed into a sheet) is possible but takes effort."
+    },
+    "Q_TOO_SMALL": {
+      "q": "Is this only for bigger shops?",
+      "a": "Smaller shops have fewer rows, so issues may be smaller in ringgit, and the RM300 may not pay back. Ask about their stock value and supplier count before deciding together whether it is worth it."
+    },
+    "Q_SEE_EXAMPLE": {
+      "q": "Can you show me what it found for a shop like mine first?",
+      "a": "Show the demo on clearly labelled synthetic data (a made-up Penang minimart). Say plainly that there are no real client results yet - you are looking for the first pilot shops. Do not present demo findings as typical."
+    },
+    "Q_SAVINGS": {
+      "q": "How much money will I save?",
+      "a": "We cannot promise a figure, and we have no real pilot results yet. The report shows RM amounts calculated from your own rows (e.g. value of stock unsold for 90+ days); what you recover depends on what you do with it."
+    },
+    "Q_LANGUAGE": {
+      "q": "Can the report be in my language, or can someone explain it to me in it?",
+      "a": "The tool is currently in English and Chinese; Bahasa Malaysia is planned; Tamil is not available. Say which languages the team can explain findings in, and do not promise translations you do not have."
+    },
+    "Q_TAX": {
+      "q": "Will LHDN see this? Will it make my tax go up?",
+      "a": "The tool does not send anything to anyone and it is not a tax filing. It is a management check for your own decisions. Your tax obligations are unchanged and remain between you and your tax agent. Do not imply it can help reduce or hide tax."
+    },
+    "Q_PARTNER": {
+      "q": "Can you give me something to show my partner / family?",
+      "a": "Yes: a one-page summary of what the check covers, the price, how data is handled, and the demo report (labelled as demo). Offer a short session with the partner too."
+    },
+    "Q_KNOW_SHOP": {
+      "q": "I already know which items do not sell. What will you tell me that I do not know?",
+      "a": "Maybe not much on the items themselves. What it adds is the ringgit value tied up in them and any items you did not expect. Offer a quick test: they name their 5 slowest items, then compare with the data."
+    },
+    "Q_DEAD_STOCK_ACTION": {
+      "q": "If you find dead stock, what am I supposed to do with it?",
+      "a": "The tool only identifies it and its value; options (clearance, bundling, return to supplier, stop reordering) are the owner’s decision, and the accountant can talk through the cash effect. No guarantee of recovering the cash."
+    },
+    "Q_SUPPLIER_TRUST": {
+      "q": "My suppliers are long-time partners. Why would they overcharge me?",
+      "a": "Most issues are honest errors: re-sent invoices, old price lists, paying the same invoice twice. The checks catch errors, they do not accuse anyone, and a finding is a polite question to raise with the supplier."
+    }
+  },
+  "segments": {
+    "shopType": {
+      "minimart": {
+        "n": 34,
+        "avgA": 3.68,
+        "share4plusA": 0.56,
+        "avgB": 3.44,
+        "share4plusB": 0.56,
+        "avgC": 3.82,
+        "share4plusC": 0.68,
+        "bestPitch": "C≈A",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "hardware": {
+        "n": 18,
+        "avgA": 3.06,
+        "share4plusA": 0.22,
+        "avgB": 3.44,
+        "share4plusB": 0.44,
+        "avgC": 3.17,
+        "share4plusC": 0.33,
+        "bestPitch": "B",
+        "topObjection": "ACCOUNTANT",
+        "lowN": false
+      },
+      "phone_acc": {
+        "n": 18,
+        "avgA": 3.78,
+        "share4plusA": 0.67,
+        "avgB": 3.56,
+        "share4plusB": 0.5,
+        "avgC": 3.39,
+        "share4plusC": 0.56,
+        "bestPitch": "A",
+        "topObjection": "RESULTS_FIRST",
+        "lowN": false
+      },
+      "pharmacy": {
+        "n": 18,
+        "avgA": 3.67,
+        "share4plusA": 0.67,
+        "avgB": 3.78,
+        "share4plusB": 0.67,
+        "avgC": 3.94,
+        "share4plusC": 0.78,
+        "bestPitch": "C",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "fashion_mall": {
+        "n": 16,
+        "avgA": 2.94,
+        "share4plusA": 0.25,
+        "avgB": 3.94,
+        "share4plusB": 0.69,
+        "avgC": 3.13,
+        "share4plusC": 0.25,
+        "bestPitch": "B",
+        "topObjection": "POS_REPORTS",
+        "lowN": false
+      },
+      "electrical": {
+        "n": 14,
+        "avgA": 2.86,
+        "share4plusA": 0.07,
+        "avgB": 3.79,
+        "share4plusB": 0.57,
+        "avgC": 3.79,
+        "share4plusC": 0.71,
+        "bestPitch": "B≈C",
+        "topObjection": "RESULTS_FIRST",
+        "lowN": false
+      },
+      "kids_toys": {
+        "n": 13,
+        "avgA": 3.54,
+        "share4plusA": 0.62,
+        "avgB": 3.77,
+        "share4plusB": 0.54,
+        "avgC": 3,
+        "share4plusC": 0.38,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "bakery_cafe": {
+        "n": 13,
+        "avgA": 3.08,
+        "share4plusA": 0.31,
+        "avgB": 2.15,
+        "share4plusB": 0,
+        "avgC": 3.15,
+        "share4plusC": 0.46,
+        "bestPitch": "C≈A",
+        "topObjection": "POS_REPORTS",
+        "lowN": false
+      },
+      "books_stationery": {
+        "n": 12,
+        "avgA": 3.58,
+        "share4plusA": 0.5,
+        "avgB": 4.17,
+        "share4plusB": 0.75,
+        "avgC": 3.17,
+        "share4plusC": 0.25,
+        "bestPitch": "B",
+        "topObjection": "MESSY_DATA",
+        "lowN": false
+      },
+      "cosmetics": {
+        "n": 11,
+        "avgA": 3.36,
+        "share4plusA": 0.45,
+        "avgB": 3.82,
+        "share4plusB": 0.64,
+        "avgC": 3.09,
+        "share4plusC": 0.36,
+        "bestPitch": "B",
+        "topObjection": "RESULTS_FIRST",
+        "lowN": false
+      },
+      "sports": {
+        "n": 11,
+        "avgA": 2.91,
+        "share4plusA": 0.27,
+        "avgB": 4,
+        "share4plusB": 0.82,
+        "avgC": 2.91,
+        "share4plusC": 0.18,
+        "bestPitch": "B",
+        "topObjection": "RESULTS_FIRST",
+        "lowN": false
+      },
+      "hotel_gift": {
+        "n": 8,
+        "avgA": 2.63,
+        "share4plusA": 0.38,
+        "avgB": 3.5,
+        "share4plusB": 0.63,
+        "avgC": 3.25,
+        "share4plusC": 0.38,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": true
+      },
+      "optical": {
+        "n": 7,
+        "avgA": 2.57,
+        "share4plusA": 0.14,
+        "avgB": 3.71,
+        "share4plusB": 0.71,
+        "avgC": 2.57,
+        "share4plusC": 0.14,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": true
+      },
+      "pet_supplies": {
+        "n": 7,
+        "avgA": 3.29,
+        "share4plusA": 0.29,
+        "avgB": 3.14,
+        "share4plusB": 0.29,
+        "avgC": 4.14,
+        "share4plusC": 0.86,
+        "bestPitch": "C",
+        "topObjection": "PRICE",
+        "lowN": true
+      }
+    },
+    "revenueBand": {
+      "small_lo": {
+        "n": 74,
+        "avgA": 3.28,
+        "share4plusA": 0.41,
+        "avgB": 3.73,
+        "share4plusB": 0.62,
+        "avgC": 3.2,
+        "share4plusC": 0.35,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "small_hi": {
+        "n": 51,
+        "avgA": 3.35,
+        "share4plusA": 0.43,
+        "avgB": 3.59,
+        "share4plusB": 0.53,
+        "avgC": 3.73,
+        "share4plusC": 0.65,
+        "bestPitch": "C≈B",
+        "topObjection": "RESULTS_FIRST",
+        "lowN": false
+      },
+      "micro": {
+        "n": 48,
+        "avgA": 3.19,
+        "share4plusA": 0.4,
+        "avgB": 3.27,
+        "share4plusB": 0.44,
+        "avgC": 3.19,
+        "share4plusC": 0.48,
+        "bestPitch": "B≈A",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "medium_lo": {
+        "n": 19,
+        "avgA": 3.47,
+        "share4plusA": 0.47,
+        "avgB": 3.84,
+        "share4plusB": 0.74,
+        "avgC": 3.74,
+        "share4plusC": 0.53,
+        "bestPitch": "B≈C",
+        "topObjection": "RESULTS_FIRST",
+        "lowN": false
+      },
+      "medium_hi": {
+        "n": 8,
+        "avgA": 3.5,
+        "share4plusA": 0.5,
+        "avgB": 3.38,
+        "share4plusB": 0.38,
+        "avgC": 3.5,
+        "share4plusC": 0.63,
+        "bestPitch": "A≈C",
+        "topObjection": "POS_REPORTS",
+        "lowN": true
+      }
+    },
+    "outlets": {
+      "1": {
+        "n": 122,
+        "avgA": 3.16,
+        "share4plusA": 0.38,
+        "avgB": 3.46,
+        "share4plusB": 0.51,
+        "avgC": 3.25,
+        "share4plusC": 0.43,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "2-3": {
+        "n": 61,
+        "avgA": 3.52,
+        "share4plusA": 0.49,
+        "avgB": 3.77,
+        "share4plusB": 0.64,
+        "avgC": 3.48,
+        "share4plusC": 0.52,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "4-6": {
+        "n": 17,
+        "avgA": 3.53,
+        "share4plusA": 0.47,
+        "avgB": 3.76,
+        "share4plusB": 0.59,
+        "avgC": 4.12,
+        "share4plusC": 0.76,
+        "bestPitch": "C",
+        "topObjection": "RESULTS_FIRST",
+        "lowN": false
+      }
+    },
+    "digitalComfort": {
+      "medium": {
+        "n": 88,
+        "avgA": 3.35,
+        "share4plusA": 0.45,
+        "avgB": 3.72,
+        "share4plusB": 0.61,
+        "avgC": 3.44,
+        "share4plusC": 0.49,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "high": {
+        "n": 73,
+        "avgA": 3.62,
+        "share4plusA": 0.55,
+        "avgB": 3.79,
+        "share4plusB": 0.66,
+        "avgC": 3.74,
+        "share4plusC": 0.66,
+        "bestPitch": "B≈C",
+        "topObjection": "RESULTS_FIRST",
+        "lowN": false
+      },
+      "low": {
+        "n": 39,
+        "avgA": 2.62,
+        "share4plusA": 0.1,
+        "avgB": 2.87,
+        "share4plusB": 0.23,
+        "avgC": 2.64,
+        "share4plusC": 0.15,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      }
+    },
+    "accountingSetup": {
+      "shoebox_yearly": {
+        "n": 48,
+        "avgA": 3.02,
+        "share4plusA": 0.35,
+        "avgB": 3.33,
+        "share4plusB": 0.44,
+        "avgC": 3.23,
+        "share4plusC": 0.46,
+        "bestPitch": "B≈C",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "inhouse_clerk": {
+        "n": 34,
+        "avgA": 3.24,
+        "share4plusA": 0.35,
+        "avgB": 3.59,
+        "share4plusB": 0.53,
+        "avgC": 3.18,
+        "share4plusC": 0.44,
+        "bestPitch": "B",
+        "topObjection": "POS_REPORTS",
+        "lowN": false
+      },
+      "pos_spreadsheet": {
+        "n": 33,
+        "avgA": 3.45,
+        "share4plusA": 0.48,
+        "avgB": 3.61,
+        "share4plusB": 0.58,
+        "avgC": 3.27,
+        "share4plusC": 0.42,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "firm_monthly": {
+        "n": 32,
+        "avgA": 3.34,
+        "share4plusA": 0.38,
+        "avgB": 3.47,
+        "share4plusB": 0.53,
+        "avgC": 3.47,
+        "share4plusC": 0.41,
+        "bestPitch": "B≈C",
+        "topObjection": "ACCOUNTANT",
+        "lowN": false
+      },
+      "bookkeeper_parttime": {
+        "n": 30,
+        "avgA": 3.7,
+        "share4plusA": 0.57,
+        "avgB": 3.87,
+        "share4plusB": 0.7,
+        "avgC": 3.57,
+        "share4plusC": 0.57,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "cloud_accounting": {
+        "n": 23,
+        "avgA": 3.22,
+        "share4plusA": 0.43,
+        "avgB": 3.83,
+        "share4plusB": 0.65,
+        "avgC": 3.91,
+        "share4plusC": 0.7,
+        "bestPitch": "C≈B",
+        "topObjection": "RESULTS_FIRST",
+        "lowN": false
+      }
+    },
+    "language": {
+      "Malay": {
+        "n": 72,
+        "avgA": 3.15,
+        "share4plusA": 0.35,
+        "avgB": 3.58,
+        "share4plusB": 0.54,
+        "avgC": 3.35,
+        "share4plusC": 0.46,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "Mandarin/Hokkien": {
+        "n": 57,
+        "avgA": 3.42,
+        "share4plusA": 0.47,
+        "avgB": 3.56,
+        "share4plusB": 0.56,
+        "avgC": 3.32,
+        "share4plusC": 0.47,
+        "bestPitch": "B≈A",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "English": {
+        "n": 36,
+        "avgA": 3.44,
+        "share4plusA": 0.5,
+        "avgB": 3.53,
+        "share4plusB": 0.61,
+        "avgC": 3.61,
+        "share4plusC": 0.53,
+        "bestPitch": "C≈B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "Cantonese": {
+        "n": 18,
+        "avgA": 3.22,
+        "share4plusA": 0.33,
+        "avgB": 3.61,
+        "share4plusB": 0.5,
+        "avgC": 3.39,
+        "share4plusC": 0.56,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "Tamil": {
+        "n": 17,
+        "avgA": 3.35,
+        "share4plusA": 0.47,
+        "avgB": 3.71,
+        "share4plusB": 0.53,
+        "avgC": 3.41,
+        "share4plusC": 0.47,
+        "bestPitch": "B",
+        "topObjection": "LANGUAGE",
+        "lowN": false
+      }
+    },
+    "posUsage": {
+      "pos_reports": {
+        "n": 114,
+        "avgA": 3.46,
+        "share4plusA": 0.51,
+        "avgB": 3.68,
+        "share4plusB": 0.61,
+        "avgC": 3.47,
+        "share4plusC": 0.5,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "pos_linked": {
+        "n": 34,
+        "avgA": 3.09,
+        "share4plusA": 0.32,
+        "avgB": 3.53,
+        "share4plusB": 0.53,
+        "avgC": 3.59,
+        "share4plusC": 0.59,
+        "bestPitch": "C≈B",
+        "topObjection": "POS_REPORTS",
+        "lowN": false
+      },
+      "register": {
+        "n": 31,
+        "avgA": 3,
+        "share4plusA": 0.19,
+        "avgB": 3.32,
+        "share4plusB": 0.45,
+        "avgC": 3.35,
+        "share4plusC": 0.52,
+        "bestPitch": "C≈B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "none": {
+        "n": 21,
+        "avgA": 3.29,
+        "share4plusA": 0.43,
+        "avgB": 3.52,
+        "share4plusB": 0.48,
+        "avgC": 2.71,
+        "share4plusC": 0.19,
+        "bestPitch": "B",
+        "topObjection": "MESSY_DATA",
+        "lowN": false
+      }
+    },
+    "ageBand": {
+      "40s": {
+        "n": 68,
+        "avgA": 3.4,
+        "share4plusA": 0.54,
+        "avgB": 3.53,
+        "share4plusB": 0.57,
+        "avgC": 3.57,
+        "share4plusC": 0.56,
+        "bestPitch": "C≈B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "30s": {
+        "n": 52,
+        "avgA": 3.54,
+        "share4plusA": 0.46,
+        "avgB": 3.81,
+        "share4plusB": 0.63,
+        "avgC": 3.67,
+        "share4plusC": 0.62,
+        "bestPitch": "B≈C",
+        "topObjection": "RESULTS_FIRST",
+        "lowN": false
+      },
+      "50s": {
+        "n": 43,
+        "avgA": 3.21,
+        "share4plusA": 0.33,
+        "avgB": 3.7,
+        "share4plusB": 0.63,
+        "avgC": 3.16,
+        "share4plusC": 0.37,
+        "bestPitch": "B",
+        "topObjection": "PRICE",
+        "lowN": false
+      },
+      "60+": {
+        "n": 26,
+        "avgA": 2.58,
+        "share4plusA": 0.08,
+        "avgB": 3,
+        "share4plusB": 0.23,
+        "avgC": 2.69,
+        "share4plusC": 0.15,
+        "bestPitch": "B",
+        "topObjection": "POS_REPORTS",
+        "lowN": false
+      },
+      "20s": {
+        "n": 11,
+        "avgA": 3.73,
+        "share4plusA": 0.64,
+        "avgB": 3.73,
+        "share4plusB": 0.55,
+        "avgC": 3.55,
+        "share4plusC": 0.64,
+        "bestPitch": "A≈B",
+        "topObjection": "PRICE",
+        "lowN": false
+      }
+    }
+  },
+  "model": {
+    "formula": "interest = clamp(round(BASE + Σ pitch rules + Σ common rules + NOISE_SD·N(0,1)), 1, 5); top objection = argmax over catalogue of (Σ matching objection rule weights + U(0, OBJ_NOISE))",
+    "BASE": 2.6,
+    "NOISE_SD": 0.5,
+    "OBJ_NOISE": 0.3,
+    "interestRules": {
+      "A": [
+        {
+          "id": "A1",
+          "desc": "Thin margins",
+          "w": 0.9
+        },
+        {
+          "id": "A2",
+          "desc": "SKU-heavy shop type (many products, hard to see margins by eye)",
+          "w": 0.5
+        },
+        {
+          "id": "A3",
+          "desc": "2+ outlets (harder to see product profit across outlets)",
+          "w": 0.3
+        },
+        {
+          "id": "A4",
+          "desc": "Past cash crunch (\"where did the money go?\")",
+          "w": 0.2
+        },
+        {
+          "id": "A5",
+          "desc": "POS already linked to accounting (already sees some margin data)",
+          "w": -0.6
+        },
+        {
+          "id": "A6",
+          "desc": "Uses cloud accounting app",
+          "w": -0.3
+        }
+      ],
+      "B": [
+        {
+          "id": "B1",
+          "desc": "Stock heavy",
+          "w": 1.1
+        },
+        {
+          "id": "B2",
+          "desc": "Past cash crunch",
+          "w": 0.7
+        },
+        {
+          "id": "B3",
+          "desc": "3+ outlets (stock spread across locations)",
+          "w": 0.3
+        },
+        {
+          "id": "B4",
+          "desc": "Seasonal / model-cycle stock (fashion, phone, toys, sports, books)",
+          "w": 0.3
+        },
+        {
+          "id": "B5",
+          "desc": "Perishable / fast-turn stock (bakery/café)",
+          "w": -0.9
+        },
+        {
+          "id": "B6",
+          "desc": "Micro revenue band (little stock value to free up)",
+          "w": -0.2
+        }
+      ],
+      "C": [
+        {
+          "id": "C1",
+          "desc": "Has noticed a supplier invoice mistake before",
+          "w": 1
+        },
+        {
+          "id": "C2",
+          "desc": "15+ active suppliers",
+          "w": 0.6
+        },
+        {
+          "id": "C3",
+          "desc": "8–14 active suppliers",
+          "w": 0.3
+        },
+        {
+          "id": "C4",
+          "desc": "Fewer than 6 suppliers",
+          "w": -0.5
+        },
+        {
+          "id": "C5",
+          "desc": "Thin margins (price jumps hurt more)",
+          "w": 0.3
+        },
+        {
+          "id": "C6",
+          "desc": "In-house clerk (owner believes invoices are already checked)",
+          "w": -0.3
+        },
+        {
+          "id": "C7",
+          "desc": "Revenue RM1M+ (invoice volume large enough to matter)",
+          "w": 0.3
+        }
+      ]
+    },
+    "commonRules": [
+      {
+        "id": "G1",
+        "desc": "High digital comfort",
+        "w": 0.35
+      },
+      {
+        "id": "G2",
+        "desc": "Low digital comfort",
+        "w": -0.45
+      },
+      {
+        "id": "G3",
+        "desc": "Owner aged 60+",
+        "w": -0.3
+      },
+      {
+        "id": "G4",
+        "desc": "Micro revenue band (< RM300k)",
+        "w": -0.3
+      },
+      {
+        "id": "G5",
+        "desc": "Already pays an accountant firm monthly (perceived substitute)",
+        "w": -0.25
+      },
+      {
+        "id": "G6",
+        "desc": "Uses cloud accounting (data-ready, used to paying for software)",
+        "w": 0.15
+      },
+      {
+        "id": "G7",
+        "desc": "Records mostly on paper (data readiness = paper)",
+        "w": -0.4
+      }
+    ],
+    "objectionRules": {
+      "PRICE": [
+        {
+          "desc": "Base",
+          "w": 0.4
+        },
+        {
+          "desc": "Micro revenue band",
+          "w": 0.9
+        },
+        {
+          "desc": "RM300k–1M band",
+          "w": 0.4
+        },
+        {
+          "desc": "Thin margins",
+          "w": 0.3
+        },
+        {
+          "desc": "Past cash crunch",
+          "w": 0.2
+        },
+        {
+          "desc": "Revenue RM3M+",
+          "w": -0.6
+        },
+        {
+          "desc": "Interested (4–5): objection shifts to cost",
+          "w": 0.3
+        }
+      ],
+      "ACCOUNTANT": [
+        {
+          "desc": "Accountant firm monthly",
+          "w": 1.5
+        },
+        {
+          "desc": "Part-time bookkeeper",
+          "w": 0.9
+        },
+        {
+          "desc": "In-house clerk",
+          "w": 0.8
+        },
+        {
+          "desc": "Yearly accountant (shoebox)",
+          "w": 0.4
+        },
+        {
+          "desc": "Pitch C + in-house clerk (\"my clerk checks invoices\")",
+          "w": 0.3
+        },
+        {
+          "desc": "Low interest (1–2): dismissive",
+          "w": 0.3
+        }
+      ],
+      "PRIVACY": [
+        {
+          "desc": "Base",
+          "w": 0.3
+        },
+        {
+          "desc": "Revenue RM1M+ (more to protect)",
+          "w": 0.4
+        },
+        {
+          "desc": "Medium/high digital comfort (aware of scams and breaches)",
+          "w": 0.2
+        },
+        {
+          "desc": "Pitch C (supplier prices are commercially sensitive)",
+          "w": 0.3
+        },
+        {
+          "desc": "Pharmacy (sales may touch patient records)",
+          "w": 0.3
+        },
+        {
+          "desc": "Interested (4–5): practical concern before saying yes",
+          "w": 0.3
+        }
+      ],
+      "AI_DISTRUST": [
+        {
+          "desc": "Low digital comfort",
+          "w": 0.8
+        },
+        {
+          "desc": "Owner 50+",
+          "w": 0.4
+        },
+        {
+          "desc": "Shoebox setup",
+          "w": 0.3
+        }
+      ],
+      "NO_TIME": [
+        {
+          "desc": "Base",
+          "w": 0.4
+        },
+        {
+          "desc": "≤3 staff (owner runs the counter)",
+          "w": 0.5
+        },
+        {
+          "desc": "3+ outlets (owner stretched)",
+          "w": 0.4
+        },
+        {
+          "desc": "Low digital comfort (exporting files is a chore)",
+          "w": 0.3
+        },
+        {
+          "desc": "Bakery/café (owner on production line)",
+          "w": 0.3
+        }
+      ],
+      "POS_REPORTS": [
+        {
+          "desc": "POS with reports",
+          "w": 1
+        },
+        {
+          "desc": "POS linked to accounting",
+          "w": 1.3
+        },
+        {
+          "desc": "Pitch A + has POS (POS sales reports look like \"profit by product\")",
+          "w": 0.4
+        },
+        {
+          "desc": "Pitch C (POS does not see supplier invoices)",
+          "w": -0.9
+        },
+        {
+          "desc": "Low interest (1–2): dismissive",
+          "w": 0.2
+        }
+      ],
+      "MESSY_DATA": [
+        {
+          "desc": "No POS",
+          "w": 1.3
+        },
+        {
+          "desc": "Cash register only",
+          "w": 0.6
+        },
+        {
+          "desc": "Shoebox setup",
+          "w": 0.6
+        },
+        {
+          "desc": "Low digital comfort",
+          "w": 0.4
+        },
+        {
+          "desc": "Pitch C + shoebox (supplier invoices on paper)",
+          "w": 0.3
+        }
+      ],
+      "TOO_SMALL": [
+        {
+          "desc": "Micro revenue band",
+          "w": 1
+        },
+        {
+          "desc": "Single outlet",
+          "w": 0.3
+        },
+        {
+          "desc": "Pitch C + fewer than 6 suppliers",
+          "w": 0.6
+        },
+        {
+          "desc": "Low interest (1–2)",
+          "w": 0.4
+        },
+        {
+          "desc": "Revenue RM1M+",
+          "w": -0.8
+        }
+      ],
+      "RESULTS_FIRST": [
+        {
+          "desc": "Base",
+          "w": 0.8
+        },
+        {
+          "desc": "High digital comfort (used to free trials)",
+          "w": 0.3
+        },
+        {
+          "desc": "Interest 3–4 (curious but cautious)",
+          "w": 0.4
+        }
+      ],
+      "LANGUAGE": [
+        {
+          "desc": "Prefers Tamil (no Tamil UI or report planned)",
+          "w": 1.4
+        },
+        {
+          "desc": "Prefers Malay (BM UI not built yet)",
+          "w": 0.4
+        },
+        {
+          "desc": "Prefers Malay + low digital comfort",
+          "w": 0.4
+        },
+        {
+          "desc": "Prefers Cantonese + aged 60+ (spoken explanation needed)",
+          "w": 0.3
+        },
+        {
+          "desc": "Non-English speaker aged 60+",
+          "w": 0.2
+        }
+      ],
+      "TAX_FEAR": [
+        {
+          "desc": "Shoebox setup",
+          "w": 0.6
+        },
+        {
+          "desc": "Cash-heavy shop",
+          "w": 0.5
+        },
+        {
+          "desc": "Revenue < RM1M",
+          "w": 0.2
+        },
+        {
+          "desc": "Pitch A (\"real profit\" sounds like a tax number)",
+          "w": 0.3
+        }
+      ],
+      "PARTNER": [
+        {
+          "desc": "Family business",
+          "w": 0.9
+        },
+        {
+          "desc": "Business partners",
+          "w": 1
+        },
+        {
+          "desc": "Revenue RM1M+",
+          "w": 0.2
+        },
+        {
+          "desc": "Interest 3+ (decision is real enough to consult)",
+          "w": 0.2
+        }
+      ],
+      "ALREADY_KNOW": [
+        {
+          "desc": "Owner 50+",
+          "w": 0.5
+        },
+        {
+          "desc": "Single outlet",
+          "w": 0.3
+        },
+        {
+          "desc": "≤3 staff",
+          "w": 0.3
+        },
+        {
+          "desc": "Pitch B (owners believe they know their slow stock)",
+          "w": 0.3
+        },
+        {
+          "desc": "Low interest (1–2)",
+          "w": 0.3
+        }
+      ],
+      "SUPPLIER_TRUST": [
+        {
+          "desc": "Pitch C only",
+          "w": 0.8
+        },
+        {
+          "desc": "Pitch C + owner 50+",
+          "w": 0.4
+        },
+        {
+          "desc": "Pitch C + family business",
+          "w": 0.3
+        },
+        {
+          "desc": "Pitch C + has noticed an invoice mistake before",
+          "w": -0.8
+        }
+      ]
+    }
+  }
+}
