@@ -14,7 +14,7 @@ const REQUIRED: FileKind[] = ['sales', 'products'];
 
 function FileCard({ kind }: { kind: FileKind }) {
   const { t } = useI18n();
-  const { staged, fileErrors, stageFile, setMapping, removeFile, busy, isDemo } = useApp();
+  const { staged, fileErrors, stageFile, setMapping, setDateOrder, removeFile, busy, isDemo } = useApp();
   const input = useRef<HTMLInputElement>(null);
   const meta = staged[kind];
   const err = fileErrors[kind];
@@ -71,7 +71,7 @@ function FileCard({ kind }: { kind: FileKind }) {
             <CheckIcon size={14} /> {t('start.rowsRead', { n: meta.dataRowCount, file: meta.fileName })}
           </p>
           {meta.dataRowCount > 50000 ? <p className="muted small">{t('start.largeFile')}</p> : null}
-          {!isDemo ? <MappingWizard meta={meta} disabled={!!busy} onChange={(m) => void setMapping(kind, m)} /> : null}
+          {!isDemo ? <MappingWizard meta={meta} disabled={!!busy} onChange={(m) => void setMapping(kind, m)} onDateOrder={(o) => void setDateOrder(kind, o)} /> : null}
         </>
       ) : null}
     </section>

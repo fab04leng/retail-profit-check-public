@@ -53,7 +53,7 @@ The review was done inline: reading the code, running the five messy fixtures th
 ### Product and engineering
 | # | Issue | Sev. | Suggestion |
 |---|---|---|---|
-| 8 | No manual choice of date order (DD/MM vs MM/DD) or header row. The app now warns, but the owner cannot correct it. | Medium | Add a date-order selector and a header-row selector to the mapping table. |
+| 8 | No manual choice of date order (DD/MM vs MM/DD) or header row. The app now warns, but the owner cannot correct it. | Medium | **Date order fixed on `quick-fixes`.** The column-mapping screen has a "Day/month order" selector (Automatic / DD/MM/YYYY / MM/DD/YYYY, in EN / 中文 / BM). Automatic shows what it detected. A chosen order overrides detection for every date column in that file, removes the "could be either" warning, and is remembered for the same file layout. The date warnings now point to the selector. Tests: `tests/unit/date-order-choice.test.ts`, `e2e/upload.spec.ts`. **Still open:** a header-row selector. |
 | 9 | An invoice delivered in parts under one number keeps only the first date's total. A payment for the full amount then shows as possibly overpaid (SUP-04) as well as SUP-01. | Medium | Treat same-number lines on different dates with different items as one invoice, or show both findings as one. |
 | 10 | Unit cost is the current cost for the whole period. The pack's PRF-02 example shows how this inflates "below cost" after a supplier price rise. | Medium | When supplier invoices exist, use the invoice price in force at each sale date. |
 | 11 | One margin target for all products. Thin-margin staples will produce most of the "Not an issue" reviews. | Medium | Per-category targets (the pack asks the accountant for them). |

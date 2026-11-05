@@ -1,4 +1,5 @@
 import { useId } from 'react';
+import { DATE_ORDER_CHOICES, isDateOrderChoice, type DateOrderChoice } from '../../core/dates';
 import { FIELDS } from '../../core/fields';
 import type { Mapping } from '../../core/mapping';
 import { useI18n } from '../../i18n';
@@ -12,7 +13,53 @@ function colLetter(i: number): string {
   return s;
 }
 
-export function MappingWizard({ meta, onChange, disabled }: { meta: StagedMeta; onChange: (m: Mapping) => void; disabled?: boolean }) {
+const ORDER_LABEL = { DMY: 'DD/MM', MDY: 'MM/DD' } as const;
+
+/** Auto / DD/MM / MM/DD. The owner's choice overrides the per-column detection. */
+function DateOrderSelect({ meta, onChange, disabled }: { meta: StagedMeta; onChange: (o: DateOrderChoice) => void; disabled?: boolean }) {
+  const { t } = useI18n();
+  const id = useId();
+  const label = (o: DateOrderChoice) => {
+    if (o !== 'auto') return t(`mapping.dateOrder${o}`);
+    return meta.detectedDateOrder ? t('mapping.dateOrderAutoDetected', { order: ORDER_LABEL[meta.detectedDateOrder] }) : t('mapping.dateOrderAuto');
+  };
+  return (
+    <p className="date-order small">
+      <label htmlFor={id}>{t('mapping.dateOrder')}</label>{' '}
+      <select
+        id={id}
+        data-testid={`date-order-${meta.kind}`}
+        disabled={disabled}
+        value={meta.dateOrder}
+        aria-describedby={`${id}-help`}
+        onChange={(e) => {
+          if (isDateOrderChoice(e.target.value)) onChange(e.target.value);
+        }}
+      >
+        {DATE_ORDER_CHOICES.map((o) => (
+          <option key={o} value={o}>
+            {label(o)}
+          </option>
+        ))}
+      </select>{' '}
+      <span id={`${id}-help`} className="muted">
+        {t('mapping.dateOrderHelp')}
+      </span>
+    </p>
+  );
+}
+
+export function MappingWizard({
+  meta,
+  onChange,
+  onDateOrder,
+  disabled,
+}: {
+  meta: StagedMeta;
+  onChange: (m: Mapping) => void;
+  onDateOrder: (o: DateOrderChoice) => void;
+  disabled?: boolean;
+}) {
   const { t } = useI18n();
   const base = useId();
   const fields = FIELDS[meta.kind];
@@ -73,6 +120,7 @@ export function MappingWizard({ meta, onChange, disabled }: { meta: StagedMeta; 
           </tbody>
         </table>
       </TableWrap>
+      <DateOrderSelect meta={meta} onChange={onDateOrder} disabled={disabled} />
       <p className="muted small">
         <span className="req">*</span> {t('mapping.requiredNote')} <span className="req">†</span> {t('mapping.oneOfNote')}
       </p>

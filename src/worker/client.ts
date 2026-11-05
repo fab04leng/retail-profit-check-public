@@ -1,3 +1,4 @@
+import type { DateOrderChoice } from '../core/dates';
 import type { Mapping } from '../core/mapping';
 import type { FileKind } from '../core/types';
 import type { Settings } from '../rules/settings';
@@ -56,6 +57,9 @@ class WorkerEngine implements Engine {
   setMapping(kind: FileKind, mapping: Mapping) {
     return this.call<StagedMeta>('setMapping', [kind, mapping]);
   }
+  setDateOrder(kind: FileKind, order: DateOrderChoice) {
+    return this.call<StagedMeta>('setDateOrder', [kind, order]);
+  }
   remove(kind: FileKind) {
     return this.call<void>('remove', [kind]);
   }
@@ -89,6 +93,9 @@ class InlineEngine implements Engine {
   }
   setMapping(kind: FileKind, mapping: Mapping) {
     return this.run((c) => c.setMapping(kind, mapping));
+  }
+  setDateOrder(kind: FileKind, order: DateOrderChoice) {
+    return this.run((c) => c.setDateOrder(kind, order));
   }
   remove(kind: FileKind) {
     return this.run((c) => c.remove(kind));
@@ -133,6 +140,9 @@ class AutoEngine implements Engine {
   }
   async setMapping(kind: FileKind, mapping: Mapping) {
     return (await this.ready).setMapping(kind, mapping);
+  }
+  async setDateOrder(kind: FileKind, order: DateOrderChoice) {
+    return (await this.ready).setDateOrder(kind, order);
   }
   async remove(kind: FileKind) {
     return (await this.ready).remove(kind);

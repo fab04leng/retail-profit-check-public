@@ -135,7 +135,7 @@ src/review     builds the accountant rule-review pack (npm run accountant:pdf)
 
 ## Privacy and security notes
 
-- Only settings, column mappings and review notes are kept, in the browser's localStorage; **Clear data and remembered settings** on the Start page removes them.
+- Only settings, column mappings (with the chosen day/month order) and review notes are kept, in the browser's localStorage; **Clear data and remembered settings** on the Start page removes them.
 - File contents are only ever rendered as text (React escaping; no `innerHTML`), long cells are capped, and crafted files (zip bombs, huge rows, slow-regex strings) are refused or capped.
 - Exported CSV/Excel cells that start with `=`, `+`, `-`, `@`, tab or CR are prefixed with `'` so spreadsheets do not run them as formulas.
 - Before a pilot, give the owner `sales-kit/06-pilot-onboarding.en.md` (or `.zh.md`): what to export and which personal data to delete before sending.

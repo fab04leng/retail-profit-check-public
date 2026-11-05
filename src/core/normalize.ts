@@ -1,4 +1,4 @@
-import { dateOrderEvidence, parseDate, type DateOrder } from './dates';
+import { dateOrderEvidence, parseDate, type DateOrder, type DateOrderChoice } from './dates';
 import { FIELDS } from './fields';
 import type { Mapping } from './mapping';
 import { parseNumber, parsePercent, roundRM } from './numbers';
@@ -71,13 +71,19 @@ export function normalizeTable<K extends FileKind>(
   table: Table,
   mapping: Mapping,
   headerRow: number,
+  dateOrder: DateOrderChoice = 'auto',
 ): NormalizeResult<K extends 'sales' ? SaleRow : K extends 'products' ? ProductRow : K extends 'invoices' ? InvoiceRow : PaymentRow> {
   const ctx: Ctx = { kind, issues: [], orders: {} };
   // Decide DD/MM vs MM/DD per date column from the column's own values, and say so when unsure.
+  // An order the owner chose on the mapping screen wins, and needs no warning.
   for (const f of FIELDS[kind]) {
     if (f.type !== 'date') continue;
     const col = mapping[f.key];
     if (col === undefined) continue;
+    if (dateOrder !== 'auto') {
+      ctx.orders[f.key] = dateOrder;
+      continue;
+    }
     const values: Cell[] = [];
     for (let r = headerRow + 1; r < table.length; r++) values.push(table[r]?.[col]);
     const ev = dateOrderEvidence(values);

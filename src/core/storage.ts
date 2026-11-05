@@ -1,7 +1,7 @@
 /**
  * localStorage wrapper. Every access is in try/catch: storage can be blocked
  * (private mode, file://, browser settings) and the app must work without it.
- * Only settings, column mappings and review notes are stored — never file contents.
+ * Only settings, column mappings, the chosen day/month order and review notes are stored — never file contents.
  */
 const PREFIX = 'rpc.v1.';
 

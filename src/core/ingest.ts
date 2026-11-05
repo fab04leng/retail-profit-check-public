@@ -1,3 +1,4 @@
+import type { DateOrderChoice } from './dates';
 import { autoMap, bestHeaderLabels, detectHeaderRow, layoutSignature, sanitizeMapping, validateMapping, type Mapping, type MappingProblem } from './mapping';
 import { normalizeTable } from './normalize';
 import type { Cell, Dataset, FileKind, InvoiceRow, PaymentRow, ProductRow, SaleRow, Table } from './types';
@@ -15,6 +16,8 @@ export interface StagedFile {
   /** True when the mapping came from browser memory for this layout. */
   remembered: boolean;
   dataRowCount: number;
+  /** Day/month order chosen on the mapping screen ('auto' = detect per column). */
+  dateOrder: DateOrderChoice;
 }
 
 export function stageTable(kind: FileKind, fileName: string, table: Table, remembered?: unknown): StagedFile {
@@ -33,6 +36,7 @@ export function stageTable(kind: FileKind, fileName: string, table: Table, remem
     mapping,
     remembered: !!(stored && Object.keys(stored).length),
     dataRowCount: Math.max(0, table.length - headerRow - 1),
+    dateOrder: 'auto',
   };
 }
 
@@ -46,7 +50,7 @@ export function buildDataset(files: Partial<Record<FileKind, StagedFile>>): Data
   for (const kind of ['sales', 'products', 'invoices', 'payments'] as const) {
     const f = files[kind];
     if (!f || validateMapping(kind, f.mapping).length) continue;
-    const res = normalizeTable(kind, f.table, f.mapping, f.headerRow);
+    const res = normalizeTable(kind, f.table, f.mapping, f.headerRow, f.dateOrder);
     ds.issues.push(...res.issues);
     ds.sources[kind] = f.fileName;
     if (kind === 'sales') ds.sales = res.rows as SaleRow[];
