@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { detectPreset, presetById, presetMap } from '../core/adapters';
+import { isDateOrderChoice, type DateOrderChoice } from '../core/dates';
 import { sanitizeMapping, validateMapping, type Mapping } from '../core/mapping';
 import { clearAll as clearStorage, loadJSON, saveJSON } from '../core/storage';
 import type { FileKind } from '../core/types';
@@ -28,6 +29,7 @@ interface AppState {
   fileErrors: Partial<Record<FileKind, string>>;
   stageFile: (kind: FileKind, file: File) => Promise<void>;
   setMapping: (kind: FileKind, mapping: Mapping) => Promise<void>;
+  setDateOrder: (kind: FileKind, order: DateOrderChoice) => Promise<void>;
   removeFile: (kind: FileKind) => Promise<void>;
   isDemo: boolean;
   demoShop: string | null;
@@ -170,6 +172,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
             }
           }
         }
+        // A day/month order chosen before for this layout is used again.
+        const order = loadJSON(`dateOrder.${meta.signature}`);
+        if (isDateOrderChoice(order) && order !== 'auto') meta = await engine.setDateOrder(kind, order);
         setStaged((s) => ({ ...s, [kind]: meta }));
         setPayload(null);
       } catch (e) {
@@ -187,6 +192,21 @@ export function AppProvider({ children }: { children: ReactNode }) {
       try {
         const meta = await engine.setMapping(kind, mapping);
         saveJSON(`mapping.${meta.signature}`, mapping);
+        setStaged((s) => ({ ...s, [kind]: meta }));
+        setPayload(null);
+      } catch (e) {
+        setFileErrors((x) => ({ ...x, [kind]: e instanceof EngineError ? e.code : 'generic' }));
+      }
+    },
+    [engine],
+  );
+
+  const setDateOrder = useCallback(
+    async (kind: FileKind, order: DateOrderChoice) => {
+      bump();
+      try {
+        const meta = await engine.setDateOrder(kind, order);
+        saveJSON(`dateOrder.${meta.signature}`, meta.dateOrder);
         setStaged((s) => ({ ...s, [kind]: meta }));
         setPayload(null);
       } catch (e) {
@@ -302,11 +322,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const getRows = useMemo(() => engine.getRows.bind(engine), [engine]);
   const value = useMemo<AppState>(
     () => ({
-      lang, setLang, reviewMode, setReviewMode, layout, setLayout, staged, fileErrors, stageFile, setMapping, removeFile,
+      lang, setLang, reviewMode, setReviewMode, layout, setLayout, staged, fileErrors, stageFile, setMapping, setDateOrder, removeFile,
       isDemo, demoShop, loadDemo, clearEverything, settings, setThreshold, resetThresholds, setCashflow,
       payload, busy, analyse, error, reviews, setReview, getRows,
     }),
-    [lang, setLang, reviewMode, setReviewMode, layout, setLayout, staged, fileErrors, stageFile, setMapping, removeFile, isDemo, demoShop, loadDemo, clearEverything, settings, setThreshold, resetThresholds, setCashflow, payload, busy, analyse, error, reviews, setReview, getRows],
+    [lang, setLang, reviewMode, setReviewMode, layout, setLayout, staged, fileErrors, stageFile, setMapping, setDateOrder, removeFile, isDemo, demoShop, loadDemo, clearEverything, settings, setThreshold, resetThresholds, setCashflow, payload, busy, analyse, error, reviews, setReview, getRows],
   );
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

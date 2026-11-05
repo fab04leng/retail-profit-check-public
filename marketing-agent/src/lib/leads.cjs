@@ -128,10 +128,12 @@ function detectLanguage(text) {
   return 'en';
 }
 
+// The second sentence is the AI-drafting notice: inbound messages are sent to the LLM
+// provider to draft a reply, and a person approves every reply before it is sent.
 const PRIVACY_LINES = {
-  en: "Privacy: we use your number only to reply to you. Reply STOP anytime and we'll stop and delete your details.",
-  zh: '隐私：你的号码只用来回复你。随时回 STOP，我们就停止并删除你的资料。',
-  ms: 'Privasi: nombor anda hanya digunakan untuk membalas anda. Balas STOP bila-bila masa dan kami akan berhenti serta padam maklumat anda.',
+  en: "Privacy: we use your number only to reply to you. Our replies may be drafted with an AI writing tool and are checked by a person before they are sent. Reply STOP anytime and we'll stop and delete your details.",
+  zh: '隐私：你的号码只用来回复你。我们的回复可能先用 AI 写作工具起草，再由真人检查后才发出。随时回 STOP，我们就停止并删除你的资料。',
+  ms: 'Privasi: nombor anda hanya digunakan untuk membalas anda. Balasan kami mungkin dideraf dengan alat penulisan AI dan disemak oleh orang sebelum dihantar. Balas STOP bila-bila masa dan kami akan berhenti serta padam maklumat anda.',
 };
 
 function privacyLine(language, url) {

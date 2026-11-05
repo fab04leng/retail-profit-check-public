@@ -112,6 +112,28 @@ test('detectPitch uses the m.me ref, "ref:" text or an upper-case code only', ()
   assert.equal(pitches.detectPitch('你好 STOCK'), 'cash_in_stock');
 });
 
+test('detectPitch maps landing-page and ad ref codes A/B/C to profit/stock/invoice', () => {
+  // Arrange: the exact prefilled messages from marketing/landing/main.js and marketing/ads/ads.csv
+  const landingEn = "Hi! I saw the Retail Profit Check page (ref B-fb-d07). I'd like a 5-minute demo and to hear about the RM300 pilot.";
+  const landingZh = '你好！我看到 Retail Profit Check 的网页（ref C-web），想看 5 分钟演示，也想了解 RM300 试点。';
+  const adEn = "Hi! I saw your ad (ref A-ad-a1-en). I'd like the 5-minute demo.";
+  // Act + Assert
+  assert.equal(pitches.detectPitch(landingEn), 'cash_in_stock');
+  assert.equal(pitches.detectPitch(landingZh), 'supplier_invoice');
+  assert.equal(pitches.detectPitch(adEn), 'profit_by_product');
+  assert.equal(pitches.detectPitch('ref a-web'), 'profit_by_product');
+  assert.equal(pitches.detectPitch('A-xhs'), 'profit_by_product');
+  assert.equal(pitches.detectPitch('hi', 'B-fb'), 'cash_in_stock');
+  assert.equal(pitches.detectPitch('hi', 'C'), 'supplier_invoice');
+});
+
+test('detectPitch does not treat ordinary letters or unknown codes as a pitch', () => {
+  assert.equal(pitches.detectPitch('Plan B is fine'), 'unknown');
+  assert.equal(pitches.detectPitch('I got an A-grade supplier'), 'unknown');
+  assert.equal(pitches.detectPitch('ref D-web'), 'unknown');
+  assert.equal(pitches.detectPitch('hi', 'D-fb'), 'unknown');
+});
+
 // ---------- config ----------
 test('config parses booleans and numbers and reports placeholders clearly', () => {
   const c = parseConfig([{ key: 'dry_run', value: 'FALSE' }, { key: 'WEEK_OFFSET', value: '0' }, { key: 'LLM_BASE_URL', value: 'https://x.test/v1/' }]);
@@ -268,6 +290,25 @@ test('finaliseLead drafts for approval, adds a privacy line for new leads and ha
   assert.equal(weird.intent, 'question');
   assert.match(weird.compliance_flags, /not recognised/);
   assert.match(weird.compliance_flags, /BLOCK B4/);
+});
+
+test('the first reply to a new contact says replies may be drafted with an AI tool and checked by a person', () => {
+  // Arrange
+  const lead = leads.prepareLeads(leads.normaliseWhatsApp([waPayload]), [], cfg())[0];
+  // Act
+  const row = leads.finaliseLead(lead, leads.fakeClassify(lead), cfg(), new Date());
+  // Assert: the notice is there and does not trip brand rule B5 ("the product is not AI")
+  assert.match(row.draft_reply, /may be drafted with an AI writing tool and are checked by a person before they are sent/);
+  assert.doesNotMatch(row.compliance_flags || '', /B5/);
+  const repeat = leads.finaliseLead({ ...lead, is_new: false }, leads.fakeClassify(lead), cfg(), new Date());
+  assert.doesNotMatch(repeat.draft_reply, /AI writing tool/, 'only the first reply carries the notice');
+});
+
+test('the AI-drafting notice exists in English, Chinese and Malay and passes the brand rules', () => {
+  assert.match(leads.privacyLine('en'), /AI writing tool.*checked by a person/);
+  assert.match(leads.privacyLine('zh'), /AI 写作工具.*真人检查/);
+  assert.match(leads.privacyLine('ms'), /alat penulisan AI.*disemak oleh orang/);
+  for (const lang of ['en', 'zh', 'ms']) assert.deepEqual(blockIds(leads.privacyLine(lang, 'https://example.test/privacy')), [], lang);
 });
 
 // ---------- replies ----------

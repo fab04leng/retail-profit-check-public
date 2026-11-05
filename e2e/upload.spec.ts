@@ -65,6 +65,36 @@ test.describe('uploading own files', () => {
   });
 });
 
+test('the day/month order can be chosen on the mapping screen and overrides detection', async ({ page }) => {
+  mkdirSync('test-results', { recursive: true });
+  writeFileSync('test-results/us-dates.csv', 'Date,SKU,Product Name,Qty,Total\n03/04/2026,X1,Tea,1,5\n05/04/2026,X1,Tea,1,5\n');
+  writeFileSync('test-results/us-dates-stock.csv', 'SKU,Product Name,Unit Cost,Qty On Hand\nX1,Tea,2,10\n');
+  await page.goto('/');
+  await page.getByTestId('upload-sales').setInputFiles('test-results/us-dates.csv');
+  await page.getByTestId('upload-products').setInputFiles('test-results/us-dates-stock.csv');
+  const order = page.getByTestId('date-order-sales');
+  await expect(order).toHaveValue('auto');
+  await expect(order.locator('option:checked')).toHaveText('Automatic (reads as DD/MM)');
+  await expect(page.locator('section.filecard', { hasText: 'Sales export' }).getByLabel('Day/month order')).toBeVisible();
+
+  // Auto: every date could be read either way, so the app warns.
+  await page.getByTestId('analyse').click();
+  await expect(page.getByText('Rows to check')).toBeVisible({ timeout: 30_000 });
+  await page.getByRole('button', { name: 'Show rows' }).first().click();
+  await expect(page.getByText(/could be day-first or month-first/)).toBeVisible();
+
+  // The owner says the file is month-first: the warning goes away.
+  await order.selectOption('MDY');
+  await page.getByTestId('analyse').click();
+  await expect(page.getByText('All rows read without problems.')).toBeVisible({ timeout: 30_000 });
+  await expect(page.getByText(/could be day-first or month-first/)).toHaveCount(0);
+
+  // The choice is remembered for the same file layout.
+  await page.reload();
+  await page.getByTestId('upload-sales').setInputFiles('test-results/us-dates.csv');
+  await expect(page.getByTestId('date-order-sales')).toHaveValue('MDY');
+});
+
 test('a SQL Account style invoice export is recognised as an unverified layout and mapped', async ({ page }) => {
   await page.goto('/');
   await page.getByTestId('upload-invoices').setInputFiles('e2e/fixtures/sqlaccount-pi.csv');

@@ -53,16 +53,16 @@ The review was done inline: reading the code, running the five messy fixtures th
 ### Product and engineering
 | # | Issue | Sev. | Suggestion |
 |---|---|---|---|
-| 8 | No manual choice of date order (DD/MM vs MM/DD) or header row. The app now warns, but the owner cannot correct it. | Medium | Add a date-order selector and a header-row selector to the mapping table. |
+| 8 | No manual choice of date order (DD/MM vs MM/DD) or header row. The app now warns, but the owner cannot correct it. | Medium | **Date order fixed on `quick-fixes`.** The column-mapping screen has a "Day/month order" selector (Automatic / DD/MM/YYYY / MM/DD/YYYY, in EN / 中文 / BM). Automatic shows what it detected. A chosen order overrides detection for every date column in that file, removes the "could be either" warning, and is remembered for the same file layout. The date warnings now point to the selector. Tests: `tests/unit/date-order-choice.test.ts`, `e2e/upload.spec.ts`. **Still open:** a header-row selector. |
 | 9 | An invoice delivered in parts under one number keeps only the first date's total. A payment for the full amount then shows as possibly overpaid (SUP-04) as well as SUP-01. | Medium | Treat same-number lines on different dates with different items as one invoice, or show both findings as one. |
 | 10 | Unit cost is the current cost for the whole period. The pack's PRF-02 example shows how this inflates "below cost" after a supplier price rise. | Medium | When supplier invoices exist, use the invoice price in force at each sale date. |
 | 11 | One margin target for all products. Thin-margin staples will produce most of the "Not an issue" reviews. | Medium | Per-category targets (the pack asks the accountant for them). |
 | 12 | SST inside a single sales total is not separated (only separate before/after-tax columns are handled). | Low | Optional "prices include SST at x%" setting. |
-| 13 | The lead inbox (`marketing-agent/`) sends prospects' WhatsApp and Messenger messages to an LLM provider to draft replies. The landing page and greeting do not say so. | Medium (privacy) | Add a short notice to the greeting and landing page FAQ, and use a provider with a data-processing agreement, or turn the LLM drafting off. |
+| 13 | The lead inbox (`marketing-agent/`) sends prospects' WhatsApp and Messenger messages to an LLM provider to draft replies. The landing page and greeting do not say so. | Medium (privacy) | **Notice fixed on `quick-fixes`.** The automatic first reply to a new contact (EN / 中文 / BM), a new WhatsApp Business greeting message (`marketing/ads/README.md` §6, EN / 中文) and a new landing-page FAQ entry ("Who writes your WhatsApp replies?", EN / 中文) now say that replies may be drafted with an AI writing tool and are checked by a person before sending. The FAQ also says the message text is sent to that service. Tests: `marketing-agent/tests/lib.test.mjs`, `tests/unit/ai-drafting-notice.test.ts`. **Still open:** use a provider with a data-processing agreement, or turn the LLM drafting off. |
 | 14 | Short ads and social posts say "never shared or sold" without "unless the law requires it". | Low | Lawyer to confirm the shorthand is acceptable. |
-| 15 | Landing page pitch codes (`A/B/C-<source>`) are not recognised by the lead inbox (`PROFIT/STOCK/INVOICE`), so those leads count as "unknown" in the weekly report. | Low | Map A→profit, B→stock, C→invoice in `marketing-agent/src/lib/pitches.cjs`, with a test (logged at the merge). |
+| 15 | Landing page pitch codes (`A/B/C-<source>`) are not recognised by the lead inbox (`PROFIT/STOCK/INVOICE`), so those leads count as "unknown" in the weekly report. | Low | **Fixed on `quick-fixes`.** `detectPitch` now maps the letter codes A→profit, B→stock, C→invoice, from "ref B-fb-d07" in a message, a whole-message code such as `A-xhs`, or an m.me ref. Ordinary text ("Plan B", "A-grade") is not counted. Tests in `marketing-agent/tests/lib.test.mjs`. |
 | 16 | SUP-05 flags payments early in the period for invoices from before the file starts. | Low | The onboarding guide asks for 1–2 extra months of invoices. Optionally ignore payments in the first N days. |
-| 17 | Two separate brand-rule files (`marketing/BRIEF.md`, `marketing-agent/brand-rules.md`) must be kept in step by hand. | Low | Merge them, or add a test that their banned-claim lists agree. |
+| 17 | Two separate brand-rule files (`marketing/BRIEF.md`, `marketing-agent/brand-rules.md`) must be kept in step by hand. | Low | **Fixed on `quick-fixes`** (test added; files not merged). `tests/unit/brand-rules-sync.test.ts` reads the brief's "Never say" list and the agent's "Banned claims" table. It fails if a claim is banned in one file and not the other. Agent-only rules (B7 emails, B8 placeholders, B9 phone numbers, monthly prices) are listed in the test with a reason. |
 | 18 | Dev dependencies: 10 moderate `npm audit` findings (minimatch via dev tooling). Production: 0. | Low | Update dev tooling when convenient. |
 | 19 | No screen-reader user testing; Safari and Firefox untested; light theme only. | Low | Unchanged from `docs/LIMITATIONS.md`. |
 | 20 | Regenerated PDFs differ by their embedded timestamp, so they show as changed even when the content is the same. | Low | Only regenerate when rules or notes change (the test catches stale Markdown and HTML). |
@@ -81,5 +81,17 @@ The review was done inline: reading the code, running the five messy fixtures th
 | `npm run test:e2e` (Playwright) | 31 passed, including the 2 new messy-file uploads |
 | `npm run marketing:check` | Copy check passed |
 | `npm run agent:check` (n8n build, 26 unit tests, workflow validator) | Passed |
+| `npm run build`, `npm run build:offline` | Built |
+| `npm audit --omit=dev` | 0 vulnerabilities |
+
+### After the `quick-fixes` branch (items 8, 13, 15, 17)
+
+| Check | Result |
+|---|---|
+| `npm run lint`, `npm run typecheck` | Clean |
+| `npm test` (Vitest) | 25 files, 301 tests passed |
+| `npm run test:e2e` (Playwright) | 32 passed, including the new day/month order test |
+| `npm run marketing:check` | Copy check passed |
+| `npm run agent:check` (n8n build, 30 unit tests, workflow validator against n8n 2.46.6 and 1.123.92) | Passed |
 | `npm run build`, `npm run build:offline` | Built |
 | `npm audit --omit=dev` | 0 vulnerabilities |

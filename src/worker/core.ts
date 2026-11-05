@@ -1,5 +1,7 @@
 /** The engine itself. Runs in the Web Worker, or on the page if workers are unavailable. */
 import { runAll } from '../analysis';
+import { dateOrderEvidence, isDateOrderChoice, type DateOrder, type DateOrderChoice } from '../core/dates';
+import { FIELDS } from '../core/fields';
 import { buildDataset, mappingProblems, stageTable, type StagedFile } from '../core/ingest';
 import type { Mapping } from '../core/mapping';
 import { ReadError, readTable } from '../core/read';
@@ -12,6 +14,23 @@ export function cellText(c: Cell): string {
   if (c === null || c === undefined) return '';
   if (c instanceof Date) return Number.isNaN(c.getTime()) ? '' : c.toISOString().slice(0, 10);
   return String(c).slice(0, 200);
+}
+
+/** How "Auto" reads the file's mapped date columns (month-first only when the values prove it). */
+function detectedDateOrder(f: StagedFile): DateOrder | null {
+  let dmy = 0;
+  let mdy = 0;
+  let ambiguous = 0;
+  for (const field of FIELDS[f.kind]) {
+    const col = f.mapping[field.key];
+    if (field.type !== 'date' || col === undefined) continue;
+    const ev = dateOrderEvidence(f.table.slice(f.headerRow + 1).map((row) => row?.[col]));
+    dmy += ev.dmy;
+    mdy += ev.mdy;
+    ambiguous += ev.ambiguous;
+  }
+  if (!dmy && !mdy && !ambiguous) return null;
+  return mdy > 0 && dmy === 0 ? 'MDY' : 'DMY';
 }
 
 function meta(f: StagedFile): StagedMeta {
@@ -32,6 +51,8 @@ function meta(f: StagedFile): StagedMeta {
     dataRowCount: f.dataRowCount,
     preview,
     problems: mappingProblems(f),
+    dateOrder: f.dateOrder,
+    detectedDateOrder: detectedDateOrder(f),
   };
 }
 
@@ -60,6 +81,14 @@ export class EngineCore implements Engine {
     if (!f) throw new ReadError('emptyFile');
     f.mapping = { ...mapping };
     f.remembered = false;
+    this.dataset = null;
+    return meta(f);
+  }
+
+  async setDateOrder(kind: FileKind, order: DateOrderChoice): Promise<StagedMeta> {
+    const f = this.files[kind];
+    if (!f) throw new ReadError('emptyFile');
+    f.dateOrder = isDateOrderChoice(order) ? order : 'auto';
     this.dataset = null;
     return meta(f);
   }

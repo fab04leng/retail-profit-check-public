@@ -1,4 +1,5 @@
 import type { AnalysisResult } from '../analysis';
+import type { DateOrder, DateOrderChoice } from '../core/dates';
 import type { Mapping, MappingProblem } from '../core/mapping';
 import type { FileKind, RowIssue } from '../core/types';
 import type { Settings } from '../rules/settings';
@@ -16,6 +17,10 @@ export interface StagedMeta {
   /** First data rows as text, for the mapping wizard. */
   preview: string[][];
   problems: MappingProblem[];
+  /** Day/month order chosen on the mapping screen. */
+  dateOrder: DateOrderChoice;
+  /** What "Auto" reads the mapped date columns as; null when no date has a day/month order. */
+  detectedDateOrder: DateOrder | null;
 }
 
 export interface DemoInfo {
@@ -44,6 +49,7 @@ export interface Engine {
   stageFile(kind: FileKind, fileName: string, buffer: ArrayBuffer, remembered?: unknown): Promise<StagedMeta>;
   loadDemo(): Promise<{ staged: StagedMeta[]; demo: DemoInfo }>;
   setMapping(kind: FileKind, mapping: Mapping): Promise<StagedMeta>;
+  setDateOrder(kind: FileKind, order: DateOrderChoice): Promise<StagedMeta>;
   remove(kind: FileKind): Promise<void>;
   clear(): Promise<void>;
   analyse(settings: Settings): Promise<AnalysisPayload>;
@@ -54,6 +60,7 @@ export type Request =
   | { id: number; op: 'stageFile'; args: [FileKind, string, ArrayBuffer, unknown] }
   | { id: number; op: 'loadDemo'; args: [] }
   | { id: number; op: 'setMapping'; args: [FileKind, Mapping] }
+  | { id: number; op: 'setDateOrder'; args: [FileKind, DateOrderChoice] }
   | { id: number; op: 'remove'; args: [FileKind] }
   | { id: number; op: 'clear'; args: [] }
   | { id: number; op: 'analyse'; args: [Settings] }

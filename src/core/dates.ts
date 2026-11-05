@@ -5,6 +5,13 @@
  */
 
 export type DateOrder = 'DMY' | 'MDY';
+/** The owner's choice on the mapping screen: detect from the values, or force one order. */
+export type DateOrderChoice = 'auto' | DateOrder;
+export const DATE_ORDER_CHOICES: readonly DateOrderChoice[] = ['auto', 'DMY', 'MDY'];
+
+export function isDateOrderChoice(v: unknown): v is DateOrderChoice {
+  return typeof v === 'string' && (DATE_ORDER_CHOICES as readonly string[]).includes(v);
+}
 
 const MONTHS: Record<string, number> = {
   jan: 1, january: 1, januari: 1,
