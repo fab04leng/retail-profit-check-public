@@ -1,0 +1,51 @@
+1
+00:00:03,399 --> 00:00:06,204
+Start with your own exports: sales, stock list, supplier invoices.
+
+2
+00:00:06,204 --> 00:00:08,930
+They are checked in your browser. Today: a fictional demo shop.
+
+3
+00:00:08,930 --> 00:00:11,737
+The health check: five numbers in RM, each linked to its rows.
+
+4
+00:00:11,737 --> 00:00:15,423
+Cash stuck in slow stock, sales below cost, possible duplicate invoices…
+
+5
+00:00:15,423 --> 00:00:19,342
+…possible overpayments, and the tightest cash week ahead (an estimate).
+
+6
+00:00:21,876 --> 00:00:24,505
+Stock: how much is tied up, by days since the last sale.
+
+7
+00:00:24,505 --> 00:00:28,986
+Possible dead stock: no sale in 90+ days. Here, leftover CNY hampers.
+
+8
+00:00:31,508 --> 00:00:34,269
+Supplier invoices: the same invoice number entered twice?
+
+9
+00:00:34,269 --> 00:00:38,446
+Every finding shows the exact rows from your own files.
+
+10
+00:00:40,958 --> 00:00:43,761
+Cash flow: an 8-week estimate of your weekly balance.
+
+11
+00:00:43,761 --> 00:00:48,051
+This week may dip below zero: a big supplier payment falls due.
+
+12
+00:00:50,593 --> 00:00:53,596
+An ACCA-qualified accountant reviews every finding before your report.
+
+13
+00:00:53,596 --> 00:00:56,202
+An analysis aid. Not audited accounts, not tax advice.

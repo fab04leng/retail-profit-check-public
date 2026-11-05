@@ -1,0 +1,16 @@
+week,from,to,pitch,spend_rm,conversations,qualified_leads,demos_booked,demos_done,pilots_paid,revenue_rm,cost_per_conversation,cost_per_qualified_lead,cost_per_demo_booked,cumulative_pilots_paid,decision_or_notes
+1,2026-11-09,2026-11-15,A,,,,,,,,"=IF(F2>0,E2/F2,"""")","=IF(G2>0,E2/G2,"""")","=IF(H2>0,E2/H2,"""")",,
+1,2026-11-09,2026-11-15,B,,,,,,,,"=IF(F3>0,E3/F3,"""")","=IF(G3>0,E3/G3,"""")","=IF(H3>0,E3/H3,"""")",,
+1,2026-11-09,2026-11-15,C,,,,,,,,"=IF(F4>0,E4/F4,"""")","=IF(G4>0,E4/G4,"""")","=IF(H4>0,E4/H4,"""")",,
+1,2026-11-09,2026-11-15,Organic / referral,,,,,,,,,,,,
+1,2026-11-09,2026-11-15,Total,=SUM(E2:E5),=SUM(F2:F5),=SUM(G2:G5),=SUM(H2:H5),=SUM(I2:I5),=SUM(J2:J5),=SUM(K2:K5),"=IF(F6>0,E6/F6,"""")","=IF(G6>0,E6/G6,"""")","=IF(H6>0,E6/H6,"""")",=J6,Day 3 and day 7 ad checkpoints (see ads/README.md)
+2,2026-11-16,2026-11-22,A,,,,,,,,"=IF(F7>0,E7/F7,"""")","=IF(G7>0,E7/G7,"""")","=IF(H7>0,E7/H7,"""")",,
+2,2026-11-16,2026-11-22,B,,,,,,,,"=IF(F8>0,E8/F8,"""")","=IF(G8>0,E8/G8,"""")","=IF(H8>0,E8/H8,"""")",,
+2,2026-11-16,2026-11-22,C,,,,,,,,"=IF(F9>0,E9/F9,"""")","=IF(G9>0,E9/G9,"""")","=IF(H9>0,E9/H9,"""")",,
+2,2026-11-16,2026-11-22,Organic / referral,,,,,,,,,,,,
+2,2026-11-16,2026-11-22,Total,=SUM(E7:E10),=SUM(F7:F10),=SUM(G7:G10),=SUM(H7:H10),=SUM(I7:I10),=SUM(J7:J10),=SUM(K7:K10),"=IF(F11>0,E11/F11,"""")","=IF(G11>0,E11/G11,"""")","=IF(H11>0,E11/H11,"""")",=O6+J11,Day 11: RM500 ad test ends (see ads/README.md)
+3,2026-11-23,2026-11-29,A,,,,,,,,"=IF(F12>0,E12/F12,"""")","=IF(G12>0,E12/G12,"""")","=IF(H12>0,E12/H12,"""")",,
+3,2026-11-23,2026-11-29,B,,,,,,,,"=IF(F13>0,E13/F13,"""")","=IF(G13>0,E13/G13,"""")","=IF(H13>0,E13/H13,"""")",,
+3,2026-11-23,2026-11-29,C,,,,,,,,"=IF(F14>0,E14/F14,"""")","=IF(G14>0,E14/G14,"""")","=IF(H14>0,E14/H14,"""")",,
+3,2026-11-23,2026-11-29,Organic / referral,,,,,,,,,,,,
+3,2026-11-23,2026-11-29,Total,=SUM(E12:E15),=SUM(F12:F15),=SUM(G12:G15),=SUM(H12:H15),=SUM(I12:I15),=SUM(J12:J15),=SUM(K12:K15),"=IF(F16>0,E16/F16,"""")","=IF(G16>0,E16/G16,"""")","=IF(H16>0,E16/H16,"""")",=O11+J16,"=IF(O16=0,""STOP: 0 paid pilots after 3 weeks. Stop spending and rethink (see tracking/README.md)"",""Continue: put the next budget on the pitch that produced paid pilots"")"

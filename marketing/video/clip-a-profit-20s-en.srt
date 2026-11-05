@@ -1,0 +1,11 @@
+1
+00:00:03,621 --> 00:00:06,991
+In the demo shop, 10 products sold below cost.
+
+2
+00:00:08,055 --> 00:00:12,022
+For each one: average selling price vs unit cost.
+
+3
+00:00:12,022 --> 00:00:15,955
+Plus products under your target margin.

@@ -1,0 +1,3 @@
+lead_id,date_first_contact,source,ref_code,pitch_variant,ad_or_post_id,language,contact_name,contact_whatsapp,shop_type,outlets,area,stage,qualified,demo_booked,demo_date,demo_done,pilot_offered,pilot_paid,pilot_paid_date,amount_rm,lost_reason,next_step,next_step_date,notes
+EXAMPLE-001,2026-11-10,fb_ad,B-ad-b2-zh,B,B2-ZH,ZH,EXAMPLE - delete this row,60000000000,minimart,2,Bayan Lepas,demo_booked,Y,Y,2026-11-13,N,N,N,,,,Send a reminder the day before the demo,2026-11-12,Synthetic example row. Asked about CNY stock.
+EXAMPLE-002,2026-11-11,landing_form,C-web,C,,EN,EXAMPLE - delete this row,60000000000,pharmacy,1,Butterworth,lost,Y,N,,N,N,N,,,Not ready to share files,Follow up after year-end,2027-01-15,Synthetic example row.
