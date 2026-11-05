@@ -1,0 +1,13 @@
+Laporan Jualan Terperinci
+Kedai Runcit Contoh (rekaan)
+
+Tarikh,No. Resit,Kod Barang,Nama Barang,Kategori,Kuantiti,Harga Seunit (RM),Diskaun (RM),Jumlah Sebelum SST (RM),SST (RM),Jumlah Termasuk SST (RM),Cawangan
+3 Mac 2026,BL-5001,DR-009,Minuman Isotonik 1.5L,Minuman,2,4.20,0.00,8.40,0.84,9.24,Bayan Lepas
+3 Mac 2026,BL-5001,PC-011,Tuala Wanita Malam 10 keping,Penjagaan Diri,1,5.90,0.00,5.90,0.59,6.49,Bayan Lepas
+4 Mac 2026,BL-5002,HH-007,Pelembut Pakaian 2L,Isi Rumah,1,15.50,1.55,13.95,1.40,15.35,Bayan Lepas
+
+12-Apr-26,BL-5010,DR-009,Minuman Isotonik 1.5L,Minuman,-1,4.20,0.00,-4.20,-0.42,-4.62,Bayan Lepas
+15 Ogos 2026,BL-5020,HH-007,Pelembut Pakaian 2L,Isi Rumah,2,15.50,0.00,31.00,3.10,34.10,Bayan Lepas
+15 Ogos 2026,BL-5020,PC-011,Tuala Wanita Malam 10 keping,Penjagaan Diri,dua,5.90,0.00,11.80,1.18,12.98,Bayan Lepas
+1 Dis 2026,BL-5031,DR-009,Minuman Isotonik 1.5L,Minuman,6,4.20,"1,00",24.20,2.42,26.62,Bayan Lepas
+Jumlah Keseluruhan,,,,,,,,91.05,9.11,100.16,

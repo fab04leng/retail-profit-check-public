@@ -1,4 +1,4 @@
-import { detectDateOrder, parseDate, type DateOrder } from './dates';
+import { dateOrderEvidence, parseDate, type DateOrder } from './dates';
 import { FIELDS } from './fields';
 import type { Mapping } from './mapping';
 import { parseNumber, parsePercent, roundRM } from './numbers';
@@ -19,12 +19,25 @@ function shortValue(v: Cell): string {
   return cleanText(v).slice(0, 40);
 }
 
-const TOTAL_LABEL = /^(grand\s*)?(total|sub\s*total|jumlah(\s*besar)?|合计|总计|小计)\s*:?$/i;
+const TOTAL_LABEL = /^(grand\s*)?(total|sub\s*-?\s*total|jumlah(\s*(besar|keseluruhan|kecil))?|合计|合計|总计|總計|小计|小計)(\s*\(?(rm|myr)\)?)?\s*:?$/i;
 
 /** A footer/total row: one of its first cells is just a "Total" label. */
 function isTotalRow(row: Cell[]): boolean {
   return row.slice(0, 4).some((c) => typeof c === 'string' && TOTAL_LABEL.test(c.trim()));
 }
+
+/**
+ * A note row with a single filled cell ("Printed by …", "Page 2 of 3", a section heading).
+ * Every file kind needs at least two filled columns per record, so it can never be data.
+ */
+function isNoteRow(row: Cell[]): boolean {
+  let n = 0;
+  for (const c of row) if (c !== null && c !== undefined && String(c).trim() !== '' && ++n > 1) return false;
+  return n === 1;
+}
+
+const REFUND_TYPE = /\b(refund|refunded|return|returned|pulangan|pemulangan|credit note)\b|退货|退款|退貨/i;
+const VOID_TYPE = /\b(void|voided|cancel|cancelled|canceled|batal|dibatalkan)\b|作废|作廢|取消/i;
 
 function isBlankRow(row: Cell[] | undefined): boolean {
   return !row || row.every((c) => c === null || c === undefined || String(c).trim() === '');
@@ -60,14 +73,18 @@ export function normalizeTable<K extends FileKind>(
   headerRow: number,
 ): NormalizeResult<K extends 'sales' ? SaleRow : K extends 'products' ? ProductRow : K extends 'invoices' ? InvoiceRow : PaymentRow> {
   const ctx: Ctx = { kind, issues: [], orders: {} };
-  // Decide DD/MM vs MM/DD per date column from the column's own values.
+  // Decide DD/MM vs MM/DD per date column from the column's own values, and say so when unsure.
   for (const f of FIELDS[kind]) {
     if (f.type !== 'date') continue;
     const col = mapping[f.key];
     if (col === undefined) continue;
     const values: Cell[] = [];
     for (let r = headerRow + 1; r < table.length; r++) values.push(table[r]?.[col]);
-    ctx.orders[f.key] = detectDateOrder(values);
+    const ev = dateOrderEvidence(values);
+    ctx.orders[f.key] = ev.mdy > 0 && ev.dmy === 0 ? 'MDY' : 'DMY';
+    const at = (i: number | undefined) => headerRow + 2 + (i ?? 0); // spreadsheet row of values[i]
+    if (ev.dmy > 0 && ev.mdy > 0) issue(ctx, at(ev.first.mdy), 'warning', 'dateOrderMixed', f.key, values[ev.first.mdy ?? 0]);
+    else if (ev.dmy === 0 && ev.mdy === 0 && ev.ambiguous > 0) issue(ctx, at(ev.first.ambiguous), 'warning', 'dateOrderAssumed', f.key, values[ev.first.ambiguous ?? 0]);
   }
   const out: unknown[] = [];
   for (let r = headerRow + 1; r < table.length; r++) {
@@ -75,6 +92,7 @@ export function normalizeTable<K extends FileKind>(
     if (isBlankRow(raw)) continue;
     const rowNo = r + 1; // spreadsheet row number
     if (isTotalRow(raw!)) continue; // "Total" / "Jumlah" / "合计" footer rows in report exports
+    if (isNoteRow(raw!)) continue; // "Printed by …", "Page 2 of 3", section headings
     const get = makeAccess(raw!, mapping);
     const parsed =
       kind === 'sales' ? saleRow(get, rowNo, ctx)
@@ -127,6 +145,11 @@ function date(get: Get, key: string, row: number, ctx: Ctx, required: boolean): 
 }
 
 function saleRow(get: Get, row: number, ctx: Ctx): SaleRow | null {
+  const lineType = cleanText(get('lineType'));
+  if (lineType && VOID_TYPE.test(lineType)) {
+    issue(ctx, row, 'warning', 'voidSkipped', 'lineType', lineType);
+    return null;
+  }
   const d = date(get, 'date', row, ctx, true);
   const sku = cleanText(get('sku'));
   const name = cleanText(get('name'));
@@ -153,6 +176,11 @@ function saleRow(get: Get, row: number, ctx: Ctx): SaleRow | null {
     }
     // Refund lines: discount reduces the refunded amount too.
     total = roundRM(qty * unitPrice - Math.sign(qty || 1) * Math.abs(discount));
+  }
+  // A "Refund" / "Return" line type with positive numbers (as in some POS receipt exports).
+  if (lineType && REFUND_TYPE.test(lineType)) {
+    qty = -Math.abs(qty);
+    total = -Math.abs(total);
   }
   // Some POS exports show refunds with a positive quantity and negative amount (or the reverse).
   if (qty > 0 && total < 0 && (unitPrice === undefined || unitPrice > 0)) {

@@ -1,4 +1,4 @@
-import { autoMap, detectHeaderRow, layoutSignature, sanitizeMapping, validateMapping, type Mapping, type MappingProblem } from './mapping';
+import { autoMap, bestHeaderLabels, detectHeaderRow, layoutSignature, sanitizeMapping, validateMapping, type Mapping, type MappingProblem } from './mapping';
 import { normalizeTable } from './normalize';
 import type { Cell, Dataset, FileKind, InvoiceRow, PaymentRow, ProductRow, SaleRow, Table } from './types';
 import { emptyDataset } from './types';
@@ -19,7 +19,7 @@ export interface StagedFile {
 
 export function stageTable(kind: FileKind, fileName: string, table: Table, remembered?: unknown): StagedFile {
   const headerRow = detectHeaderRow(kind, table);
-  const headers = table[headerRow] ?? [];
+  const headers = bestHeaderLabels(kind, table, headerRow);
   const signature = layoutSignature(kind, headers);
   const stored = sanitizeMapping(kind, remembered, headers.length);
   const mapping = stored && Object.keys(stored).length ? stored : autoMap(kind, headers);

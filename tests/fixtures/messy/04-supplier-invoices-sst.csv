@@ -1,0 +1,15 @@
+Purchase Invoice Detail Listing,,,,,,,,,,
+From 01/09/2026 To 30/09/2026,,,,,,,,,,
+,,,,,,,,,,
+Creditor Name,Doc. No.,Doc. Date,Item Code,Description,Qty,Unit Price,Amount excl. SST,SST 10%,Total incl. SST,Due Date
+Kopisenja Beverage Agency Sdn. Bhd.,KB-00501,02/09/2026,CT-002,Kopi O Kaw Serbuk 1kg,36,21.54,775.44,77.54,852.98,02/10/2026
+Kopisenja Beverage Agency Sdn. Bhd.,KB-00501,02/09/2026,CT-001,Kopi O Kaw Serbuk 500g,54,9.83,530.82,53.08,583.90,02/10/2026
+Mikuning Noodle Supply,INV2609-0511,05/09/2026,NP-013,Mi Segera Cup Pedas 6 cawan,120,9.69,"1,162.80",116.28,"1,279.08",05/10/2026
+,,,,,,,,,,
+KOPISENJA BEVERAGE AGENCY SDN BHD,KB 00501,09/09/2026,CT-002,Kopi O Kaw Serbuk 1kg,36,21.54,775.44,77.54,852.98,09/10/2026
+KOPISENJA BEVERAGE AGENCY SDN BHD,KB 00501,09/09/2026,CT-001,Kopi O Kaw Serbuk 500g,54,9.83,530.82,53.08,583.90,09/10/2026
+Kopisenja Beverage Agency Sdn Bhd,CN-0012,10/09/2026,CT-002,Credit note - damaged tins,-2,21.54,(43.08),(4.31),(47.39),10/10/2026
+Mikuning Noodle Supply,INV2609-0530,15/09/2026,NP-013,Mi Segera Cup Pedas 6 cawan,120,10.45,"1,254.00",125.40,"1,379.40",15/10/2026
+Mikuning Noodle Supply,INV2609-0531,,NP-001,Mi Kuning 500g,40,2.10,84.00,8.40,92.40,
+,,,,,,,,,,
+Grand Total,,,,,,,"5,070.24",507.01,"5,577.25",

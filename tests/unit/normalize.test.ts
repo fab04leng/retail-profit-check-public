@@ -126,7 +126,7 @@ describe('normalize invoices and payments', () => {
   });
 
   it('requires supplier, invoice number and date', () => {
-    const table: Table = [['Supplier', 'Invoice No', 'Invoice Date', 'Total'], ['', 'I1', '05/01/2026', '1'], ['S', '', '05/01/2026', '1'], ['S', 'I3', '', '1']];
+    const table: Table = [['Supplier', 'Invoice No', 'Invoice Date', 'Total'], ['', 'I1', '15/01/2026', '1'], ['S', '', '15/01/2026', '1'], ['S', 'I3', '', '1']];
     const res = normalizeTable('invoices', table, autoMap('invoices', table[0]!), 0);
     expect(res.rows).toEqual([]);
     expect(res.issues.map((i) => i.row)).toEqual([2, 3, 4]);
