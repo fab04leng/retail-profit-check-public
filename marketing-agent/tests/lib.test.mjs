@@ -112,6 +112,28 @@ test('detectPitch uses the m.me ref, "ref:" text or an upper-case code only', ()
   assert.equal(pitches.detectPitch('你好 STOCK'), 'cash_in_stock');
 });
 
+test('detectPitch maps landing-page and ad ref codes A/B/C to profit/stock/invoice', () => {
+  // Arrange: the exact prefilled messages from marketing/landing/main.js and marketing/ads/ads.csv
+  const landingEn = "Hi! I saw the Retail Profit Check page (ref B-fb-d07). I'd like a 5-minute demo and to hear about the RM300 pilot.";
+  const landingZh = '你好！我看到 Retail Profit Check 的网页（ref C-web），想看 5 分钟演示，也想了解 RM300 试点。';
+  const adEn = "Hi! I saw your ad (ref A-ad-a1-en). I'd like the 5-minute demo.";
+  // Act + Assert
+  assert.equal(pitches.detectPitch(landingEn), 'cash_in_stock');
+  assert.equal(pitches.detectPitch(landingZh), 'supplier_invoice');
+  assert.equal(pitches.detectPitch(adEn), 'profit_by_product');
+  assert.equal(pitches.detectPitch('ref a-web'), 'profit_by_product');
+  assert.equal(pitches.detectPitch('A-xhs'), 'profit_by_product');
+  assert.equal(pitches.detectPitch('hi', 'B-fb'), 'cash_in_stock');
+  assert.equal(pitches.detectPitch('hi', 'C'), 'supplier_invoice');
+});
+
+test('detectPitch does not treat ordinary letters or unknown codes as a pitch', () => {
+  assert.equal(pitches.detectPitch('Plan B is fine'), 'unknown');
+  assert.equal(pitches.detectPitch('I got an A-grade supplier'), 'unknown');
+  assert.equal(pitches.detectPitch('ref D-web'), 'unknown');
+  assert.equal(pitches.detectPitch('hi', 'D-fb'), 'unknown');
+});
+
 // ---------- config ----------
 test('config parses booleans and numbers and reports placeholders clearly', () => {
   const c = parseConfig([{ key: 'dry_run', value: 'FALSE' }, { key: 'WEEK_OFFSET', value: '0' }, { key: 'LLM_BASE_URL', value: 'https://x.test/v1/' }]);

@@ -2,6 +2,9 @@
  * The three pitches, their tracking codes and the call-to-action line.
  * The code (PROFIT / STOCK / INVOICE) travels in the WhatsApp link (?text=CODE) or the
  * m.me link (?ref=CODE), so a lead can be attributed to the pitch that brought them in.
+ * The landing page and ads use the pitch letter instead: "<letter>-<source>", for example
+ * "B-fb-d07" or "A-ad-a1-en" (see marketing/tracking/README.md). A = profit, B = stock,
+ * C = invoice.
  * Plain functions only: inlined into n8n Code nodes by the build.
  */
 
@@ -9,6 +12,7 @@ const PITCHES = [
   {
     id: 'profit_by_product',
     code: 'PROFIT',
+    letter: 'A',
     en: 'Profit by product',
     zh: '每样货到底赚多少',
     angle:
@@ -17,6 +21,7 @@ const PITCHES = [
   {
     id: 'cash_in_stock',
     code: 'STOCK',
+    letter: 'B',
     en: 'Cash stuck in stock',
     zh: '现金压在货架上',
     angle:
@@ -25,6 +30,7 @@ const PITCHES = [
   {
     id: 'supplier_invoice',
     code: 'INVOICE',
+    letter: 'C',
     en: 'Supplier invoice mistakes',
     zh: '供应商发票出错',
     angle:
@@ -41,6 +47,14 @@ function pitchByCode(code) {
   return PITCHES.find((p) => p.code === upper) || null;
 }
 
+/** Landing-page / ad ref code "<letter>-<source>" (or a bare letter) to its pitch. */
+function pitchByRefCode(ref) {
+  const match = String(ref || '').trim().match(/^([a-z])(?:-[a-z0-9_-]+)?$/i);
+  if (!match) return null;
+  const letter = match[1].toUpperCase();
+  return PITCHES.find((p) => p.letter === letter) || null;
+}
+
 /** Rotate the pitch order by ISO week so each pitch gets each weekday slot in turn. */
 function pitchOrderForWeek(week) {
   const k = ((Number(week) % PITCHES.length) + PITCHES.length) % PITCHES.length;
@@ -49,15 +63,19 @@ function pitchOrderForWeek(week) {
 
 /**
  * Which pitch brought this lead in? m.me ref first, then a code typed or pre-filled in
- * the message ("STOCK", "(ref: STOCK)"). Codes must be upper case unless after "ref",
- * so ordinary words like "my stock" do not count.
+ * the message ("STOCK", "(ref: STOCK)", "(ref B-fb-d07)"). Codes must be upper case unless
+ * after "ref", so ordinary words like "my stock" do not count. A letter code ("A-xhs")
+ * counts only after "ref" or as the whole message, so "Plan B" or "A-grade" do not.
  */
 function detectPitch(text, referralRef) {
-  const fromRef = pitchByCode(referralRef);
+  const fromRef = pitchByCode(referralRef) || pitchByRefCode(referralRef);
   if (fromRef) return fromRef.id;
   const value = String(text || '');
   const refMatch = value.match(/\bref\s*[:#-]?\s*(profit|stock|invoice)\b/i);
   if (refMatch) return pitchByCode(refMatch[1]).id;
+  const letterMatch = value.match(/\bref\s*[:#]?\s*([a-z]-[a-z0-9_-]+)/i);
+  const fromLetter = pitchByRefCode(letterMatch ? letterMatch[1] : value);
+  if (fromLetter) return fromLetter.id;
   const codeMatch = value.match(/(?:^|[^A-Za-z])(PROFIT|STOCK|INVOICE)(?![A-Za-z])/);
   if (codeMatch) return pitchByCode(codeMatch[1]).id;
   return 'unknown';
@@ -76,5 +94,5 @@ function buildCta(pitch, language, whatsappNumber) {
 }
 
 /* @export-start */
-module.exports = { PITCHES, pitchById, pitchByCode, pitchOrderForWeek, detectPitch, buildCta };
+module.exports = { PITCHES, pitchById, pitchByCode, pitchByRefCode, pitchOrderForWeek, detectPitch, buildCta };
 /* @export-end */
