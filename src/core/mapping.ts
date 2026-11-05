@@ -24,7 +24,11 @@ const EXCL_TAX = /\b(excl|exclusive|excluding|exclude|without|before|tidak terma
 const INCL_TAX = /\b(incl|inclusive|including|include|with|after|termasuk|selepas)\b|含税|含稅|税后|稅後/;
 // A total-like word in a header, which makes it a poor match for a per-unit field.
 const TOTAL_WORD = /\b(total|subtotal|jumlah|amount|amaun)\b|合计|总额|金额|小计/;
+// Net vs gross wording, for the line total: "Net Total" beats "Total", "Gross Sales" loses.
+const NET_WORD = /\b(net|nett|bersih|after discount|selepas diskaun)\b|净额|淨額|净/;
+const GROSS_WORD = /\b(gross|kasar|before discount|sebelum diskaun)\b|毛额|總額前/;
 const TAX_BONUS = 25;
+const NET_BONUS = 20;
 const UNIT_PENALTY = 30;
 
 export type TaxKind = 'excl' | 'incl' | 'taxOnly' | null;
@@ -48,10 +52,12 @@ export function scoreHeader(header: string, field: FieldDef): number {
   let best = 0;
   for (const syn of field.synonyms) {
     const s = normalizeHeader(syn);
-    if (h === s) return 1000;
-    if (hasWord(h, s)) best = Math.max(best, s.length * 10 - (h.length - s.length));
+    if (h === s) best = 1000;
+    else if (hasWord(h, s)) best = Math.max(best, s.length * 10 - (h.length - s.length));
   }
   if (best <= 0) return 0;
+  // Two exact matches such as "Total" and "Net Total": the amount after discount wins.
+  if (field.key === 'total') best += NET_WORD.test(h) ? NET_BONUS : GROSS_WORD.test(h) ? -NET_BONUS : 0;
   if (field.tax && (tax === 'excl' || tax === 'incl')) best += tax === field.tax ? TAX_BONUS : -TAX_BONUS;
   if ((field.key === 'unitPrice' || field.key === 'unitCost') && TOTAL_WORD.test(h)) best -= UNIT_PENALTY;
   return Math.max(1, best);

@@ -1,6 +1,6 @@
 # Retail Profit Check — rule review pack
 
-*For the partner accountant, before the first paid pilot.* Rules version c81bf888 · 15 rules · worked examples from the demo data: Pinangria Mart (fictional demo shop), 2025-11-03 to 2026-11-01
+*For the partner accountant, before the first paid pilot.* Rules version 179bfdc7 · 15 rules · worked examples from the demo data: Pinangria Mart (fictional demo shop), 2025-11-03 to 2026-11-01
 
 ## What the tool does
 
@@ -539,7 +539,7 @@ Showing 8 of 53 rows. All 53 rows are in evidence/STK-04-sales.csv, with their r
 
 **What it does:** Flags when the same supplier and the same invoice number appear on different dates, or when all the lines of an invoice were entered twice. Invoice numbers are compared ignoring spaces, dashes and upper/lower case (so "INV-0012" = "inv 0012").
 
-**Why it matters:** An invoice keyed in twice is often paid twice. Accountants say these are usually found only at year-end audit.
+**Why it matters:** An invoice keyed in twice may also be paid twice. The accountants we spoke to said these are often found only at the year-end audit, if at all.
 
 **Threshold:** No editable threshold.
 
@@ -710,7 +710,7 @@ Showing 8 of 10 rows. All rows: 5654–5658, 5740–5744 (also in evidence/SUP-0
 
 **What it does:** Matches payments to invoices: first by the payment reference containing the invoice number (same supplier), otherwise by the same supplier and exactly the same amount on or after the invoice date (within the matching window). Flags an invoice when the payments matched to it add up to more than the invoice total plus the tolerance. Only runs when a payments file is provided.
 
-**Why it matters:** Overpayments are recoverable from the supplier, but only if someone notices.
+**Why it matters:** An overpayment may be recoverable from the supplier, but only if someone notices it.
 
 **Threshold:** 
 

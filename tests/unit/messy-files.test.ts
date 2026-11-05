@@ -194,3 +194,15 @@ describe('header and row rules behind the messy files', () => {
     }
   });
 });
+
+describe('net and gross totals', () => {
+  it('takes the amount after discount when a file has both a total and a net total', () => {
+    expect(autoMap('sales', ['Date', 'SKU', 'Qty', 'Total', 'Discount', 'Net Total']).total).toBe(5);
+    expect(autoMap('sales', ['Date', 'SKU', 'Qty', 'Amount', 'Disc', 'Net Amount']).total).toBe(5);
+    expect(autoMap('sales', ['Date', 'SKU', 'Qty', 'Gross Sales', 'Discounts', 'Net sales']).total).toBe(5);
+    expect(autoMap('sales', ['Tarikh', 'Kod', 'Kuantiti', 'Jumlah Kasar', 'Jumlah Bersih']).total).toBe(4);
+    expect(autoMap('invoices', ['Supplier', 'Invoice No', 'Date', 'Gross Amount', 'Net Amount']).total).toBe(4);
+    // A single total is still taken as it is.
+    expect(autoMap('sales', ['Date', 'SKU', 'Qty', 'Total']).total).toBe(3);
+  });
+});

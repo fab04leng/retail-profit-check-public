@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>规则审阅资料 · c81bf888</title>
+<title>规则审阅资料 · 179bfdc7</title>
 <style>
 @page { size: A4; margin: 14mm 13mm 16mm; }
 * { box-sizing: border-box; }
@@ -50,7 +50,7 @@ table.summary td:first-child, table.summary th:first-child { white-space: nowrap
 <section class="cover">
 <h1>Retail Profit Check — 规则审阅资料</h1>
 <p><strong>给合作会计师，在第一个付费试用之前审阅.</strong></p>
-<p class="meta">规则版本 c81bf888 · 共 15 条规则 · 实例来自示范资料：Pinangria Mart (fictional demo shop)，2025-11-03 至 2026-11-01</p>
+<p class="meta">规则版本 179bfdc7 · 共 15 条规则 · 实例来自示范资料：Pinangria Mart (fictional demo shop)，2025-11-03 至 2026-11-01</p>
 <h2>这个工具做什么</h2><ul><li>在浏览器里读取店铺自己导出的文件（销售、产品/库存清单、供应商发票，以及可选的付款）。不会上传任何资料。</li><li>套用本资料中的规则，每项发现都显示触发的规则和具体的原始资料行。</li><li>让会计师把每项发现标为“已确认”“没有问题”或“需要更多资料”，并打印一页的老板摘要。</li></ul>
 <h2>这个工具不做什么</h2><ul><li>它不是经审计的账目、审阅业务或税务建议，也不能取代会计师。</li><li>它不会为账目做存货估值（用当前成本，没有可变现净值），不会把 SST 分开，也不知道回扣、贷项通知单、贷款或税款。</li><li>它不能证明任何事情有错。每项发现都只是需要对照单据核查的可能性。准确度目前只在虚构资料上测试过。</li></ul>
 <h2>如何审阅</h2><ol><li>每条规则请阅读说明和实例。行号是 demo/data/ 里示范文件的电子表格行号（第 1 行是标题），您可以用 Excel 打开核对。</li><li>勾选“同意”“改为”（写下新的数字或文字）或“删除”，并写下备注，特别是您在实务中见过的误报情况。最后一页汇总您的决定。</li><li>在下方签名。创办人会在第一个试用之前，按照您的决定修改 src/rules/rules.config.ts 和应用程序的“规则”页面，并告诉您新的版本号。</li></ol>
@@ -259,7 +259,7 @@ table.summary td:first-child, table.summary th:first-child { white-space: nowrap
 <h2><span class="rid">SUP-01</span> 可能重复的发票（相同发票号码）</h2>
 <p class="kind">检查（会产生发现） · 严重度： 高</p>
 <p><strong>规则内容：</strong> 当同一供应商的同一发票号码出现在不同日期，或一张发票的所有项目都输入了两次时，就会标出。比较发票号码时不理会空格、横线和大小写（所以“INV-0012” = “inv 0012”）。</p>
-<p><strong>为什么重要：</strong> 输入了两次的发票，常常也会被付两次。会计师说，这类情况通常要到年底审计时才被发现。</p>
+<p><strong>为什么重要：</strong> 输入了两次的发票，也可能会被付两次。我们请教过的会计师说，这类情况往往要到年底审计时才被发现，甚至一直没被发现。</p>
 <p><strong>门槛：</strong> 没有可修改的门槛。</p>
 <h3>实例（示范资料）</h3>
 <ol><li>Haiwania Pet Supplies，发票 HP-01155：同一个号码出现在 2026年3月11日 和 2026年3月14日（见下表各行）。</li><li>同一供应商 + 同一发票号码出现在不同日期 → 标出。金额 = 多出来那一份的总额 = RM 286.20。</li></ol>
@@ -328,7 +328,7 @@ table.summary td:first-child, table.summary th:first-child { white-space: nowrap
 <h2><span class="rid">SUP-04</span> 发票可能多付或付了两次</h2>
 <p class="kind">检查（会产生发现） · 严重度： 高</p>
 <p><strong>规则内容：</strong> 把付款对应到发票：先看付款参考是否包含发票号码（同一供应商）；否则看是否同一供应商、金额完全相同，且在发票日期当天或之后（在对应期间内）。当对应到某张发票的付款总额超过发票总额加上容差时，就会标出。只在有提供付款文件时进行。</p>
-<p><strong>为什么重要：</strong> 多付的款项可以向供应商追回，但前提是有人发现。</p>
+<p><strong>为什么重要：</strong> 多付的款项或许可以向供应商追回，但前提是有人发现。</p>
 <p><strong>门槛：</strong> </p><ul><li>容差：<strong>RM 1</strong>（可设定范围 RM 0 – RM 100）</li><li>发票日期后的金额对应期间：<strong>120 天</strong>（可设定范围 7 天 – 365 天）</li></ul>
 <h3>实例（示范资料）</h3>
 <ol><li>Bersihana Household Supply，发票 BH-00663：发票各行总额 = RM 3,010.86。</li><li>有 2 笔付款对应到这张发票（付款第 344, 361 行），依据是参考号包含发票号码，或在发票日期之后金额相同。合计 RM 6,021.72。</li><li>RM 6,021.72 − RM 3,010.86 = RM 3,010.86，超过 RM 1.00 的容差 → 标出为可能付了两次。</li></ol>

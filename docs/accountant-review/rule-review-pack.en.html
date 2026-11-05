@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rule review pack · c81bf888</title>
+<title>Rule review pack · 179bfdc7</title>
 <style>
 @page { size: A4; margin: 14mm 13mm 16mm; }
 * { box-sizing: border-box; }
@@ -50,7 +50,7 @@ table.summary td:first-child, table.summary th:first-child { white-space: nowrap
 <section class="cover">
 <h1>Retail Profit Check — rule review pack</h1>
 <p><strong>For the partner accountant, before the first paid pilot.</strong></p>
-<p class="meta">Rules version c81bf888 · 15 rules · worked examples from the demo data: Pinangria Mart (fictional demo shop), 2025-11-03 to 2026-11-01</p>
+<p class="meta">Rules version 179bfdc7 · 15 rules · worked examples from the demo data: Pinangria Mart (fictional demo shop), 2025-11-03 to 2026-11-01</p>
 <h2>What the tool does</h2><ul><li>Reads a shop&#39;s own exports (sales, product/stock list, supplier invoices, optionally payments) inside the browser. Nothing is uploaded.</li><li>Applies the rules in this pack and shows every finding with the rule that fired and the exact source rows.</li><li>Lets an accountant mark each finding Confirmed, Not an issue or Needs info, and prints a one-page owner summary.</li></ul>
 <h2>What it does not do</h2><ul><li>It is not audited accounts, a review engagement or tax advice, and it does not replace an accountant.</li><li>It does not value stock for the accounts (current cost, no net realisable value), separate SST, or know about rebates, credit notes, loans or tax payments.</li><li>It does not prove that anything is wrong. Every finding is a possibility to check against documents. Accuracy has only been measured on synthetic data.</li></ul>
 <h2>How to review</h2><ol><li>For each rule, read the description and the worked example. Row numbers are spreadsheet rows in the demo files in demo/data/ (row 1 = header), so you can open them in Excel and check.</li><li>Tick Agree, Change to (write the new number or wording) or Remove, and add notes, especially false positives you see in practice. The last page collects your decisions.</li><li>Sign below. The founder changes src/rules/rules.config.ts and the app&#39;s Rules page to match before the first pilot, and gives you the new version number.</li></ol>
@@ -259,7 +259,7 @@ table.summary td:first-child, table.summary th:first-child { white-space: nowrap
 <h2><span class="rid">SUP-01</span> Possible duplicate invoice (same invoice number)</h2>
 <p class="kind">Check (creates findings) · Severity: High</p>
 <p><strong>What it does:</strong> Flags when the same supplier and the same invoice number appear on different dates, or when all the lines of an invoice were entered twice. Invoice numbers are compared ignoring spaces, dashes and upper/lower case (so &quot;INV-0012&quot; = &quot;inv 0012&quot;).</p>
-<p><strong>Why it matters:</strong> An invoice keyed in twice is often paid twice. Accountants say these are usually found only at year-end audit.</p>
+<p><strong>Why it matters:</strong> An invoice keyed in twice may also be paid twice. The accountants we spoke to said these are often found only at the year-end audit, if at all.</p>
 <p><strong>Threshold:</strong> No editable threshold.</p>
 <h3>Worked example (demo data)</h3>
 <ol><li>Haiwania Pet Supplies, invoice HP-01155: the same number appears on 11 Mar 2026 and 14 Mar 2026 (rows below).</li><li>Same supplier + same invoice number on different dates → flagged. Amount = total of the extra copy = RM 286.20.</li></ol>
@@ -328,7 +328,7 @@ table.summary td:first-child, table.summary th:first-child { white-space: nowrap
 <h2><span class="rid">SUP-04</span> Invoice possibly overpaid or paid twice</h2>
 <p class="kind">Check (creates findings) · Severity: High</p>
 <p><strong>What it does:</strong> Matches payments to invoices: first by the payment reference containing the invoice number (same supplier), otherwise by the same supplier and exactly the same amount on or after the invoice date (within the matching window). Flags an invoice when the payments matched to it add up to more than the invoice total plus the tolerance. Only runs when a payments file is provided.</p>
-<p><strong>Why it matters:</strong> Overpayments are recoverable from the supplier, but only if someone notices.</p>
+<p><strong>Why it matters:</strong> An overpayment may be recoverable from the supplier, but only if someone notices it.</p>
 <p><strong>Threshold:</strong> </p><ul><li>Tolerance: <strong>RM 1</strong> (can be set from RM 0 – RM 100)</li><li>Amount-matching window after invoice date: <strong>120 days</strong> (can be set from 7 days – 365 days)</li></ul>
 <h3>Worked example (demo data)</h3>
 <ol><li>Bersihana Household Supply, invoice BH-00663: total of the invoice lines = RM 3,010.86.</li><li>2 payments were matched to it (payments rows 344, 361), by the reference containing the invoice number or by the same amount after the invoice date. They add up to RM 6,021.72.</li><li>RM 6,021.72 − RM 3,010.86 = RM 3,010.86, more than the RM 1.00 tolerance → flagged as possibly paid twice.</li></ol>

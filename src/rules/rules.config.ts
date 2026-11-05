@@ -182,7 +182,7 @@ export const RULES: readonly RuleDef[] = [
     title: 'Possible duplicate invoice (same invoice number)',
     description:
       'Flags when the same supplier and the same invoice number appear on different dates, or when all the lines of an invoice were entered twice. Invoice numbers are compared ignoring spaces, dashes and upper/lower case (so "INV-0012" = "inv 0012").',
-    why: 'An invoice keyed in twice is often paid twice. Accountants say these are usually found only at year-end audit.',
+    why: 'An invoice keyed in twice may also be paid twice. The accountants we spoke to said these are often found only at the year-end audit, if at all.',
     thresholds: [],
   },
   {
@@ -219,7 +219,7 @@ export const RULES: readonly RuleDef[] = [
     title: 'Invoice possibly overpaid or paid twice',
     description:
       'Matches payments to invoices: first by the payment reference containing the invoice number (same supplier), otherwise by the same supplier and exactly the same amount on or after the invoice date (within the matching window). Flags an invoice when the payments matched to it add up to more than the invoice total plus the tolerance. Only runs when a payments file is provided.',
-    why: 'Overpayments are recoverable from the supplier, but only if someone notices.',
+    why: 'An overpayment may be recoverable from the supplier, but only if someone notices it.',
     thresholds: [
       { key: 'paymentTolerance', label: 'Tolerance', unit: 'rm', default: 1, min: 0, max: 100, step: 0.5 },
       { key: 'paymentMatchWindowDays', label: 'Amount-matching window after invoice date', unit: 'days', default: 120, min: 7, max: 365, step: 1 },

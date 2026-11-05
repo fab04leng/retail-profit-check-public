@@ -368,7 +368,7 @@ const en = {
     keyNumbers: 'Key numbers',
     reviewStatus: 'Review status',
     reviewSummary: '{confirmed:num} confirmed ({confirmedAmount:rm}) · {notIssue:num} not an issue · {needsInfo:num} need info · {unreviewed:num} not yet reviewed',
-    reviewNote: 'Confirmed means a qualified accountant has checked the finding against the documents. Unreviewed findings are possibilities only.',
+    reviewNote: 'Confirmed means a qualified accountant has checked the finding against the documents or records the shop provided. It is not an audit. Unreviewed findings are possibilities only.',
     nextSteps: 'Suggested next steps',
     step1: 'Check the possible duplicate invoices and overpayments against the original documents before the next supplier payment run.',
     step2: 'Review shelf prices for products sold below cost.',

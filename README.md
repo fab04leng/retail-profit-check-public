@@ -89,7 +89,7 @@ Wording is deliberate: "possible duplicate", "needs review", "estimate". RM amou
 
 ## What it does not do
 
-It does not replace an accountant, produce audited accounts or give tax advice; it does not connect to POS or accounting systems; it does not store anything on a server; and its forecast is a simple trend, not a prediction. See **[docs/LIMITATIONS.md](docs/LIMITATIONS.md)**.
+It does not replace an accountant, produce audited accounts or give tax advice; it does not connect to POS or accounting systems; it does not store anything on a server; and its forecast is a simple trend, not a prediction. See **[docs/LIMITATIONS.md](docs/LIMITATIONS.md)**, and **[docs/FINAL_REVIEW.md](docs/FINAL_REVIEW.md)** for what is still open before the first paid pilot.
 
 ## Demo data
 
@@ -99,11 +99,12 @@ It does not replace an accountant, produce audited accounts or give tax advice; 
 
 | Command | What |
 |---|---|
-| `npm test` | 233 unit, accuracy and performance tests (Vitest) |
+| `npm test` | 275 unit, accuracy and performance tests (Vitest), including five messy real-world exports in `tests/fixtures/messy/` and a check that the accountant review pack is up to date |
 | `npm run test:accuracy` | Analyses on the demo data vs the answer key, with a false-positive report |
 | `npm run test:perf` | 100,000 sales rows end to end |
 | `npm run test:coverage` | Coverage of the non-UI code (≈94% statements) |
-| `npm run test:e2e` | 21 Playwright tests (demo journey, every page, evidence, languages, review mode, print/PDF, uploads, POS layout preset, XSS, 100k-row upload, offline build, axe WCAG 2.1 AA on every page, keyboard-only journey); screenshots go to `docs/screenshots/` |
+| `npm run test:e2e` | 31 Playwright tests (demo journey, messy-file uploads, landing page, every page, evidence, languages, review mode, print/PDF, uploads, POS layout preset, XSS, 100k-row upload, offline build, axe WCAG 2.1 AA on every page, keyboard-only journey); screenshots go to `docs/screenshots/` |
+| `npm run accountant:pdf` | Regenerates the accountant rule-review pack (Markdown, HTML, PDF, evidence CSVs) in `docs/accountant-review/` |
 | `npm run lint` / `npm run typecheck` | ESLint (bans `dangerouslySetInnerHTML`) and TypeScript strict |
 | `npm run verify` | All of the above |
 
