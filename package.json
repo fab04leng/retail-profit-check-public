@@ -29,7 +29,8 @@
     "agent:schema": "bash marketing-agent/scripts/fetch-n8n-schema.sh 2.46.6 && bash marketing-agent/scripts/fetch-n8n-schema.sh 1.123.92",
     "agent:validate": "node marketing-agent/scripts/validate.mjs --report",
     "agent:check": "npm run agent:build && npm run agent:test && npm run agent:validate",
-    "agent:runtime": "node marketing-agent/scripts/runtime-test.mjs"
+    "agent:runtime": "node marketing-agent/scripts/runtime-test.mjs",
+    "leads:test": "node --test lead-finder/test/*.test.mjs"
   },
   "dependencies": {
     "papaparse": "^5.7.0",

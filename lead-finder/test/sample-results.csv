@@ -1,0 +1,11 @@
+input_id,link,title,category,address,open_hours,website,phone,review_count,review_rating,cid,status,complete_address,emails
+q1,https://example.test/1,Kedai Contoh Mini Mart,Mini Mart,"12, Jalan Contoh, 10450 George Town, Pulau Pinang","{""Monday"":[""8am-10pm""]}",https://contoh-minimart.example,+60 4-000 0001,320,4.4,1001,,"{""city"":""George Town""}",hello@contoh-minimart.example
+q2,https://example.test/1,Kedai Contoh Mini Mart,Mini Mart,"12, Jalan Contoh, 10450 George Town, Pulau Pinang",,https://contoh-minimart.example,+60 4-000 0001,320,4.4,1001,,,
+q3,https://example.test/2,Sample Gift Corner,Gift shop,"Lot 3, Gurney Plaza, Gurney Drive, Penang",,,04-000 0002,45,4.1,1002,,,
+q4,https://example.test/3,"Demo Hardware & Tools, Sdn Bhd",Hardware store,"7 Jalan Demo
+13700 Seberang Jaya, Penang",,https://demo-hardware.example,+6045550003,12,3.9,1003,,,"sales@demo-hardware.example, not-an-email"
+q5,https://example.test/4,示例面包店 Example Bakery,Bakery,"Bukit Mertajam, Penang",,,+60 4-000 0004,3,5,1004,,,
+q6,https://example.test/5,Closed Pharmacy Example,Pharmacy,"Bayan Lepas, Penang",,,+60 4-000 0005,90,4.0,1005,Permanently closed,,
+q7,https://example.test/6,Example Pharmacy Queensbay,Pharmacy,"Queensbay Mall, Bayan Lepas, Penang",,,+60 4-000 0006,150,4.2,1006,,,
+q8,https://example.test/7,Example Pharmacy Queensbay (Branch),Pharmacy,"Queensbay Mall, Bayan Lepas, Penang",,https://example-pharmacy.example,+60 4-000 0006,10,4.2,1007,,,
+q9,https://example.test/8,=HYPERLINK Example Lifestyle,Home goods store,"Design Village, Batu Kawan, Penang",,,,0,,1008,,,
