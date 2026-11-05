@@ -51,25 +51,25 @@ Mon 08:00  ┌──────────────────────
 ## Commands (repo root)
 
 ```bash
-npm run marketing:build      # regenerate workflows/, sheet-template/, fake-data/
+npm run agent:build      # regenerate workflows/, sheet-template/, fake-data/
 ```
 
 ```bash
-npm run marketing:test       # unit tests
+npm run agent:test       # unit tests
 ```
 
 ```bash
-npm run marketing:schema     # once: download n8n node descriptions for the validator
+npm run agent:schema     # once: download n8n node descriptions for the validator
 ```
 
 ```bash
-npm run marketing:validate   # validate workflows, write VALIDATION.md
+npm run agent:validate   # validate workflows, write VALIDATION.md
 ```
 
 ```bash
-N8N_BIN=/path/to/node_modules/.bin/n8n npm run marketing:runtime   # run in a real n8n (Node 24+)
+N8N_BIN=/path/to/node_modules/.bin/n8n npm run agent:runtime   # run in a real n8n (Node 24+)
 ```
 
-To change behaviour, edit `src/` (and the tests), run `npm run marketing:check`, then re-import the changed workflow JSON in n8n. Re-importing creates a new workflow; copy the sheet ID and credentials over, then delete or deactivate the old one.
+To change behaviour, edit `src/` (and the tests), run `npm run agent:check`, then re-import the changed workflow JSON in n8n. Re-importing creates a new workflow; copy the sheet ID and credentials over, then delete or deactivate the old one.
 
 Decisions taken while building this are logged in [`../docs/DECISIONS.md`](../docs/DECISIONS.md) (section "Marketing agent").

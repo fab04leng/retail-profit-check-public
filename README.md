@@ -119,6 +119,7 @@ src/i18n       English, 中文, Bahasa Melayu
 src/ui         React pages and components
 tests/         unit, accuracy, perf      e2e/   Playwright
 sales-kit/     offer, interview script, WhatsApp messages, objections, pilot agreement draft, demo script (EN + 中文)
+marketing/     landing page, demo videos, 30-day social calendar, ads + RM500 test plan, lead tracking (see marketing/README.md)
 research/      synthetic objection rehearsal — NOT market validation
 marketing-agent/  n8n marketing agent: post drafts, publisher, lead inbox, weekly report (human approval for everything)
 docs/          PLAN, PROGRESS, DECISIONS, LIMITATIONS, screenshots
