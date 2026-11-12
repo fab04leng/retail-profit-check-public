@@ -7,6 +7,7 @@ import { findingMessage } from '../components/FindingCard';
 import { Money, NoData, TableWrap } from '../components/common';
 import { PrintIcon } from '../components/Icons';
 import { exportFindingsCsv, exportFindingsXlsx } from '../exportFindings';
+import { coverageOf, DataQuality } from '../components/DataQuality';
 
 const AREAS: RuleArea[] = ['profit', 'stock', 'suppliers', 'cashflow'];
 
@@ -43,14 +44,25 @@ export function ReportPage() {
     (h.cashLow?.count ?? 0) > 0 ? t('report.step4') : null,
   ].filter(Boolean) as string[];
   const appendix = r.findings.filter((f) => !confirmedOnly || reviews[f.id]?.status === 'confirmed');
+  const blocked = coverageOf(payload).emptyRequired.length > 0;
+  if (blocked) {
+    // No readable sales or products: an all-zero report would look clean, so show why there is none.
+    return (
+      <div className="report">
+        <h1 id="page-title" tabIndex={-1}>{t('report.title')}</h1>
+        <DataQuality payload={payload} />
+      </div>
+    );
+  }
   return (
     <div className="report">
       <div className="report-tools no-print">
         <button className="btn btn-primary" onClick={() => globalThis.print?.()} data-testid="print">
           <PrintIcon size={16} /> {t('common.print')}
         </button>
-        <button className="btn" onClick={() => exportFindingsCsv(r.findings, reviews, i18n)}>{t('common.exportCsv')}</button>
-        <button className="btn" onClick={() => void exportFindingsXlsx(r.findings, reviews, i18n)}>{t('common.exportXlsx')}</button>
+        {/* Exports contain exactly the findings shown in the appendix (they follow "confirmed only"). */}
+        <button className="btn" onClick={() => exportFindingsCsv(appendix, reviews, i18n)}>{t('common.exportCsv')}</button>
+        <button className="btn" onClick={() => void exportFindingsXlsx(appendix, reviews, i18n)}>{t('common.exportXlsx')}</button>
         <label className="check">
           <input type="checkbox" checked={confirmedOnly} onChange={(e) => setConfirmedOnly(e.target.checked)} /> {t('report.confirmedOnly')}
         </label>
@@ -66,6 +78,7 @@ export function ReportPage() {
           </div>
         </header>
         {isDemo ? <p className="demo-note">{t('app.demoBanner', { shop: demoShop ?? '' })}</p> : null}
+        <DataQuality payload={payload} />
         <h2>{t('report.keyNumbers')}</h2>
         <TableWrap label={t('report.keyNumbers')}>
         <table className="report-key">

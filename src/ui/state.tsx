@@ -9,13 +9,9 @@ import type { ThresholdKey } from '../rules/rules.config';
 import { clampThreshold, defaultCashflowInputs, defaultThresholds, mergeSettings, type CashflowInputs, type Settings } from '../rules/settings';
 import { EngineError, getEngine } from '../worker/client';
 import type { AnalysisPayload, StagedMeta } from '../worker/protocol';
+import { currentReviews, datasetKey, makeReview, sanitizeReviews, type Review, type ReviewStatus } from './reviewBinding';
 
-export type ReviewStatus = 'confirmed' | 'not_issue' | 'needs_info';
-export interface Review {
-  status: ReviewStatus;
-  note: string;
-  at: string;
-}
+export type { Review, ReviewStatus };
 
 interface AppState {
   lang: Lang;
@@ -50,29 +46,7 @@ interface AppState {
 
 const Ctx = createContext<AppState | null>(null);
 
-function datasetKey(staged: Partial<Record<FileKind, StagedMeta>>): string {
-  const text = Object.values(staged)
-    .map((s) => `${s!.kind}:${s!.signature}:${s!.dataRowCount}:${s!.fileName}`)
-    .sort()
-    .join('|');
-  let h = 0x811c9dc5;
-  for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 0x01000193) >>> 0;
-  return h.toString(16);
-}
-
 const isLang = (v: unknown): v is Lang => v === 'en' || v === 'zh' || v === 'ms';
-
-function sanitizeReviews(v: unknown): Record<string, Review> {
-  const out: Record<string, Review> = {};
-  if (!v || typeof v !== 'object') return out;
-  for (const [k, r] of Object.entries(v as Record<string, unknown>)) {
-    if (!r || typeof r !== 'object') continue;
-    const s = (r as Review).status;
-    if (s !== 'confirmed' && s !== 'not_issue' && s !== 'needs_info') continue;
-    out[k] = { status: s, note: String((r as Review).note ?? '').slice(0, 2000), at: String((r as Review).at ?? '').slice(0, 10) };
-  }
-  return out;
-}
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const engine = useMemo(() => getEngine(), []);
@@ -97,7 +71,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [payload, setPayload] = useState<AnalysisPayload | null>(null);
   const [busy, setBusy] = useState<AppState['busy']>(null);
   const [error, setError] = useState<string | null>(null);
-  const [reviews, setReviews] = useState<Record<string, Review>>({});
+  const [savedReviews, setReviews] = useState<Record<string, Review>>({});
+  const reviews = useMemo(() => currentReviews(savedReviews, payload?.result.findings), [savedReviews, payload]);
+  const payloadRef = useRef(payload);
+  payloadRef.current = payload;
   const reviewKey = useRef<string | null>(null);
   const settingsRef = useRef(settings);
   settingsRef.current = settings;
@@ -304,10 +281,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const setCashflow = useCallback((c: CashflowInputs) => setSettings((s) => ({ ...s, cashflow: c })), []);
 
   const setReview = useCallback((id: string, status: ReviewStatus | null, note?: string) => {
+    const finding = payloadRef.current?.result.findings.find((f) => f.id === id);
+    if (status !== null && !finding) return; // nothing to bind the decision to
     setReviews((r) => {
       const next = { ...r };
       if (status === null) delete next[id];
-      else next[id] = { status, note: (note ?? r[id]?.note ?? '').slice(0, 2000), at: new Date().toISOString().slice(0, 10) };
+      else next[id] = makeReview(finding!, status, r[id], note, new Date().toISOString().slice(0, 10));
       return next;
     });
     reviewsDirty.current = true;
@@ -316,8 +295,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!reviewsDirty.current || !reviewKey.current) return;
     reviewsDirty.current = false;
-    saveJSON(`reviews.${reviewKey.current}`, reviews);
-  }, [reviews]);
+    saveJSON(`reviews.${reviewKey.current}`, savedReviews);
+  }, [savedReviews]);
 
   const getRows = useMemo(() => engine.getRows.bind(engine), [engine]);
   const value = useMemo<AppState>(

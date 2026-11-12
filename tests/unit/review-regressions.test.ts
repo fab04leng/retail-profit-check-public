@@ -72,12 +72,14 @@ describe('parsing fixes', () => {
 });
 
 describe('supplier fixes', () => {
-  it('two genuinely identical lines on one invoice are not a duplicate and the total is not halved', () => {
+  it('two identical lines on one invoice: total is not halved, but they are flagged for review (QA B10)', () => {
     const l1 = invoice({ supplier: 'S', invoiceNo: 'INV9', date: '2026-01-01', sku: 'A', qty: 10, unitPrice: 5, total: 50 });
     const l2 = invoice({ supplier: 'S', invoiceNo: 'INV9', date: '2026-01-01', sku: 'A', qty: 10, unitPrice: 5, total: 50 });
     const r = analyzeSuppliers([l1, l2], [payment({ supplier: 'S', date: '2026-01-10', amount: 100, reference: 'INV9' })], true, t);
-    expect(r.findings).toEqual([]);
+    // Could be two real lines or one line keyed twice: the total stays as entered (no false
+    // overpayment), and a possible duplicate is raised so a person checks the invoice.
     expect(r.invoices[0]!.total).toBe(100);
+    expect(r.findings.map((f) => [f.ruleId, f.amount, f.params.sameDate])).toEqual([['SUP-01', 50, 1]]);
   });
   it('splits one payment that references several invoices', () => {
     const a = invoice({ supplier: 'S', invoiceNo: 'INV001', date: '2026-01-01', total: 100 });

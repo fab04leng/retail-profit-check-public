@@ -164,7 +164,9 @@ export function analyzeProfit(sales: SaleRow[], products: ProductRow[], t: Thres
   const findings: Finding[] = [];
   const target = t.targetMarginPct;
   for (const r of result) {
-    if (r.cogs === null || r.grossProfit === null || r.revenue <= 0 || r.units <= 0) continue;
+    // Below cost needs units sold and a cost, not revenue: free or 100%-discounted sales of a costed
+    // product (revenue RM0) are below cost too. The margin % check (PRF-03) needs revenue above zero.
+    if (r.cogs === null || r.grossProfit === null || r.units <= 0 || r.cogs <= 0) continue;
     const evidence = [
       { file: 'sales' as const, rows: r.saleRows },
       { file: 'products' as const, rows: r.productRows },
@@ -180,7 +182,7 @@ export function analyzeProfit(sales: SaleRow[], products: ProductRow[], t: Thres
         amountKind: 'belowCost',
         evidence,
       });
-    } else if (r.marginPct !== null && r.marginPct < target) {
+    } else if (r.revenue > 0 && r.marginPct !== null && r.marginPct < target) {
       findings.push({
         id: findingId('PRF-03', skuKey(r.sku)),
         ruleId: 'PRF-03',

@@ -211,7 +211,7 @@ const zh: Dict = {
     method: '这些数字如何计算：请看“规则”页面。除了现金预测是估计之外，所有 RM 金额都是根据您的资料行直接计算。',
   },
   headlines: {
-    slowStock: { title: '积压在滞销库存里的资金', desc: '{count:num} 种产品有库存但超过 {days:num} 天没有销售，按成本计算。其中 {deadCount:num} 种（{deadValue:rm}）已超过 90 天没有销售。' },
+    slowStock: { title: '积压在滞销库存里的资金', desc: '{count:num} 种产品有库存但超过 {days:num} 天没有销售，按成本计算。其中 {deadCount:num} 种（{deadValue:rm}）已超过 {deadDays:num} 天没有销售。' },
     belowCost: { title: '低于成本出售', desc: '{count:num} 种产品的售价低于单位成本。这是这段期间内它们比成本少卖的金额。' },
     duplicates: { title: '可能重复的供应商发票', desc: '{count:num} 项可能重复——付款前请先核对，或向供应商要求开退款单（credit note）。' },
     payments: { title: '可能多付给供应商的款项', desc: '{count:num} 张发票的已付金额超过发票金额。另外有 {unmatchedCount:num} 笔付款（{unmatchedAmount:rm}）找不到对应的发票。' },
@@ -279,6 +279,7 @@ const zh: Dict = {
     intro: '估计每周的现金流入和流出，让您及早看到资金紧的那几周。',
     inputs: '您的数字',
     openingBalance: '今天银行里的现金（RM）',
+    openingBalanceAsOf: '截至 {date:date} 结束时银行里的现金（RM）',
     fixedCosts: '每月固定开销',
     costLabel: '开销',
     costAmount: '每月 RM',
@@ -317,6 +318,7 @@ const zh: Dict = {
     'PRF-02': '平均售价 {avgPrice:rm} 低于单位成本 {unitCost:rm}（卖出 {units:num} 个）。比成本少卖了 {amount:rm}。',
     'PRF-03': '毛利率 {margin:pct} 低于 {target:pct} 的目标（销售额 {revenue:rm}，毛利 {grossProfit:rm}）。',
     'STK-02': '现有库存 {qty:num}，按成本计价值 {amount:rm}。已 {days:num} 天没有销售（超过 {threshold:num} 天）。',
+    'STK-03': '现有库存 {qty:num}，按成本计价值 {amount:rm}。已 {days:num} 天没有销售（超过 {threshold:num} 天），属于滞销库存，但还未算死货。',
     'SUP-01': '{supplier} 的发票 {invoiceNo} 出现了 {copies:num} 次（{dates}）。可能重复，金额 {amount:rm}。',
     'SUP-02': '{supplier} 的发票 {invoiceA}（{dateA:date}）和 {invoiceB}（{dateB:date}）总额完全相同，都是 {total:rm}，相隔 {days:num} 天。可能重复。',
     'SUP-03': '{item}：单价从 {prevPrice:rm}（{prevDate:date}）涨到 {newPrice:rm}（{newDate:date}），上涨 {pct:pct}。发票 {invoiceNo} 上的额外成本：{amount:rm}。',
@@ -426,7 +428,7 @@ const zh: Dict = {
     },
     'CSH-01': {
       title: '8 周现金展望如何估计',
-      description: '现金流入：以最近几个完整周的每周销售画一条直线趋势（最小二乘法），再向后延伸 8 周（不会低于零）。现金流出：未付的供应商发票放在到期的那一周（已逾期的放在第 1 周；没有到期日的发票按默认付款期限计算到期），您输入的每月固定开销放在每月的付款日；如果有开启，还包括估计补货开销：预测销售额 × 您过往的成本比率，在默认供应商付款期限后支付。每周由星期一到星期日。这只是估计，不是保证。',
+      description: '现金流入：以最近几个完整周的每周销售画一条直线趋势（最小二乘法），再向后延伸 8 周（不会低于零）。现金流出：未付的供应商发票放在到期的那一周（已逾期的放在第 1 周；没有到期日的发票按默认付款期限计算到期），您输入的每月固定开销放在每月的付款日；如果有开启，还包括估计补货开销：预测销售额 × 您过往的成本比率，在默认供应商付款期限后支付。您输入的银行现金当作销售文件最后一天结束时的结余；第 1 周从第二天开始，每周 7 天（如果文件在星期日结束，就是星期一到星期日），所以文件里已有的日子不会再被重复计算。这只是估计，不是保证。',
       why: '一间店可能有盈利，却仍在某一周现金不足，例如大笔供应商付款和租金刚好同一时间到期。',
     },
     'CSH-02': {
@@ -449,6 +451,17 @@ const zh: Dict = {
     defaultTermsDays: '默认供应商付款期限',
     trendWeeks: '用于趋势的销售周数',
     minimumBalance: '最低现金结余',
+  },
+  quality: {
+    title: '请先看看这些数字是根据什么算出来的',
+    titleBlocked: '无法生成报告：必需的文件里没有可读取的行',
+    emptyRequired: '{file}：没有任何一行可以读取，所以没有结果可以报告。请在“开始”页修正文件或栏位。',
+    skipped: '{file}：有 {errors:num} 行无法读取，下面所有数字都没有计入这些行（已使用 {used:num} 行）。',
+    noCost: '销售文件里有 {count:num} 个产品在产品清单里没有成本；它们的销售额（{rm:rm}）没有计入利润和毛利率。',
+    noPayments: '没有付款文件：没有检查多付款项；在现金流展望里，展望开始前到期的发票都假设已经付清。',
+    allUsed: '已加载文件里的所有行都已读取。',
+    fixOnStart: '在“开始”页查看这些行',
+    salesRowsUsed: '行销售记录已使用',
   },
   report: {
     colRule: '规则',

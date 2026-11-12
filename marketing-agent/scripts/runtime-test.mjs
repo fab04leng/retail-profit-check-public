@@ -16,8 +16,10 @@ import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync, existsSync
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = new URL('..', import.meta.url).pathname;
+// fileURLToPath, not URL.pathname: on Windows pathname is "/C:/…", which path functions turn into "C:\C:\…".
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const N8N_BIN = process.env.N8N_BIN;
 const FILTER = process.argv[2] || '';
 if (!N8N_BIN || !existsSync(N8N_BIN)) {

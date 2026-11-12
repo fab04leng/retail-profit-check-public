@@ -15,7 +15,7 @@ export function OutletsPage() {
       {o.length < 2 ? <p className="info-line">{t('outlets.single')}</p> : null}
       <section className="card">
         <h2>{t('common.grossProfit')}</h2>
-        <HBarChart label={t('common.grossProfit')} data={o.map((x) => ({ key: x.outlet, label: x.outlet, value: Math.max(0, x.grossProfit), sub: x.marginPct === null ? undefined : pct(x.marginPct) }))} />
+        <HBarChart label={t('common.grossProfit')} data={o.map((x) => ({ key: x.outlet, label: x.outlet, value: x.grossProfit, sub: x.marginPct === null ? undefined : pct(x.marginPct) }))} />
         <TableWrap label={t('outlets.title')}>
           <table className="data">
             <thead>

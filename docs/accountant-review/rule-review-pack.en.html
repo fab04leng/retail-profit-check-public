@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rule review pack · 179bfdc7</title>
+<title>Rule review pack · 76825812</title>
 <style>
 @page { size: A4; margin: 14mm 13mm 16mm; }
 * { box-sizing: border-box; }
@@ -50,7 +50,7 @@ table.summary td:first-child, table.summary th:first-child { white-space: nowrap
 <section class="cover">
 <h1>Retail Profit Check — rule review pack</h1>
 <p><strong>For the partner accountant, before the first paid pilot.</strong></p>
-<p class="meta">Rules version 179bfdc7 · 15 rules · worked examples from the demo data: Pinangria Mart (fictional demo shop), 2025-11-03 to 2026-11-01</p>
+<p class="meta">Rules version 76825812 · 15 rules · worked examples from the demo data: Pinangria Mart (fictional demo shop), 2025-11-03 to 2026-11-01</p>
 <h2>What the tool does</h2><ul><li>Reads a shop&#39;s own exports (sales, product/stock list, supplier invoices, optionally payments) inside the browser. Nothing is uploaded.</li><li>Applies the rules in this pack and shows every finding with the rule that fired and the exact source rows.</li><li>Lets an accountant mark each finding Confirmed, Not an issue or Needs info, and prints a one-page owner summary.</li></ul>
 <h2>What it does not do</h2><ul><li>It is not audited accounts, a review engagement or tax advice, and it does not replace an accountant.</li><li>It does not value stock for the accounts (current cost, no net realisable value), separate SST, or know about rebates, credit notes, loans or tax payments.</li><li>It does not prove that anything is wrong. Every finding is a possibility to check against documents. Accuracy has only been measured on synthetic data.</li></ul>
 <h2>How to review</h2><ol><li>For each rule, read the description and the worked example. Row numbers are spreadsheet rows in the demo files in demo/data/ (row 1 = header), so you can open them in Excel and check.</li><li>Tick Agree, Change to (write the new number or wording) or Remove, and add notes, especially false positives you see in practice. The last page collects your decisions.</li><li>Sign below. The founder changes src/rules/rules.config.ts and the app&#39;s Rules page to match before the first pilot, and gives you the new version number.</li></ol>
@@ -375,7 +375,7 @@ table.summary td:first-child, table.summary th:first-child { white-space: nowrap
 <section class="rule" id="CSH-01">
 <h2><span class="rid">CSH-01</span> How the 8-week cash outlook is estimated</h2>
 <p class="kind">Method (describes a calculation; creates no findings)</p>
-<p><strong>What it does:</strong> Cash in: a straight-line trend (least squares) is drawn through weekly sales of the last complete weeks and extended 8 weeks ahead (never below zero). Cash out: unpaid supplier invoices in the week they are due (overdue ones in week 1; invoices with no due date are due after the default terms), fixed monthly costs you enter on their day of the month, and, if switched on, estimated restocking: forecast sales × your historical cost ratio, paid after the default supplier terms. Weeks run Monday to Sunday. This is an estimate, not a promise.</p>
+<p><strong>What it does:</strong> Cash in: a straight-line trend (least squares) is drawn through weekly sales of the last complete weeks and extended 8 weeks ahead (never below zero). Cash out: unpaid supplier invoices in the week they are due (overdue ones in week 1; invoices with no due date are due after the default terms), fixed monthly costs you enter on their day of the month, and, if switched on, estimated restocking: forecast sales × your historical cost ratio, paid after the default supplier terms. Your cash-in-bank figure is taken as the balance at the end of the last day in the sales file; week 1 starts the next day and each week is 7 days (Monday to Sunday when the file ends on a Sunday), so days already in the file are not counted again. This is an estimate, not a promise.</p>
 <p><strong>Why it matters:</strong> A shop can be profitable and still run short of cash in a particular week, for example when a big supplier payment and rent fall together.</p>
 <p><strong>Threshold:</strong> </p><ul><li>Weeks of sales used for the trend: <strong>8 weeks</strong> (can be set from 2 weeks – 26 weeks)</li><li>Default supplier terms: <strong>30 days</strong> (can be set from 0 days – 120 days)</li></ul>
 <h3>Worked example (demo data)</h3>

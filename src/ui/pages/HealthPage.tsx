@@ -4,6 +4,7 @@ import { useApp } from '../state';
 import { FindingCard } from '../components/FindingCard';
 import { Money, NoData, PageHeader } from '../components/common';
 import { AlertIcon } from '../components/Icons';
+import { DataQuality } from '../components/DataQuality';
 
 export function HealthPage() {
   const { t } = useI18n();
@@ -22,6 +23,7 @@ export function HealthPage() {
         <a className="btn" href={href('report')}>{t('nav.report')}</a>
       </PageHeader>
       {r.period ? <p className="muted small">{t('common.period', { from: r.period.from, to: r.period.to })} · {t('common.asOf', { date: r.period.to })}</p> : null}
+      <DataQuality payload={payload} compact />
       <div className="headlines">
         {r.summary.map((h) => (
           <article key={h.key} className={`headline card ${h.key === 'cashLow' && h.count > 0 ? 'headline-bad' : h.key !== 'cashLow' && h.amount !== 0 ? 'headline-warn' : ''}`} data-testid={`headline-${h.key}`}>

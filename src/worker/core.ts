@@ -2,6 +2,7 @@
 import { runAll } from '../analysis';
 import { dateOrderEvidence, isDateOrderChoice, type DateOrder, type DateOrderChoice } from '../core/dates';
 import { FIELDS } from '../core/fields';
+import { contentHash } from '../core/hash';
 import { buildDataset, mappingProblems, stageTable, type StagedFile } from '../core/ingest';
 import type { Mapping } from '../core/mapping';
 import { ReadError, readTable } from '../core/read';
@@ -53,6 +54,7 @@ function meta(f: StagedFile): StagedMeta {
     problems: mappingProblems(f),
     dateOrder: f.dateOrder,
     detectedDateOrder: detectedDateOrder(f),
+    contentHash: f.contentHash ?? '',
   };
 }
 
@@ -61,8 +63,10 @@ export class EngineCore implements Engine {
   private dataset: Dataset | null = null;
 
   async stageFile(kind: FileKind, fileName: string, buffer: ArrayBuffer, remembered?: unknown): Promise<StagedMeta> {
+    const hash = await contentHash(buffer); // before reading: some readers may detach the buffer
     const table = await readTable(fileName, buffer);
     const f = stageTable(kind, fileName, table, remembered);
+    f.contentHash = hash;
     this.files[kind] = f;
     this.dataset = null;
     return meta(f);
@@ -71,7 +75,7 @@ export class EngineCore implements Engine {
   async loadDemo(): Promise<{ staged: StagedMeta[]; demo: DemoInfo }> {
     const d = generateDemo();
     this.files = {};
-    for (const k of FILE_KINDS) this.files[k] = stageTable(k, `demo-${k}.csv`, d.tables[k]);
+    for (const k of FILE_KINDS) this.files[k] = { ...stageTable(k, `demo-${k}.csv`, d.tables[k]), contentHash: 'demo' };
     this.dataset = null;
     return { staged: FILE_KINDS.map((k) => meta(this.files[k]!)), demo: { shopName: d.shopName, cashflow: d.cashflow } };
   }
