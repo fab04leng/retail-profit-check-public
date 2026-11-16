@@ -71,6 +71,24 @@ export function referenceContains(ref: string, norm: string): boolean {
   return false;
 }
 
+/**
+ * Invoice numbers written in a payment reference with their separators kept, e.g.
+ * "INV001, INV001A" → INV001 and INV001A; "Pay INV-0012" → INV0012 (a run of adjacent tokens).
+ * Returns the indexes of `norms` that equal one token or a run of adjacent tokens.
+ */
+export function referenceTokenMatches(reference: string, norms: string[]): number[] {
+  const tokens = reference.toUpperCase().split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+  const spans = new Set<string>();
+  for (let i = 0; i < tokens.length; i++) {
+    let s = '';
+    for (let j = i; j < tokens.length && j < i + 6; j++) {
+      s += tokens[j];
+      spans.add(s);
+    }
+  }
+  return norms.flatMap((n, i) => (n && spans.has(n) ? [i] : []));
+}
+
 interface Entry {
   date: string;
   lines: InvoiceRow[];
@@ -105,12 +123,16 @@ export function analyzeSuppliers(lines: InvoiceRow[], payments: PaymentRow[], ha
     // Requires at least two different lines, each with an SKU or description, so two
     // genuinely identical lines on one invoice are not mistaken for a re-keyed invoice.
     let repeat = 1;
-    if (first.lines.length >= 4 && first.lines.every((l) => l.sku || l.description)) {
+    /** Every line repeated the same number of times, but too few lines to be sure it was keyed twice. */
+    let possibleRepeat = 1;
+    if (first.lines.every((l) => l.sku || l.description)) {
       const counts = new Map<string, number>();
       for (const l of first.lines) counts.set(lineSig(l), (counts.get(lineSig(l)) ?? 0) + 1);
       let min = Infinity;
       for (const x of counts.values()) min = Math.min(min, x);
-      if (counts.size >= 2 && min >= 2 && [...counts.values()].every((x) => x === min)) repeat = min;
+      const uniform = min >= 2 && [...counts.values()].every((x) => x === min);
+      if (uniform && first.lines.length >= 4 && counts.size >= 2) repeat = min;
+      else if (uniform) possibleRepeat = min; // flagged for review; the total stays as entered
     }
     const total = roundRM(first.total / repeat);
     const seen = new Set<string>();
@@ -134,9 +156,14 @@ export function analyzeSuppliers(lines: InvoiceRow[], payments: PaymentRow[], ha
       outstanding: total,
     };
     docs.push(doc);
-    const copies = entries.length > 1 ? entries.length : repeat;
+    const copies = entries.length > 1 ? entries.length : Math.max(repeat, possibleRepeat);
     if (copies > 1) {
-      const extra = entries.length > 1 ? roundRM(entries.slice(1).reduce((a, e) => a + e.total, 0)) : roundRM(total * (repeat - 1));
+      const extra =
+        entries.length > 1
+          ? roundRM(entries.slice(1).reduce((a, e) => a + e.total, 0))
+          : repeat > 1
+            ? roundRM(total * (repeat - 1))
+            : roundRM((first.total / possibleRepeat) * (possibleRepeat - 1));
       findings.push({
         id: findingId('SUP-01', key),
         ruleId: 'SUP-01',
@@ -239,10 +266,15 @@ export function analyzeSuppliers(lines: InvoiceRow[], payments: PaymentRow[], ha
     for (const p of sorted) {
       const cands = docsBySupplier.get(normalizeSupplier(p.supplier)) ?? [];
       const ref = normalizeInvoiceNo(p.reference);
-      // 1. Every invoice number of this supplier that appears in the reference.
-      const byRef = ref ? cands.filter((c) => referenceContains(ref, c.norm)).map((c) => c.doc) : [];
-      // Drop numbers that are part of a longer matched number (e.g. "INV1" inside "INV12").
-      const matched = byRef.filter((d) => !byRef.some((o) => o !== d && normalizeInvoiceNo(o.invoiceNo).includes(normalizeInvoiceNo(d.invoiceNo))));
+      // 1a. Invoice numbers written as separate items in the reference ("INV001, INV001A").
+      //     Separators are kept, so a number is never swallowed by a longer one next to it.
+      let matched = referenceTokenMatches(p.reference, cands.map((c) => c.norm)).map((i) => cands[i]!.doc);
+      if (!matched.length && ref) {
+        // 1b. Otherwise: numbers inside the reference text, e.g. "PAYINV0012" (no separators to go by).
+        const byRef = cands.filter((c) => referenceContains(ref, c.norm)).map((c) => c.doc);
+        // Drop numbers that are part of a longer matched number (e.g. "INV1" inside "INV12").
+        matched = byRef.filter((d) => !byRef.some((o) => o !== d && normalizeInvoiceNo(o.invoiceNo).includes(normalizeInvoiceNo(d.invoiceNo))));
+      }
       let targets: InvoiceDoc[] = matched.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
       // 2. Otherwise: same supplier, exact amount, on/after the invoice date, not yet paid.
       if (!targets.length && p.amount > 0) {

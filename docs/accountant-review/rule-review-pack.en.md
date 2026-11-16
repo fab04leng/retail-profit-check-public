@@ -1,6 +1,6 @@
 # Retail Profit Check — rule review pack
 
-*For the partner accountant, before the first paid pilot.* Rules version 179bfdc7 · 15 rules · worked examples from the demo data: Pinangria Mart (fictional demo shop), 2025-11-03 to 2026-11-01
+*For the partner accountant, before the first paid pilot.* Rules version 76825812 · 15 rules · worked examples from the demo data: Pinangria Mart (fictional demo shop), 2025-11-03 to 2026-11-01
 
 ## What the tool does
 
@@ -832,7 +832,7 @@ Showing 8 of 9 rows. All rows: 2491–2499 (also in evidence/SUP-04-invoices.csv
 
 *Method (describes a calculation; creates no findings)*
 
-**What it does:** Cash in: a straight-line trend (least squares) is drawn through weekly sales of the last complete weeks and extended 8 weeks ahead (never below zero). Cash out: unpaid supplier invoices in the week they are due (overdue ones in week 1; invoices with no due date are due after the default terms), fixed monthly costs you enter on their day of the month, and, if switched on, estimated restocking: forecast sales × your historical cost ratio, paid after the default supplier terms. Weeks run Monday to Sunday. This is an estimate, not a promise.
+**What it does:** Cash in: a straight-line trend (least squares) is drawn through weekly sales of the last complete weeks and extended 8 weeks ahead (never below zero). Cash out: unpaid supplier invoices in the week they are due (overdue ones in week 1; invoices with no due date are due after the default terms), fixed monthly costs you enter on their day of the month, and, if switched on, estimated restocking: forecast sales × your historical cost ratio, paid after the default supplier terms. Your cash-in-bank figure is taken as the balance at the end of the last day in the sales file; week 1 starts the next day and each week is 7 days (Monday to Sunday when the file ends on a Sunday), so days already in the file are not counted again. This is an estimate, not a promise.
 
 **Why it matters:** A shop can be profitable and still run short of cash in a particular week, for example when a big supplier payment and rent fall together.
 

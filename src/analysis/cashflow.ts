@@ -30,6 +30,8 @@ export interface CashflowResult {
   method: { trendWeeks: number; intercept: number; slope: number; costRatio: number | null; termsWeeks: number; includeRestocking: boolean; assumedPaidBeforeStart: boolean };
   /** True when there is not even one complete week of sales history. */
   insufficientHistory: boolean;
+  /** Date the cash-in-bank figure is taken as at (last date in the sales file); week 1 starts the day after. */
+  balanceAsOf?: string;
   laterSupplierOut: number;
   lowest?: { start: string; closing: number };
   findings: Finding[];
@@ -73,10 +75,14 @@ export function analyzeCashflow(
   };
   if (!asOf) return empty;
 
-  // Last complete Monday–Sunday week ends on asOf if asOf is a Sunday, else the Sunday before.
+  // The cash-in-bank figure is the balance at the end of asOf (the last date in the sales file).
+  // The outlook starts the next day, so days already in the file are never added to it again.
+  // History for the trend uses complete Monday–Sunday weeks ending on or before asOf.
   const lastEnd = weekdayMon0(asOf) === 6 ? asOf : addDays(mondayOf(asOf), -1);
-  const start = addDays(lastEnd, 1);
-  const histStart = addDays(start, -7 * t.trendWeeks);
+  const start = addDays(asOf, 1);
+  /** Days of the current week already in the file (0 when the file ends on a Sunday). */
+  const elapsedDays = Math.round((Date.parse(start) - Date.parse(addDays(lastEnd, 1))) / 86_400_000);
+  const histStart = addDays(lastEnd, 1 - 7 * t.trendWeeks);
   const weekly = new Array<number>(t.trendWeeks).fill(0);
   let firstSale: string | undefined;
   for (const s of sales) {
@@ -101,7 +107,7 @@ export function analyzeCashflow(
       start: ws,
       end: addDays(ws, 6),
       opening: 0,
-      salesIn: roundRM(Math.max(0, intercept + slope * (used.length + k))),
+      salesIn: roundRM(Math.max(0, intercept + slope * (used.length + k + elapsedDays / 7))),
       supplierOut: 0,
       overdueOut: 0,
       supplierRows: [],
@@ -183,6 +189,7 @@ export function analyzeCashflow(
     method: { trendWeeks: t.trendWeeks, intercept: roundRM(intercept), slope: roundRM(slope), costRatio, termsWeeks, includeRestocking: inputs.includeRestocking, assumedPaidBeforeStart: !hasPayments },
     laterSupplierOut: roundRM(later),
     insufficientHistory: false,
+    balanceAsOf: asOf,
     lowest,
     findings,
   };

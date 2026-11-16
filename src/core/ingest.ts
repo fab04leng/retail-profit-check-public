@@ -18,6 +18,8 @@ export interface StagedFile {
   dataRowCount: number;
   /** Day/month order chosen on the mapping screen ('auto' = detect per column). */
   dateOrder: DateOrderChoice;
+  /** Hash of the file's exact bytes; set by the engine when a real file is read. */
+  contentHash?: string;
 }
 
 export function stageTable(kind: FileKind, fileName: string, table: Table, remembered?: unknown): StagedFile {

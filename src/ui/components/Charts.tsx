@@ -14,9 +14,10 @@ export function HBarChart({ data, label }: { data: { key: string; label: string;
         <div className="hbar-row" key={d.key} title={`${d.label}: ${rm(d.value)}${d.sub ? ` · ${d.sub}` : ''}`}>
           <div className="hbar-label">{d.label}</div>
           <div className="hbar-track">
-            <div className={`hbar-fill ${d.highlight ? 'hbar-fill-strong' : ''}`} style={{ width: `${Math.max(d.value > 0 ? 1.5 : 0, (d.value / max) * 100)}%` }} />
+            {/* A loss draws no bar, but its label shows the real (negative) amount. */}
+            <div className={`hbar-fill ${d.highlight ? 'hbar-fill-strong' : ''}`} style={{ width: `${Math.max(d.value > 0 ? 1.5 : 0, (Math.max(0, d.value) / max) * 100)}%` }} />
           </div>
-          <div className="hbar-value num">
+          <div className={`hbar-value num ${d.value < 0 ? 'neg' : ''}`}>
             {rm(d.value)}
             {d.sub ? <span className="muted"> · {d.sub}</span> : null}
           </div>

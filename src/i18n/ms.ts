@@ -211,7 +211,7 @@ const ms: Dict = {
     method: 'Cara angka ini dikira: lihat halaman Peraturan. Semua amaun RM adalah kiraan terus daripada baris anda kecuali ramalan tunai, yang merupakan anggaran.',
   },
   headlines: {
-    slowStock: { title: 'Wang tunai terikat dalam stok lambat', desc: '{count:num} produk ada stok tetapi tiada jualan lebih daripada {days:num} hari, dinilai pada kos. {deadCount:num} daripadanya ({deadValue:rm}) tiada jualan lebih daripada 90 hari.' },
+    slowStock: { title: 'Wang tunai terikat dalam stok lambat', desc: '{count:num} produk ada stok tetapi tiada jualan lebih daripada {days:num} hari, dinilai pada kos. {deadCount:num} daripadanya ({deadValue:rm}) tiada jualan lebih daripada {deadDays:num} hari.' },
     belowCost: { title: 'Dijual bawah kos', desc: '{count:num} produk dijual kurang daripada kos seunitnya. Ini ialah jumlah kurangnya daripada kos sepanjang tempoh ini.' },
     duplicates: { title: 'Kemungkinan pendua invois pembekal', desc: '{count:num} kemungkinan pendua — semak sebelum membayar atau minta nota kredit daripada pembekal.' },
     payments: { title: 'Kemungkinan lebihan bayaran kepada pembekal', desc: '{count:num} invois dibayar lebih daripada amaunnya. Selain itu, {unmatchedCount:num} bayaran ({unmatchedAmount:rm}) tiada invois yang sepadan.' },
@@ -279,6 +279,7 @@ const ms: Dict = {
     intro: 'Anggaran tunai masuk dan keluar setiap minggu, supaya anda dapat melihat minggu yang ketat lebih awal.',
     inputs: 'Angka anda',
     openingBalance: 'Tunai dalam bank hari ini (RM)',
+    openingBalanceAsOf: 'Tunai dalam bank pada akhir {date:date} (RM)',
     fixedCosts: 'Kos tetap bulanan',
     costLabel: 'Kos',
     costAmount: 'RM sebulan',
@@ -317,6 +318,7 @@ const ms: Dict = {
     'PRF-02': 'Harga jualan purata {avgPrice:rm} di bawah kos seunit {unitCost:rm} ({units:num} unit dijual). Dijual {amount:rm} bawah kos.',
     'PRF-03': 'Margin kasar {margin:pct} di bawah sasaran {target:pct} (untung kasar {grossProfit:rm} daripada jualan {revenue:rm}).',
     'STK-02': '{qty:num} dalam tangan bernilai {amount:rm} pada kos. Tiada jualan selama {days:num} hari (lebih daripada {threshold:num}).',
+    'STK-03': '{qty:num} dalam tangan bernilai {amount:rm} pada kos. Tiada jualan selama {days:num} hari (lebih daripada {threshold:num}), jadi ia stok lambat tetapi belum stok mati.',
     'SUP-01': 'Invois {invoiceNo} daripada {supplier} muncul {copies:num} kali ({dates}). Kemungkinan pendua bernilai {amount:rm}.',
     'SUP-02': 'Invois {invoiceA} ({dateA:date}) dan {invoiceB} ({dateB:date}) daripada {supplier} mempunyai jumlah yang sama tepat, iaitu {total:rm}, dengan jarak {days:num} hari. Kemungkinan pendua.',
     'SUP-03': '{item}: harga seunit naik daripada {prevPrice:rm} ({prevDate:date}) kepada {newPrice:rm} ({newDate:date}), naik {pct:pct}. Kos tambahan pada invois {invoiceNo}: {amount:rm}.',
@@ -426,7 +428,7 @@ const ms: Dict = {
     },
     'CSH-01': {
       title: 'Cara tinjauan tunai 8 minggu dianggarkan',
-      description: 'Tunai masuk: trend garis lurus (kuasa dua terkecil) dilukis melalui jualan mingguan bagi minggu lengkap terakhir dan dipanjangkan 8 minggu ke hadapan (tidak pernah di bawah sifar). Tunai keluar: invois pembekal yang belum dibayar dalam minggu tarikh akhir bayarannya (yang tertunggak dalam minggu 1; invois tanpa tarikh akhir bayaran dianggap perlu dibayar selepas terma lalai), kos tetap bulanan yang anda masukkan pada hari bayarannya dalam bulan itu, dan, jika dihidupkan, anggaran penambahan stok: ramalan jualan × nisbah kos sejarah anda, dibayar selepas terma lalai pembekal. Minggu bermula Isnin hingga Ahad. Ini ialah anggaran, bukan janji.',
+      description: 'Tunai masuk: trend garis lurus (kuasa dua terkecil) dilukis melalui jualan mingguan bagi minggu lengkap terakhir dan dipanjangkan 8 minggu ke hadapan (tidak pernah di bawah sifar). Tunai keluar: invois pembekal yang belum dibayar dalam minggu tarikh akhir bayarannya (yang tertunggak dalam minggu 1; invois tanpa tarikh akhir bayaran dianggap perlu dibayar selepas terma lalai), kos tetap bulanan yang anda masukkan pada hari bayarannya dalam bulan itu, dan, jika dihidupkan, anggaran penambahan stok: ramalan jualan × nisbah kos sejarah anda, dibayar selepas terma lalai pembekal. Angka tunai dalam bank anda diambil sebagai baki pada akhir hari terakhir dalam fail jualan; minggu 1 bermula keesokan harinya dan setiap minggu ialah 7 hari (Isnin hingga Ahad jika fail berakhir pada hari Ahad), jadi hari yang sudah ada dalam fail tidak dikira semula. Ini ialah anggaran, bukan janji.',
       why: 'Sesebuah kedai boleh untung tetapi masih kekurangan tunai pada minggu tertentu, contohnya apabila bayaran besar kepada pembekal dan sewa jatuh serentak.',
     },
     'CSH-02': {
@@ -449,6 +451,17 @@ const ms: Dict = {
     defaultTermsDays: 'Terma lalai pembekal',
     trendWeeks: 'Minggu jualan yang digunakan untuk trend',
     minimumBalance: 'Baki tunai minimum',
+  },
+  quality: {
+    title: 'Semak asas angka-angka ini',
+    titleBlocked: 'Tiada laporan: fail yang diperlukan tiada baris yang boleh dibaca',
+    emptyRequired: '{file}: tiada baris yang boleh dibaca, jadi tiada keputusan untuk dilaporkan. Betulkan fail atau lajurnya di halaman Mula.',
+    skipped: '{file}: {errors:num} baris tidak dapat dibaca dan tidak dikira dalam semua angka di bawah ({used:num} baris digunakan).',
+    noCost: '{count:num} produk dalam fail jualan tiada kos dalam senarai produk; jualannya ({rm:rm}) tidak dikira dalam untung dan margin.',
+    noPayments: 'Tiada fail bayaran: semakan bayaran berlebihan tidak dijalankan, dan dalam tinjauan tunai invois yang perlu dibayar sebelum tinjauan bermula dianggap sudah dibayar.',
+    allUsed: 'Semua baris dalam fail yang dimuatkan telah dibaca.',
+    fixOnStart: 'Lihat baris-baris itu di halaman Mula',
+    salesRowsUsed: 'baris jualan digunakan',
   },
   report: {
     colRule: 'Peraturan',

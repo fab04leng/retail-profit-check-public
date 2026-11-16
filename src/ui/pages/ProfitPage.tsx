@@ -23,7 +23,7 @@ export function ProfitPage() {
       </div>
       <section className="card">
         <h2>{t('profit.byCategory')}</h2>
-        <HBarChart label={t('profit.byCategory')} data={p.categories.map((c) => ({ key: c.category, label: c.category, value: Math.max(0, c.grossProfit), sub: c.marginPct === null ? undefined : `${c.marginPct.toFixed(1)}%` }))} />
+        <HBarChart label={t('profit.byCategory')} data={p.categories.map((c) => ({ key: c.category, label: c.category, value: c.grossProfit, sub: c.marginPct === null ? undefined : `${c.marginPct.toFixed(1)}%` }))} />
         <TableWrap label={t('profit.byCategory')}>
           <table className="data">
             <thead>

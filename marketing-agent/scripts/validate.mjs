@@ -14,9 +14,11 @@
 import { readFileSync, readdirSync, existsSync, statSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
 
-const ROOT = new URL('..', import.meta.url).pathname;
+// fileURLToPath, not URL.pathname: on Windows pathname is "/C:/…", which path functions turn into "C:\C:\…".
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const WORKFLOW_DIR = process.env.N8N_WORKFLOW_DIR || join(ROOT, 'workflows');
 const SCHEMA_DIR = process.env.N8N_SCHEMA_DIR || join(ROOT, '.n8n-schema');
 const WRITE_REPORT = process.argv.includes('--report');

@@ -28,7 +28,7 @@ export function runAll(ds: Dataset, settings: Settings): AnalysisResult {
   const suppliers = analyzeSuppliers(ds.invoices, ds.payments, ds.hasPayments, t);
   const costRatio = profit.totals.revenue > 0 ? profit.totals.cogs / profit.totals.revenue : null;
   const cashflow = analyzeCashflow(ds.sales, suppliers.invoices, stock.asOf, t, settings.cashflow, costRatio, ds.hasPayments);
-  const summary = buildSummary(profit, stock, suppliers, cashflow, ds.hasPayments, t.slowStockDays);
+  const summary = buildSummary(profit, stock, suppliers, cashflow, ds.hasPayments, t.slowStockDays, t.deadStockDays);
   let from: string | undefined;
   for (const s of ds.sales) if (!from || s.date < from) from = s.date;
   return {

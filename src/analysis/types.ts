@@ -1,3 +1,4 @@
+import { stableJson, textHash } from '../core/hash';
 import type { FileKind } from '../core/types';
 import type { RuleId } from '../rules/rules.config';
 
@@ -36,4 +37,22 @@ export interface Finding {
 
 export function findingId(ruleId: RuleId, key: string): string {
   return `${ruleId}:${key}`;
+}
+
+/**
+ * What an accountant's decision on a finding is bound to: the rule, subject, message values,
+ * amount and evidence rows. If any of these change, an earlier review no longer applies.
+ */
+export function findingFingerprint(f: Finding): string {
+  return textHash(
+    stableJson({
+      ruleId: f.ruleId,
+      subject: f.subject,
+      params: f.params,
+      amount: f.amount,
+      amountKind: f.amountKind,
+      estimate: f.estimate ?? false,
+      evidence: f.evidence.map((e) => ({ file: e.file, rows: [...e.rows].sort((a, b) => a - b) })),
+    }),
+  );
 }

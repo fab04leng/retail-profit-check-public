@@ -47,7 +47,9 @@ describe('analyzeCashflow', () => {
   it('ignores the incomplete current week when choosing history', () => {
     const sales = [...dailySales(8, () => 100), { ...dailySales(1, () => 99999)[0]!, date: '2026-11-03' }];
     const r = analyzeCashflow(sales, [], '2026-11-03', t, base, 0.7);
-    expect(r.weeks[0]!.start).toBe('2026-11-02');
+    // QA B05: the balance is as at the end of the last sales date, so week 1 starts the day after it.
+    expect(r.balanceAsOf).toBe('2026-11-03');
+    expect(r.weeks[0]!.start).toBe('2026-11-04');
     expect(r.weeks[0]!.salesIn).toBeCloseTo(700);
   });
 

@@ -21,9 +21,27 @@ function shortValue(v: Cell): string {
 
 const TOTAL_LABEL = /^(grand\s*)?(total|sub\s*-?\s*total|jumlah(\s*(besar|keseluruhan|kecil))?|合计|合計|总计|總計|小计|小計)(\s*\(?(rm|myr)\)?)?\s*:?$/i;
 
-/** A footer/total row: one of its first cells is just a "Total" label. */
-function isTotalRow(row: Cell[]): boolean {
-  return row.slice(0, 4).some((c) => typeof c === 'string' && TOTAL_LABEL.test(c.trim()));
+/** Columns that say what a record is. A footer fills at most one of them (with its "Total" label). */
+const IDENTITY: Record<FileKind, string[]> = {
+  sales: ['sku', 'name', 'receipt'],
+  products: ['sku', 'name'],
+  invoices: ['supplier', 'invoiceNo', 'sku', 'description'],
+  payments: ['supplier', 'reference'],
+};
+
+/**
+ * A footer/total row: one of its first cells is just a "Total" label AND the row is shaped like a
+ * footer — at most one identity column filled, and (in dated files) no readable date. A real
+ * record that happens to be called "Total" (e.g. SKU "Total", name "Total", with a cost and
+ * quantity) is kept.
+ */
+function isTotalRow(row: Cell[], kind: FileKind, mapping: Mapping, orders: Record<string, DateOrder>): boolean {
+  if (!row.slice(0, 4).some((c) => typeof c === 'string' && TOTAL_LABEL.test(c.trim()))) return false;
+  const get = makeAccess(row, mapping);
+  const filled = IDENTITY[kind].filter((k) => mapping[k] !== undefined && !isEmpty(get(k))).length;
+  if (filled >= 2) return false;
+  if (mapping.date !== undefined && parseDate(get('date'), orders.date ?? 'DMY') !== null) return false;
+  return true;
 }
 
 /**
@@ -97,7 +115,7 @@ export function normalizeTable<K extends FileKind>(
     const raw = table[r];
     if (isBlankRow(raw)) continue;
     const rowNo = r + 1; // spreadsheet row number
-    if (isTotalRow(raw!)) continue; // "Total" / "Jumlah" / "合计" footer rows in report exports
+    if (isTotalRow(raw!, kind, mapping, ctx.orders)) continue; // "Total" / "Jumlah" / "合计" footer rows in report exports
     if (isNoteRow(raw!)) continue; // "Printed by …", "Page 2 of 3", section headings
     const get = makeAccess(raw!, mapping);
     const parsed =

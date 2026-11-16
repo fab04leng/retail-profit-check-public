@@ -21,6 +21,8 @@ export interface StagedMeta {
   dateOrder: DateOrderChoice;
   /** What "Auto" reads the mapped date columns as; null when no date has a day/month order. */
   detectedDateOrder: DateOrder | null;
+  /** Hash of the file's exact bytes, so reviews are tied to this content (not just its name or layout). */
+  contentHash: string;
 }
 
 export interface DemoInfo {

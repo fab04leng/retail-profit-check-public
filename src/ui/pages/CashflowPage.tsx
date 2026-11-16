@@ -30,7 +30,11 @@ export function CashflowPage() {
       <section className="card" aria-labelledby="cf-inputs">
         <h2 id="cf-inputs">{t('cashflow.inputs')}</h2>
         <div className="form-grid">
-          <NumberInput label={t('cashflow.openingBalance')} value={inputs.openingBalance} onChange={(n) => update({ openingBalance: n })} />
+          <NumberInput
+            label={c.balanceAsOf ? t('cashflow.openingBalanceAsOf', { date: c.balanceAsOf }) : t('cashflow.openingBalance')}
+            value={inputs.openingBalance}
+            onChange={(n) => update({ openingBalance: n })}
+          />
           <NumberInput label={t('cashflow.minimum')} value={settings.thresholds.minimumBalance} onChange={(n) => setThreshold('minimumBalance', n)} />
         </div>
         <h3>{t('cashflow.fixedCosts')}</h3>

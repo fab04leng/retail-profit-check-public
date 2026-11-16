@@ -107,7 +107,7 @@ test.describe('demo journey', () => {
     await loadDemo(page);
     await go(page, 'cashflow');
     await expect(page.locator('tr.row-bad')).toHaveCount(1);
-    await page.getByLabel('Cash in bank today (RM)').fill('40000');
+    await page.getByLabel(/^Cash in bank/).fill('40000');
     await expect(page.locator('tr.row-bad')).toHaveCount(0, { timeout: 15_000 });
   });
 
